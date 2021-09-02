@@ -1,0 +1,752 @@
+{
+  "annotationDtos": [
+    {
+      "begin": 0,
+      "end": 38,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Befund - Ambulanz für Melanomnachsorge",
+      "id": 222163,
+      "matchedTerm": "Befund",
+      "dictCanon": "Befund",
+      "conceptId": "29545-1",
+      "source": "clinical_sections_de",
+      "label": "FindingSection",
+      "uniqueId": "clinical_sections_de:29545-1"
+    },
+    {
+      "begin": 106,
+      "end": 335,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Diagnosen:\nEnzephalomyelitis disseminata (Erstmanifestation 2017, Erstdiagnose Oktober 2021), a. e. primär chronisch-progrediente Verlaufsform DD sekundär-progredient nach leichteren Schüben\n\n1. Allgemeine und klinische Anamnese:",
+      "id": 222174,
+      "matchedTerm": "Diagnosen",
+      "dictCanon": "Diagnose",
+      "conceptId": "10164-2",
+      "source": "clinical_sections_de",
+      "label": "DiagnosisSection",
+      "uniqueId": "clinical_sections_de:10164-2"
+    },
+    {
+      "begin": 298,
+      "end": 335,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "1. Allgemeine und klinische Anamnese:",
+      "id": 222185,
+      "matchedTerm": "Anamnese",
+      "dictCanon": "Anamnese",
+      "conceptId": "11329-0",
+      "source": "clinical_sections_de",
+      "label": "AnamnesisSection",
+      "uniqueId": "clinical_sections_de:11329-0"
+    },
+    {
+      "begin": 337,
+      "end": 1437,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Spezielle Anamnese:\nDer Patient leidet seit ca. 2017 an einer zunehmenden Schwäche in den Beinen sowie allgemein verminderter körperlicher Belastbarkeit. Ihm fiel ein zunehmendes Schwanken beim Laufen auf und er sei häufig ins Stolpern gekommen. Weiterhin seien feinmotorische Abläufe, wie z. B. Schreibmaschineschreiben, zunehmend erschwert gewesen. Seit ca. einem Jahr betrage die Gehstrecke nur noch 1 km, dann müsse der Patient eine Ruhepause einlegen. Zum gleichen Zeitpunkt empfand er subjektiv eine Harnblasenschwäche. Auch die Stimmung habe sich in der letzten Zeit in Richtung Reizbarkeit und Aggressivität verändert. Wegen eines Taubheitsgefühls im linken Unterarm wurde der Patient unter der Verdachtsdiagnose einer Enzephalomyelitis disseminata am 04.10.2021 im Sankt-Klara-Spital Klagenfurt aufgenommen. In der dort durchgeführten ausführlichen Diagnostikk konnte die Verdachtsdiagnose bestätigt werden. Nach Abschluss der stationären Therapie und Frühmobilisierung erfolgte die Entlassung am 18.10.2021, am 22.10.2021 wurde der Patient zur Anschlussheilbehandlung stationär aufgenommen.",
+      "id": 222196,
+      "matchedTerm": "Anamnese",
+      "dictCanon": "Anamnese",
+      "conceptId": "11329-0",
+      "source": "clinical_sections_de",
+      "label": "AnamnesisSection",
+      "uniqueId": "clinical_sections_de:11329-0"
+    },
+    {
+      "begin": 964,
+      "end": 1153,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Wegen eines Taubheitsgefühls im linken Unterarm wurde der Patient unter der Verdachtsdiagnose einer Enzephalomyelitis disseminata am 04.10.2021 im Sankt-Klara-Spital Klagenfurt aufgenommen.",
+      "id": 222207,
+      "matchedTerm": "Diagnosen",
+      "dictCanon": "Diagnose",
+      "conceptId": "10164-2",
+      "source": "clinical_sections_de",
+      "label": "DiagnosisSection",
+      "uniqueId": "clinical_sections_de:10164-2"
+    },
+    {
+      "begin": 1154,
+      "end": 1253,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "In der dort durchgeführten ausführlichen Diagnostikk konnte die Verdachtsdiagnose bestätigt werden.",
+      "id": 222218,
+      "matchedTerm": "Diagnosen",
+      "dictCanon": "Diagnose",
+      "conceptId": "10164-2",
+      "source": "clinical_sections_de",
+      "label": "DiagnosisSection",
+      "uniqueId": "clinical_sections_de:10164-2"
+    },
+    {
+      "begin": 1254,
+      "end": 1437,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Nach Abschluss der stationären Therapie und Frühmobilisierung erfolgte die Entlassung am 18.10.2021, am 22.10.2021 wurde der Patient zur Anschlussheilbehandlung stationär aufgenommen.",
+      "id": 222229,
+      "matchedTerm": "Therapie",
+      "dictCanon": "Therapie",
+      "conceptId": "62387-6",
+      "source": "clinical_sections_de",
+      "label": "TherapySection",
+      "uniqueId": "clinical_sections_de:62387-6"
+    },
+    {
+      "begin": 1439,
+      "end": 1499,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Familienanamnese:\nLeer.\n\nEigenanamnese:\nFachspezifisch leer.",
+      "id": 222240,
+      "matchedTerm": "Familienanamnese",
+      "dictCanon": "Familienanamnese",
+      "conceptId": "10157-6",
+      "source": "clinical_sections_de",
+      "label": "FamilyAnamnesisSection",
+      "uniqueId": "clinical_sections_de:10157-6"
+    },
+    {
+      "begin": 1501,
+      "end": 1527,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Vegetative Anamnese:\nLeer.",
+      "id": 222251,
+      "matchedTerm": "Anamnese",
+      "dictCanon": "Anamnese",
+      "conceptId": "11329-0",
+      "source": "clinical_sections_de",
+      "label": "AnamnesisSection",
+      "uniqueId": "clinical_sections_de:11329-0"
+    },
+    {
+      "begin": 1529,
+      "end": 2178,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Allergien: Nicht bekannt.\n\nAllgemeine Risikofaktoren:\nKeine.\n\nMitgebrachte Hilfsmittel:\nKeine.\n\n2. Jetzige Beschwerden und funktionelle Einschränkungen:\nDer Patient berichtet über eine deutliche Verringerung der Gehstrecke, über eine Verringerung der allgemeinen Belastbarkeit und eine deutliche Störung der Feinmotorik.\n\n3. Gegenwärtige Therapien, Behandelnde Ärzte:\nHerr Theodor wird ambulant von Dr. med. Triebel, FA für Neurologie, Südtiroler Platz  20, Villach behandelt. Im Sankt-Klara-Spital erfolgte eine Stoßtherapie mit Kortison. Eine Interferonbehandlung wurde mit dem Patienten diskutiert, zu jetzigen Zeitpunkt jedoch nicht eingeleitet.",
+      "id": 222262,
+      "matchedTerm": "Allergien",
+      "dictCanon": "Nebenwirkung",
+      "conceptId": "48765-2",
+      "source": "clinical_sections_de",
+      "label": "AdverseEventSection",
+      "uniqueId": "clinical_sections_de:48765-2"
+    },
+    {
+      "begin": 1851,
+      "end": 2005,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "3. Gegenwärtige Therapien, Behandelnde Ärzte:\nHerr Theodor wird ambulant von Dr. med. Triebel, FA für Neurologie, Südtiroler Platz  20, Villach behandelt.",
+      "id": 222273,
+      "matchedTerm": "Therapien",
+      "dictCanon": "Therapie",
+      "conceptId": "62387-6",
+      "source": "clinical_sections_de",
+      "label": "TherapySection",
+      "uniqueId": "clinical_sections_de:62387-6"
+    },
+    {
+      "begin": 2180,
+      "end": 2596,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "4. Allgemeine Sozialanamnese: \nDer Patient lebt mit seiner Lebensgefährtin zur Zeit in einem Altbau, 4. Etage, gewohnt. Mit ihm leben zwei Kinder aus erster Ehe und ein Kind mit der Lebensgefährtin.\n\n5. Arbeits- und Berufsanamnese: \nHerr Theodor ist gelernter Maschinenbauingenieur und arbeitet derzeit am Lehrstuhl für Informatik in der Alpen-Adria-Universität.\n\n6. Aufnahmebefund, Vorbefunde, ergänzende Diagnostik",
+      "id": 222284,
+      "matchedTerm": "Sozialanamnese",
+      "dictCanon": "Sozialanamnese",
+      "conceptId": "29762-2",
+      "source": "clinical_sections_de",
+      "label": "SocialAnamnesisSection",
+      "uniqueId": "clinical_sections_de:29762-2"
+    },
+    {
+      "begin": 2598,
+      "end": 2825,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Allgemein-somatischer Aufnahmebefund:\n30-jähriger Patient in gutem AZ und EZ. Unauffälliger Befund an Haut und Schleimhäuten, Schädel und Hals. Herz, Lunge und Abdomen unauffällig, Extremitäten o. p. B., Fusspulse bds. kräftig.",
+      "id": 222295,
+      "matchedTerm": "Aufnahmebefund",
+      "dictCanon": "Befund",
+      "conceptId": "29545-1",
+      "source": "clinical_sections_de",
+      "label": "FindingSection",
+      "uniqueId": "clinical_sections_de:29545-1"
+    },
+    {
+      "begin": 2827,
+      "end": 3800,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Neurologischer Befund:\nKein Meningismus.\n\nHirnnerven\nUngestörte Pupillomotorik, erschöpflicher horizontaler Blickrichtungsnystagmus in beide Richtungen, übriger Hirnnervenstatus unauffällig. Klare Sprache.\n\nMotorik/Motilität\nKeine Paresen, monopedales Hüpfen verplumpt rechts stärker als links, Muskeleigenreflexe bds. gesteigert ohne sichere Seitendifferenz, keine Pyramidenbahnzeichen, kloniformes Nachzucken der ASR bds.\n\nKoordination\nGuter Rumpftonus, Stand und Gang sicher, Seiltänzer- und Blindstrichgang deutlich unsicher, im Unterberger-Tretversuch ungezielte Fallneigung. Finger-Nase-Versuch sicher, Finger-Folge-Versuch links diskret dysmetrisch, Knie-Hacke-Versuch intakt. Eudiadochokionese bds.\n\nSensibilität:\nIntakt.\n\nVegetativum:\nIntakt.\n\nNeropsychologisch/psychisch:\nWacher, voll orientierter Patient. Kein Anhalt für formale oder inhaltliche Denkstörung, keine Störungen der Mnestik. Stimmung unauffällig, normal moduliert, kein Anhalt für akute Suizidität.",
+      "id": 222306,
+      "matchedTerm": "Befund",
+      "dictCanon": "Befund",
+      "conceptId": "29545-1",
+      "source": "clinical_sections_de",
+      "label": "FindingSection",
+      "uniqueId": "clinical_sections_de:29545-1"
+    },
+    {
+      "begin": 3802,
+      "end": 3895,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Aktuelle und wesentliche Befunde:\nAus dem Sankt-Klara-Spital wurden folgende Befunde erhoben:",
+      "id": 222317,
+      "matchedTerm": "Aktuell",
+      "dictCanon": "Grund der Aufnahme",
+      "conceptId": "29299-5",
+      "source": "clinical_sections_de",
+      "label": "AdmissionReasonSection",
+      "uniqueId": "clinical_sections_de:29299-5"
+    },
+    {
+      "begin": 3897,
+      "end": 4621,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "VEP vom 12.10.2021:\nMit deutlich latenzverzögerten VEP bds. als Hinweis für eine Funktionsstörung des N. opticus bds., wobei eine annehmbare Seitendifferenz auf eine mehr rechtsseitige Störung hinweist.\n\nTibialis-SEP vom 15.10.2021\nBei insgesamt unzureichend reproduzierbaren Tibialis-SEP findet sich keine sichere Funktionsstörung der sensiblen Nervenleitungen.\n\nLiquordiagnostik vom 05.10.2021\nLiquor klar, Zellzahl 0, Gesamteinweiss 1.030 mg/l, Albumin 601, lgG 127, lgA 15,6, lgM 32 mg/l. 7 oligoklonale Banden im Liquor. Erregerspezifische Antikörper in Serum und Liquor: keine.\n\nWeiterhin erwähnenswert ist, dass in einem ambulant durchgeführten Kerspintomogramm des Kopfes Hinweise auf eine entzündliche ZNS vorlagen.",
+      "id": 222328,
+      "matchedTerm": null,
+      "dictCanon": null,
+      "conceptId": null,
+      "source": null,
+      "label": "MiscClinicalSection",
+      "uniqueId": null
+    },
+    {
+      "begin": 4655,
+      "end": 4897,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Aufnahmelabor (in SI-Einheiten) vom 24.10.2021:\nKleines Blutbild und Gerinnung im Normbereich. Gamma-GT 2,0, übrige Serumparameter einschl. Elektrolyten, Nierenretentionswerten, restlichem Leberprofil, Lipidprofil und basalem TSH unauffällig.",
+      "id": 222339,
+      "matchedTerm": "Labor",
+      "dictCanon": "Labor",
+      "conceptId": "30954-2",
+      "source": "clinical_sections_de",
+      "label": "LaboratorySection",
+      "uniqueId": "clinical_sections_de:30954-2"
+    },
+    {
+      "begin": 4899,
+      "end": 5039,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "EKG vom 23.10.2021:\nUnspezifische ST-Streckenveränderung in allen Ableitungen bei ansonsten unauffälliger Erregungsbildung und -rückbildung.",
+      "id": 222350,
+      "matchedTerm": "EKG",
+      "dictCanon": "EKG",
+      "conceptId": "Sec_ECG",
+      "source": "clinical_sections_de",
+      "label": "ECGSection",
+      "uniqueId": "clinical_sections_de:Sec_ECG"
+    },
+    {
+      "begin": 5041,
+      "end": 5654,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "SEP vom 19.11.2021:\nLumbale N18- und N20-Potentiale zeitgerecht, cervikale N30- Potentiale bds. leicht verzögert. Zentral kortikale Potentiale deutlich latenzverzögert mit Rechtsbetonung, Amplituden im unteren Normbereich. Konsekutive Verlangsamung der spinokortikalen Überleitungszeiten bds., von kortikal mehr als von lumbal. Der Befund spricht für eine demyelinisierende, rechts cerebral betonte bilaterale Schödigung der zentralen Abschnitte der Tibialis-Afferenzen mit Störungsschwerpunkt bds. oberhalb des Zervikalmarkes, passend zum klinischen Befund.\n\n7. Rehabilitationsdiagnosen und Rehabilitationsziele:",
+      "id": 222361,
+      "matchedTerm": null,
+      "dictCanon": null,
+      "conceptId": null,
+      "source": null,
+      "label": "MiscClinicalSection",
+      "uniqueId": null
+    },
+    {
+      "begin": 5601,
+      "end": 5654,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "7. Rehabilitationsdiagnosen und Rehabilitationsziele:",
+      "id": 222372,
+      "matchedTerm": "Diagnosen",
+      "dictCanon": "Diagnose",
+      "conceptId": "10164-2",
+      "source": "clinical_sections_de",
+      "label": "DiagnosisSection",
+      "uniqueId": "clinical_sections_de:10164-2"
+    },
+    {
+      "begin": 5656,
+      "end": 5917,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Rehabilitationsdiagnosen:\n1. Enzephalomyelitis disseminata mit Fatigue-Symptomatik und Gangataxie\n\nRehabiltationsziele:\n\nAllgemeine Kräftigung und Erhöhung der Belastbarkeit\nAtaxietraining, Gangsicherheit verbessern\nKrankheitsverarbeitung\nRehabilitationsverlauf",
+      "id": 222383,
+      "matchedTerm": "Diagnosen",
+      "dictCanon": "Diagnose",
+      "conceptId": "10164-2",
+      "source": "clinical_sections_de",
+      "label": "DiagnosisSection",
+      "uniqueId": "clinical_sections_de:10164-2"
+    },
+    {
+      "begin": 5918,
+      "end": 8240,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Medizinische Besonderheiten:\nDer Patient war kardiopulmonal stabil, fieberhafte Infekte traten nicht auf. Der Patient berichtete im Rahmen des stationären Aufenthaltes über Gefühlsstörungen im Bereich des linken Armes und auch später im Bereich des linken Beines. Am 15.11.2021 fiel in der Untersuchung eine Schwäche von Mm. biceps und triceps brachii links mit einer Abschwächung des Becepssehenenreflexes links auf, die in deutlicher Diskrepanz zum Aufnahmebefund stand, rasch rückläufig war und am ehesten als Ermüdung im Rahmen der Therapien interpretiert wurde. Im weiteren Verlauf ließ diese Störung wieder nach und konnte zum Entlassungszeitpunkt nicht nachgewiesen werden. Herr Theodor nutzte in mehreren ausführlichen Arztgesprächen die Möglichkeit, sich umfassend über verschiedene Verlaufsformen der MS und schubprophylaktischen Behandlungsoptionen informieren zu lassen. In Anbetracht des über vier Jahre eher langsam schleichenden Verlaufs entschieden wir uns derzeit nicht für eine Einstellung auf eine schubprophylaktische Medikation.\n\nKrankengymnastik\nEs zeigte sich eine untere Rumpf- und Extremitätenataxie mit hypotoner Bauchmuskulatur, Abnahme der reziproken Innervation der Beinmuskulatur bds. Die Gleichgewichtsreaktionen im Stand und Gang waren herabgesetzt, bei Gehen über längere Zeit beklagte der Patient eine zunehmende Fußheberschwäche links. Die krankengymnastische Therapie umfasste vor allem die Konditionierung, die Muskeldehnung und die Bewegungskoordination zur Rumpfataxie.\n\nErgotherapie:\nHerr Theodor nahm an der Feinmotorikgruppe teil und erhielt sensomotorisch-kognitives Einzeltraining. Es zeigten sich dezente Koordinationsstörungen linksbetont bei voll gegebenen Bewegungsausmaß. Der Patient ist im gesamten Alltag selbstständig. In Einzel- und Gruppentherapien wurden Sensibiltätsschulungen und Feinmotoriktraining durchgeführt.\n\nNeuropsychologie:\nIm Mittelpunkt der neuropsychologischen Behandlung standen regelmäßige Gespräche zur Unterstützung und Begleitung des Aufenthaltes. Aufgrund der dem Patienten noch nicht lange bekannten Diagnose ergaben sich eine Reihe von Fragen und Problemen zum Umgang mit der Krankheit. Herr Theodor nutzte die Gesprächstmöglichkeiten sehr aktiv.\nDarüber hinaus nahm er sehr aktiv am wöchentlich stattfindenden Seminar für Patienten mit MS teil.",
+      "id": 222394,
+      "matchedTerm": "Besonderheiten",
+      "dictCanon": "Weitere",
+      "conceptId": "Sec_Misc",
+      "source": "clinical_sections_de",
+      "label": "MiscClinicalSection",
+      "uniqueId": "clinical_sections_de:Sec_Misc"
+    },
+    {
+      "begin": 6485,
+      "end": 6598,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Im weiteren Verlauf ließ diese Störung wieder nach und konnte zum Entlassungszeitpunkt nicht nachgewiesen werden.",
+      "id": 222405,
+      "matchedTerm": "Verlauf",
+      "dictCanon": "Epikrise",
+      "conceptId": "51848-0",
+      "source": "clinical_sections_de",
+      "label": "EpicrisisSection",
+      "uniqueId": "clinical_sections_de:51848-0"
+    },
+    {
+      "begin": 6801,
+      "end": 6967,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "In Anbetracht des über vier Jahre eher langsam schleichenden Verlaufs entschieden wir uns derzeit nicht für eine Einstellung auf eine schubprophylaktische Medikation.",
+      "id": 222416,
+      "matchedTerm": "Medikation",
+      "dictCanon": "Medikation",
+      "conceptId": "29549-3",
+      "source": "clinical_sections_de",
+      "label": "MedicationSection",
+      "uniqueId": "clinical_sections_de:29549-3"
+    },
+    {
+      "begin": 7940,
+      "end": 8081,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Aufgrund der dem Patienten noch nicht lange bekannten Diagnose ergaben sich eine Reihe von Fragen und Problemen zum Umgang mit der Krankheit.",
+      "id": 222427,
+      "matchedTerm": "Diagnose",
+      "dictCanon": "Diagnose",
+      "conceptId": "10164-2",
+      "source": "clinical_sections_de",
+      "label": "DiagnosisSection",
+      "uniqueId": "clinical_sections_de:10164-2"
+    },
+    {
+      "begin": 8242,
+      "end": 8943,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Entlassungsbefund: \nWacher, voll orientierter Patient, kein Anhalt für formale oder inhaltliche Denkstörungen, Stimmung ausgeglichen mit normaler Modulation.\nKein Meningismus, ungestörte Pupillomotorik, erschöpflicher Blickrichtungsnystagmus in beide Richtungen, übriger Hirnnervenstatus unauffällig.\nKeine Paresen, keine sensiblen Defizite, Muskeleigenreflexe seitengleich gesteigert, keine Pyramidenbahzeichen, kloniformes des ASR bds. \nStand und Gang ausreichen sicher, Gangversuche mit Unsicherheiten, Unterberger-Tretversuch unauffällig, alle Zeigeversuche sicher.\nKeine Inkontinenz.\n\nBarthel-Index: Bei Aufnahme: 80 von erreichbaren 100 Punkten.\nBei Entlassung: 100 von erreichbaren 100 Punkten.",
+      "id": 222438,
+      "matchedTerm": "Entlassungsbefund",
+      "dictCanon": "Befund bei Entlassung",
+      "conceptId": "10184-0",
+      "source": "clinical_sections_de",
+      "label": "DischargeFindingSection",
+      "uniqueId": "clinical_sections_de:10184-0"
+    },
+    {
+      "begin": 8944,
+      "end": 9936,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "9. Sozialmedizinische Epikrise\nDer Patient leidet seit 2017 an einer a. e. primär chronisch-progredienten Encephalomyelitis disseminata, die Erstdiagnose erfolgte im Oktober d. J. Im Rahmen der Akuttherapie und der anschließenden stationören Behandlung konnte eine Stabilisierung der motorischen Funktionen insoweit erreicht werden, dass derzeit keine funktionellen Einschränkungen bestehen. Die Belastbarkeit ist weiterhin deutlich verringert, ebenso die Gehstrecke. Es besteht weiterhin eine leichte Feinmotorikstörung in den Händen. In Anbetracht des bisherigen klinischen Verlaufes wurde in einem ausführlichen Gespräch mit dem Patienten auf eine prophylaktische Therapie verzichtet. Zur Zeit besteht Arbeitsfähigkeit. In Anbetracht der Diagnose und des zu erwartenden Verlaufes sollten engsmaschige Überprüfungen der Arbeitsfähigkeit und evtl. Anpassung des Arbeitsumfeldes erfolgen. Zum Erhalt der motorischen Funktionen wird eine erneute stationäre Heilbehandlung im Verlauf empfohlen.",
+      "id": 222449,
+      "matchedTerm": "Epikrise",
+      "dictCanon": "Epikrise",
+      "conceptId": "51848-0",
+      "source": "clinical_sections_de",
+      "label": "EpicrisisSection",
+      "uniqueId": "clinical_sections_de:51848-0"
+    },
+    {
+      "begin": 9480,
+      "end": 9631,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "In Anbetracht des bisherigen klinischen Verlaufes wurde in einem ausführlichen Gespräch mit dem Patienten auf eine prophylaktische Therapie verzichtet.",
+      "id": 222460,
+      "matchedTerm": "Therapie",
+      "dictCanon": "Therapie",
+      "conceptId": "62387-6",
+      "source": "clinical_sections_de",
+      "label": "TherapySection",
+      "uniqueId": "clinical_sections_de:62387-6"
+    },
+    {
+      "begin": 9667,
+      "end": 9832,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "In Anbetracht der Diagnose und des zu erwartenden Verlaufes sollten engsmaschige Überprüfungen der Arbeitsfähigkeit und evtl. Anpassung des Arbeitsumfeldes erfolgen.",
+      "id": 222471,
+      "matchedTerm": "Diagnose",
+      "dictCanon": "Diagnose",
+      "conceptId": "10164-2",
+      "source": "clinical_sections_de",
+      "label": "DiagnosisSection",
+      "uniqueId": "clinical_sections_de:10164-2"
+    },
+    {
+      "begin": 9961,
+      "end": 10017,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Medikation: Keine\n\nVorsichtige Steigerung der Belastung.",
+      "id": 222482,
+      "matchedTerm": "Medikation",
+      "dictCanon": "Medikation",
+      "conceptId": "29549-3",
+      "source": "clinical_sections_de",
+      "label": "MedicationSection",
+      "uniqueId": "clinical_sections_de:29549-3"
+    },
+    {
+      "begin": 10019,
+      "end": 10148,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Mit freundlichen Grüßen\n\ngez. Doz. DDr. A. Barthels\nPrimarin\n\ngez. Dr. J. Klein\nLtd. Oberärztin\n\ngez. Dr. B. Supanic\nStationsarzt",
+      "id": 222493,
+      "matchedTerm": "Mit freundlichen Grüßen",
+      "dictCanon": "Mit freundlichen Grüßen",
+      "conceptId": "Sec_DocumentFooter",
+      "source": "clinical_sections_de",
+      "label": "DocumentFooterSection",
+      "uniqueId": "clinical_sections_de:Sec_DocumentFooter"
+    },
+    {
+      "begin": 0,
+      "end": 10148,
+      "type": "de.averbis.types.health.PatientInformation",
+      "coveredText": "Befund - Ambulanz für Melanomnachsorge\n\nKlaus Theodor, * 3.2.1991, wohnhaft in Villach, Rathausplatz 31\n\n\nDiagnosen:\nEnzephalomyelitis disseminata (Erstmanifestation 2017, Erstdiagnose Oktober 2021), a. e. primär chronisch-progrediente Verlaufsform DD sekundär-progredient nach leichteren Schüben\n\n1. Allgemeine und klinische Anamnese:\n\nSpezielle Anamnese:\nDer Patient leidet seit ca. 2017 an einer zunehmenden Schwäche in den Beinen sowie allgemein verminderter körperlicher Belastbarkeit. Ihm fiel ein zunehmendes Schwanken beim Laufen auf und er sei häufig ins Stolpern gekommen. Weiterhin seien feinmotorische Abläufe, wie z. B. Schreibmaschineschreiben, zunehmend erschwert gewesen. Seit ca. einem Jahr betrage die Gehstrecke nur noch 1 km, dann müsse der Patient eine Ruhepause einlegen. Zum gleichen Zeitpunkt empfand er subjektiv eine Harnblasenschwäche. Auch die Stimmung habe sich in der letzten Zeit in Richtung Reizbarkeit und Aggressivität verändert. Wegen eines Taubheitsgefühls im linken Unterarm wurde der Patient unter der Verdachtsdiagnose einer Enzephalomyelitis disseminata am 04.10.2021 im Sankt-Klara-Spital Klagenfurt aufgenommen. In der dort durchgeführten ausführlichen Diagnostikk konnte die Verdachtsdiagnose bestätigt werden. Nach Abschluss der stationären Therapie und Frühmobilisierung erfolgte die Entlassung am 18.10.2021, am 22.10.2021 wurde der Patient zur Anschlussheilbehandlung stationär aufgenommen.\n\nFamilienanamnese:\nLeer.\n\nEigenanamnese:\nFachspezifisch leer.\n\nVegetative Anamnese:\nLeer.\n\nAllergien: Nicht bekannt.\n\nAllgemeine Risikofaktoren:\nKeine.\n\nMitgebrachte Hilfsmittel:\nKeine.\n\n2. Jetzige Beschwerden und funktionelle Einschränkungen:\nDer Patient berichtet über eine deutliche Verringerung der Gehstrecke, über eine Verringerung der allgemeinen Belastbarkeit und eine deutliche Störung der Feinmotorik.\n\n3. Gegenwärtige Therapien, Behandelnde Ärzte:\nHerr Theodor wird ambulant von Dr. med. Triebel, FA für Neurologie, Südtiroler Platz  20, Villach behandelt. Im Sankt-Klara-Spital erfolgte eine Stoßtherapie mit Kortison. Eine Interferonbehandlung wurde mit dem Patienten diskutiert, zu jetzigen Zeitpunkt jedoch nicht eingeleitet.\n\n4. Allgemeine Sozialanamnese: \nDer Patient lebt mit seiner Lebensgefährtin zur Zeit in einem Altbau, 4. Etage, gewohnt. Mit ihm leben zwei Kinder aus erster Ehe und ein Kind mit der Lebensgefährtin.\n\n5. Arbeits- und Berufsanamnese: \nHerr Theodor ist gelernter Maschinenbauingenieur und arbeitet derzeit am Lehrstuhl für Informatik in der Alpen-Adria-Universität.\n\n6. Aufnahmebefund, Vorbefunde, ergänzende Diagnostik \nAllgemein-somatischer Aufnahmebefund:\n30-jähriger Patient in gutem AZ und EZ. Unauffälliger Befund an Haut und Schleimhäuten, Schädel und Hals. Herz, Lunge und Abdomen unauffällig, Extremitäten o. p. B., Fusspulse bds. kräftig.\n\nNeurologischer Befund:\nKein Meningismus.\n\nHirnnerven\nUngestörte Pupillomotorik, erschöpflicher horizontaler Blickrichtungsnystagmus in beide Richtungen, übriger Hirnnervenstatus unauffällig. Klare Sprache.\n\nMotorik/Motilität\nKeine Paresen, monopedales Hüpfen verplumpt rechts stärker als links, Muskeleigenreflexe bds. gesteigert ohne sichere Seitendifferenz, keine Pyramidenbahnzeichen, kloniformes Nachzucken der ASR bds.\n\nKoordination\nGuter Rumpftonus, Stand und Gang sicher, Seiltänzer- und Blindstrichgang deutlich unsicher, im Unterberger-Tretversuch ungezielte Fallneigung. Finger-Nase-Versuch sicher, Finger-Folge-Versuch links diskret dysmetrisch, Knie-Hacke-Versuch intakt. Eudiadochokionese bds.\n\nSensibilität:\nIntakt.\n\nVegetativum:\nIntakt.\n\nNeropsychologisch/psychisch:\nWacher, voll orientierter Patient. Kein Anhalt für formale oder inhaltliche Denkstörung, keine Störungen der Mnestik. Stimmung unauffällig, normal moduliert, kein Anhalt für akute Suizidität.\n\nAktuelle und wesentliche Befunde:\nAus dem Sankt-Klara-Spital wurden folgende Befunde erhoben:\n\nVEP vom 12.10.2021:\nMit deutlich latenzverzögerten VEP bds. als Hinweis für eine Funktionsstörung des N. opticus bds., wobei eine annehmbare Seitendifferenz auf eine mehr rechtsseitige Störung hinweist.\n\nTibialis-SEP vom 15.10.2021\nBei insgesamt unzureichend reproduzierbaren Tibialis-SEP findet sich keine sichere Funktionsstörung der sensiblen Nervenleitungen.\n\nLiquordiagnostik vom 05.10.2021\nLiquor klar, Zellzahl 0, Gesamteinweiss 1.030 mg/l, Albumin 601, lgG 127, lgA 15,6, lgM 32 mg/l. 7 oligoklonale Banden im Liquor. Erregerspezifische Antikörper in Serum und Liquor: keine.\n\nWeiterhin erwähnenswert ist, dass in einem ambulant durchgeführten Kerspintomogramm des Kopfes Hinweise auf eine entzündliche ZNS vorlagen.\n\nWeitere hier erhobene Befunde:\n\nAufnahmelabor (in SI-Einheiten) vom 24.10.2021:\nKleines Blutbild und Gerinnung im Normbereich. Gamma-GT 2,0, übrige Serumparameter einschl. Elektrolyten, Nierenretentionswerten, restlichem Leberprofil, Lipidprofil und basalem TSH unauffällig.\n\nEKG vom 23.10.2021:\nUnspezifische ST-Streckenveränderung in allen Ableitungen bei ansonsten unauffälliger Erregungsbildung und -rückbildung.\n\nSEP vom 19.11.2021:\nLumbale N18- und N20-Potentiale zeitgerecht, cervikale N30- Potentiale bds. leicht verzögert. Zentral kortikale Potentiale deutlich latenzverzögert mit Rechtsbetonung, Amplituden im unteren Normbereich. Konsekutive Verlangsamung der spinokortikalen Überleitungszeiten bds., von kortikal mehr als von lumbal. Der Befund spricht für eine demyelinisierende, rechts cerebral betonte bilaterale Schödigung der zentralen Abschnitte der Tibialis-Afferenzen mit Störungsschwerpunkt bds. oberhalb des Zervikalmarkes, passend zum klinischen Befund.\n\n7. Rehabilitationsdiagnosen und Rehabilitationsziele:\n\nRehabilitationsdiagnosen:\n1. Enzephalomyelitis disseminata mit Fatigue-Symptomatik und Gangataxie\n\nRehabiltationsziele:\n\nAllgemeine Kräftigung und Erhöhung der Belastbarkeit\nAtaxietraining, Gangsicherheit verbessern\nKrankheitsverarbeitung\nRehabilitationsverlauf\nMedizinische Besonderheiten:\nDer Patient war kardiopulmonal stabil, fieberhafte Infekte traten nicht auf. Der Patient berichtete im Rahmen des stationären Aufenthaltes über Gefühlsstörungen im Bereich des linken Armes und auch später im Bereich des linken Beines. Am 15.11.2021 fiel in der Untersuchung eine Schwäche von Mm. biceps und triceps brachii links mit einer Abschwächung des Becepssehenenreflexes links auf, die in deutlicher Diskrepanz zum Aufnahmebefund stand, rasch rückläufig war und am ehesten als Ermüdung im Rahmen der Therapien interpretiert wurde. Im weiteren Verlauf ließ diese Störung wieder nach und konnte zum Entlassungszeitpunkt nicht nachgewiesen werden. Herr Theodor nutzte in mehreren ausführlichen Arztgesprächen die Möglichkeit, sich umfassend über verschiedene Verlaufsformen der MS und schubprophylaktischen Behandlungsoptionen informieren zu lassen. In Anbetracht des über vier Jahre eher langsam schleichenden Verlaufs entschieden wir uns derzeit nicht für eine Einstellung auf eine schubprophylaktische Medikation.\n\nKrankengymnastik\nEs zeigte sich eine untere Rumpf- und Extremitätenataxie mit hypotoner Bauchmuskulatur, Abnahme der reziproken Innervation der Beinmuskulatur bds. Die Gleichgewichtsreaktionen im Stand und Gang waren herabgesetzt, bei Gehen über längere Zeit beklagte der Patient eine zunehmende Fußheberschwäche links. Die krankengymnastische Therapie umfasste vor allem die Konditionierung, die Muskeldehnung und die Bewegungskoordination zur Rumpfataxie.\n\nErgotherapie:\nHerr Theodor nahm an der Feinmotorikgruppe teil und erhielt sensomotorisch-kognitives Einzeltraining. Es zeigten sich dezente Koordinationsstörungen linksbetont bei voll gegebenen Bewegungsausmaß. Der Patient ist im gesamten Alltag selbstständig. In Einzel- und Gruppentherapien wurden Sensibiltätsschulungen und Feinmotoriktraining durchgeführt.\n\nNeuropsychologie:\nIm Mittelpunkt der neuropsychologischen Behandlung standen regelmäßige Gespräche zur Unterstützung und Begleitung des Aufenthaltes. Aufgrund der dem Patienten noch nicht lange bekannten Diagnose ergaben sich eine Reihe von Fragen und Problemen zum Umgang mit der Krankheit. Herr Theodor nutzte die Gesprächstmöglichkeiten sehr aktiv.\nDarüber hinaus nahm er sehr aktiv am wöchentlich stattfindenden Seminar für Patienten mit MS teil.\n\nEntlassungsbefund: \nWacher, voll orientierter Patient, kein Anhalt für formale oder inhaltliche Denkstörungen, Stimmung ausgeglichen mit normaler Modulation.\nKein Meningismus, ungestörte Pupillomotorik, erschöpflicher Blickrichtungsnystagmus in beide Richtungen, übriger Hirnnervenstatus unauffällig.\nKeine Paresen, keine sensiblen Defizite, Muskeleigenreflexe seitengleich gesteigert, keine Pyramidenbahzeichen, kloniformes des ASR bds. \nStand und Gang ausreichen sicher, Gangversuche mit Unsicherheiten, Unterberger-Tretversuch unauffällig, alle Zeigeversuche sicher.\nKeine Inkontinenz.\n\nBarthel-Index: Bei Aufnahme: 80 von erreichbaren 100 Punkten.\nBei Entlassung: 100 von erreichbaren 100 Punkten.\n9. Sozialmedizinische Epikrise\nDer Patient leidet seit 2017 an einer a. e. primär chronisch-progredienten Encephalomyelitis disseminata, die Erstdiagnose erfolgte im Oktober d. J. Im Rahmen der Akuttherapie und der anschließenden stationören Behandlung konnte eine Stabilisierung der motorischen Funktionen insoweit erreicht werden, dass derzeit keine funktionellen Einschränkungen bestehen. Die Belastbarkeit ist weiterhin deutlich verringert, ebenso die Gehstrecke. Es besteht weiterhin eine leichte Feinmotorikstörung in den Händen. In Anbetracht des bisherigen klinischen Verlaufes wurde in einem ausführlichen Gespräch mit dem Patienten auf eine prophylaktische Therapie verzichtet. Zur Zeit besteht Arbeitsfähigkeit. In Anbetracht der Diagnose und des zu erwartenden Verlaufes sollten engsmaschige Überprüfungen der Arbeitsfähigkeit und evtl. Anpassung des Arbeitsumfeldes erfolgen. Zum Erhalt der motorischen Funktionen wird eine erneute stationäre Heilbehandlung im Verlauf empfohlen.\n\nTherapieempfehlungen:\n\nMedikation: Keine\n\nVorsichtige Steigerung der Belastung.\n\nMit freundlichen Grüßen\n\ngez. Doz. DDr. A. Barthels\nPrimarin\n\ngez. Dr. J. Klein\nLtd. Oberärztin\n\ngez. Dr. B. Supanic\nStationsarzt",
+      "id": 224611,
+      "firstName": null,
+      "lastName": null,
+      "deceased": false,
+      "gender": "male",
+      "deathDate": null
+    },
+    {
+      "begin": 2636,
+      "end": 2638,
+      "type": "de.averbis.types.health.Age",
+      "coveredText": "30",
+      "id": 290057
+    },
+    {
+      "begin": 57,
+      "end": 65,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "3.2.1991",
+      "id": 226253
+    },
+    {
+      "begin": 166,
+      "end": 170,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "2017",
+      "id": 226267
+    },
+    {
+      "begin": 185,
+      "end": 197,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "Oktober 2021",
+      "id": 226281
+    },
+    {
+      "begin": 385,
+      "end": 389,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "2017",
+      "id": 226295
+    },
+    {
+      "begin": 1097,
+      "end": 1107,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "04.10.2021",
+      "id": 226309
+    },
+    {
+      "begin": 1343,
+      "end": 1353,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "18.10.2021",
+      "id": 226323
+    },
+    {
+      "begin": 1358,
+      "end": 1368,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "22.10.2021",
+      "id": 226337
+    },
+    {
+      "begin": 3905,
+      "end": 3915,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "12.10.2021",
+      "id": 226351
+    },
+    {
+      "begin": 4110,
+      "end": 4113,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "SEP",
+      "id": 226365
+    },
+    {
+      "begin": 4118,
+      "end": 4128,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "15.10.2021",
+      "id": 226379
+    },
+    {
+      "begin": 4182,
+      "end": 4185,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "SEP",
+      "id": 226393
+    },
+    {
+      "begin": 4282,
+      "end": 4292,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "05.10.2021",
+      "id": 226407
+    },
+    {
+      "begin": 4691,
+      "end": 4701,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "24.10.2021",
+      "id": 226421
+    },
+    {
+      "begin": 4907,
+      "end": 4917,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "23.10.2021",
+      "id": 226435
+    },
+    {
+      "begin": 5041,
+      "end": 5044,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "SEP",
+      "id": 226449
+    },
+    {
+      "begin": 5049,
+      "end": 5059,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "19.11.2021",
+      "id": 226463
+    },
+    {
+      "begin": 6185,
+      "end": 6195,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "15.11.2021",
+      "id": 226477
+    },
+    {
+      "begin": 8999,
+      "end": 9003,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "2017",
+      "id": 226491
+    },
+    {
+      "begin": 9110,
+      "end": 9117,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "Oktober",
+      "id": 226505
+    },
+    {
+      "begin": 79,
+      "end": 86,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Villach",
+      "id": 289401,
+      "kind": "CITY"
+    },
+    {
+      "begin": 88,
+      "end": 103,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Rathausplatz 31",
+      "id": 338176,
+      "kind": "STREET"
+    },
+    {
+      "begin": 531,
+      "end": 537,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Laufen",
+      "id": 289415,
+      "kind": "CITY"
+    },
+    {
+      "begin": 1111,
+      "end": 1140,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Sankt-Klara-Spital Klagenfurt",
+      "id": 338276,
+      "kind": "HOSPITAL"
+    },
+    {
+      "begin": 1457,
+      "end": 1461,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Leer",
+      "id": 289443,
+      "kind": "CITY"
+    },
+    {
+      "begin": 1522,
+      "end": 1526,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Leer",
+      "id": 289461,
+      "kind": "CITY"
+    },
+    {
+      "begin": 1987,
+      "end": 1994,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Villach",
+      "id": 289489,
+      "kind": "CITY"
+    },
+    {
+      "begin": 2009,
+      "end": 2027,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Sankt-Klara-Spital",
+      "id": 338376,
+      "kind": "HOSPITAL"
+    },
+    {
+      "begin": 2486,
+      "end": 2541,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Lehrstuhl für Informatik in der Alpen-Adria-Universität",
+      "id": 338436,
+      "kind": "HOSPITAL"
+    },
+    {
+      "begin": 3844,
+      "end": 3862,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Sankt-Klara-Spital",
+      "id": 338476,
+      "kind": "HOSPITAL"
+    },
+    {
+      "begin": 40,
+      "end": 53,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Klaus Theodor",
+      "id": 262977,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 40,
+      "end": 53,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Klaus Theodor",
+      "id": 338146,
+      "kind": "DOCTOR"
+    },
+    {
+      "begin": 1902,
+      "end": 1909,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Theodor",
+      "id": 263051,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 1937,
+      "end": 1944,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Triebel",
+      "id": 263081,
+      "kind": "DOCTOR"
+    },
+    {
+      "begin": 2418,
+      "end": 2425,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Theodor",
+      "id": 263151,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 6604,
+      "end": 6611,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Theodor",
+      "id": 263201,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 7447,
+      "end": 7454,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Theodor",
+      "id": 263251,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 8087,
+      "end": 8094,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Theodor",
+      "id": 263301,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 10059,
+      "end": 10070,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "A. Barthels",
+      "id": 263351,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 10090,
+      "end": 10102,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "J. Klein\nLtd",
+      "id": 338736,
+      "kind": "DOCTOR"
+    },
+    {
+      "begin": 10125,
+      "end": 10148,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "B. Supanic\nStationsarzt",
+      "id": 338756,
+      "kind": "DOCTOR"
+    },
+    {
+      "begin": 2440,
+      "end": 2461,
+      "type": "de.averbis.types.health.Profession",
+      "coveredText": "Maschinenbauingenieur",
+      "id": 338426
+    },
+    {
+      "begin": 0,
+      "end": 10150,
+      "type": "de.averbis.types.health.DeidentifiedDocument",
+      "coveredText": "Befund - Ambulanz für Melanomnachsorge\n\nKlaus Theodor, * 3.2.1991, wohnhaft in Villach, Rathausplatz 31\n\n\nDiagnosen:\nEnzephalomyelitis disseminata (Erstmanifestation 2017, Erstdiagnose Oktober 2021), a. e. primär chronisch-progrediente Verlaufsform DD sekundär-progredient nach leichteren Schüben\n\n1. Allgemeine und klinische Anamnese:\n\nSpezielle Anamnese:\nDer Patient leidet seit ca. 2017 an einer zunehmenden Schwäche in den Beinen sowie allgemein verminderter körperlicher Belastbarkeit. Ihm fiel ein zunehmendes Schwanken beim Laufen auf und er sei häufig ins Stolpern gekommen. Weiterhin seien feinmotorische Abläufe, wie z. B. Schreibmaschineschreiben, zunehmend erschwert gewesen. Seit ca. einem Jahr betrage die Gehstrecke nur noch 1 km, dann müsse der Patient eine Ruhepause einlegen. Zum gleichen Zeitpunkt empfand er subjektiv eine Harnblasenschwäche. Auch die Stimmung habe sich in der letzten Zeit in Richtung Reizbarkeit und Aggressivität verändert. Wegen eines Taubheitsgefühls im linken Unterarm wurde der Patient unter der Verdachtsdiagnose einer Enzephalomyelitis disseminata am 04.10.2021 im Sankt-Klara-Spital Klagenfurt aufgenommen. In der dort durchgeführten ausführlichen Diagnostikk konnte die Verdachtsdiagnose bestätigt werden. Nach Abschluss der stationären Therapie und Frühmobilisierung erfolgte die Entlassung am 18.10.2021, am 22.10.2021 wurde der Patient zur Anschlussheilbehandlung stationär aufgenommen.\n\nFamilienanamnese:\nLeer.\n\nEigenanamnese:\nFachspezifisch leer.\n\nVegetative Anamnese:\nLeer.\n\nAllergien: Nicht bekannt.\n\nAllgemeine Risikofaktoren:\nKeine.\n\nMitgebrachte Hilfsmittel:\nKeine.\n\n2. Jetzige Beschwerden und funktionelle Einschränkungen:\nDer Patient berichtet über eine deutliche Verringerung der Gehstrecke, über eine Verringerung der allgemeinen Belastbarkeit und eine deutliche Störung der Feinmotorik.\n\n3. Gegenwärtige Therapien, Behandelnde Ärzte:\nHerr Theodor wird ambulant von Dr. med. Triebel, FA für Neurologie, Südtiroler Platz  20, Villach behandelt. Im Sankt-Klara-Spital erfolgte eine Stoßtherapie mit Kortison. Eine Interferonbehandlung wurde mit dem Patienten diskutiert, zu jetzigen Zeitpunkt jedoch nicht eingeleitet.\n\n4. Allgemeine Sozialanamnese: \nDer Patient lebt mit seiner Lebensgefährtin zur Zeit in einem Altbau, 4. Etage, gewohnt. Mit ihm leben zwei Kinder aus erster Ehe und ein Kind mit der Lebensgefährtin.\n\n5. Arbeits- und Berufsanamnese: \nHerr Theodor ist gelernter Maschinenbauingenieur und arbeitet derzeit am Lehrstuhl für Informatik in der Alpen-Adria-Universität.\n\n6. Aufnahmebefund, Vorbefunde, ergänzende Diagnostik \nAllgemein-somatischer Aufnahmebefund:\n30-jähriger Patient in gutem AZ und EZ. Unauffälliger Befund an Haut und Schleimhäuten, Schädel und Hals. Herz, Lunge und Abdomen unauffällig, Extremitäten o. p. B., Fusspulse bds. kräftig.\n\nNeurologischer Befund:\nKein Meningismus.\n\nHirnnerven\nUngestörte Pupillomotorik, erschöpflicher horizontaler Blickrichtungsnystagmus in beide Richtungen, übriger Hirnnervenstatus unauffällig. Klare Sprache.\n\nMotorik/Motilität\nKeine Paresen, monopedales Hüpfen verplumpt rechts stärker als links, Muskeleigenreflexe bds. gesteigert ohne sichere Seitendifferenz, keine Pyramidenbahnzeichen, kloniformes Nachzucken der ASR bds.\n\nKoordination\nGuter Rumpftonus, Stand und Gang sicher, Seiltänzer- und Blindstrichgang deutlich unsicher, im Unterberger-Tretversuch ungezielte Fallneigung. Finger-Nase-Versuch sicher, Finger-Folge-Versuch links diskret dysmetrisch, Knie-Hacke-Versuch intakt. Eudiadochokionese bds.\n\nSensibilität:\nIntakt.\n\nVegetativum:\nIntakt.\n\nNeropsychologisch/psychisch:\nWacher, voll orientierter Patient. Kein Anhalt für formale oder inhaltliche Denkstörung, keine Störungen der Mnestik. Stimmung unauffällig, normal moduliert, kein Anhalt für akute Suizidität.\n\nAktuelle und wesentliche Befunde:\nAus dem Sankt-Klara-Spital wurden folgende Befunde erhoben:\n\nVEP vom 12.10.2021:\nMit deutlich latenzverzögerten VEP bds. als Hinweis für eine Funktionsstörung des N. opticus bds., wobei eine annehmbare Seitendifferenz auf eine mehr rechtsseitige Störung hinweist.\n\nTibialis-SEP vom 15.10.2021\nBei insgesamt unzureichend reproduzierbaren Tibialis-SEP findet sich keine sichere Funktionsstörung der sensiblen Nervenleitungen.\n\nLiquordiagnostik vom 05.10.2021\nLiquor klar, Zellzahl 0, Gesamteinweiss 1.030 mg/l, Albumin 601, lgG 127, lgA 15,6, lgM 32 mg/l. 7 oligoklonale Banden im Liquor. Erregerspezifische Antikörper in Serum und Liquor: keine.\n\nWeiterhin erwähnenswert ist, dass in einem ambulant durchgeführten Kerspintomogramm des Kopfes Hinweise auf eine entzündliche ZNS vorlagen.\n\nWeitere hier erhobene Befunde:\n\nAufnahmelabor (in SI-Einheiten) vom 24.10.2021:\nKleines Blutbild und Gerinnung im Normbereich. Gamma-GT 2,0, übrige Serumparameter einschl. Elektrolyten, Nierenretentionswerten, restlichem Leberprofil, Lipidprofil und basalem TSH unauffällig.\n\nEKG vom 23.10.2021:\nUnspezifische ST-Streckenveränderung in allen Ableitungen bei ansonsten unauffälliger Erregungsbildung und -rückbildung.\n\nSEP vom 19.11.2021:\nLumbale N18- und N20-Potentiale zeitgerecht, cervikale N30- Potentiale bds. leicht verzögert. Zentral kortikale Potentiale deutlich latenzverzögert mit Rechtsbetonung, Amplituden im unteren Normbereich. Konsekutive Verlangsamung der spinokortikalen Überleitungszeiten bds., von kortikal mehr als von lumbal. Der Befund spricht für eine demyelinisierende, rechts cerebral betonte bilaterale Schödigung der zentralen Abschnitte der Tibialis-Afferenzen mit Störungsschwerpunkt bds. oberhalb des Zervikalmarkes, passend zum klinischen Befund.\n\n7. Rehabilitationsdiagnosen und Rehabilitationsziele:\n\nRehabilitationsdiagnosen:\n1. Enzephalomyelitis disseminata mit Fatigue-Symptomatik und Gangataxie\n\nRehabiltationsziele:\n\nAllgemeine Kräftigung und Erhöhung der Belastbarkeit\nAtaxietraining, Gangsicherheit verbessern\nKrankheitsverarbeitung\nRehabilitationsverlauf\nMedizinische Besonderheiten:\nDer Patient war kardiopulmonal stabil, fieberhafte Infekte traten nicht auf. Der Patient berichtete im Rahmen des stationären Aufenthaltes über Gefühlsstörungen im Bereich des linken Armes und auch später im Bereich des linken Beines. Am 15.11.2021 fiel in der Untersuchung eine Schwäche von Mm. biceps und triceps brachii links mit einer Abschwächung des Becepssehenenreflexes links auf, die in deutlicher Diskrepanz zum Aufnahmebefund stand, rasch rückläufig war und am ehesten als Ermüdung im Rahmen der Therapien interpretiert wurde. Im weiteren Verlauf ließ diese Störung wieder nach und konnte zum Entlassungszeitpunkt nicht nachgewiesen werden. Herr Theodor nutzte in mehreren ausführlichen Arztgesprächen die Möglichkeit, sich umfassend über verschiedene Verlaufsformen der MS und schubprophylaktischen Behandlungsoptionen informieren zu lassen. In Anbetracht des über vier Jahre eher langsam schleichenden Verlaufs entschieden wir uns derzeit nicht für eine Einstellung auf eine schubprophylaktische Medikation.\n\nKrankengymnastik\nEs zeigte sich eine untere Rumpf- und Extremitätenataxie mit hypotoner Bauchmuskulatur, Abnahme der reziproken Innervation der Beinmuskulatur bds. Die Gleichgewichtsreaktionen im Stand und Gang waren herabgesetzt, bei Gehen über längere Zeit beklagte der Patient eine zunehmende Fußheberschwäche links. Die krankengymnastische Therapie umfasste vor allem die Konditionierung, die Muskeldehnung und die Bewegungskoordination zur Rumpfataxie.\n\nErgotherapie:\nHerr Theodor nahm an der Feinmotorikgruppe teil und erhielt sensomotorisch-kognitives Einzeltraining. Es zeigten sich dezente Koordinationsstörungen linksbetont bei voll gegebenen Bewegungsausmaß. Der Patient ist im gesamten Alltag selbstständig. In Einzel- und Gruppentherapien wurden Sensibiltätsschulungen und Feinmotoriktraining durchgeführt.\n\nNeuropsychologie:\nIm Mittelpunkt der neuropsychologischen Behandlung standen regelmäßige Gespräche zur Unterstützung und Begleitung des Aufenthaltes. Aufgrund der dem Patienten noch nicht lange bekannten Diagnose ergaben sich eine Reihe von Fragen und Problemen zum Umgang mit der Krankheit. Herr Theodor nutzte die Gesprächstmöglichkeiten sehr aktiv.\nDarüber hinaus nahm er sehr aktiv am wöchentlich stattfindenden Seminar für Patienten mit MS teil.\n\nEntlassungsbefund: \nWacher, voll orientierter Patient, kein Anhalt für formale oder inhaltliche Denkstörungen, Stimmung ausgeglichen mit normaler Modulation.\nKein Meningismus, ungestörte Pupillomotorik, erschöpflicher Blickrichtungsnystagmus in beide Richtungen, übriger Hirnnervenstatus unauffällig.\nKeine Paresen, keine sensiblen Defizite, Muskeleigenreflexe seitengleich gesteigert, keine Pyramidenbahzeichen, kloniformes des ASR bds. \nStand und Gang ausreichen sicher, Gangversuche mit Unsicherheiten, Unterberger-Tretversuch unauffällig, alle Zeigeversuche sicher.\nKeine Inkontinenz.\n\nBarthel-Index: Bei Aufnahme: 80 von erreichbaren 100 Punkten.\nBei Entlassung: 100 von erreichbaren 100 Punkten.\n9. Sozialmedizinische Epikrise\nDer Patient leidet seit 2017 an einer a. e. primär chronisch-progredienten Encephalomyelitis disseminata, die Erstdiagnose erfolgte im Oktober d. J. Im Rahmen der Akuttherapie und der anschließenden stationören Behandlung konnte eine Stabilisierung der motorischen Funktionen insoweit erreicht werden, dass derzeit keine funktionellen Einschränkungen bestehen. Die Belastbarkeit ist weiterhin deutlich verringert, ebenso die Gehstrecke. Es besteht weiterhin eine leichte Feinmotorikstörung in den Händen. In Anbetracht des bisherigen klinischen Verlaufes wurde in einem ausführlichen Gespräch mit dem Patienten auf eine prophylaktische Therapie verzichtet. Zur Zeit besteht Arbeitsfähigkeit. In Anbetracht der Diagnose und des zu erwartenden Verlaufes sollten engsmaschige Überprüfungen der Arbeitsfähigkeit und evtl. Anpassung des Arbeitsumfeldes erfolgen. Zum Erhalt der motorischen Funktionen wird eine erneute stationäre Heilbehandlung im Verlauf empfohlen.\n\nTherapieempfehlungen:\n\nMedikation: Keine\n\nVorsichtige Steigerung der Belastung.\n\nMit freundlichen Grüßen\n\ngez. Doz. DDr. A. Barthels\nPrimarin\n\ngez. Dr. J. Klein\nLtd. Oberärztin\n\ngez. Dr. B. Supanic\nStationsarzt\n\n",
+      "id": 344288,
+      "kind": "crossout",
+      "deidentifiedText": "Befund - Ambulanz für Melanomnachsorge\n\nXXXXX XXXXXXX, * XXXXXXXX, wohnhaft in XXXXXXX, XXXXXXXXXXXX XX\n\n\nDiagnosen:\nEnzephalomyelitis disseminata (Erstmanifestation XXXX, Erstdiagnose XXXXXXX XXXX), a. e. primär chronisch-progrediente Verlaufsform DD sekundär-progredient nach leichteren Schüben\n\n1. Allgemeine und klinische Anamnese:\n\nSpezielle Anamnese:\nDer Patient leidet seit ca. XXXX an einer zunehmenden Schwäche in den Beinen sowie allgemein verminderter körperlicher Belastbarkeit. Ihm fiel ein zunehmendes Schwanken beim XXXXXX auf und er sei häufig ins Stolpern gekommen. Weiterhin seien feinmotorische Abläufe, wie z. B. Schreibmaschineschreiben, zunehmend erschwert gewesen. Seit ca. einem Jahr betrage die Gehstrecke nur noch 1 km, dann müsse der Patient eine Ruhepause einlegen. Zum gleichen Zeitpunkt empfand er subjektiv eine Harnblasenschwäche. Auch die Stimmung habe sich in der letzten Zeit in Richtung Reizbarkeit und Aggressivität verändert. Wegen eines Taubheitsgefühls im linken Unterarm wurde der Patient unter der Verdachtsdiagnose einer Enzephalomyelitis disseminata am XXXXXXXXXX im XXXXXXXXXXXXXXXXXX XXXXXXXXXX aufgenommen. In der dort durchgeführten ausführlichen Diagnostikk konnte die Verdachtsdiagnose bestätigt werden. Nach Abschluss der stationären Therapie und Frühmobilisierung erfolgte die Entlassung am XXXXXXXXXX, am XXXXXXXXXX wurde der Patient zur Anschlussheilbehandlung stationär aufgenommen.\n\nFamilienanamnese:\nXXXX.\n\nEigenanamnese:\nFachspezifisch leer.\n\nVegetative Anamnese:\nXXXX.\n\nAllergien: Nicht bekannt.\n\nAllgemeine Risikofaktoren:\nKeine.\n\nMitgebrachte Hilfsmittel:\nKeine.\n\n2. Jetzige Beschwerden und funktionelle Einschränkungen:\nDer Patient berichtet über eine deutliche Verringerung der Gehstrecke, über eine Verringerung der allgemeinen Belastbarkeit und eine deutliche Störung der Feinmotorik.\n\n3. Gegenwärtige Therapien, Behandelnde Ärzte:\nHerr XXXXXXX wird ambulant von Dr. med. XXXXXXX, FA für Neurologie, Südtiroler Platz  20, XXXXXXX behandelt. Im XXXXXXXXXXXXXXXXXX erfolgte eine Stoßtherapie mit Kortison. Eine Interferonbehandlung wurde mit dem Patienten diskutiert, zu jetzigen Zeitpunkt jedoch nicht eingeleitet.\n\n4. Allgemeine Sozialanamnese: \nDer Patient lebt mit seiner Lebensgefährtin zur Zeit in einem Altbau, 4. Etage, gewohnt. Mit ihm leben zwei Kinder aus erster Ehe und ein Kind mit der Lebensgefährtin.\n\n5. Arbeits- und Berufsanamnese: \nHerr XXXXXXX ist gelernter XXXXXXXXXXXXXXXXXXXXX und arbeitet derzeit am XXXXXXXXX XXX XXXXXXXXXX XX XXX XXXXXXXXXXXXXXXXXXXXXXX.\n\n6. Aufnahmebefund, Vorbefunde, ergänzende Diagnostik \nAllgemein-somatischer Aufnahmebefund:\nXX-jähriger Patient in gutem AZ und EZ. Unauffälliger Befund an Haut und Schleimhäuten, Schädel und Hals. Herz, Lunge und Abdomen unauffällig, Extremitäten o. p. B., Fusspulse bds. kräftig.\n\nNeurologischer Befund:\nKein Meningismus.\n\nHirnnerven\nUngestörte Pupillomotorik, erschöpflicher horizontaler Blickrichtungsnystagmus in beide Richtungen, übriger Hirnnervenstatus unauffällig. Klare Sprache.\n\nMotorik/Motilität\nKeine Paresen, monopedales Hüpfen verplumpt rechts stärker als links, Muskeleigenreflexe bds. gesteigert ohne sichere Seitendifferenz, keine Pyramidenbahnzeichen, kloniformes Nachzucken der ASR bds.\n\nKoordination\nGuter Rumpftonus, Stand und Gang sicher, Seiltänzer- und Blindstrichgang deutlich unsicher, im Unterberger-Tretversuch ungezielte Fallneigung. Finger-Nase-Versuch sicher, Finger-Folge-Versuch links diskret dysmetrisch, Knie-Hacke-Versuch intakt. Eudiadochokionese bds.\n\nSensibilität:\nIntakt.\n\nVegetativum:\nIntakt.\n\nNeropsychologisch/psychisch:\nWacher, voll orientierter Patient. Kein Anhalt für formale oder inhaltliche Denkstörung, keine Störungen der Mnestik. Stimmung unauffällig, normal moduliert, kein Anhalt für akute Suizidität.\n\nAktuelle und wesentliche Befunde:\nAus dem XXXXXXXXXXXXXXXXXX wurden folgende Befunde erhoben:\n\nVEP vom XXXXXXXXXX:\nMit deutlich latenzverzögerten VEP bds. als Hinweis für eine Funktionsstörung des N. opticus bds., wobei eine annehmbare Seitendifferenz auf eine mehr rechtsseitige Störung hinweist.\n\nTibialis-XXX vom XXXXXXXXXX\nBei insgesamt unzureichend reproduzierbaren Tibialis-XXX findet sich keine sichere Funktionsstörung der sensiblen Nervenleitungen.\n\nLiquordiagnostik vom XXXXXXXXXX\nLiquor klar, Zellzahl 0, Gesamteinweiss 1.030 mg/l, Albumin 601, lgG 127, lgA 15,6, lgM 32 mg/l. 7 oligoklonale Banden im Liquor. Erregerspezifische Antikörper in Serum und Liquor: keine.\n\nWeiterhin erwähnenswert ist, dass in einem ambulant durchgeführten Kerspintomogramm des Kopfes Hinweise auf eine entzündliche ZNS vorlagen.\n\nWeitere hier erhobene Befunde:\n\nAufnahmelabor (in SI-Einheiten) vom XXXXXXXXXX:\nKleines Blutbild und Gerinnung im Normbereich. Gamma-GT 2,0, übrige Serumparameter einschl. Elektrolyten, Nierenretentionswerten, restlichem Leberprofil, Lipidprofil und basalem TSH unauffällig.\n\nEKG vom XXXXXXXXXX:\nUnspezifische ST-Streckenveränderung in allen Ableitungen bei ansonsten unauffälliger Erregungsbildung und -rückbildung.\n\nXXX vom XXXXXXXXXX:\nLumbale N18- und N20-Potentiale zeitgerecht, cervikale N30- Potentiale bds. leicht verzögert. Zentral kortikale Potentiale deutlich latenzverzögert mit Rechtsbetonung, Amplituden im unteren Normbereich. Konsekutive Verlangsamung der spinokortikalen Überleitungszeiten bds., von kortikal mehr als von lumbal. Der Befund spricht für eine demyelinisierende, rechts cerebral betonte bilaterale Schödigung der zentralen Abschnitte der Tibialis-Afferenzen mit Störungsschwerpunkt bds. oberhalb des Zervikalmarkes, passend zum klinischen Befund.\n\n7. Rehabilitationsdiagnosen und Rehabilitationsziele:\n\nRehabilitationsdiagnosen:\n1. Enzephalomyelitis disseminata mit Fatigue-Symptomatik und Gangataxie\n\nRehabiltationsziele:\n\nAllgemeine Kräftigung und Erhöhung der Belastbarkeit\nAtaxietraining, Gangsicherheit verbessern\nKrankheitsverarbeitung\nRehabilitationsverlauf\nMedizinische Besonderheiten:\nDer Patient war kardiopulmonal stabil, fieberhafte Infekte traten nicht auf. Der Patient berichtete im Rahmen des stationären Aufenthaltes über Gefühlsstörungen im Bereich des linken Armes und auch später im Bereich des linken Beines. Am XXXXXXXXXX fiel in der Untersuchung eine Schwäche von Mm. biceps und triceps brachii links mit einer Abschwächung des Becepssehenenreflexes links auf, die in deutlicher Diskrepanz zum Aufnahmebefund stand, rasch rückläufig war und am ehesten als Ermüdung im Rahmen der Therapien interpretiert wurde. Im weiteren Verlauf ließ diese Störung wieder nach und konnte zum Entlassungszeitpunkt nicht nachgewiesen werden. Herr XXXXXXX nutzte in mehreren ausführlichen Arztgesprächen die Möglichkeit, sich umfassend über verschiedene Verlaufsformen der MS und schubprophylaktischen Behandlungsoptionen informieren zu lassen. In Anbetracht des über vier Jahre eher langsam schleichenden Verlaufs entschieden wir uns derzeit nicht für eine Einstellung auf eine schubprophylaktische Medikation.\n\nKrankengymnastik\nEs zeigte sich eine untere Rumpf- und Extremitätenataxie mit hypotoner Bauchmuskulatur, Abnahme der reziproken Innervation der Beinmuskulatur bds. Die Gleichgewichtsreaktionen im Stand und Gang waren herabgesetzt, bei Gehen über längere Zeit beklagte der Patient eine zunehmende Fußheberschwäche links. Die krankengymnastische Therapie umfasste vor allem die Konditionierung, die Muskeldehnung und die Bewegungskoordination zur Rumpfataxie.\n\nErgotherapie:\nHerr XXXXXXX nahm an der Feinmotorikgruppe teil und erhielt sensomotorisch-kognitives Einzeltraining. Es zeigten sich dezente Koordinationsstörungen linksbetont bei voll gegebenen Bewegungsausmaß. Der Patient ist im gesamten Alltag selbstständig. In Einzel- und Gruppentherapien wurden Sensibiltätsschulungen und Feinmotoriktraining durchgeführt.\n\nNeuropsychologie:\nIm Mittelpunkt der neuropsychologischen Behandlung standen regelmäßige Gespräche zur Unterstützung und Begleitung des Aufenthaltes. Aufgrund der dem Patienten noch nicht lange bekannten Diagnose ergaben sich eine Reihe von Fragen und Problemen zum Umgang mit der Krankheit. Herr XXXXXXX nutzte die Gesprächstmöglichkeiten sehr aktiv.\nDarüber hinaus nahm er sehr aktiv am wöchentlich stattfindenden Seminar für Patienten mit MS teil.\n\nEntlassungsbefund: \nWacher, voll orientierter Patient, kein Anhalt für formale oder inhaltliche Denkstörungen, Stimmung ausgeglichen mit normaler Modulation.\nKein Meningismus, ungestörte Pupillomotorik, erschöpflicher Blickrichtungsnystagmus in beide Richtungen, übriger Hirnnervenstatus unauffällig.\nKeine Paresen, keine sensiblen Defizite, Muskeleigenreflexe seitengleich gesteigert, keine Pyramidenbahzeichen, kloniformes des ASR bds. \nStand und Gang ausreichen sicher, Gangversuche mit Unsicherheiten, Unterberger-Tretversuch unauffällig, alle Zeigeversuche sicher.\nKeine Inkontinenz.\n\nBarthel-Index: Bei Aufnahme: 80 von erreichbaren 100 Punkten.\nBei Entlassung: 100 von erreichbaren 100 Punkten.\n9. Sozialmedizinische Epikrise\nDer Patient leidet seit XXXX an einer a. e. primär chronisch-progredienten Encephalomyelitis disseminata, die Erstdiagnose erfolgte im XXXXXXX d. J. Im Rahmen der Akuttherapie und der anschließenden stationören Behandlung konnte eine Stabilisierung der motorischen Funktionen insoweit erreicht werden, dass derzeit keine funktionellen Einschränkungen bestehen. Die Belastbarkeit ist weiterhin deutlich verringert, ebenso die Gehstrecke. Es besteht weiterhin eine leichte Feinmotorikstörung in den Händen. In Anbetracht des bisherigen klinischen Verlaufes wurde in einem ausführlichen Gespräch mit dem Patienten auf eine prophylaktische Therapie verzichtet. Zur Zeit besteht Arbeitsfähigkeit. In Anbetracht der Diagnose und des zu erwartenden Verlaufes sollten engsmaschige Überprüfungen der Arbeitsfähigkeit und evtl. Anpassung des Arbeitsumfeldes erfolgen. Zum Erhalt der motorischen Funktionen wird eine erneute stationäre Heilbehandlung im Verlauf empfohlen.\n\nTherapieempfehlungen:\n\nMedikation: Keine\n\nVorsichtige Steigerung der Belastung.\n\nMit freundlichen Grüßen\n\ngez. Doz. DDr. XX XXXXXXXX\nPrimarin\n\ngez. Dr. XX XXXXX\nXXX. Oberärztin\n\ngez. Dr. XX XXXXXXX\nXXXXXXXXXXXX\n\n"
+    },
+    {
+      "begin": 0,
+      "end": 10150,
+      "type": "de.averbis.types.health.DocumentAnnotation",
+      "coveredText": "Befund - Ambulanz für Melanomnachsorge\n\nKlaus Theodor, * 3.2.1991, wohnhaft in Villach, Rathausplatz 31\n\n\nDiagnosen:\nEnzephalomyelitis disseminata (Erstmanifestation 2017, Erstdiagnose Oktober 2021), a. e. primär chronisch-progrediente Verlaufsform DD sekundär-progredient nach leichteren Schüben\n\n1. Allgemeine und klinische Anamnese:\n\nSpezielle Anamnese:\nDer Patient leidet seit ca. 2017 an einer zunehmenden Schwäche in den Beinen sowie allgemein verminderter körperlicher Belastbarkeit. Ihm fiel ein zunehmendes Schwanken beim Laufen auf und er sei häufig ins Stolpern gekommen. Weiterhin seien feinmotorische Abläufe, wie z. B. Schreibmaschineschreiben, zunehmend erschwert gewesen. Seit ca. einem Jahr betrage die Gehstrecke nur noch 1 km, dann müsse der Patient eine Ruhepause einlegen. Zum gleichen Zeitpunkt empfand er subjektiv eine Harnblasenschwäche. Auch die Stimmung habe sich in der letzten Zeit in Richtung Reizbarkeit und Aggressivität verändert. Wegen eines Taubheitsgefühls im linken Unterarm wurde der Patient unter der Verdachtsdiagnose einer Enzephalomyelitis disseminata am 04.10.2021 im Sankt-Klara-Spital Klagenfurt aufgenommen. In der dort durchgeführten ausführlichen Diagnostikk konnte die Verdachtsdiagnose bestätigt werden. Nach Abschluss der stationären Therapie und Frühmobilisierung erfolgte die Entlassung am 18.10.2021, am 22.10.2021 wurde der Patient zur Anschlussheilbehandlung stationär aufgenommen.\n\nFamilienanamnese:\nLeer.\n\nEigenanamnese:\nFachspezifisch leer.\n\nVegetative Anamnese:\nLeer.\n\nAllergien: Nicht bekannt.\n\nAllgemeine Risikofaktoren:\nKeine.\n\nMitgebrachte Hilfsmittel:\nKeine.\n\n2. Jetzige Beschwerden und funktionelle Einschränkungen:\nDer Patient berichtet über eine deutliche Verringerung der Gehstrecke, über eine Verringerung der allgemeinen Belastbarkeit und eine deutliche Störung der Feinmotorik.\n\n3. Gegenwärtige Therapien, Behandelnde Ärzte:\nHerr Theodor wird ambulant von Dr. med. Triebel, FA für Neurologie, Südtiroler Platz  20, Villach behandelt. Im Sankt-Klara-Spital erfolgte eine Stoßtherapie mit Kortison. Eine Interferonbehandlung wurde mit dem Patienten diskutiert, zu jetzigen Zeitpunkt jedoch nicht eingeleitet.\n\n4. Allgemeine Sozialanamnese: \nDer Patient lebt mit seiner Lebensgefährtin zur Zeit in einem Altbau, 4. Etage, gewohnt. Mit ihm leben zwei Kinder aus erster Ehe und ein Kind mit der Lebensgefährtin.\n\n5. Arbeits- und Berufsanamnese: \nHerr Theodor ist gelernter Maschinenbauingenieur und arbeitet derzeit am Lehrstuhl für Informatik in der Alpen-Adria-Universität.\n\n6. Aufnahmebefund, Vorbefunde, ergänzende Diagnostik \nAllgemein-somatischer Aufnahmebefund:\n30-jähriger Patient in gutem AZ und EZ. Unauffälliger Befund an Haut und Schleimhäuten, Schädel und Hals. Herz, Lunge und Abdomen unauffällig, Extremitäten o. p. B., Fusspulse bds. kräftig.\n\nNeurologischer Befund:\nKein Meningismus.\n\nHirnnerven\nUngestörte Pupillomotorik, erschöpflicher horizontaler Blickrichtungsnystagmus in beide Richtungen, übriger Hirnnervenstatus unauffällig. Klare Sprache.\n\nMotorik/Motilität\nKeine Paresen, monopedales Hüpfen verplumpt rechts stärker als links, Muskeleigenreflexe bds. gesteigert ohne sichere Seitendifferenz, keine Pyramidenbahnzeichen, kloniformes Nachzucken der ASR bds.\n\nKoordination\nGuter Rumpftonus, Stand und Gang sicher, Seiltänzer- und Blindstrichgang deutlich unsicher, im Unterberger-Tretversuch ungezielte Fallneigung. Finger-Nase-Versuch sicher, Finger-Folge-Versuch links diskret dysmetrisch, Knie-Hacke-Versuch intakt. Eudiadochokionese bds.\n\nSensibilität:\nIntakt.\n\nVegetativum:\nIntakt.\n\nNeropsychologisch/psychisch:\nWacher, voll orientierter Patient. Kein Anhalt für formale oder inhaltliche Denkstörung, keine Störungen der Mnestik. Stimmung unauffällig, normal moduliert, kein Anhalt für akute Suizidität.\n\nAktuelle und wesentliche Befunde:\nAus dem Sankt-Klara-Spital wurden folgende Befunde erhoben:\n\nVEP vom 12.10.2021:\nMit deutlich latenzverzögerten VEP bds. als Hinweis für eine Funktionsstörung des N. opticus bds., wobei eine annehmbare Seitendifferenz auf eine mehr rechtsseitige Störung hinweist.\n\nTibialis-SEP vom 15.10.2021\nBei insgesamt unzureichend reproduzierbaren Tibialis-SEP findet sich keine sichere Funktionsstörung der sensiblen Nervenleitungen.\n\nLiquordiagnostik vom 05.10.2021\nLiquor klar, Zellzahl 0, Gesamteinweiss 1.030 mg/l, Albumin 601, lgG 127, lgA 15,6, lgM 32 mg/l. 7 oligoklonale Banden im Liquor. Erregerspezifische Antikörper in Serum und Liquor: keine.\n\nWeiterhin erwähnenswert ist, dass in einem ambulant durchgeführten Kerspintomogramm des Kopfes Hinweise auf eine entzündliche ZNS vorlagen.\n\nWeitere hier erhobene Befunde:\n\nAufnahmelabor (in SI-Einheiten) vom 24.10.2021:\nKleines Blutbild und Gerinnung im Normbereich. Gamma-GT 2,0, übrige Serumparameter einschl. Elektrolyten, Nierenretentionswerten, restlichem Leberprofil, Lipidprofil und basalem TSH unauffällig.\n\nEKG vom 23.10.2021:\nUnspezifische ST-Streckenveränderung in allen Ableitungen bei ansonsten unauffälliger Erregungsbildung und -rückbildung.\n\nSEP vom 19.11.2021:\nLumbale N18- und N20-Potentiale zeitgerecht, cervikale N30- Potentiale bds. leicht verzögert. Zentral kortikale Potentiale deutlich latenzverzögert mit Rechtsbetonung, Amplituden im unteren Normbereich. Konsekutive Verlangsamung der spinokortikalen Überleitungszeiten bds., von kortikal mehr als von lumbal. Der Befund spricht für eine demyelinisierende, rechts cerebral betonte bilaterale Schödigung der zentralen Abschnitte der Tibialis-Afferenzen mit Störungsschwerpunkt bds. oberhalb des Zervikalmarkes, passend zum klinischen Befund.\n\n7. Rehabilitationsdiagnosen und Rehabilitationsziele:\n\nRehabilitationsdiagnosen:\n1. Enzephalomyelitis disseminata mit Fatigue-Symptomatik und Gangataxie\n\nRehabiltationsziele:\n\nAllgemeine Kräftigung und Erhöhung der Belastbarkeit\nAtaxietraining, Gangsicherheit verbessern\nKrankheitsverarbeitung\nRehabilitationsverlauf\nMedizinische Besonderheiten:\nDer Patient war kardiopulmonal stabil, fieberhafte Infekte traten nicht auf. Der Patient berichtete im Rahmen des stationären Aufenthaltes über Gefühlsstörungen im Bereich des linken Armes und auch später im Bereich des linken Beines. Am 15.11.2021 fiel in der Untersuchung eine Schwäche von Mm. biceps und triceps brachii links mit einer Abschwächung des Becepssehenenreflexes links auf, die in deutlicher Diskrepanz zum Aufnahmebefund stand, rasch rückläufig war und am ehesten als Ermüdung im Rahmen der Therapien interpretiert wurde. Im weiteren Verlauf ließ diese Störung wieder nach und konnte zum Entlassungszeitpunkt nicht nachgewiesen werden. Herr Theodor nutzte in mehreren ausführlichen Arztgesprächen die Möglichkeit, sich umfassend über verschiedene Verlaufsformen der MS und schubprophylaktischen Behandlungsoptionen informieren zu lassen. In Anbetracht des über vier Jahre eher langsam schleichenden Verlaufs entschieden wir uns derzeit nicht für eine Einstellung auf eine schubprophylaktische Medikation.\n\nKrankengymnastik\nEs zeigte sich eine untere Rumpf- und Extremitätenataxie mit hypotoner Bauchmuskulatur, Abnahme der reziproken Innervation der Beinmuskulatur bds. Die Gleichgewichtsreaktionen im Stand und Gang waren herabgesetzt, bei Gehen über längere Zeit beklagte der Patient eine zunehmende Fußheberschwäche links. Die krankengymnastische Therapie umfasste vor allem die Konditionierung, die Muskeldehnung und die Bewegungskoordination zur Rumpfataxie.\n\nErgotherapie:\nHerr Theodor nahm an der Feinmotorikgruppe teil und erhielt sensomotorisch-kognitives Einzeltraining. Es zeigten sich dezente Koordinationsstörungen linksbetont bei voll gegebenen Bewegungsausmaß. Der Patient ist im gesamten Alltag selbstständig. In Einzel- und Gruppentherapien wurden Sensibiltätsschulungen und Feinmotoriktraining durchgeführt.\n\nNeuropsychologie:\nIm Mittelpunkt der neuropsychologischen Behandlung standen regelmäßige Gespräche zur Unterstützung und Begleitung des Aufenthaltes. Aufgrund der dem Patienten noch nicht lange bekannten Diagnose ergaben sich eine Reihe von Fragen und Problemen zum Umgang mit der Krankheit. Herr Theodor nutzte die Gesprächstmöglichkeiten sehr aktiv.\nDarüber hinaus nahm er sehr aktiv am wöchentlich stattfindenden Seminar für Patienten mit MS teil.\n\nEntlassungsbefund: \nWacher, voll orientierter Patient, kein Anhalt für formale oder inhaltliche Denkstörungen, Stimmung ausgeglichen mit normaler Modulation.\nKein Meningismus, ungestörte Pupillomotorik, erschöpflicher Blickrichtungsnystagmus in beide Richtungen, übriger Hirnnervenstatus unauffällig.\nKeine Paresen, keine sensiblen Defizite, Muskeleigenreflexe seitengleich gesteigert, keine Pyramidenbahzeichen, kloniformes des ASR bds. \nStand und Gang ausreichen sicher, Gangversuche mit Unsicherheiten, Unterberger-Tretversuch unauffällig, alle Zeigeversuche sicher.\nKeine Inkontinenz.\n\nBarthel-Index: Bei Aufnahme: 80 von erreichbaren 100 Punkten.\nBei Entlassung: 100 von erreichbaren 100 Punkten.\n9. Sozialmedizinische Epikrise\nDer Patient leidet seit 2017 an einer a. e. primär chronisch-progredienten Encephalomyelitis disseminata, die Erstdiagnose erfolgte im Oktober d. J. Im Rahmen der Akuttherapie und der anschließenden stationören Behandlung konnte eine Stabilisierung der motorischen Funktionen insoweit erreicht werden, dass derzeit keine funktionellen Einschränkungen bestehen. Die Belastbarkeit ist weiterhin deutlich verringert, ebenso die Gehstrecke. Es besteht weiterhin eine leichte Feinmotorikstörung in den Händen. In Anbetracht des bisherigen klinischen Verlaufes wurde in einem ausführlichen Gespräch mit dem Patienten auf eine prophylaktische Therapie verzichtet. Zur Zeit besteht Arbeitsfähigkeit. In Anbetracht der Diagnose und des zu erwartenden Verlaufes sollten engsmaschige Überprüfungen der Arbeitsfähigkeit und evtl. Anpassung des Arbeitsumfeldes erfolgen. Zum Erhalt der motorischen Funktionen wird eine erneute stationäre Heilbehandlung im Verlauf empfohlen.\n\nTherapieempfehlungen:\n\nMedikation: Keine\n\nVorsichtige Steigerung der Belastung.\n\nMit freundlichen Grüßen\n\ngez. Doz. DDr. A. Barthels\nPrimarin\n\ngez. Dr. J. Klein\nLtd. Oberärztin\n\ngez. Dr. B. Supanic\nStationsarzt\n\n",
+      "id": 8,
+      "language": "de",
+      "version": "5.33.1"
+    }
+  ]
+}

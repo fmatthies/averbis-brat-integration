@@ -1,0 +1,253 @@
+{
+  "annotationDtos": [
+    {
+      "begin": 80,
+      "end": 356,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Diagnosen\n\nMelanom Stadium IV\n2/2018 Primärtumor: Skapulär links (TD 3,65 mm, T3aN0M1c;HNr.:9334a/20)\n4/2018 Sentinel node Exstirpation axillär links (37848/2019: tumorfrei)\n3/20009 Leberfiliae und Lungenfilia (linker Oberlappen)\nPsychose (ED 2019)\nZ. n. Sinusbradykardie 8/19",
+      "id": 59019,
+      "matchedTerm": "Diagnosen",
+      "dictCanon": "Diagnose",
+      "conceptId": "10164-2",
+      "source": "clinical_sections_de",
+      "label": "DiagnosisSection",
+      "uniqueId": "clinical_sections_de:10164-2"
+    },
+    {
+      "begin": 358,
+      "end": 403,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Aktuell: 4. Zyklus Paclitaxel und Carboplatin",
+      "id": 59030,
+      "matchedTerm": "Aktuell",
+      "dictCanon": "Grund der Aufnahme",
+      "conceptId": "29299-5",
+      "source": "clinical_sections_de",
+      "label": "AdmissionReasonSection",
+      "uniqueId": "clinical_sections_de:29299-5"
+    },
+    {
+      "begin": 405,
+      "end": 500,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Bisherige Therapie:\n05/2019- 05/2020 adjuvante Therapie mit Roferon (9 Mio IE./Woche; ) (C78.8)",
+      "id": 59041,
+      "matchedTerm": "Therapie",
+      "dictCanon": "Therapie",
+      "conceptId": "62387-6",
+      "source": "clinical_sections_de",
+      "label": "TherapySection",
+      "uniqueId": "clinical_sections_de:62387-6"
+    },
+    {
+      "begin": 502,
+      "end": 673,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Therapieempfehlung\n\nMagnosolv 1x1\nPantoloc 40mg 1-0-1\nAbilify 10 mg 1-0-0\nTramadol bis zu 3x20 Tropfen bei Schmerzen\nMetoklopramid 15 Tropfen zusammen mit Tramal einnehmen",
+      "id": 59052,
+      "matchedTerm": "Therapieempfehlung",
+      "dictCanon": "Medikationsempfehlung",
+      "conceptId": "Sec_MedicationRecommendation",
+      "source": "clinical_sections_de",
+      "label": "MedicationRecommendationSection",
+      "uniqueId": "clinical_sections_de:Sec_MedicationRecommendation"
+    },
+    {
+      "begin": 677,
+      "end": 1360,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Zusammenfassung\n\nDie stationäre Aufnahme Ihrer Patientin erfolgte zur Fortführung der Chemotherapie mit Taxol und Carboplatin (4.Zyklus) bei bekannter Grunderkrankung.\nBeim Aufnahmestatus zeigte sich klinisch kein Hinweis auf einen Fortschritt der Erkrankung.\nDie Pat.  erhielt am 1.7.2020 Paclitaxel 200 mg/m²KOF (Gesamtdosis: 382,5mg) über 5 Stunden und Carboplatin (AUC 5) 590 mg über 2 Stunden mit der entsprechenden Begleitmedikation. Die Therapie wurde gut vertragen.\nDie nach der Chemotherapie aufgetretene Leukozytose war, nachdem sich klinisch keine Infektzeichen zeigten, in erster Linie kortisonbedingt.\n\nWir konnten die Pat. am 2.7.2020 in gutem AZ  nach Hause entlassen.",
+      "id": 59063,
+      "matchedTerm": "Zusammenfassung",
+      "dictCanon": "Epikrise",
+      "conceptId": "51848-0",
+      "source": "clinical_sections_de",
+      "label": "EpicrisisSection",
+      "uniqueId": "clinical_sections_de:51848-0"
+    },
+    {
+      "begin": 845,
+      "end": 936,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Beim Aufnahmestatus zeigte sich klinisch kein Hinweis auf einen Fortschritt der Erkrankung.",
+      "id": 59074,
+      "matchedTerm": "Status bei Aufnahme",
+      "dictCanon": "Funktionaler Gesundheitszustand",
+      "conceptId": "47420-5",
+      "source": "clinical_sections_de",
+      "label": "FunctionalStatusSection",
+      "uniqueId": "clinical_sections_de:47420-5"
+    },
+    {
+      "begin": 1117,
+      "end": 1150,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Die Therapie wurde gut vertragen.",
+      "id": 59085,
+      "matchedTerm": "Therapie",
+      "dictCanon": "Therapie",
+      "conceptId": "62387-6",
+      "source": "clinical_sections_de",
+      "label": "TherapySection",
+      "uniqueId": "clinical_sections_de:62387-6"
+    },
+    {
+      "begin": 1362,
+      "end": 1620,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Relevante Befunde\n\nDermatologischer Aufnahmestatus: : Hautoberfläche normal, Hautturgor normal, Pigmentierung gering, diffuse Alopezie der Kopfhaut. Am Körperstamm und an den Extremitäten MNZN. Abdominell und dorsal einige subkutane Knoten (bekannte Lipome).",
+      "id": 59096,
+      "matchedTerm": "Befunde",
+      "dictCanon": "Befund",
+      "conceptId": "29545-1",
+      "source": "clinical_sections_de",
+      "label": "FindingSection",
+      "uniqueId": "clinical_sections_de:29545-1"
+    },
+    {
+      "begin": 1381,
+      "end": 1510,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Dermatologischer Aufnahmestatus: : Hautoberfläche normal, Hautturgor normal, Pigmentierung gering, diffuse Alopezie der Kopfhaut.",
+      "id": 59107,
+      "matchedTerm": "Status bei Aufnahme",
+      "dictCanon": "Funktionaler Gesundheitszustand",
+      "conceptId": "47420-5",
+      "source": "clinical_sections_de",
+      "label": "FunctionalStatusSection",
+      "uniqueId": "clinical_sections_de:47420-5"
+    },
+    {
+      "begin": 2,
+      "end": 1620,
+      "type": "de.averbis.types.health.PatientInformation",
+      "coveredText": "Luise Utz, * 3.4.1959, wohnhaft in 34443 Bad Arolsen\n\nArztbrief\n \n\n2020-08-03\nDiagnosen\n\nMelanom Stadium IV\n2/2018 Primärtumor: Skapulär links (TD 3,65 mm, T3aN0M1c;HNr.:9334a/20)\n4/2018 Sentinel node Exstirpation axillär links (37848/2019: tumorfrei)\n3/20009 Leberfiliae und Lungenfilia (linker Oberlappen)\nPsychose (ED 2019)\nZ. n. Sinusbradykardie 8/19\n\nAktuell: 4. Zyklus Paclitaxel und Carboplatin\n\nBisherige Therapie:\n05/2019- 05/2020 adjuvante Therapie mit Roferon (9 Mio IE./Woche; ) (C78.8)\n\nTherapieempfehlung\n\nMagnosolv 1x1\nPantoloc 40mg 1-0-1\nAbilify 10 mg 1-0-0\nTramadol bis zu 3x20 Tropfen bei Schmerzen\nMetoklopramid 15 Tropfen zusammen mit Tramal einnehmen\n \n\nZusammenfassung\n\nDie stationäre Aufnahme Ihrer Patientin erfolgte zur Fortführung der Chemotherapie mit Taxol und Carboplatin (4.Zyklus) bei bekannter Grunderkrankung.\nBeim Aufnahmestatus zeigte sich klinisch kein Hinweis auf einen Fortschritt der Erkrankung.\nDie Pat.  erhielt am 1.7.2020 Paclitaxel 200 mg/m²KOF (Gesamtdosis: 382,5mg) über 5 Stunden und Carboplatin (AUC 5) 590 mg über 2 Stunden mit der entsprechenden Begleitmedikation. Die Therapie wurde gut vertragen.\nDie nach der Chemotherapie aufgetretene Leukozytose war, nachdem sich klinisch keine Infektzeichen zeigten, in erster Linie kortisonbedingt.\n\nWir konnten die Pat. am 2.7.2020 in gutem AZ  nach Hause entlassen.\n\nRelevante Befunde\n\nDermatologischer Aufnahmestatus: : Hautoberfläche normal, Hautturgor normal, Pigmentierung gering, diffuse Alopezie der Kopfhaut. Am Körperstamm und an den Extremitäten MNZN. Abdominell und dorsal einige subkutane Knoten (bekannte Lipome).",
+      "id": 59647,
+      "firstName": null,
+      "lastName": null,
+      "deceased": false,
+      "gender": "female",
+      "deathDate": null
+    },
+    {
+      "begin": 231,
+      "end": 241,
+      "type": "de.averbis.types.health.Contact",
+      "coveredText": "37848/2019",
+      "id": 70225,
+      "kind": "PHONE"
+    },
+    {
+      "begin": 15,
+      "end": 23,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "3.4.1959",
+      "id": 60037
+    },
+    {
+      "begin": 69,
+      "end": 79,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "2020-08-03",
+      "id": 60051
+    },
+    {
+      "begin": 110,
+      "end": 116,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "2/2018",
+      "id": 60065
+    },
+    {
+      "begin": 182,
+      "end": 188,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "4/2018",
+      "id": 60079
+    },
+    {
+      "begin": 323,
+      "end": 327,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "2019",
+      "id": 60093
+    },
+    {
+      "begin": 352,
+      "end": 356,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "8/19",
+      "id": 60107
+    },
+    {
+      "begin": 425,
+      "end": 432,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "05/2019",
+      "id": 60121
+    },
+    {
+      "begin": 434,
+      "end": 441,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "05/2020",
+      "id": 60135
+    },
+    {
+      "begin": 958,
+      "end": 966,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "1.7.2020",
+      "id": 60149
+    },
+    {
+      "begin": 1317,
+      "end": 1325,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "2.7.2020",
+      "id": 60163
+    },
+    {
+      "begin": 37,
+      "end": 42,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "34443",
+      "id": 76844,
+      "kind": "ZIP"
+    },
+    {
+      "begin": 43,
+      "end": 54,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Bad Arolsen",
+      "id": 76930,
+      "kind": "CITY"
+    },
+    {
+      "begin": 2,
+      "end": 11,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Luise Utz",
+      "id": 71706,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 0,
+      "end": 1624,
+      "type": "de.averbis.types.health.DeidentifiedDocument",
+      "coveredText": "\n\nLuise Utz, * 3.4.1959, wohnhaft in 34443 Bad Arolsen\n\nArztbrief\n \n\n2020-08-03\nDiagnosen\n\nMelanom Stadium IV\n2/2018 Primärtumor: Skapulär links (TD 3,65 mm, T3aN0M1c;HNr.:9334a/20)\n4/2018 Sentinel node Exstirpation axillär links (37848/2019: tumorfrei)\n3/20009 Leberfiliae und Lungenfilia (linker Oberlappen)\nPsychose (ED 2019)\nZ. n. Sinusbradykardie 8/19\n\nAktuell: 4. Zyklus Paclitaxel und Carboplatin\n\nBisherige Therapie:\n05/2019- 05/2020 adjuvante Therapie mit Roferon (9 Mio IE./Woche; ) (C78.8)\n\nTherapieempfehlung\n\nMagnosolv 1x1\nPantoloc 40mg 1-0-1\nAbilify 10 mg 1-0-0\nTramadol bis zu 3x20 Tropfen bei Schmerzen\nMetoklopramid 15 Tropfen zusammen mit Tramal einnehmen\n \n\nZusammenfassung\n\nDie stationäre Aufnahme Ihrer Patientin erfolgte zur Fortführung der Chemotherapie mit Taxol und Carboplatin (4.Zyklus) bei bekannter Grunderkrankung.\nBeim Aufnahmestatus zeigte sich klinisch kein Hinweis auf einen Fortschritt der Erkrankung.\nDie Pat.  erhielt am 1.7.2020 Paclitaxel 200 mg/m²KOF (Gesamtdosis: 382,5mg) über 5 Stunden und Carboplatin (AUC 5) 590 mg über 2 Stunden mit der entsprechenden Begleitmedikation. Die Therapie wurde gut vertragen.\nDie nach der Chemotherapie aufgetretene Leukozytose war, nachdem sich klinisch keine Infektzeichen zeigten, in erster Linie kortisonbedingt.\n\nWir konnten die Pat. am 2.7.2020 in gutem AZ  nach Hause entlassen.\n\nRelevante Befunde\n\nDermatologischer Aufnahmestatus: : Hautoberfläche normal, Hautturgor normal, Pigmentierung gering, diffuse Alopezie der Kopfhaut. Am Körperstamm und an den Extremitäten MNZN. Abdominell und dorsal einige subkutane Knoten (bekannte Lipome).  \n\n",
+      "id": 89691,
+      "kind": "crossout",
+      "deidentifiedText": "\n\nXXXXX XXX, * XXXXXXXX, wohnhaft in XXXXX XXX XXXXXXX\n\nArztbrief\n \n\nXXXXXXXXXX\nDiagnosen\n\nMelanom Stadium IV\nXXXXXX Primärtumor: Skapulär links (TD 3,65 mm, T3aN0M1c;HNr.:9334a/20)\nXXXXXX Sentinel node Exstirpation axillär links (XXXXXXXXXX: tumorfrei)\n3/20009 Leberfiliae und Lungenfilia (linker Oberlappen)\nPsychose (ED XXXX)\nZ. n. Sinusbradykardie XXXX\n\nAktuell: 4. Zyklus Paclitaxel und Carboplatin\n\nBisherige Therapie:\nXXXXXXX- XXXXXXX adjuvante Therapie mit Roferon (9 Mio IE./Woche; ) (C78.8)\n\nTherapieempfehlung\n\nMagnosolv 1x1\nPantoloc 40mg 1-0-1\nAbilify 10 mg 1-0-0\nTramadol bis zu 3x20 Tropfen bei Schmerzen\nMetoklopramid 15 Tropfen zusammen mit Tramal einnehmen\n \n\nZusammenfassung\n\nDie stationäre Aufnahme Ihrer Patientin erfolgte zur Fortführung der Chemotherapie mit Taxol und Carboplatin (4.Zyklus) bei bekannter Grunderkrankung.\nBeim Aufnahmestatus zeigte sich klinisch kein Hinweis auf einen Fortschritt der Erkrankung.\nDie Pat.  erhielt am XXXXXXXX Paclitaxel 200 mg/m²KOF (Gesamtdosis: 382,5mg) über 5 Stunden und Carboplatin (AUC 5) 590 mg über 2 Stunden mit der entsprechenden Begleitmedikation. Die Therapie wurde gut vertragen.\nDie nach der Chemotherapie aufgetretene Leukozytose war, nachdem sich klinisch keine Infektzeichen zeigten, in erster Linie kortisonbedingt.\n\nWir konnten die Pat. am XXXXXXXX in gutem AZ  nach Hause entlassen.\n\nRelevante Befunde\n\nDermatologischer Aufnahmestatus: : Hautoberfläche normal, Hautturgor normal, Pigmentierung gering, diffuse Alopezie der Kopfhaut. Am Körperstamm und an den Extremitäten MNZN. Abdominell und dorsal einige subkutane Knoten (bekannte Lipome).  \n\n"
+    },
+    {
+      "begin": 0,
+      "end": 1624,
+      "type": "de.averbis.types.health.DocumentAnnotation",
+      "coveredText": "\n\nLuise Utz, * 3.4.1959, wohnhaft in 34443 Bad Arolsen\n\nArztbrief\n \n\n2020-08-03\nDiagnosen\n\nMelanom Stadium IV\n2/2018 Primärtumor: Skapulär links (TD 3,65 mm, T3aN0M1c;HNr.:9334a/20)\n4/2018 Sentinel node Exstirpation axillär links (37848/2019: tumorfrei)\n3/20009 Leberfiliae und Lungenfilia (linker Oberlappen)\nPsychose (ED 2019)\nZ. n. Sinusbradykardie 8/19\n\nAktuell: 4. Zyklus Paclitaxel und Carboplatin\n\nBisherige Therapie:\n05/2019- 05/2020 adjuvante Therapie mit Roferon (9 Mio IE./Woche; ) (C78.8)\n\nTherapieempfehlung\n\nMagnosolv 1x1\nPantoloc 40mg 1-0-1\nAbilify 10 mg 1-0-0\nTramadol bis zu 3x20 Tropfen bei Schmerzen\nMetoklopramid 15 Tropfen zusammen mit Tramal einnehmen\n \n\nZusammenfassung\n\nDie stationäre Aufnahme Ihrer Patientin erfolgte zur Fortführung der Chemotherapie mit Taxol und Carboplatin (4.Zyklus) bei bekannter Grunderkrankung.\nBeim Aufnahmestatus zeigte sich klinisch kein Hinweis auf einen Fortschritt der Erkrankung.\nDie Pat.  erhielt am 1.7.2020 Paclitaxel 200 mg/m²KOF (Gesamtdosis: 382,5mg) über 5 Stunden und Carboplatin (AUC 5) 590 mg über 2 Stunden mit der entsprechenden Begleitmedikation. Die Therapie wurde gut vertragen.\nDie nach der Chemotherapie aufgetretene Leukozytose war, nachdem sich klinisch keine Infektzeichen zeigten, in erster Linie kortisonbedingt.\n\nWir konnten die Pat. am 2.7.2020 in gutem AZ  nach Hause entlassen.\n\nRelevante Befunde\n\nDermatologischer Aufnahmestatus: : Hautoberfläche normal, Hautturgor normal, Pigmentierung gering, diffuse Alopezie der Kopfhaut. Am Körperstamm und an den Extremitäten MNZN. Abdominell und dorsal einige subkutane Knoten (bekannte Lipome).  \n\n",
+      "id": 8,
+      "language": "de",
+      "version": "5.33.1"
+    }
+  ]
+}

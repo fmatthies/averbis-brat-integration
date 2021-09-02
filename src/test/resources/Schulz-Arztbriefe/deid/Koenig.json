@@ -1,0 +1,482 @@
+{
+  "annotationDtos": [
+    {
+      "begin": 91,
+      "end": 1032,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Diagnosen\n\n9. Zyklus einer Chemotherapie mit Carboplatin bei Z. n. Amputation Kleinfinger re wegen ulzeriertem MM, Level V, Tumordicke größer 4mm 6/24\nMultiple kutan-subkutane Metastasen / thoracal und axillär re\nLK-Metastasen / Axilla re (ED 9/23)\nFil. pulm. (ED 9/23)\nBenigne essentielle Hypertonie\nAV-Block 3. grades\nTotalexzision einer subkutanen Melanommetastase (Histologie: Entfernung in sano) / Ellenbeuge re\nTotalexzision einer subkutanen Melanommetastase (Histologie: Entfernung in sano) / Handrücken rechts proximal\nSt. p. sen. node Biopsie / Axilla re (Lymphknotenmeta eines MM) 6/22\nSt. p. axilläre LK Disektion re (16 Metastasenfreie LK) 9.7.22\nSt. p. 1. Chemotherapie mit DTIC 6.10. bis 9.10.2023 (Abbruch wegen Anstieg der Leberparameter und Eosinophilie)\nSt. p. Radiatio re axillär (13. - 24.10.2023, Abbruch wg. Erysipel)\nSt. p. Karbunkel / occipital (12/08) (C43.6)\nOrganisches Psychosyndrom in 1. L. im Sinne einer Demenz",
+      "id": 149496,
+      "matchedTerm": "Diagnosen",
+      "dictCanon": "Diagnose",
+      "conceptId": "10164-2",
+      "source": "clinical_sections_de",
+      "label": "DiagnosisSection",
+      "uniqueId": "clinical_sections_de:10164-2"
+    },
+    {
+      "begin": 1036,
+      "end": 1120,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Therapieempfehlung\n\nRisperdal 1 mg 0/0/1\nNavoban Kps. 1x1 bis einschließlich 13.9.24",
+      "id": 149507,
+      "matchedTerm": "Therapieempfehlung",
+      "dictCanon": "Medikationsempfehlung",
+      "conceptId": "Sec_MedicationRecommendation",
+      "source": "clinical_sections_de",
+      "label": "MedicationRecommendationSection",
+      "uniqueId": "clinical_sections_de:Sec_MedicationRecommendation"
+    },
+    {
+      "begin": 1123,
+      "end": 1404,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Weiteres_Vorgehen\n\nBlutbildkontrolle in 1 Woche beim Hausarzt \n\nStationäre Wiederaufnahme am 14.10.2024, 8.00 Uhr auf Station 4A. Ein Termin in der Gedächtnisambulanz wurde unsererseits für den 14.10.24, 10.00 Uhr organisiert - bitte Lesebrille mitbringen sowie eine Begleitperson.",
+      "id": 149518,
+      "matchedTerm": "Weiteres Vorgehen",
+      "dictCanon": "Epikrise",
+      "conceptId": "51848-0",
+      "source": "clinical_sections_de",
+      "label": "EpicrisisSection",
+      "uniqueId": "clinical_sections_de:51848-0"
+    },
+    {
+      "begin": 1406,
+      "end": 2488,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Zusammenfassung\n\nDie stat. Aufnahme Ihres Pat. erfolgte zum geplanten 9. Zyklus einer Chemotherapie mit Carboplatin. Im extern durchgeführten CT Schädel bis Becken vom 18.8.2024 zeigte sich eine suspekte Kleinhirnmetastase rechts. Zusätzlich zeigte sich im Harn eine ausgeprägte Leukozyturie, weshalb vorerst von einer Chemotherapie Abstand genommen wurde und ein MR des Schädels sowie eine Antibiose mit Ciproxin durchgefürhrt wurde. Im MR Schädel konnte eine cerebrale Metastasierung ausgeschlossen werden.\nAm 9.9.2024 erhielt der Pat. die Chemotherapie mit Carboplatin (200mg) unter entsprechender antiemetischer Begleitmedikation. Die Chemotherapie wurde vom Patienten gut vertragen.\nDa Herr K. zunehmend örtlich und situativ desorientiert war, wurde mehrmals ein neurologisches Konsil sowie ein psychiatrisches Konsil einberufen (Befunde siehe hinten). Eine Therapie mit Risperdal wurde eingeleitet und eine Kontrolle in der Gedächtnisambulanz terminisiert.\nDer Patient konnte am 10.9.2024 nach einer abschließenden Blutbildkontrolle in ordentl. AZ nach Hause entlassen werden.",
+      "id": 149529,
+      "matchedTerm": "Zusammenfassung",
+      "dictCanon": "Epikrise",
+      "conceptId": "51848-0",
+      "source": "clinical_sections_de",
+      "label": "EpicrisisSection",
+      "uniqueId": "clinical_sections_de:51848-0"
+    },
+    {
+      "begin": 1523,
+      "end": 1636,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Im extern durchgeführten CT Schädel bis Becken vom 18.8.2024 zeigte sich eine suspekte Kleinhirnmetastase rechts.",
+      "id": 149540,
+      "matchedTerm": "CT des Schädels",
+      "dictCanon": "Untersuchungsbefund",
+      "conceptId": "59776-5",
+      "source": "clinical_sections_de",
+      "label": "ObservationSection",
+      "uniqueId": "clinical_sections_de:59776-5"
+    },
+    {
+      "begin": 2264,
+      "end": 2368,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Eine Therapie mit Risperdal wurde eingeleitet und eine Kontrolle in der Gedächtnisambulanz terminisiert.",
+      "id": 149551,
+      "matchedTerm": "Therapie",
+      "dictCanon": "Therapie",
+      "conceptId": "62387-6",
+      "source": "clinical_sections_de",
+      "label": "TherapySection",
+      "uniqueId": "clinical_sections_de:62387-6"
+    },
+    {
+      "begin": 2510,
+      "end": 2631,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Labor : 2.9.2024:\nEry 3,19, Hämatokrit 31,8, MCH 33,4, Harnstoff 41, GFR 42,18, AST 30, ALT 57, CK 163, CKMB 25, LDH 294.",
+      "id": 149562,
+      "matchedTerm": "Labor (",
+      "dictCanon": "Labor",
+      "conceptId": "30954-2",
+      "source": "clinical_sections_de",
+      "label": "LaboratorySection",
+      "uniqueId": "clinical_sections_de:30954-2"
+    },
+    {
+      "begin": 2633,
+      "end": 2729,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "3.9.2024:\nHarn: Leuko 500, Nitrit neg., Sediment: Ery 44, Leuko 1757, PSE 7,\nBakterien mäßiggr..",
+      "id": 149573,
+      "matchedTerm": null,
+      "dictCanon": null,
+      "conceptId": null,
+      "source": null,
+      "label": "MiscClinicalSection",
+      "uniqueId": null
+    },
+    {
+      "begin": 2731,
+      "end": 2790,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "7.9.2024:\nEry 3,57, GFR 44,76, AST 41, ALT 56, Glukose 140.",
+      "id": 149584,
+      "matchedTerm": null,
+      "dictCanon": null,
+      "conceptId": null,
+      "source": null,
+      "label": "MiscClinicalSection",
+      "uniqueId": null
+    },
+    {
+      "begin": 2792,
+      "end": 2824,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "10.9.2024:\nLeuko 4,28, Ery 3,80.",
+      "id": 149595,
+      "matchedTerm": null,
+      "dictCanon": null,
+      "conceptId": null,
+      "source": null,
+      "label": "MiscClinicalSection",
+      "uniqueId": null
+    },
+    {
+      "begin": 2826,
+      "end": 3905,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "EKG 6.9.2024:\nSR 100/min, Kammerfrequenz 45/min, AV-Block III, LT, inkompletter RSB\n\nBildgebende Untersuchungen : MR des Gehirnschädels v. 2.9.2024: Drei maximal knapp unter 1 cm große Suszeptibilitätsartefakte: einerseits in der rechten Kleinhirnhemisphäre sowie supratentoriell parietal rechts und eine ganz kleine parietal links, in erster Linie Cavernomen entsprechend. Kein pathologisches Kontrastmittelenhancement im Sinne von metastasenverdächtigen Veränderungen.\nDeutliche fleckig konfluierende Marklagerhyperintensitäten in beiden Großhirnhemisphären, microangiopathischer Genese. Deutliche Ausweitung der inneren und äußeren Liquorräume, akzentuiert um den Temporalpol rechts. Kein Hinweis auf Liquorabflussstörung.\nKein Nachweis rezent ischämischer Läsionen.\n\nNebenbefund:\nSchleimhautschwellung mit Sekretspiegel im Sinus maxillaris dext. \nKonsiliarbefunde : Psychiatrischer Konsiliarbefund v. 3.9.2024: Diagnose: Verd. a. beginnende organische Halluzinose. Therapie: neurolog. Konsil, bei Persistenz der visuell optischen Halluzination. Therapieversuch mit Risperdal.",
+      "id": 149606,
+      "matchedTerm": "EKG",
+      "dictCanon": "EKG",
+      "conceptId": "Sec_ECG",
+      "source": "clinical_sections_de",
+      "label": "ECGSection",
+      "uniqueId": "clinical_sections_de:Sec_ECG"
+    },
+    {
+      "begin": 3677,
+      "end": 3794,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Konsiliarbefunde : Psychiatrischer Konsiliarbefund v. 3.9.2024: Diagnose: Verd. a. beginnende organische Halluzinose.",
+      "id": 149617,
+      "matchedTerm": "Diagnose",
+      "dictCanon": "Diagnose",
+      "conceptId": "10164-2",
+      "source": "clinical_sections_de",
+      "label": "DiagnosisSection",
+      "uniqueId": "clinical_sections_de:10164-2"
+    },
+    {
+      "begin": 3795,
+      "end": 3814,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Therapie: neurolog.",
+      "id": 149628,
+      "matchedTerm": "Therapie",
+      "dictCanon": "Therapie",
+      "conceptId": "62387-6",
+      "source": "clinical_sections_de",
+      "label": "TherapySection",
+      "uniqueId": "clinical_sections_de:62387-6"
+    },
+    {
+      "begin": 3815,
+      "end": 3874,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Konsil, bei Persistenz der visuell optischen Halluzination.",
+      "id": 149639,
+      "matchedTerm": "Konsil",
+      "dictCanon": "Untersuchungsbefund",
+      "conceptId": "59776-5",
+      "source": "clinical_sections_de",
+      "label": "ObservationSection",
+      "uniqueId": "clinical_sections_de:59776-5"
+    },
+    {
+      "begin": 3907,
+      "end": 4467,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Neurologisches Konsil v. 4.9.2024:\nSt.p. Halluzinatorischer Phase.\nOrganisches Psychosyndrom in 1. L. im Sinne einer Demenz. Therapie weiter wie eingeleitet. Kontrolle in der Demenzambulanz der Neurolog. Klinik. Bei Unruhezuständen wie von der Psychiatrie empfohlen Risperdal ½-1 abends.\nNeurologisches Konsil v. 8.9.2024:\nBeurteilung: Dementielles Syndrom, cerebrale Mikroangiopathie. Procedere: Lt. MR keine ZNS-Metastasen, Carboplatin macht periphere Neuropathie u. gelegentlich Halluziationen u. Angstzustände als mögliche Nebenwirkungen des Nervensystems.",
+      "id": 149650,
+      "matchedTerm": "Neurologisches Konsil",
+      "dictCanon": "Untersuchungsbefund",
+      "conceptId": "59776-5",
+      "source": "clinical_sections_de",
+      "label": "ObservationSection",
+      "uniqueId": "clinical_sections_de:59776-5"
+    },
+    {
+      "begin": 4032,
+      "end": 4064,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Therapie weiter wie eingeleitet.",
+      "id": 149661,
+      "matchedTerm": "Therapie",
+      "dictCanon": "Therapie",
+      "conceptId": "62387-6",
+      "source": "clinical_sections_de",
+      "label": "TherapySection",
+      "uniqueId": "clinical_sections_de:62387-6"
+    },
+    {
+      "begin": 4195,
+      "end": 4292,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Neurologisches Konsil v. 8.9.2024:\nBeurteilung: Dementielles Syndrom, cerebrale Mikroangiopathie.",
+      "id": 149672,
+      "matchedTerm": "Beurteilung",
+      "dictCanon": "Weitere",
+      "conceptId": "Sec_Misc",
+      "source": "clinical_sections_de",
+      "label": "MiscClinicalSection",
+      "uniqueId": "clinical_sections_de:Sec_Misc"
+    },
+    {
+      "begin": 4469,
+      "end": 4560,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Medikation bei Entlassung:\nXalatan Augentropfen 1xtägl.\nLasix 40mg 1-0-0\nSpirono 25mg 0-1-0",
+      "id": 149683,
+      "matchedTerm": "Medikation bei Entlassung",
+      "dictCanon": "Medikation bei Entlassung",
+      "conceptId": "10183-2",
+      "source": "clinical_sections_de",
+      "label": "DischargeMedicationSection",
+      "uniqueId": "clinical_sections_de:10183-2"
+    },
+    {
+      "begin": 1216,
+      "end": 1226,
+      "type": "de.averbis.types.health.Hospitalisation",
+      "coveredText": "14.10.2024",
+      "id": 150372,
+      "admissionDate": "2024-10-14",
+      "dischargeDate": "2024-10-14"
+    },
+    {
+      "begin": 0,
+      "end": 4560,
+      "type": "de.averbis.types.health.PatientInformation",
+      "coveredText": "Definitiver Arztbrief\n \nHelmfried Koenig * 13.09.1955\n\nDefinitiver Arztbrief\n \n\n2024-09-16\nDiagnosen\n\n9. Zyklus einer Chemotherapie mit Carboplatin bei Z. n. Amputation Kleinfinger re wegen ulzeriertem MM, Level V, Tumordicke größer 4mm 6/24\nMultiple kutan-subkutane Metastasen / thoracal und axillär re\nLK-Metastasen / Axilla re (ED 9/23)\nFil. pulm. (ED 9/23)\nBenigne essentielle Hypertonie\nAV-Block 3. grades\nTotalexzision einer subkutanen Melanommetastase (Histologie: Entfernung in sano) / Ellenbeuge re\nTotalexzision einer subkutanen Melanommetastase (Histologie: Entfernung in sano) / Handrücken rechts proximal\nSt. p. sen. node Biopsie / Axilla re (Lymphknotenmeta eines MM) 6/22\nSt. p. axilläre LK Disektion re (16 Metastasenfreie LK) 9.7.22\nSt. p. 1. Chemotherapie mit DTIC 6.10. bis 9.10.2023 (Abbruch wegen Anstieg der Leberparameter und Eosinophilie)\nSt. p. Radiatio re axillär (13. - 24.10.2023, Abbruch wg. Erysipel)\nSt. p. Karbunkel / occipital (12/08) (C43.6)\nOrganisches Psychosyndrom in 1. L. im Sinne einer Demenz\n \n Therapieempfehlung\n\nRisperdal 1 mg 0/0/1\nNavoban Kps. 1x1 bis einschließlich 13.9.24\n \nWeiteres_Vorgehen\n\nBlutbildkontrolle in 1 Woche beim Hausarzt \n\nStationäre Wiederaufnahme am 14.10.2024, 8.00 Uhr auf Station 4A. Ein Termin in der Gedächtnisambulanz wurde unsererseits für den 14.10.24, 10.00 Uhr organisiert - bitte Lesebrille mitbringen sowie eine Begleitperson.\n\nZusammenfassung\n\nDie stat. Aufnahme Ihres Pat. erfolgte zum geplanten 9. Zyklus einer Chemotherapie mit Carboplatin. Im extern durchgeführten CT Schädel bis Becken vom 18.8.2024 zeigte sich eine suspekte Kleinhirnmetastase rechts. Zusätzlich zeigte sich im Harn eine ausgeprägte Leukozyturie, weshalb vorerst von einer Chemotherapie Abstand genommen wurde und ein MR des Schädels sowie eine Antibiose mit Ciproxin durchgefürhrt wurde. Im MR Schädel konnte eine cerebrale Metastasierung ausgeschlossen werden.\nAm 9.9.2024 erhielt der Pat. die Chemotherapie mit Carboplatin (200mg) unter entsprechender antiemetischer Begleitmedikation. Die Chemotherapie wurde vom Patienten gut vertragen.\nDa Herr K. zunehmend örtlich und situativ desorientiert war, wurde mehrmals ein neurologisches Konsil sowie ein psychiatrisches Konsil einberufen (Befunde siehe hinten). Eine Therapie mit Risperdal wurde eingeleitet und eine Kontrolle in der Gedächtnisambulanz terminisiert.\nDer Patient konnte am 10.9.2024 nach einer abschließenden Blutbildkontrolle in ordentl. AZ nach Hause entlassen werden.\n\n Relevante Befunde\n\nLabor : 2.9.2024:\nEry 3,19, Hämatokrit 31,8, MCH 33,4, Harnstoff 41, GFR 42,18, AST 30, ALT 57, CK 163, CKMB 25, LDH 294.\n\n3.9.2024:\nHarn: Leuko 500, Nitrit neg., Sediment: Ery 44, Leuko 1757, PSE 7,\nBakterien mäßiggr..\n\n7.9.2024:\nEry 3,57, GFR 44,76, AST 41, ALT 56, Glukose 140.\n\n10.9.2024:\nLeuko 4,28, Ery 3,80.\n\nEKG 6.9.2024:\nSR 100/min, Kammerfrequenz 45/min, AV-Block III, LT, inkompletter RSB\n\nBildgebende Untersuchungen : MR des Gehirnschädels v. 2.9.2024: Drei maximal knapp unter 1 cm große Suszeptibilitätsartefakte: einerseits in der rechten Kleinhirnhemisphäre sowie supratentoriell parietal rechts und eine ganz kleine parietal links, in erster Linie Cavernomen entsprechend. Kein pathologisches Kontrastmittelenhancement im Sinne von metastasenverdächtigen Veränderungen.\nDeutliche fleckig konfluierende Marklagerhyperintensitäten in beiden Großhirnhemisphären, microangiopathischer Genese. Deutliche Ausweitung der inneren und äußeren Liquorräume, akzentuiert um den Temporalpol rechts. Kein Hinweis auf Liquorabflussstörung.\nKein Nachweis rezent ischämischer Läsionen.\n\nNebenbefund:\nSchleimhautschwellung mit Sekretspiegel im Sinus maxillaris dext. \nKonsiliarbefunde : Psychiatrischer Konsiliarbefund v. 3.9.2024: Diagnose: Verd. a. beginnende organische Halluzinose. Therapie: neurolog. Konsil, bei Persistenz der visuell optischen Halluzination. Therapieversuch mit Risperdal.\n\nNeurologisches Konsil v. 4.9.2024:\nSt.p. Halluzinatorischer Phase.\nOrganisches Psychosyndrom in 1. L. im Sinne einer Demenz. Therapie weiter wie eingeleitet. Kontrolle in der Demenzambulanz der Neurolog. Klinik. Bei Unruhezuständen wie von der Psychiatrie empfohlen Risperdal ½-1 abends.\nNeurologisches Konsil v. 8.9.2024:\nBeurteilung: Dementielles Syndrom, cerebrale Mikroangiopathie. Procedere: Lt. MR keine ZNS-Metastasen, Carboplatin macht periphere Neuropathie u. gelegentlich Halluziationen u. Angstzustände als mögliche Nebenwirkungen des Nervensystems.\n\nMedikation bei Entlassung:\nXalatan Augentropfen 1xtägl.\nLasix 40mg 1-0-0\nSpirono 25mg 0-1-0",
+      "id": 151237,
+      "firstName": null,
+      "lastName": null,
+      "deceased": false,
+      "gender": "male",
+      "deathDate": null
+    },
+    {
+      "begin": 43,
+      "end": 53,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "13.09.1955",
+      "id": 151707
+    },
+    {
+      "begin": 80,
+      "end": 90,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "2024-09-16",
+      "id": 151721
+    },
+    {
+      "begin": 237,
+      "end": 241,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "6/24",
+      "id": 151735
+    },
+    {
+      "begin": 334,
+      "end": 338,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "9/23",
+      "id": 151749
+    },
+    {
+      "begin": 355,
+      "end": 359,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "9/23",
+      "id": 151763
+    },
+    {
+      "begin": 682,
+      "end": 686,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "6/22",
+      "id": 151777
+    },
+    {
+      "begin": 743,
+      "end": 749,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "9.7.22",
+      "id": 151791
+    },
+    {
+      "begin": 783,
+      "end": 788,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "6.10.",
+      "id": 151805
+    },
+    {
+      "begin": 793,
+      "end": 802,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "9.10.2023",
+      "id": 151819
+    },
+    {
+      "begin": 891,
+      "end": 893,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "13",
+      "id": 151833
+    },
+    {
+      "begin": 897,
+      "end": 907,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "24.10.2023",
+      "id": 151847
+    },
+    {
+      "begin": 961,
+      "end": 966,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "12/08",
+      "id": 151861
+    },
+    {
+      "begin": 1113,
+      "end": 1120,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "13.9.24",
+      "id": 151875
+    },
+    {
+      "begin": 1216,
+      "end": 1226,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "14.10.2024",
+      "id": 151889
+    },
+    {
+      "begin": 1317,
+      "end": 1325,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "14.10.24",
+      "id": 151903
+    },
+    {
+      "begin": 1574,
+      "end": 1583,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "18.8.2024",
+      "id": 151917
+    },
+    {
+      "begin": 1918,
+      "end": 1926,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "9.9.2024",
+      "id": 151931
+    },
+    {
+      "begin": 2391,
+      "end": 2400,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "10.9.2024",
+      "id": 151945
+    },
+    {
+      "begin": 2518,
+      "end": 2526,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "2.9.2024",
+      "id": 151959
+    },
+    {
+      "begin": 2633,
+      "end": 2641,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "3.9.2024",
+      "id": 151973
+    },
+    {
+      "begin": 2731,
+      "end": 2739,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "7.9.2024",
+      "id": 151987
+    },
+    {
+      "begin": 2792,
+      "end": 2801,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "10.9.2024",
+      "id": 152001
+    },
+    {
+      "begin": 2830,
+      "end": 2838,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "6.9.2024",
+      "id": 152015
+    },
+    {
+      "begin": 2965,
+      "end": 2973,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "2.9.2024",
+      "id": 152029
+    },
+    {
+      "begin": 3731,
+      "end": 3739,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "3.9.2024",
+      "id": 152043
+    },
+    {
+      "begin": 3932,
+      "end": 3940,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "4.9.2024",
+      "id": 152057
+    },
+    {
+      "begin": 4220,
+      "end": 4228,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "8.9.2024",
+      "id": 152071
+    },
+    {
+      "begin": 24,
+      "end": 40,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Helmfried Koenig",
+      "id": 181071,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 2102,
+      "end": 2103,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "K",
+      "id": 181145,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 0,
+      "end": 4563,
+      "type": "de.averbis.types.health.DeidentifiedDocument",
+      "coveredText": "Definitiver Arztbrief\n \nHelmfried Koenig * 13.09.1955\n\nDefinitiver Arztbrief\n \n\n2024-09-16\nDiagnosen\n\n9. Zyklus einer Chemotherapie mit Carboplatin bei Z. n. Amputation Kleinfinger re wegen ulzeriertem MM, Level V, Tumordicke größer 4mm 6/24\nMultiple kutan-subkutane Metastasen / thoracal und axillär re\nLK-Metastasen / Axilla re (ED 9/23)\nFil. pulm. (ED 9/23)\nBenigne essentielle Hypertonie\nAV-Block 3. grades\nTotalexzision einer subkutanen Melanommetastase (Histologie: Entfernung in sano) / Ellenbeuge re\nTotalexzision einer subkutanen Melanommetastase (Histologie: Entfernung in sano) / Handrücken rechts proximal\nSt. p. sen. node Biopsie / Axilla re (Lymphknotenmeta eines MM) 6/22\nSt. p. axilläre LK Disektion re (16 Metastasenfreie LK) 9.7.22\nSt. p. 1. Chemotherapie mit DTIC 6.10. bis 9.10.2023 (Abbruch wegen Anstieg der Leberparameter und Eosinophilie)\nSt. p. Radiatio re axillär (13. - 24.10.2023, Abbruch wg. Erysipel)\nSt. p. Karbunkel / occipital (12/08) (C43.6)\nOrganisches Psychosyndrom in 1. L. im Sinne einer Demenz\n \n Therapieempfehlung\n\nRisperdal 1 mg 0/0/1\nNavoban Kps. 1x1 bis einschließlich 13.9.24\n \nWeiteres_Vorgehen\n\nBlutbildkontrolle in 1 Woche beim Hausarzt \n\nStationäre Wiederaufnahme am 14.10.2024, 8.00 Uhr auf Station 4A. Ein Termin in der Gedächtnisambulanz wurde unsererseits für den 14.10.24, 10.00 Uhr organisiert - bitte Lesebrille mitbringen sowie eine Begleitperson.\n\nZusammenfassung\n\nDie stat. Aufnahme Ihres Pat. erfolgte zum geplanten 9. Zyklus einer Chemotherapie mit Carboplatin. Im extern durchgeführten CT Schädel bis Becken vom 18.8.2024 zeigte sich eine suspekte Kleinhirnmetastase rechts. Zusätzlich zeigte sich im Harn eine ausgeprägte Leukozyturie, weshalb vorerst von einer Chemotherapie Abstand genommen wurde und ein MR des Schädels sowie eine Antibiose mit Ciproxin durchgefürhrt wurde. Im MR Schädel konnte eine cerebrale Metastasierung ausgeschlossen werden.\nAm 9.9.2024 erhielt der Pat. die Chemotherapie mit Carboplatin (200mg) unter entsprechender antiemetischer Begleitmedikation. Die Chemotherapie wurde vom Patienten gut vertragen.\nDa Herr K. zunehmend örtlich und situativ desorientiert war, wurde mehrmals ein neurologisches Konsil sowie ein psychiatrisches Konsil einberufen (Befunde siehe hinten). Eine Therapie mit Risperdal wurde eingeleitet und eine Kontrolle in der Gedächtnisambulanz terminisiert.\nDer Patient konnte am 10.9.2024 nach einer abschließenden Blutbildkontrolle in ordentl. AZ nach Hause entlassen werden.\n\n Relevante Befunde\n\nLabor : 2.9.2024:\nEry 3,19, Hämatokrit 31,8, MCH 33,4, Harnstoff 41, GFR 42,18, AST 30, ALT 57, CK 163, CKMB 25, LDH 294.\n\n3.9.2024:\nHarn: Leuko 500, Nitrit neg., Sediment: Ery 44, Leuko 1757, PSE 7,\nBakterien mäßiggr..\n\n7.9.2024:\nEry 3,57, GFR 44,76, AST 41, ALT 56, Glukose 140.\n\n10.9.2024:\nLeuko 4,28, Ery 3,80.\n\nEKG 6.9.2024:\nSR 100/min, Kammerfrequenz 45/min, AV-Block III, LT, inkompletter RSB\n\nBildgebende Untersuchungen : MR des Gehirnschädels v. 2.9.2024: Drei maximal knapp unter 1 cm große Suszeptibilitätsartefakte: einerseits in der rechten Kleinhirnhemisphäre sowie supratentoriell parietal rechts und eine ganz kleine parietal links, in erster Linie Cavernomen entsprechend. Kein pathologisches Kontrastmittelenhancement im Sinne von metastasenverdächtigen Veränderungen.\nDeutliche fleckig konfluierende Marklagerhyperintensitäten in beiden Großhirnhemisphären, microangiopathischer Genese. Deutliche Ausweitung der inneren und äußeren Liquorräume, akzentuiert um den Temporalpol rechts. Kein Hinweis auf Liquorabflussstörung.\nKein Nachweis rezent ischämischer Läsionen.\n\nNebenbefund:\nSchleimhautschwellung mit Sekretspiegel im Sinus maxillaris dext. \nKonsiliarbefunde : Psychiatrischer Konsiliarbefund v. 3.9.2024: Diagnose: Verd. a. beginnende organische Halluzinose. Therapie: neurolog. Konsil, bei Persistenz der visuell optischen Halluzination. Therapieversuch mit Risperdal.\n\nNeurologisches Konsil v. 4.9.2024:\nSt.p. Halluzinatorischer Phase.\nOrganisches Psychosyndrom in 1. L. im Sinne einer Demenz. Therapie weiter wie eingeleitet. Kontrolle in der Demenzambulanz der Neurolog. Klinik. Bei Unruhezuständen wie von der Psychiatrie empfohlen Risperdal ½-1 abends.\nNeurologisches Konsil v. 8.9.2024:\nBeurteilung: Dementielles Syndrom, cerebrale Mikroangiopathie. Procedere: Lt. MR keine ZNS-Metastasen, Carboplatin macht periphere Neuropathie u. gelegentlich Halluziationen u. Angstzustände als mögliche Nebenwirkungen des Nervensystems.\n\nMedikation bei Entlassung:\nXalatan Augentropfen 1xtägl.\nLasix 40mg 1-0-0\nSpirono 25mg 0-1-0 \n\n",
+      "id": 226991,
+      "kind": "crossout",
+      "deidentifiedText": "Definitiver Arztbrief\n \nXXXXXXXXX XXXXXX * XXXXXXXXXX\n\nDefinitiver Arztbrief\n \n\nXXXXXXXXXX\nDiagnosen\n\n9. Zyklus einer Chemotherapie mit Carboplatin bei Z. n. Amputation Kleinfinger re wegen ulzeriertem MM, Level V, Tumordicke größer 4mm XXXX\nMultiple kutan-subkutane Metastasen / thoracal und axillär re\nLK-Metastasen / Axilla re (ED XXXX)\nFil. pulm. (ED XXXX)\nBenigne essentielle Hypertonie\nAV-Block 3. grades\nTotalexzision einer subkutanen Melanommetastase (Histologie: Entfernung in sano) / Ellenbeuge re\nTotalexzision einer subkutanen Melanommetastase (Histologie: Entfernung in sano) / Handrücken rechts proximal\nSt. p. sen. node Biopsie / Axilla re (Lymphknotenmeta eines MM) XXXX\nSt. p. axilläre LK Disektion re (16 Metastasenfreie LK) XXXXXX\nSt. p. 1. Chemotherapie mit DTIC XXXXX bis XXXXXXXXX (Abbruch wegen Anstieg der Leberparameter und Eosinophilie)\nSt. p. Radiatio re axillär (XX. - XXXXXXXXXX, Abbruch wg. Erysipel)\nSt. p. Karbunkel / occipital (XXXXX) (C43.6)\nOrganisches Psychosyndrom in 1. L. im Sinne einer Demenz\n \n Therapieempfehlung\n\nRisperdal 1 mg 0/0/1\nNavoban Kps. 1x1 bis einschließlich XXXXXXX\n \nWeiteres_Vorgehen\n\nBlutbildkontrolle in 1 Woche beim Hausarzt \n\nStationäre Wiederaufnahme am XXXXXXXXXX, 8.00 Uhr auf Station 4A. Ein Termin in der Gedächtnisambulanz wurde unsererseits für den XXXXXXXX, 10.00 Uhr organisiert - bitte Lesebrille mitbringen sowie eine Begleitperson.\n\nZusammenfassung\n\nDie stat. Aufnahme Ihres Pat. erfolgte zum geplanten 9. Zyklus einer Chemotherapie mit Carboplatin. Im extern durchgeführten CT Schädel bis Becken vom XXXXXXXXX zeigte sich eine suspekte Kleinhirnmetastase rechts. Zusätzlich zeigte sich im Harn eine ausgeprägte Leukozyturie, weshalb vorerst von einer Chemotherapie Abstand genommen wurde und ein MR des Schädels sowie eine Antibiose mit Ciproxin durchgefürhrt wurde. Im MR Schädel konnte eine cerebrale Metastasierung ausgeschlossen werden.\nAm XXXXXXXX erhielt der Pat. die Chemotherapie mit Carboplatin (200mg) unter entsprechender antiemetischer Begleitmedikation. Die Chemotherapie wurde vom Patienten gut vertragen.\nDa Herr X. zunehmend örtlich und situativ desorientiert war, wurde mehrmals ein neurologisches Konsil sowie ein psychiatrisches Konsil einberufen (Befunde siehe hinten). Eine Therapie mit Risperdal wurde eingeleitet und eine Kontrolle in der Gedächtnisambulanz terminisiert.\nDer Patient konnte am XXXXXXXXX nach einer abschließenden Blutbildkontrolle in ordentl. AZ nach Hause entlassen werden.\n\n Relevante Befunde\n\nLabor : XXXXXXXX:\nEry 3,19, Hämatokrit 31,8, MCH 33,4, Harnstoff 41, GFR 42,18, AST 30, ALT 57, CK 163, CKMB 25, LDH 294.\n\nXXXXXXXX:\nHarn: Leuko 500, Nitrit neg., Sediment: Ery 44, Leuko 1757, PSE 7,\nBakterien mäßiggr..\n\nXXXXXXXX:\nEry 3,57, GFR 44,76, AST 41, ALT 56, Glukose 140.\n\nXXXXXXXXX:\nLeuko 4,28, Ery 3,80.\n\nEKG XXXXXXXX:\nSR 100/min, Kammerfrequenz 45/min, AV-Block III, LT, inkompletter RSB\n\nBildgebende Untersuchungen : MR des Gehirnschädels v. XXXXXXXX: Drei maximal knapp unter 1 cm große Suszeptibilitätsartefakte: einerseits in der rechten Kleinhirnhemisphäre sowie supratentoriell parietal rechts und eine ganz kleine parietal links, in erster Linie Cavernomen entsprechend. Kein pathologisches Kontrastmittelenhancement im Sinne von metastasenverdächtigen Veränderungen.\nDeutliche fleckig konfluierende Marklagerhyperintensitäten in beiden Großhirnhemisphären, microangiopathischer Genese. Deutliche Ausweitung der inneren und äußeren Liquorräume, akzentuiert um den Temporalpol rechts. Kein Hinweis auf Liquorabflussstörung.\nKein Nachweis rezent ischämischer Läsionen.\n\nNebenbefund:\nSchleimhautschwellung mit Sekretspiegel im Sinus maxillaris dext. \nKonsiliarbefunde : Psychiatrischer Konsiliarbefund v. XXXXXXXX: Diagnose: Verd. a. beginnende organische Halluzinose. Therapie: neurolog. Konsil, bei Persistenz der visuell optischen Halluzination. Therapieversuch mit Risperdal.\n\nNeurologisches Konsil v. XXXXXXXX:\nSt.p. Halluzinatorischer Phase.\nOrganisches Psychosyndrom in 1. L. im Sinne einer Demenz. Therapie weiter wie eingeleitet. Kontrolle in der Demenzambulanz der Neurolog. Klinik. Bei Unruhezuständen wie von der Psychiatrie empfohlen Risperdal ½-1 abends.\nNeurologisches Konsil v. XXXXXXXX:\nBeurteilung: Dementielles Syndrom, cerebrale Mikroangiopathie. Procedere: Lt. MR keine ZNS-Metastasen, Carboplatin macht periphere Neuropathie u. gelegentlich Halluziationen u. Angstzustände als mögliche Nebenwirkungen des Nervensystems.\n\nMedikation bei Entlassung:\nXalatan Augentropfen 1xtägl.\nLasix 40mg 1-0-0\nSpirono 25mg 0-1-0 \n\n"
+    },
+    {
+      "begin": 0,
+      "end": 4563,
+      "type": "de.averbis.types.health.DocumentAnnotation",
+      "coveredText": "Definitiver Arztbrief\n \nHelmfried Koenig * 13.09.1955\n\nDefinitiver Arztbrief\n \n\n2024-09-16\nDiagnosen\n\n9. Zyklus einer Chemotherapie mit Carboplatin bei Z. n. Amputation Kleinfinger re wegen ulzeriertem MM, Level V, Tumordicke größer 4mm 6/24\nMultiple kutan-subkutane Metastasen / thoracal und axillär re\nLK-Metastasen / Axilla re (ED 9/23)\nFil. pulm. (ED 9/23)\nBenigne essentielle Hypertonie\nAV-Block 3. grades\nTotalexzision einer subkutanen Melanommetastase (Histologie: Entfernung in sano) / Ellenbeuge re\nTotalexzision einer subkutanen Melanommetastase (Histologie: Entfernung in sano) / Handrücken rechts proximal\nSt. p. sen. node Biopsie / Axilla re (Lymphknotenmeta eines MM) 6/22\nSt. p. axilläre LK Disektion re (16 Metastasenfreie LK) 9.7.22\nSt. p. 1. Chemotherapie mit DTIC 6.10. bis 9.10.2023 (Abbruch wegen Anstieg der Leberparameter und Eosinophilie)\nSt. p. Radiatio re axillär (13. - 24.10.2023, Abbruch wg. Erysipel)\nSt. p. Karbunkel / occipital (12/08) (C43.6)\nOrganisches Psychosyndrom in 1. L. im Sinne einer Demenz\n \n Therapieempfehlung\n\nRisperdal 1 mg 0/0/1\nNavoban Kps. 1x1 bis einschließlich 13.9.24\n \nWeiteres_Vorgehen\n\nBlutbildkontrolle in 1 Woche beim Hausarzt \n\nStationäre Wiederaufnahme am 14.10.2024, 8.00 Uhr auf Station 4A. Ein Termin in der Gedächtnisambulanz wurde unsererseits für den 14.10.24, 10.00 Uhr organisiert - bitte Lesebrille mitbringen sowie eine Begleitperson.\n\nZusammenfassung\n\nDie stat. Aufnahme Ihres Pat. erfolgte zum geplanten 9. Zyklus einer Chemotherapie mit Carboplatin. Im extern durchgeführten CT Schädel bis Becken vom 18.8.2024 zeigte sich eine suspekte Kleinhirnmetastase rechts. Zusätzlich zeigte sich im Harn eine ausgeprägte Leukozyturie, weshalb vorerst von einer Chemotherapie Abstand genommen wurde und ein MR des Schädels sowie eine Antibiose mit Ciproxin durchgefürhrt wurde. Im MR Schädel konnte eine cerebrale Metastasierung ausgeschlossen werden.\nAm 9.9.2024 erhielt der Pat. die Chemotherapie mit Carboplatin (200mg) unter entsprechender antiemetischer Begleitmedikation. Die Chemotherapie wurde vom Patienten gut vertragen.\nDa Herr K. zunehmend örtlich und situativ desorientiert war, wurde mehrmals ein neurologisches Konsil sowie ein psychiatrisches Konsil einberufen (Befunde siehe hinten). Eine Therapie mit Risperdal wurde eingeleitet und eine Kontrolle in der Gedächtnisambulanz terminisiert.\nDer Patient konnte am 10.9.2024 nach einer abschließenden Blutbildkontrolle in ordentl. AZ nach Hause entlassen werden.\n\n Relevante Befunde\n\nLabor : 2.9.2024:\nEry 3,19, Hämatokrit 31,8, MCH 33,4, Harnstoff 41, GFR 42,18, AST 30, ALT 57, CK 163, CKMB 25, LDH 294.\n\n3.9.2024:\nHarn: Leuko 500, Nitrit neg., Sediment: Ery 44, Leuko 1757, PSE 7,\nBakterien mäßiggr..\n\n7.9.2024:\nEry 3,57, GFR 44,76, AST 41, ALT 56, Glukose 140.\n\n10.9.2024:\nLeuko 4,28, Ery 3,80.\n\nEKG 6.9.2024:\nSR 100/min, Kammerfrequenz 45/min, AV-Block III, LT, inkompletter RSB\n\nBildgebende Untersuchungen : MR des Gehirnschädels v. 2.9.2024: Drei maximal knapp unter 1 cm große Suszeptibilitätsartefakte: einerseits in der rechten Kleinhirnhemisphäre sowie supratentoriell parietal rechts und eine ganz kleine parietal links, in erster Linie Cavernomen entsprechend. Kein pathologisches Kontrastmittelenhancement im Sinne von metastasenverdächtigen Veränderungen.\nDeutliche fleckig konfluierende Marklagerhyperintensitäten in beiden Großhirnhemisphären, microangiopathischer Genese. Deutliche Ausweitung der inneren und äußeren Liquorräume, akzentuiert um den Temporalpol rechts. Kein Hinweis auf Liquorabflussstörung.\nKein Nachweis rezent ischämischer Läsionen.\n\nNebenbefund:\nSchleimhautschwellung mit Sekretspiegel im Sinus maxillaris dext. \nKonsiliarbefunde : Psychiatrischer Konsiliarbefund v. 3.9.2024: Diagnose: Verd. a. beginnende organische Halluzinose. Therapie: neurolog. Konsil, bei Persistenz der visuell optischen Halluzination. Therapieversuch mit Risperdal.\n\nNeurologisches Konsil v. 4.9.2024:\nSt.p. Halluzinatorischer Phase.\nOrganisches Psychosyndrom in 1. L. im Sinne einer Demenz. Therapie weiter wie eingeleitet. Kontrolle in der Demenzambulanz der Neurolog. Klinik. Bei Unruhezuständen wie von der Psychiatrie empfohlen Risperdal ½-1 abends.\nNeurologisches Konsil v. 8.9.2024:\nBeurteilung: Dementielles Syndrom, cerebrale Mikroangiopathie. Procedere: Lt. MR keine ZNS-Metastasen, Carboplatin macht periphere Neuropathie u. gelegentlich Halluziationen u. Angstzustände als mögliche Nebenwirkungen des Nervensystems.\n\nMedikation bei Entlassung:\nXalatan Augentropfen 1xtägl.\nLasix 40mg 1-0-0\nSpirono 25mg 0-1-0 \n\n",
+      "id": 8,
+      "language": "de",
+      "version": "5.33.1"
+    }
+  ]
+}

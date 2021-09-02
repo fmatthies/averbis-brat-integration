@@ -1,0 +1,627 @@
+{
+  "annotationDtos": [
+    {
+      "begin": 33,
+      "end": 88,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Sehr geehrte Frau Kollegin, sehr geehrter Herr Kollege,",
+      "id": 234827,
+      "matchedTerm": "Sehr geehrte Frau Kollegin, sehr geehrter Herr Kollege",
+      "dictCanon": "Weitere",
+      "conceptId": "Sec_Misc",
+      "source": "clinical_sections_de",
+      "label": "MiscClinicalSection",
+      "uniqueId": "clinical_sections_de:Sec_Misc"
+    },
+    {
+      "begin": 219,
+      "end": 2255,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Diagnosen:\t\n- Mittelgradig diff. Rektumkarzinom ED 12/17,  - T3N1M0, G2 (Her 2 neu Rezeptor negativ)\t\n- Abdominoperineale Rectumamputation und Anus praeter-Anlage 12/17\n- Relaparotomie und Adhaesiolyse bei Frühadhäsionsileus 12/17\n- Multiple Lebermetastasen ED 01/17\t\t\t\t\t\n- 14 Zyklen Raltritrexed 01/97-10/18                                \n- Lebermetastasenresektion 11/18\n- Lobektomie li, Segmentresektion VI und VIII\n- adjuvante 5-Fluoruracil-Dauertherapie 01/18-06/19, \t\t\t\n-  5-FU plus Oxaliplatin (FOLFOX) 6-9/19 => partielle Remission \n- Rezidiv der Lebermetastasen unter Therapiepause 9/20\n- Lebermetastasenresektion 9/20 (Segmentektomie IV und VIII)\n- adjuvante Chemotherapie Irinotecan plus 5-FU/Leukovorin ab 11/20, insgesamt 4 Zyklen bis 03/21 \n- anschließende Bestrahlungstherapie der Leber 4-5/2021\n- Thymophysin 50mg/d 29.09.-02.10.21 und 5.10.-10.10.21\n- neu aufgetretene Lebermetastasen (PET 29.07.2021) \t\t\t\n- Chemotherapie (Protokoll Nr.:099984-0163)  Irinotecan (80mg/m2), 5-FU (2000mg/ m2), Leukovorin (500mg/ m2), 3 Zyklen: 18.08.21 - 20.1.22, seit 20.09.21 (2. und 3. Zyklus) in um 20% reduzierte Dosis bei rez. Neutropenien\n- V.a. Lungenfil. im CT 1/21 \n-Umstellung Chemotherapie bei Tumorprogress (Lungenfiliae)\n-Gemcitabine 1000mg/ m2 Tag 1,8,15; Wiederholung Tag 28, 27.1.2021 bis 10.02.2022(1000mg/m2), am  10.02.2022 in reduzierter Dosis von 750mg/m2 wegen Neutropenie\n- Umstellung Chemotherapie auf Gemcitabine/ Capecitabine bei Progress (CEA-Anstieg)\n- Gemzar* (Gemcitabine) 1000mg/qm: Tag 1 und 8, Wiederholung Tag 21, wobei Gemzar wegen der Neutropenie des Patienten mit 750mg/qm begonnen wurde\n- Xeloda (Capecitabine) 1300mg/qm/d = Capecitabine 2500mg p.o.; Tag 1-14, Pause Tag 15-21 3 Zyklen ; 25.02.22 - 16.04.22 \n- Umstellung Chemotherapie auf  Mitomycin C/5-FU bei Progress (CEA, CT-Thorax)\n- Mitomycin C 10 mg/qm = 18 mg, Tag 1\n- 5-Fluorouracil 600 mg/qm = 1128 mg Tag 1, 8, 29, 36 \t\n- 3 Zyklen  1.05. - 26.06.2022\n\t\t\t\nRemissionsstand: Tumorprogress trotz verschiedener Therapieprotokolle seit 07/21",
+      "id": 234838,
+      "matchedTerm": "Diagnosen",
+      "dictCanon": "Diagnose",
+      "conceptId": "10164-2",
+      "source": "clinical_sections_de",
+      "label": "DiagnosisSection",
+      "uniqueId": "clinical_sections_de:10164-2"
+    },
+    {
+      "begin": 2257,
+      "end": 2623,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Weitere Diagn.:\t\n- Z.n. Port-Implantation li 1/19\n-Z.n. follikulärem Schilddrüsenkarzinom pT2aN0M0 G1\t\t \n- Hemithyreoidektomie re. 10/14 \n- Restthyreoidectomie 11/14\n- Radiojodtherapie 12/14 \n- Substitutionstherapie (aktuell: Euthyreose)\n- Rezidiv. Intermitt. Vorhofflimmern mit TAA, zuletzt 21.07.22\t\n- AV-Block I. Grades \n- Z.n. rez. Lungenembolie (4/16 und 11/18)",
+      "id": 234849,
+      "matchedTerm": "Weitere Diagn.",
+      "dictCanon": "Diagnose",
+      "conceptId": "10164-2",
+      "source": "clinical_sections_de",
+      "label": "DiagnosisSection",
+      "uniqueId": "clinical_sections_de:10164-2"
+    },
+    {
+      "begin": 2628,
+      "end": 2846,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Aktueller Therapiestand: \n\t \n- Thalidomid 200mg/d seit 27.05.2022 \n- Beginn FOLFOX (Oxaliplatin 100mg/m2;5-FU 2400mg/m2  über 48h, Bolus 400mg/ m2; \n- Calciumfolinat 400mg/m2 Tag 1,15 Wiederholung Tag 29) am 21.07.2022",
+      "id": 234860,
+      "matchedTerm": "Aktueller Therapiestand",
+      "dictCanon": "Therapie",
+      "conceptId": "62387-6",
+      "source": "clinical_sections_de",
+      "label": "TherapySection",
+      "uniqueId": "clinical_sections_de:62387-6"
+    },
+    {
+      "begin": 2849,
+      "end": 2907,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Verlaufsparameter: CEA, CT-Thorax\n\nKarnofsky-Index:  100 %",
+      "id": 234871,
+      "matchedTerm": "Verlaufsparameter",
+      "dictCanon": "Weitere",
+      "conceptId": "Sec_Misc",
+      "source": "clinical_sections_de",
+      "label": "MiscClinicalSection",
+      "uniqueId": "clinical_sections_de:Sec_Misc"
+    },
+    {
+      "begin": 2910,
+      "end": 2966,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Aktuell:  Beginn Chemotherapie nach dem FOLFOX-Protokoll",
+      "id": 234882,
+      "matchedTerm": "Aktuell",
+      "dictCanon": "Grund der Aufnahme",
+      "conceptId": "29299-5",
+      "source": "clinical_sections_de",
+      "label": "AdmissionReasonSection",
+      "uniqueId": "clinical_sections_de:29299-5"
+    },
+    {
+      "begin": 2968,
+      "end": 3417,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Zwischenanamnese: \nHerr Xavier berichtet über seit 2 Tagen zunehmende Dyspnoe vor allen Dingen bei Belastung. Tagsüber fühle er sich häufig müde ohne Leistungsfähigkeit, wie er sie gewohnt ist. Das Gewicht habe bis auf 87 kg zugenommen. Abends treten Beinödeme auf. Gelegentlich, vor allem in den letzten zwei Tagen Husten mit gelblichem Auswurf. \nVor 2 Tagen begann Herr Xavier mit der Einnahme von Nifedipin in der Dosierung von 3 x 20 mg pro Tag.",
+      "id": 234893,
+      "matchedTerm": "Zwischenanamnese",
+      "dictCanon": "Anamnese",
+      "conceptId": "11329-0",
+      "source": "clinical_sections_de",
+      "label": "AnamnesisSection",
+      "uniqueId": "clinical_sections_de:11329-0"
+    },
+    {
+      "begin": 3443,
+      "end": 3813,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Labor (21.07.22): Leukozyten 6,2 Tsd/µl; Erythrozyten 4,08 Mio/µl; Hämoglobin 13,1 g/dl; \nHämatokrit 36,1 %; MCV 88,5 fl; MCH (HbE) 32,1 pg; MCHC 36,3 g/dl; Thrombozyten 180 Tsd/µl; \nKalium 3,2 mmol/l; Natrium 137 mmol/l; Calcium 2,06 mmol/l; Harnstoff 47 mg/dl; Serum-Kreatinin \n0,9 mg/dl; Alk. Phosphatase 117 U/l; Gamma - GT 42 U/l; CEA         (Elecsys) 216,7 ng/ml;",
+      "id": 234904,
+      "matchedTerm": "Labor (",
+      "dictCanon": "Labor",
+      "conceptId": "30954-2",
+      "source": "clinical_sections_de",
+      "label": "LaboratorySection",
+      "uniqueId": "clinical_sections_de:30954-2"
+    },
+    {
+      "begin": 3815,
+      "end": 4184,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "CT Thorax (07.07.2022): Im Vergleich zur Voruntersuchung vom 15.03.2021 zeigt sich eine \nGrößenzunahme der mediastinalen Lymphknotenmetastasen (derzeit max. 3,8 cm im \nSagittaldurchmesser) sowie eine Größenzunahme der bekannten Lungenmetastasen. Zusätzlich zu den \nbereits bekannten metastasentypischen Leberläsionen Nachweis zweier neuer Metastasen im \nLeberparenchym.",
+      "id": 234915,
+      "matchedTerm": "CT-Thorax",
+      "dictCanon": "Untersuchungsbefund",
+      "conceptId": "59776-5",
+      "source": "clinical_sections_de",
+      "label": "ObservationSection",
+      "uniqueId": "clinical_sections_de:59776-5"
+    },
+    {
+      "begin": 4187,
+      "end": 5583,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Zusammenfassung und Verlauf: \nHerr Xavier stellte sich zu Beginn der Kombinations-Chemotherapie aus Oxaliplatin und 5-FU vor. Er \nberichtet über Belastungsdyspnoe in den letzten 2 Tagen. Als Ursache dafür zeigte sich eine absolute \nArrhythmie bei Vorhofflimmern und Herzfrequenz um 100-120/min. Während des kurzen stationären \nAufenthaltes gelang die Kardioversion mittels Flecainid 100 mg per os unter Monitorkontrolle. Die \nRhythmisierung (Herzfreqenz nach Kardioversion 60/min) führte zu einer raschen subjektiven \nBesserung. \nAm 07.07.2022 war ein Zwischenstaging bei Z.n. 2 Zyklen Konbinationschemotherapie Mitomycin/5-\nFU erfolgt. Es zeigte sich ein Befundprogress. Nach Durchsicht der Krankenakten zeigt sich, daß von \nJuni bis November 2019 eine Therapie mit Oxaliplatin/5-FU erfolgreich zur Therapie von \nLebermetastasen eingesetzt wurde. In der Hoffnung auf dieses therapeutische Potential sollte nun ein \nerneuter Versuch mit dieser Therapiekombination erfolgen. \nAFP war vom 02.07.2022 276 auf aktuell 216,7 ng/ml (21.07.22) gesunken. Unter Umständen ist dies \nnoch als Therapieerfolg der Kombination Mitomycin/5-FU zu werten oder steht in keinem \ntherapeutischen Zusammenhang. Eine Fortsetzung der Chemotherapie ist für Mittwoch, den \n05.08.2022 vorgesehen. \nThalidomid wurde auf 100 mg abends reduziert. \nFür Rückfragen stehen wir Ihnen unter o.g. Telefonnummer gerne zur Verfügung.",
+      "id": 234926,
+      "matchedTerm": "Zusammenfassung und Verlauf",
+      "dictCanon": "Epikrise",
+      "conceptId": "51848-0",
+      "source": "clinical_sections_de",
+      "label": "EpicrisisSection",
+      "uniqueId": "clinical_sections_de:51848-0"
+    },
+    {
+      "begin": 5585,
+      "end": 5732,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Therapieempfehlung: \nTambocor 100 mg\t1-0-1\nASS 100 mg\t1-0-0\nL-Thyroxin 100 µg\t1-0-0\nAquaphor 10 mg\t1-0-0\nThalidomid 100 mg\t0-0-1\nAdalat 20 mg\t1-1-1",
+      "id": 234937,
+      "matchedTerm": "Therapieempfehlung",
+      "dictCanon": "Medikationsempfehlung",
+      "conceptId": "Sec_MedicationRecommendation",
+      "source": "clinical_sections_de",
+      "label": "MedicationRecommendationSection",
+      "uniqueId": "clinical_sections_de:Sec_MedicationRecommendation"
+    },
+    {
+      "begin": 156,
+      "end": 157,
+      "type": "de.averbis.types.health.Hospitalisation",
+      "coveredText": "1",
+      "id": 235296,
+      "admissionDate": "2022-07-01",
+      "dischargeDate": null
+    },
+    {
+      "begin": 0,
+      "end": 5732,
+      "type": "de.averbis.types.health.PatientInformation",
+      "coveredText": "Leonard Xavier geb. 15.01.1940,\n\nSehr geehrte Frau Kollegin, sehr geehrter Herr Kollege,\n\nwir berichten Ihnen nachfolgend über o.g. Patienten, der sich vom 1. -  21. Juli 2022 in unserer stationären Behandlung befand.\n\nDiagnosen:\t\n- Mittelgradig diff. Rektumkarzinom ED 12/17,  - T3N1M0, G2 (Her 2 neu Rezeptor negativ)\t\n- Abdominoperineale Rectumamputation und Anus praeter-Anlage 12/17\n- Relaparotomie und Adhaesiolyse bei Frühadhäsionsileus 12/17\n- Multiple Lebermetastasen ED 01/17\t\t\t\t\t\n- 14 Zyklen Raltritrexed 01/97-10/18                                \n- Lebermetastasenresektion 11/18\n- Lobektomie li, Segmentresektion VI und VIII\n- adjuvante 5-Fluoruracil-Dauertherapie 01/18-06/19, \t\t\t\n-  5-FU plus Oxaliplatin (FOLFOX) 6-9/19 => partielle Remission \n- Rezidiv der Lebermetastasen unter Therapiepause 9/20\n- Lebermetastasenresektion 9/20 (Segmentektomie IV und VIII)\n- adjuvante Chemotherapie Irinotecan plus 5-FU/Leukovorin ab 11/20, insgesamt 4 Zyklen bis 03/21 \n- anschließende Bestrahlungstherapie der Leber 4-5/2021\n- Thymophysin 50mg/d 29.09.-02.10.21 und 5.10.-10.10.21\n- neu aufgetretene Lebermetastasen (PET 29.07.2021) \t\t\t\n- Chemotherapie (Protokoll Nr.:099984-0163)  Irinotecan (80mg/m2), 5-FU (2000mg/ m2), Leukovorin (500mg/ m2), 3 Zyklen: 18.08.21 - 20.1.22, seit 20.09.21 (2. und 3. Zyklus) in um 20% reduzierte Dosis bei rez. Neutropenien\n- V.a. Lungenfil. im CT 1/21 \n-Umstellung Chemotherapie bei Tumorprogress (Lungenfiliae)\n-Gemcitabine 1000mg/ m2 Tag 1,8,15; Wiederholung Tag 28, 27.1.2021 bis 10.02.2022(1000mg/m2), am  10.02.2022 in reduzierter Dosis von 750mg/m2 wegen Neutropenie\n- Umstellung Chemotherapie auf Gemcitabine/ Capecitabine bei Progress (CEA-Anstieg)\n- Gemzar* (Gemcitabine) 1000mg/qm: Tag 1 und 8, Wiederholung Tag 21, wobei Gemzar wegen der Neutropenie des Patienten mit 750mg/qm begonnen wurde\n- Xeloda (Capecitabine) 1300mg/qm/d = Capecitabine 2500mg p.o.; Tag 1-14, Pause Tag 15-21 3 Zyklen ; 25.02.22 - 16.04.22 \n- Umstellung Chemotherapie auf  Mitomycin C/5-FU bei Progress (CEA, CT-Thorax)\n- Mitomycin C 10 mg/qm = 18 mg, Tag 1\n- 5-Fluorouracil 600 mg/qm = 1128 mg Tag 1, 8, 29, 36 \t\n- 3 Zyklen  1.05. - 26.06.2022\n\t\t\t\nRemissionsstand: Tumorprogress trotz verschiedener Therapieprotokolle seit 07/21\n\nWeitere Diagn.:\t\n- Z.n. Port-Implantation li 1/19\n-Z.n. follikulärem Schilddrüsenkarzinom pT2aN0M0 G1\t\t \n- Hemithyreoidektomie re. 10/14 \n- Restthyreoidectomie 11/14\n- Radiojodtherapie 12/14 \n- Substitutionstherapie (aktuell: Euthyreose)\n- Rezidiv. Intermitt. Vorhofflimmern mit TAA, zuletzt 21.07.22\t\n- AV-Block I. Grades \n- Z.n. rez. Lungenembolie (4/16 und 11/18)\t\t\t\n\nAktueller Therapiestand: \n\t \n- Thalidomid 200mg/d seit 27.05.2022 \n- Beginn FOLFOX (Oxaliplatin 100mg/m2;5-FU 2400mg/m2  über 48h, Bolus 400mg/ m2; \n- Calciumfolinat 400mg/m2 Tag 1,15 Wiederholung Tag 29) am 21.07.2022 \n\nVerlaufsparameter: CEA, CT-Thorax\n\nKarnofsky-Index:  100 %\n \nAktuell:  Beginn Chemotherapie nach dem FOLFOX-Protokoll\n\nZwischenanamnese: \nHerr Xavier berichtet über seit 2 Tagen zunehmende Dyspnoe vor allen Dingen bei Belastung. Tagsüber fühle er sich häufig müde ohne Leistungsfähigkeit, wie er sie gewohnt ist. Das Gewicht habe bis auf 87 kg zugenommen. Abends treten Beinödeme auf. Gelegentlich, vor allem in den letzten zwei Tagen Husten mit gelblichem Auswurf. \nVor 2 Tagen begann Herr Xavier mit der Einnahme von Nifedipin in der Dosierung von 3 x 20 mg pro Tag. \n\nZusatzuntersuchungen: \nLabor (21.07.22): Leukozyten 6,2 Tsd/µl; Erythrozyten 4,08 Mio/µl; Hämoglobin 13,1 g/dl; \nHämatokrit 36,1 %; MCV 88,5 fl; MCH (HbE) 32,1 pg; MCHC 36,3 g/dl; Thrombozyten 180 Tsd/µl; \nKalium 3,2 mmol/l; Natrium 137 mmol/l; Calcium 2,06 mmol/l; Harnstoff 47 mg/dl; Serum-Kreatinin \n0,9 mg/dl; Alk. Phosphatase 117 U/l; Gamma - GT 42 U/l; CEA         (Elecsys) 216,7 ng/ml; \nCT Thorax (07.07.2022): Im Vergleich zur Voruntersuchung vom 15.03.2021 zeigt sich eine \nGrößenzunahme der mediastinalen Lymphknotenmetastasen (derzeit max. 3,8 cm im \nSagittaldurchmesser) sowie eine Größenzunahme der bekannten Lungenmetastasen. Zusätzlich zu den \nbereits bekannten metastasentypischen Leberläsionen Nachweis zweier neuer Metastasen im \nLeberparenchym. \n\nZusammenfassung und Verlauf: \nHerr Xavier stellte sich zu Beginn der Kombinations-Chemotherapie aus Oxaliplatin und 5-FU vor. Er \nberichtet über Belastungsdyspnoe in den letzten 2 Tagen. Als Ursache dafür zeigte sich eine absolute \nArrhythmie bei Vorhofflimmern und Herzfrequenz um 100-120/min. Während des kurzen stationären \nAufenthaltes gelang die Kardioversion mittels Flecainid 100 mg per os unter Monitorkontrolle. Die \nRhythmisierung (Herzfreqenz nach Kardioversion 60/min) führte zu einer raschen subjektiven \nBesserung. \nAm 07.07.2022 war ein Zwischenstaging bei Z.n. 2 Zyklen Konbinationschemotherapie Mitomycin/5-\nFU erfolgt. Es zeigte sich ein Befundprogress. Nach Durchsicht der Krankenakten zeigt sich, daß von \nJuni bis November 2019 eine Therapie mit Oxaliplatin/5-FU erfolgreich zur Therapie von \nLebermetastasen eingesetzt wurde. In der Hoffnung auf dieses therapeutische Potential sollte nun ein \nerneuter Versuch mit dieser Therapiekombination erfolgen. \nAFP war vom 02.07.2022 276 auf aktuell 216,7 ng/ml (21.07.22) gesunken. Unter Umständen ist dies \nnoch als Therapieerfolg der Kombination Mitomycin/5-FU zu werten oder steht in keinem \ntherapeutischen Zusammenhang. Eine Fortsetzung der Chemotherapie ist für Mittwoch, den \n05.08.2022 vorgesehen. \nThalidomid wurde auf 100 mg abends reduziert. \nFür Rückfragen stehen wir Ihnen unter o.g. Telefonnummer gerne zur Verfügung.\n\nTherapieempfehlung: \nTambocor 100 mg\t1-0-1\nASS 100 mg\t1-0-0\nL-Thyroxin 100 µg\t1-0-0\nAquaphor 10 mg\t1-0-0\nThalidomid 100 mg\t0-0-1\nAdalat 20 mg\t1-1-1",
+      "id": 236565,
+      "firstName": null,
+      "lastName": null,
+      "deceased": false,
+      "gender": "male",
+      "deathDate": null
+    },
+    {
+      "begin": 1929,
+      "end": 1936,
+      "type": "de.averbis.types.health.Contact",
+      "coveredText": "15-21 3",
+      "id": 284814,
+      "kind": "PHONE"
+    },
+    {
+      "begin": 20,
+      "end": 30,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "15.01.1940",
+      "id": 237115
+    },
+    {
+      "begin": 156,
+      "end": 157,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "1",
+      "id": 237129
+    },
+    {
+      "begin": 162,
+      "end": 175,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "21. Juli 2022",
+      "id": 237143
+    },
+    {
+      "begin": 270,
+      "end": 275,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "12/17",
+      "id": 237157
+    },
+    {
+      "begin": 382,
+      "end": 387,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "12/17",
+      "id": 237171
+    },
+    {
+      "begin": 444,
+      "end": 449,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "12/17",
+      "id": 237185
+    },
+    {
+      "begin": 480,
+      "end": 485,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "01/17",
+      "id": 237199
+    },
+    {
+      "begin": 516,
+      "end": 521,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "01/97",
+      "id": 237213
+    },
+    {
+      "begin": 522,
+      "end": 527,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "10/18",
+      "id": 237227
+    },
+    {
+      "begin": 587,
+      "end": 592,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "11/18",
+      "id": 237241
+    },
+    {
+      "begin": 679,
+      "end": 684,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "01/18",
+      "id": 237255
+    },
+    {
+      "begin": 685,
+      "end": 690,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "06/19",
+      "id": 237269
+    },
+    {
+      "begin": 730,
+      "end": 731,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "6",
+      "id": 237283
+    },
+    {
+      "begin": 732,
+      "end": 736,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "9/19",
+      "id": 237297
+    },
+    {
+      "begin": 811,
+      "end": 815,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "9/20",
+      "id": 237311
+    },
+    {
+      "begin": 843,
+      "end": 847,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "9/20",
+      "id": 237325
+    },
+    {
+      "begin": 938,
+      "end": 943,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "11/20",
+      "id": 237339
+    },
+    {
+      "begin": 968,
+      "end": 973,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "03/21",
+      "id": 237353
+    },
+    {
+      "begin": 1022,
+      "end": 1023,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "4",
+      "id": 237367
+    },
+    {
+      "begin": 1024,
+      "end": 1030,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "5/2021",
+      "id": 237381
+    },
+    {
+      "begin": 1052,
+      "end": 1058,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "29.09.",
+      "id": 237395
+    },
+    {
+      "begin": 1059,
+      "end": 1067,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "02.10.21",
+      "id": 237409
+    },
+    {
+      "begin": 1072,
+      "end": 1077,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "5.10.",
+      "id": 237423
+    },
+    {
+      "begin": 1078,
+      "end": 1086,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "10.10.21",
+      "id": 237437
+    },
+    {
+      "begin": 1127,
+      "end": 1137,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "29.07.2021",
+      "id": 237451
+    },
+    {
+      "begin": 1263,
+      "end": 1271,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "18.08.21",
+      "id": 237465
+    },
+    {
+      "begin": 1274,
+      "end": 1281,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "20.1.22",
+      "id": 237479
+    },
+    {
+      "begin": 1288,
+      "end": 1296,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "20.09.21",
+      "id": 237493
+    },
+    {
+      "begin": 1389,
+      "end": 1393,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "1/21",
+      "id": 237507
+    },
+    {
+      "begin": 1511,
+      "end": 1520,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "27.1.2021",
+      "id": 237521
+    },
+    {
+      "begin": 1525,
+      "end": 1535,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "10.02.2022",
+      "id": 237535
+    },
+    {
+      "begin": 1552,
+      "end": 1562,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "10.02.2022",
+      "id": 237549
+    },
+    {
+      "begin": 1946,
+      "end": 1954,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "25.02.22",
+      "id": 237563
+    },
+    {
+      "begin": 1957,
+      "end": 1965,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "16.04.22",
+      "id": 237577
+    },
+    {
+      "begin": 2152,
+      "end": 2157,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "1.05.",
+      "id": 237591
+    },
+    {
+      "begin": 2160,
+      "end": 2170,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "26.06.2022",
+      "id": 237605
+    },
+    {
+      "begin": 2250,
+      "end": 2255,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "07/21",
+      "id": 237619
+    },
+    {
+      "begin": 2302,
+      "end": 2306,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "1/19",
+      "id": 237633
+    },
+    {
+      "begin": 2388,
+      "end": 2393,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "10/14",
+      "id": 237647
+    },
+    {
+      "begin": 2417,
+      "end": 2422,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "11/14",
+      "id": 237661
+    },
+    {
+      "begin": 2442,
+      "end": 2447,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "12/14",
+      "id": 237675
+    },
+    {
+      "begin": 2549,
+      "end": 2557,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "21.07.22",
+      "id": 237689
+    },
+    {
+      "begin": 2608,
+      "end": 2612,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "4/16",
+      "id": 237703
+    },
+    {
+      "begin": 2617,
+      "end": 2622,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "11/18",
+      "id": 237717
+    },
+    {
+      "begin": 2683,
+      "end": 2693,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "27.05.2022",
+      "id": 237731
+    },
+    {
+      "begin": 2836,
+      "end": 2846,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "21.07.2022",
+      "id": 237745
+    },
+    {
+      "begin": 3450,
+      "end": 3458,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "21.07.22",
+      "id": 237759
+    },
+    {
+      "begin": 3826,
+      "end": 3836,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "07.07.2022",
+      "id": 237773
+    },
+    {
+      "begin": 3876,
+      "end": 3886,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "15.03.2021",
+      "id": 237787
+    },
+    {
+      "begin": 4720,
+      "end": 4730,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "07.07.2022",
+      "id": 237801
+    },
+    {
+      "begin": 4913,
+      "end": 4917,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "Juni",
+      "id": 237815
+    },
+    {
+      "begin": 4922,
+      "end": 4935,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "November 2019",
+      "id": 237829
+    },
+    {
+      "begin": 5174,
+      "end": 5184,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "02.07.2022",
+      "id": 237843
+    },
+    {
+      "begin": 5214,
+      "end": 5222,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "21.07.22",
+      "id": 237857
+    },
+    {
+      "begin": 5420,
+      "end": 5445,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "Mittwoch, den \n05.08.2022",
+      "id": 347486
+    },
+    {
+      "begin": 1174,
+      "end": 1185,
+      "type": "de.averbis.types.health.ID",
+      "coveredText": "099984-0163",
+      "id": 238107,
+      "kind": "OTHER"
+    },
+    {
+      "begin": 3056,
+      "end": 3062,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Dingen",
+      "id": 307540,
+      "kind": "CITY"
+    },
+    {
+      "begin": 0,
+      "end": 14,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Leonard Xavier",
+      "id": 290100,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 2992,
+      "end": 2998,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Xavier",
+      "id": 290174,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 3340,
+      "end": 3346,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Xavier",
+      "id": 290224,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 4222,
+      "end": 4228,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Xavier",
+      "id": 290274,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 0,
+      "end": 5737,
+      "type": "de.averbis.types.health.DeidentifiedDocument",
+      "coveredText": "Leonard Xavier geb. 15.01.1940,\n\nSehr geehrte Frau Kollegin, sehr geehrter Herr Kollege,\n\nwir berichten Ihnen nachfolgend über o.g. Patienten, der sich vom 1. -  21. Juli 2022 in unserer stationären Behandlung befand.\n\nDiagnosen:\t\n- Mittelgradig diff. Rektumkarzinom ED 12/17,  - T3N1M0, G2 (Her 2 neu Rezeptor negativ)\t\n- Abdominoperineale Rectumamputation und Anus praeter-Anlage 12/17\n- Relaparotomie und Adhaesiolyse bei Frühadhäsionsileus 12/17\n- Multiple Lebermetastasen ED 01/17\t\t\t\t\t\n- 14 Zyklen Raltritrexed 01/97-10/18                                \n- Lebermetastasenresektion 11/18\n- Lobektomie li, Segmentresektion VI und VIII\n- adjuvante 5-Fluoruracil-Dauertherapie 01/18-06/19, \t\t\t\n-  5-FU plus Oxaliplatin (FOLFOX) 6-9/19 => partielle Remission \n- Rezidiv der Lebermetastasen unter Therapiepause 9/20\n- Lebermetastasenresektion 9/20 (Segmentektomie IV und VIII)\n- adjuvante Chemotherapie Irinotecan plus 5-FU/Leukovorin ab 11/20, insgesamt 4 Zyklen bis 03/21 \n- anschließende Bestrahlungstherapie der Leber 4-5/2021\n- Thymophysin 50mg/d 29.09.-02.10.21 und 5.10.-10.10.21\n- neu aufgetretene Lebermetastasen (PET 29.07.2021) \t\t\t\n- Chemotherapie (Protokoll Nr.:099984-0163)  Irinotecan (80mg/m2), 5-FU (2000mg/ m2), Leukovorin (500mg/ m2), 3 Zyklen: 18.08.21 - 20.1.22, seit 20.09.21 (2. und 3. Zyklus) in um 20% reduzierte Dosis bei rez. Neutropenien\n- V.a. Lungenfil. im CT 1/21 \n-Umstellung Chemotherapie bei Tumorprogress (Lungenfiliae)\n-Gemcitabine 1000mg/ m2 Tag 1,8,15; Wiederholung Tag 28, 27.1.2021 bis 10.02.2022(1000mg/m2), am  10.02.2022 in reduzierter Dosis von 750mg/m2 wegen Neutropenie\n- Umstellung Chemotherapie auf Gemcitabine/ Capecitabine bei Progress (CEA-Anstieg)\n- Gemzar* (Gemcitabine) 1000mg/qm: Tag 1 und 8, Wiederholung Tag 21, wobei Gemzar wegen der Neutropenie des Patienten mit 750mg/qm begonnen wurde\n- Xeloda (Capecitabine) 1300mg/qm/d = Capecitabine 2500mg p.o.; Tag 1-14, Pause Tag 15-21 3 Zyklen ; 25.02.22 - 16.04.22 \n- Umstellung Chemotherapie auf  Mitomycin C/5-FU bei Progress (CEA, CT-Thorax)\n- Mitomycin C 10 mg/qm = 18 mg, Tag 1\n- 5-Fluorouracil 600 mg/qm = 1128 mg Tag 1, 8, 29, 36 \t\n- 3 Zyklen  1.05. - 26.06.2022\n\t\t\t\nRemissionsstand: Tumorprogress trotz verschiedener Therapieprotokolle seit 07/21\n\nWeitere Diagn.:\t\n- Z.n. Port-Implantation li 1/19\n-Z.n. follikulärem Schilddrüsenkarzinom pT2aN0M0 G1\t\t \n- Hemithyreoidektomie re. 10/14 \n- Restthyreoidectomie 11/14\n- Radiojodtherapie 12/14 \n- Substitutionstherapie (aktuell: Euthyreose)\n- Rezidiv. Intermitt. Vorhofflimmern mit TAA, zuletzt 21.07.22\t\n- AV-Block I. Grades \n- Z.n. rez. Lungenembolie (4/16 und 11/18)\t\t\t\n\nAktueller Therapiestand: \n\t \n- Thalidomid 200mg/d seit 27.05.2022 \n- Beginn FOLFOX (Oxaliplatin 100mg/m2;5-FU 2400mg/m2  über 48h, Bolus 400mg/ m2; \n- Calciumfolinat 400mg/m2 Tag 1,15 Wiederholung Tag 29) am 21.07.2022 \n\nVerlaufsparameter: CEA, CT-Thorax\n\nKarnofsky-Index:  100 %\n \nAktuell:  Beginn Chemotherapie nach dem FOLFOX-Protokoll\n\nZwischenanamnese: \nHerr Xavier berichtet über seit 2 Tagen zunehmende Dyspnoe vor allen Dingen bei Belastung. Tagsüber fühle er sich häufig müde ohne Leistungsfähigkeit, wie er sie gewohnt ist. Das Gewicht habe bis auf 87 kg zugenommen. Abends treten Beinödeme auf. Gelegentlich, vor allem in den letzten zwei Tagen Husten mit gelblichem Auswurf. \nVor 2 Tagen begann Herr Xavier mit der Einnahme von Nifedipin in der Dosierung von 3 x 20 mg pro Tag. \n\nZusatzuntersuchungen: \nLabor (21.07.22): Leukozyten 6,2 Tsd/µl; Erythrozyten 4,08 Mio/µl; Hämoglobin 13,1 g/dl; \nHämatokrit 36,1 %; MCV 88,5 fl; MCH (HbE) 32,1 pg; MCHC 36,3 g/dl; Thrombozyten 180 Tsd/µl; \nKalium 3,2 mmol/l; Natrium 137 mmol/l; Calcium 2,06 mmol/l; Harnstoff 47 mg/dl; Serum-Kreatinin \n0,9 mg/dl; Alk. Phosphatase 117 U/l; Gamma - GT 42 U/l; CEA         (Elecsys) 216,7 ng/ml; \nCT Thorax (07.07.2022): Im Vergleich zur Voruntersuchung vom 15.03.2021 zeigt sich eine \nGrößenzunahme der mediastinalen Lymphknotenmetastasen (derzeit max. 3,8 cm im \nSagittaldurchmesser) sowie eine Größenzunahme der bekannten Lungenmetastasen. Zusätzlich zu den \nbereits bekannten metastasentypischen Leberläsionen Nachweis zweier neuer Metastasen im \nLeberparenchym. \n\nZusammenfassung und Verlauf: \nHerr Xavier stellte sich zu Beginn der Kombinations-Chemotherapie aus Oxaliplatin und 5-FU vor. Er \nberichtet über Belastungsdyspnoe in den letzten 2 Tagen. Als Ursache dafür zeigte sich eine absolute \nArrhythmie bei Vorhofflimmern und Herzfrequenz um 100-120/min. Während des kurzen stationären \nAufenthaltes gelang die Kardioversion mittels Flecainid 100 mg per os unter Monitorkontrolle. Die \nRhythmisierung (Herzfreqenz nach Kardioversion 60/min) führte zu einer raschen subjektiven \nBesserung. \nAm 07.07.2022 war ein Zwischenstaging bei Z.n. 2 Zyklen Konbinationschemotherapie Mitomycin/5-\nFU erfolgt. Es zeigte sich ein Befundprogress. Nach Durchsicht der Krankenakten zeigt sich, daß von \nJuni bis November 2019 eine Therapie mit Oxaliplatin/5-FU erfolgreich zur Therapie von \nLebermetastasen eingesetzt wurde. In der Hoffnung auf dieses therapeutische Potential sollte nun ein \nerneuter Versuch mit dieser Therapiekombination erfolgen. \nAFP war vom 02.07.2022 276 auf aktuell 216,7 ng/ml (21.07.22) gesunken. Unter Umständen ist dies \nnoch als Therapieerfolg der Kombination Mitomycin/5-FU zu werten oder steht in keinem \ntherapeutischen Zusammenhang. Eine Fortsetzung der Chemotherapie ist für Mittwoch, den \n05.08.2022 vorgesehen. \nThalidomid wurde auf 100 mg abends reduziert. \nFür Rückfragen stehen wir Ihnen unter o.g. Telefonnummer gerne zur Verfügung.\n\nTherapieempfehlung: \nTambocor 100 mg\t1-0-1\nASS 100 mg\t1-0-0\nL-Thyroxin 100 µg\t1-0-0\nAquaphor 10 mg\t1-0-0\nThalidomid 100 mg\t0-0-1\nAdalat 20 mg\t1-1-1\n\n\n\n\n",
+      "id": 356305,
+      "kind": "crossout",
+      "deidentifiedText": "XXXXXXX XXXXXX geb. XXXXXXXXXX,\n\nSehr geehrte Frau Kollegin, sehr geehrter Herr Kollege,\n\nwir berichten Ihnen nachfolgend über o.g. Patienten, der sich vom X. -  XXX XXXX XXXX in unserer stationären Behandlung befand.\n\nDiagnosen:\t\n- Mittelgradig diff. Rektumkarzinom ED XXXXX,  - T3N1M0, G2 (Her 2 neu Rezeptor negativ)\t\n- Abdominoperineale Rectumamputation und Anus praeter-Anlage XXXXX\n- Relaparotomie und Adhaesiolyse bei Frühadhäsionsileus XXXXX\n- Multiple Lebermetastasen ED XXXXX\t\t\t\t\t\n- 14 Zyklen Raltritrexed XXXXX-XXXXX                                \n- Lebermetastasenresektion XXXXX\n- Lobektomie li, Segmentresektion VI und VIII\n- adjuvante 5-Fluoruracil-Dauertherapie XXXXX-XXXXX, \t\t\t\n-  5-FU plus Oxaliplatin (FOLFOX) X-XXXX => partielle Remission \n- Rezidiv der Lebermetastasen unter Therapiepause XXXX\n- Lebermetastasenresektion XXXX (Segmentektomie IV und VIII)\n- adjuvante Chemotherapie Irinotecan plus 5-FU/Leukovorin ab XXXXX, insgesamt 4 Zyklen bis XXXXX \n- anschließende Bestrahlungstherapie der Leber X-XXXXXX\n- Thymophysin 50mg/d XXXXXX-XXXXXXXX und XXXXX-XXXXXXXX\n- neu aufgetretene Lebermetastasen (PET XXXXXXXXXX) \t\t\t\n- Chemotherapie (Protokoll Nr.:XXXXXXXXXXX)  Irinotecan (80mg/m2), 5-FU (2000mg/ m2), Leukovorin (500mg/ m2), 3 Zyklen: XXXXXXXX - XXXXXXX, seit XXXXXXXX (2. und 3. Zyklus) in um 20% reduzierte Dosis bei rez. Neutropenien\n- V.a. Lungenfil. im CT XXXX \n-Umstellung Chemotherapie bei Tumorprogress (Lungenfiliae)\n-Gemcitabine 1000mg/ m2 Tag 1,8,15; Wiederholung Tag 28, XXXXXXXXX bis XXXXXXXXXX(1000mg/m2), am  XXXXXXXXXX in reduzierter Dosis von 750mg/m2 wegen Neutropenie\n- Umstellung Chemotherapie auf Gemcitabine/ Capecitabine bei Progress (CEA-Anstieg)\n- Gemzar* (Gemcitabine) 1000mg/qm: Tag 1 und 8, Wiederholung Tag 21, wobei Gemzar wegen der Neutropenie des Patienten mit 750mg/qm begonnen wurde\n- Xeloda (Capecitabine) 1300mg/qm/d = Capecitabine 2500mg p.o.; Tag 1-14, Pause Tag XXXXX X Zyklen ; XXXXXXXX - XXXXXXXX \n- Umstellung Chemotherapie auf  Mitomycin C/5-FU bei Progress (CEA, CT-Thorax)\n- Mitomycin C 10 mg/qm = 18 mg, Tag 1\n- 5-Fluorouracil 600 mg/qm = 1128 mg Tag 1, 8, 29, 36 \t\n- 3 Zyklen  XXXXX - XXXXXXXXXX\n\t\t\t\nRemissionsstand: Tumorprogress trotz verschiedener Therapieprotokolle seit XXXXX\n\nWeitere Diagn.:\t\n- Z.n. Port-Implantation li XXXX\n-Z.n. follikulärem Schilddrüsenkarzinom pT2aN0M0 G1\t\t \n- Hemithyreoidektomie re. XXXXX \n- Restthyreoidectomie XXXXX\n- Radiojodtherapie XXXXX \n- Substitutionstherapie (aktuell: Euthyreose)\n- Rezidiv. Intermitt. Vorhofflimmern mit TAA, zuletzt XXXXXXXX\t\n- AV-Block I. Grades \n- Z.n. rez. Lungenembolie (XXXX und XXXXX)\t\t\t\n\nAktueller Therapiestand: \n\t \n- Thalidomid 200mg/d seit XXXXXXXXXX \n- Beginn FOLFOX (Oxaliplatin 100mg/m2;5-FU 2400mg/m2  über 48h, Bolus 400mg/ m2; \n- Calciumfolinat 400mg/m2 Tag 1,15 Wiederholung Tag 29) am XXXXXXXXXX \n\nVerlaufsparameter: CEA, CT-Thorax\n\nKarnofsky-Index:  100 %\n \nAktuell:  Beginn Chemotherapie nach dem FOLFOX-Protokoll\n\nZwischenanamnese: \nHerr XXXXXX berichtet über seit 2 Tagen zunehmende Dyspnoe vor allen XXXXXX bei Belastung. Tagsüber fühle er sich häufig müde ohne Leistungsfähigkeit, wie er sie gewohnt ist. Das Gewicht habe bis auf 87 kg zugenommen. Abends treten Beinödeme auf. Gelegentlich, vor allem in den letzten zwei Tagen Husten mit gelblichem Auswurf. \nVor 2 Tagen begann Herr XXXXXX mit der Einnahme von Nifedipin in der Dosierung von 3 x 20 mg pro Tag. \n\nZusatzuntersuchungen: \nLabor (XXXXXXXX): Leukozyten 6,2 Tsd/µl; Erythrozyten 4,08 Mio/µl; Hämoglobin 13,1 g/dl; \nHämatokrit 36,1 %; MCV 88,5 fl; MCH (HbE) 32,1 pg; MCHC 36,3 g/dl; Thrombozyten 180 Tsd/µl; \nKalium 3,2 mmol/l; Natrium 137 mmol/l; Calcium 2,06 mmol/l; Harnstoff 47 mg/dl; Serum-Kreatinin \n0,9 mg/dl; Alk. Phosphatase 117 U/l; Gamma - GT 42 U/l; CEA         (Elecsys) 216,7 ng/ml; \nCT Thorax (XXXXXXXXXX): Im Vergleich zur Voruntersuchung vom XXXXXXXXXX zeigt sich eine \nGrößenzunahme der mediastinalen Lymphknotenmetastasen (derzeit max. 3,8 cm im \nSagittaldurchmesser) sowie eine Größenzunahme der bekannten Lungenmetastasen. Zusätzlich zu den \nbereits bekannten metastasentypischen Leberläsionen Nachweis zweier neuer Metastasen im \nLeberparenchym. \n\nZusammenfassung und Verlauf: \nHerr XXXXXX stellte sich zu Beginn der Kombinations-Chemotherapie aus Oxaliplatin und 5-FU vor. Er \nberichtet über Belastungsdyspnoe in den letzten 2 Tagen. Als Ursache dafür zeigte sich eine absolute \nArrhythmie bei Vorhofflimmern und Herzfrequenz um 100-120/min. Während des kurzen stationären \nAufenthaltes gelang die Kardioversion mittels Flecainid 100 mg per os unter Monitorkontrolle. Die \nRhythmisierung (Herzfreqenz nach Kardioversion 60/min) führte zu einer raschen subjektiven \nBesserung. \nAm XXXXXXXXXX war ein Zwischenstaging bei Z.n. 2 Zyklen Konbinationschemotherapie Mitomycin/5-\nFU erfolgt. Es zeigte sich ein Befundprogress. Nach Durchsicht der Krankenakten zeigt sich, daß von \nXXXX bis XXXXXXXX XXXX eine Therapie mit Oxaliplatin/5-FU erfolgreich zur Therapie von \nLebermetastasen eingesetzt wurde. In der Hoffnung auf dieses therapeutische Potential sollte nun ein \nerneuter Versuch mit dieser Therapiekombination erfolgen. \nAFP war vom XXXXXXXXXX 276 auf aktuell 216,7 ng/ml (XXXXXXXX) gesunken. Unter Umständen ist dies \nnoch als Therapieerfolg der Kombination Mitomycin/5-FU zu werten oder steht in keinem \ntherapeutischen Zusammenhang. Eine Fortsetzung der Chemotherapie ist für XXXXXXXXX XXX \nXXXXXXXXXX vorgesehen. \nThalidomid wurde auf 100 mg abends reduziert. \nFür Rückfragen stehen wir Ihnen unter o.g. Telefonnummer gerne zur Verfügung.\n\nTherapieempfehlung: \nTambocor 100 mg\t1-0-1\nASS 100 mg\t1-0-0\nL-Thyroxin 100 µg\t1-0-0\nAquaphor 10 mg\t1-0-0\nThalidomid 100 mg\t0-0-1\nAdalat 20 mg\t1-1-1\n\n\n\n\n"
+    },
+    {
+      "begin": 0,
+      "end": 5737,
+      "type": "de.averbis.types.health.DocumentAnnotation",
+      "coveredText": "Leonard Xavier geb. 15.01.1940,\n\nSehr geehrte Frau Kollegin, sehr geehrter Herr Kollege,\n\nwir berichten Ihnen nachfolgend über o.g. Patienten, der sich vom 1. -  21. Juli 2022 in unserer stationären Behandlung befand.\n\nDiagnosen:\t\n- Mittelgradig diff. Rektumkarzinom ED 12/17,  - T3N1M0, G2 (Her 2 neu Rezeptor negativ)\t\n- Abdominoperineale Rectumamputation und Anus praeter-Anlage 12/17\n- Relaparotomie und Adhaesiolyse bei Frühadhäsionsileus 12/17\n- Multiple Lebermetastasen ED 01/17\t\t\t\t\t\n- 14 Zyklen Raltritrexed 01/97-10/18                                \n- Lebermetastasenresektion 11/18\n- Lobektomie li, Segmentresektion VI und VIII\n- adjuvante 5-Fluoruracil-Dauertherapie 01/18-06/19, \t\t\t\n-  5-FU plus Oxaliplatin (FOLFOX) 6-9/19 => partielle Remission \n- Rezidiv der Lebermetastasen unter Therapiepause 9/20\n- Lebermetastasenresektion 9/20 (Segmentektomie IV und VIII)\n- adjuvante Chemotherapie Irinotecan plus 5-FU/Leukovorin ab 11/20, insgesamt 4 Zyklen bis 03/21 \n- anschließende Bestrahlungstherapie der Leber 4-5/2021\n- Thymophysin 50mg/d 29.09.-02.10.21 und 5.10.-10.10.21\n- neu aufgetretene Lebermetastasen (PET 29.07.2021) \t\t\t\n- Chemotherapie (Protokoll Nr.:099984-0163)  Irinotecan (80mg/m2), 5-FU (2000mg/ m2), Leukovorin (500mg/ m2), 3 Zyklen: 18.08.21 - 20.1.22, seit 20.09.21 (2. und 3. Zyklus) in um 20% reduzierte Dosis bei rez. Neutropenien\n- V.a. Lungenfil. im CT 1/21 \n-Umstellung Chemotherapie bei Tumorprogress (Lungenfiliae)\n-Gemcitabine 1000mg/ m2 Tag 1,8,15; Wiederholung Tag 28, 27.1.2021 bis 10.02.2022(1000mg/m2), am  10.02.2022 in reduzierter Dosis von 750mg/m2 wegen Neutropenie\n- Umstellung Chemotherapie auf Gemcitabine/ Capecitabine bei Progress (CEA-Anstieg)\n- Gemzar* (Gemcitabine) 1000mg/qm: Tag 1 und 8, Wiederholung Tag 21, wobei Gemzar wegen der Neutropenie des Patienten mit 750mg/qm begonnen wurde\n- Xeloda (Capecitabine) 1300mg/qm/d = Capecitabine 2500mg p.o.; Tag 1-14, Pause Tag 15-21 3 Zyklen ; 25.02.22 - 16.04.22 \n- Umstellung Chemotherapie auf  Mitomycin C/5-FU bei Progress (CEA, CT-Thorax)\n- Mitomycin C 10 mg/qm = 18 mg, Tag 1\n- 5-Fluorouracil 600 mg/qm = 1128 mg Tag 1, 8, 29, 36 \t\n- 3 Zyklen  1.05. - 26.06.2022\n\t\t\t\nRemissionsstand: Tumorprogress trotz verschiedener Therapieprotokolle seit 07/21\n\nWeitere Diagn.:\t\n- Z.n. Port-Implantation li 1/19\n-Z.n. follikulärem Schilddrüsenkarzinom pT2aN0M0 G1\t\t \n- Hemithyreoidektomie re. 10/14 \n- Restthyreoidectomie 11/14\n- Radiojodtherapie 12/14 \n- Substitutionstherapie (aktuell: Euthyreose)\n- Rezidiv. Intermitt. Vorhofflimmern mit TAA, zuletzt 21.07.22\t\n- AV-Block I. Grades \n- Z.n. rez. Lungenembolie (4/16 und 11/18)\t\t\t\n\nAktueller Therapiestand: \n\t \n- Thalidomid 200mg/d seit 27.05.2022 \n- Beginn FOLFOX (Oxaliplatin 100mg/m2;5-FU 2400mg/m2  über 48h, Bolus 400mg/ m2; \n- Calciumfolinat 400mg/m2 Tag 1,15 Wiederholung Tag 29) am 21.07.2022 \n\nVerlaufsparameter: CEA, CT-Thorax\n\nKarnofsky-Index:  100 %\n \nAktuell:  Beginn Chemotherapie nach dem FOLFOX-Protokoll\n\nZwischenanamnese: \nHerr Xavier berichtet über seit 2 Tagen zunehmende Dyspnoe vor allen Dingen bei Belastung. Tagsüber fühle er sich häufig müde ohne Leistungsfähigkeit, wie er sie gewohnt ist. Das Gewicht habe bis auf 87 kg zugenommen. Abends treten Beinödeme auf. Gelegentlich, vor allem in den letzten zwei Tagen Husten mit gelblichem Auswurf. \nVor 2 Tagen begann Herr Xavier mit der Einnahme von Nifedipin in der Dosierung von 3 x 20 mg pro Tag. \n\nZusatzuntersuchungen: \nLabor (21.07.22): Leukozyten 6,2 Tsd/µl; Erythrozyten 4,08 Mio/µl; Hämoglobin 13,1 g/dl; \nHämatokrit 36,1 %; MCV 88,5 fl; MCH (HbE) 32,1 pg; MCHC 36,3 g/dl; Thrombozyten 180 Tsd/µl; \nKalium 3,2 mmol/l; Natrium 137 mmol/l; Calcium 2,06 mmol/l; Harnstoff 47 mg/dl; Serum-Kreatinin \n0,9 mg/dl; Alk. Phosphatase 117 U/l; Gamma - GT 42 U/l; CEA         (Elecsys) 216,7 ng/ml; \nCT Thorax (07.07.2022): Im Vergleich zur Voruntersuchung vom 15.03.2021 zeigt sich eine \nGrößenzunahme der mediastinalen Lymphknotenmetastasen (derzeit max. 3,8 cm im \nSagittaldurchmesser) sowie eine Größenzunahme der bekannten Lungenmetastasen. Zusätzlich zu den \nbereits bekannten metastasentypischen Leberläsionen Nachweis zweier neuer Metastasen im \nLeberparenchym. \n\nZusammenfassung und Verlauf: \nHerr Xavier stellte sich zu Beginn der Kombinations-Chemotherapie aus Oxaliplatin und 5-FU vor. Er \nberichtet über Belastungsdyspnoe in den letzten 2 Tagen. Als Ursache dafür zeigte sich eine absolute \nArrhythmie bei Vorhofflimmern und Herzfrequenz um 100-120/min. Während des kurzen stationären \nAufenthaltes gelang die Kardioversion mittels Flecainid 100 mg per os unter Monitorkontrolle. Die \nRhythmisierung (Herzfreqenz nach Kardioversion 60/min) führte zu einer raschen subjektiven \nBesserung. \nAm 07.07.2022 war ein Zwischenstaging bei Z.n. 2 Zyklen Konbinationschemotherapie Mitomycin/5-\nFU erfolgt. Es zeigte sich ein Befundprogress. Nach Durchsicht der Krankenakten zeigt sich, daß von \nJuni bis November 2019 eine Therapie mit Oxaliplatin/5-FU erfolgreich zur Therapie von \nLebermetastasen eingesetzt wurde. In der Hoffnung auf dieses therapeutische Potential sollte nun ein \nerneuter Versuch mit dieser Therapiekombination erfolgen. \nAFP war vom 02.07.2022 276 auf aktuell 216,7 ng/ml (21.07.22) gesunken. Unter Umständen ist dies \nnoch als Therapieerfolg der Kombination Mitomycin/5-FU zu werten oder steht in keinem \ntherapeutischen Zusammenhang. Eine Fortsetzung der Chemotherapie ist für Mittwoch, den \n05.08.2022 vorgesehen. \nThalidomid wurde auf 100 mg abends reduziert. \nFür Rückfragen stehen wir Ihnen unter o.g. Telefonnummer gerne zur Verfügung.\n\nTherapieempfehlung: \nTambocor 100 mg\t1-0-1\nASS 100 mg\t1-0-0\nL-Thyroxin 100 µg\t1-0-0\nAquaphor 10 mg\t1-0-0\nThalidomid 100 mg\t0-0-1\nAdalat 20 mg\t1-1-1\n\n\n\n\n",
+      "id": 8,
+      "language": "de",
+      "version": "5.33.1"
+    }
+  ]
+}

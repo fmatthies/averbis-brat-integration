@@ -1,0 +1,431 @@
+{
+  "annotationDtos": [
+    {
+      "begin": 96,
+      "end": 808,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Diagnosen\n\nMaligner Pleuraerguß links mit Mediastinalshift- Pleurapunktion am 28.7.2027\nZ. n. TE und NE eines Melanoms, Level III, TD wahrscheinlich < 1mm/occipital li; NE mit Narbengewebe  3/27\nZ.n. Abtragung eines MM in situ Schläfe links 17.3.2027\nZ.n Nachexzision 4/27\nPathologische Lymphknoten / hilär links, mediastinal links, linker Herzzwerchfellwinkel\nGg. retroperitoneale Lymphknotenmetastasierung / ventral der linken Nebenniere\nZ. n. 2xiger Pleurapunktion links 1.7.2027, 3.7.2027\nZ. n. Pulmonalarterienembolie und Thrombophlebitis / linker Oberschenkel (ED: 17.6.2027)\nZ. n. 1 Zyklus einer DTIC Hochdosis Chemotherapie am 20.5.2027 (C43.4)\nMitralinsuffizienz\nzunehmende Depression komb mit Agression",
+      "id": 154422,
+      "matchedTerm": "Diagnosen",
+      "dictCanon": "Diagnose",
+      "conceptId": "10164-2",
+      "source": "clinical_sections_de",
+      "label": "DiagnosisSection",
+      "uniqueId": "clinical_sections_de:10164-2"
+    },
+    {
+      "begin": 810,
+      "end": 1484,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Weiteres Vorgehen\n\nStationäre Wiederaufnahme zum geplanten 2. Zyklus einer Chemotherapie mit Carboplatin am 12.8.2027.\n\nBezüglich der ausgeprägten Prostatahyperplasie Vorstellung beim niedergelassenen Urologen.\n \nZusammenfassender Dekurs\n\nDie stationäre Aufnahme Ihres Patienten erfolgte aufgrund zunehmender Atembeschwerden. Diesbezüglich sei auf die Vorbefunde der Klinik für Dermatologie hingewiesen.\nAm 28.7.2027 erfolgte eine erneute Pleurapunktion an der Thoraxchirurgie (1700ml hämorrhagische Flüssigkeit).\n\nAm 29.07.2027 erfolgte aufgrund der im Vordergrund stehenden Atembeschwerden die Transferierung des Patienten in stabilem Allgemeinzustand an die Pulmonologie.",
+      "id": 154433,
+      "matchedTerm": "Weiteres Vorgehen",
+      "dictCanon": "Epikrise",
+      "conceptId": "51848-0",
+      "source": "clinical_sections_de",
+      "label": "EpicrisisSection",
+      "uniqueId": "clinical_sections_de:51848-0"
+    },
+    {
+      "begin": 1325,
+      "end": 1484,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Am 29.07.2027 erfolgte aufgrund der im Vordergrund stehenden Atembeschwerden die Transferierung des Patienten in stabilem Allgemeinzustand an die Pulmonologie.",
+      "id": 154444,
+      "matchedTerm": "Allgemeinzustand",
+      "dictCanon": "Allgemeinzustand",
+      "conceptId": "10210-3",
+      "source": "clinical_sections_de",
+      "label": "GeneralConditionSection",
+      "uniqueId": "clinical_sections_de:10210-3"
+    },
+    {
+      "begin": 1486,
+      "end": 1690,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Relevante Befunde\n\nBildgebende Untersuchungen : CT Schädel - Schnellbefund 17.7.2027: Keine Blutung, keine Raumforderung, keine demarkierten Territorialinfarkte, keine patholog. Kontrastmittelenhancement.",
+      "id": 154455,
+      "matchedTerm": "Befunde",
+      "dictCanon": "Befund",
+      "conceptId": "29545-1",
+      "source": "clinical_sections_de",
+      "label": "FindingSection",
+      "uniqueId": "clinical_sections_de:29545-1"
+    },
+    {
+      "begin": 1505,
+      "end": 1663,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Bildgebende Untersuchungen : CT Schädel - Schnellbefund 17.7.2027: Keine Blutung, keine Raumforderung, keine demarkierten Territorialinfarkte, keine patholog.",
+      "id": 154466,
+      "matchedTerm": "CT des Schädels",
+      "dictCanon": "Untersuchungsbefund",
+      "conceptId": "59776-5",
+      "source": "clinical_sections_de",
+      "label": "ObservationSection",
+      "uniqueId": "clinical_sections_de:59776-5"
+    },
+    {
+      "begin": 1692,
+      "end": 2195,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Thoraxröntgen 03.07.2027:\nPleuraerguss links bis über Hilushöhe reichend. Der Herzschatten ergussbedingt nicht abgrenzbar. Der rechte Hilus und das obere Mediastinum verbreitert - Lymphadenopathie?\nDer linke Hilus ergussbedingt nicht beurteilbar.\nKeine signifik. Mediastinalshift.\nDie einsehbaren Lungenabschnitte frei von rezenten umschriebenen pneumonischen Infiltraten.\nThoraxröntgen 03.17.2027 -: Z.n Pleurapunktion - Schnellbefund. Im Verleich zur Voruntersuchung keine signifikante Befundänderung.",
+      "id": 154477,
+      "matchedTerm": "Röntgen Thorax",
+      "dictCanon": "Untersuchungsbefund",
+      "conceptId": "59776-5",
+      "source": "clinical_sections_de",
+      "label": "ObservationSection",
+      "uniqueId": "clinical_sections_de:59776-5"
+    },
+    {
+      "begin": 2197,
+      "end": 2429,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "9.10.2027:\n CT Schädel: Insuspekte Stammganglienverkalkungen bds. Cavum septi  peluciti et vergae als Normvariante. Insuspekte Faxverkalkungen. 7mm  gr.  Osteom in der li Stirnhöhle. Mäßige Schleimhautschwellung in bd. Kieferhöhlen.",
+      "id": 154488,
+      "matchedTerm": null,
+      "dictCanon": null,
+      "conceptId": null,
+      "source": null,
+      "label": "MiscClinicalSection",
+      "uniqueId": null
+    },
+    {
+      "begin": 2431,
+      "end": 3392,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "CT Angiographie Pulmonalgefäße 17.06.2027 :\n1.) Längerer aber insgesamt zart kalibrierter Thrombus (PAE) aufgespannt zwischen der Aufteilungsstelle der Oberlappen- und Unterlappenarterie, mit Punktum max. betreffend den Unterlappen hier vor allem die posterobasale Segmentarterie. Weitere kleiner Emboli in der Peripherie.\nInsgesamt zeigt sich nur eine mäßiggradige Linksherzbelastung. 2.) Ausgedehnter maligner Pleuraerguss links (ca. 600 ml) zu Folge einer Pleurakarzinose insbesondere in den basalen (medio- und posterobasal) Pleuraanteilen.\nKonsekutiv finden sich ausgedehnte Atelektasebezirke der linken Lunge.\nAuffälig sind auch zwei nodulär konfig. Verkalkungen pleural links.\n3.) Mehrere sekundär neoplastische Veränderungen in der normal belüfteten rechten Lunge sowie auch in den belüfteten linken Lungenabschnitten.\n4.)Path. LK vor allem hilär links, mediastinal und im linken Herzzwerchfellwinkel.\nAusgeprägte degenerative Wirbelsäulenveränderungen.",
+      "id": 154499,
+      "matchedTerm": "CT",
+      "dictCanon": "Untersuchungsbefund",
+      "conceptId": "59776-5",
+      "source": "clinical_sections_de",
+      "label": "ObservationSection",
+      "uniqueId": "clinical_sections_de:59776-5"
+    },
+    {
+      "begin": 3394,
+      "end": 3536,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "CT Abdomen 22.06.2027:\nAnamnestisch metastasierendes malignes Melanom, eine auswärtige Vor-CT vom Klinikum DD. Tendenzielle Befundprogredienz.",
+      "id": 154510,
+      "matchedTerm": "CT Abdomen",
+      "dictCanon": "Untersuchungsbefund",
+      "conceptId": "59776-5",
+      "source": "clinical_sections_de",
+      "label": "ObservationSection",
+      "uniqueId": "clinical_sections_de:59776-5"
+    },
+    {
+      "begin": 3537,
+      "end": 4508,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Diagnose:\n1.) Abdomen:\nTendenzielle Progredienz der geringgr. Retroperitonealen LK-Metastasierung ventral der linken Nebenniere und oberhalb davon mit zwei Hauptlymphknoten bis 2,2 cm. Geringe Adenopathie retroperitoneal auch in Höhe der Nierenstiele. Unverändert fragl. kleine Zystenbildung von 6 mm hochcranial subcapsulär im rechten Leberlappen. Cholezystolithiasis mit fragl. Geringer Begleitcholezystitis. Die Gallenwege sind nicht ausgeweitet, die Milz ist normal groß. Homogene Parenchymstruktur der Nebennieren und der linken Niere. Bekannte Nierenzyste Bosniak III, cortikal exophytisch an der rechte Niere 5,2 x 5,2 cm partiell wandverdickt und teils randständig zart verkalkt. Kein Harnstau.\n\n2.) Becken:\nAusgeprägte Prostatavergrößerung (Organ-Ausdehnung von 7,2 x 6,7 cm).\nKein Aszites.\nSoweit miterfasst deutlich progredienter Pleuraerguss links (sagittal 18 cm) bei bekannter Pleurakarzinose mit nodulären Weichteilexpansionen bis 1,8 cm paracardial links.",
+      "id": 154521,
+      "matchedTerm": "Diagnose",
+      "dictCanon": "Diagnose",
+      "conceptId": "10164-2",
+      "source": "clinical_sections_de",
+      "label": "DiagnosisSection",
+      "uniqueId": "clinical_sections_de:10164-2"
+    },
+    {
+      "begin": 4510,
+      "end": 5075,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "17.06.2027:\nfarbcod. Duplexsono UE li: Die tiefen Venen im gesamten Verlauf (inguinal - Knöchel) frei durchgängig, gut komprimierbar, ohne Hinweis für frisches thromb. Geschehen. Die dargestellten Muskelvenen komprimierbar, kein Hinweis für Muskelvenenthrombose. Dzt. kein Hinweis für größere Baker-Zyste. Am OS kurzstreckig umschriebene Thrombophlebitis.\n\n* Echocardiografie\n\nDer li. Ventrikel mit 5,3cm normal groß, der re. Ventrikel normal groß, die Vorhöfe geringgr. dilatiert, geringe diffuse Hypokinesie, LFEV 45%. Farbdoppelechokardiographie: MINS I, AINS I.",
+      "id": 154532,
+      "matchedTerm": null,
+      "dictCanon": null,
+      "conceptId": null,
+      "source": null,
+      "label": "MiscClinicalSection",
+      "uniqueId": null
+    },
+    {
+      "begin": 4531,
+      "end": 4677,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Duplexsono UE li: Die tiefen Venen im gesamten Verlauf (inguinal - Knöchel) frei durchgängig, gut komprimierbar, ohne Hinweis für frisches thromb.",
+      "id": 154543,
+      "matchedTerm": "Verlauf",
+      "dictCanon": "Epikrise",
+      "conceptId": "51848-0",
+      "source": "clinical_sections_de",
+      "label": "EpicrisisSection",
+      "uniqueId": "clinical_sections_de:51848-0"
+    },
+    {
+      "begin": 5031,
+      "end": 5075,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Farbdoppelechokardiographie: MINS I, AINS I.",
+      "id": 154554,
+      "matchedTerm": "Echokardiographie",
+      "dictCanon": "Echokardiographie",
+      "conceptId": "Sec_Echocardiography",
+      "source": "clinical_sections_de",
+      "label": "EchocardiographySection",
+      "uniqueId": "clinical_sections_de:Sec_Echocardiography"
+    },
+    {
+      "begin": 5077,
+      "end": 5139,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Labor:\npatholog. erhöht: Kalium 5,1, Krea 1,21, NT-proBNP 125.",
+      "id": 154565,
+      "matchedTerm": "Labor (",
+      "dictCanon": "Labor",
+      "conceptId": "30954-2",
+      "source": "clinical_sections_de",
+      "label": "LaboratorySection",
+      "uniqueId": "clinical_sections_de:30954-2"
+    },
+    {
+      "begin": 5142,
+      "end": 5545,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Therapieempfehlung\n\nLovenox 80 mg s.c. 1 x täglich\nAglandin retard 0,4 mg 0-0-1\nPantoloc 40 mg 1-0-0\nEnalapril 2,5 mg dzt pausiert\nL-Thyroxin 150 µg 1 Tablette (MO, MI, FR und SO)\nL-Thyroxin 3/ 4 Tablette (DI, DO und SA)\nCombigan Augentropfen 2 x täglich\nParacodin Tropfen 3 x 20 bei Husten\nFeretab 1-1-1 bis zur BB Kontrolle beim HA, weiteres Procedere durch den\nHA.\nVoltaren 100 0- 0 -1 bei Schmerzen.",
+      "id": 154576,
+      "matchedTerm": "Therapieempfehlung",
+      "dictCanon": "Medikationsempfehlung",
+      "conceptId": "Sec_MedicationRecommendation",
+      "source": "clinical_sections_de",
+      "label": "MedicationRecommendationSection",
+      "uniqueId": "clinical_sections_de:Sec_MedicationRecommendation"
+    },
+    {
+      "begin": 5162,
+      "end": 5509,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Lovenox 80 mg s.c. 1 x täglich\nAglandin retard 0,4 mg 0-0-1\nPantoloc 40 mg 1-0-0\nEnalapril 2,5 mg dzt pausiert\nL-Thyroxin 150 µg 1 Tablette (MO, MI, FR und SO)\nL-Thyroxin 3/ 4 Tablette (DI, DO und SA)\nCombigan Augentropfen 2 x täglich\nParacodin Tropfen 3 x 20 bei Husten\nFeretab 1-1-1 bis zur BB Kontrolle beim HA, weiteres Procedere durch den\nHA.",
+      "id": 154587,
+      "matchedTerm": "Procedere",
+      "dictCanon": "Weitere",
+      "conceptId": "Sec_Misc",
+      "source": "clinical_sections_de",
+      "label": "MiscClinicalSection",
+      "uniqueId": "clinical_sections_de:Sec_Misc"
+    },
+    {
+      "begin": 918,
+      "end": 927,
+      "type": "de.averbis.types.health.Hospitalisation",
+      "coveredText": "12.8.2027",
+      "id": 155765,
+      "admissionDate": "2027-08-12",
+      "dischargeDate": "2027-08-12"
+    },
+    {
+      "begin": 0,
+      "end": 5545,
+      "type": "de.averbis.types.health.PatientInformation",
+      "coveredText": "Definitiver Arztbrief\n\nGerhard Ypsilanti, * 3.2.1961, wohnhaft in 09221 Neukirchen\n\n\n2027-08-02\nDiagnosen\n\nMaligner Pleuraerguß links mit Mediastinalshift- Pleurapunktion am 28.7.2027\nZ. n. TE und NE eines Melanoms, Level III, TD wahrscheinlich < 1mm/occipital li; NE mit Narbengewebe  3/27\nZ.n. Abtragung eines MM in situ Schläfe links 17.3.2027\nZ.n Nachexzision 4/27\nPathologische Lymphknoten / hilär links, mediastinal links, linker Herzzwerchfellwinkel\nGg. retroperitoneale Lymphknotenmetastasierung / ventral der linken Nebenniere\nZ. n. 2xiger Pleurapunktion links 1.7.2027, 3.7.2027\nZ. n. Pulmonalarterienembolie und Thrombophlebitis / linker Oberschenkel (ED: 17.6.2027)\nZ. n. 1 Zyklus einer DTIC Hochdosis Chemotherapie am 20.5.2027 (C43.4)\nMitralinsuffizienz\nzunehmende Depression komb mit Agression\n\nWeiteres Vorgehen\n\nStationäre Wiederaufnahme zum geplanten 2. Zyklus einer Chemotherapie mit Carboplatin am 12.8.2027.\n\nBezüglich der ausgeprägten Prostatahyperplasie Vorstellung beim niedergelassenen Urologen.\n \nZusammenfassender Dekurs\n\nDie stationäre Aufnahme Ihres Patienten erfolgte aufgrund zunehmender Atembeschwerden. Diesbezüglich sei auf die Vorbefunde der Klinik für Dermatologie hingewiesen.\nAm 28.7.2027 erfolgte eine erneute Pleurapunktion an der Thoraxchirurgie (1700ml hämorrhagische Flüssigkeit).\n\nAm 29.07.2027 erfolgte aufgrund der im Vordergrund stehenden Atembeschwerden die Transferierung des Patienten in stabilem Allgemeinzustand an die Pulmonologie.\n\nRelevante Befunde\n\nBildgebende Untersuchungen : CT Schädel - Schnellbefund 17.7.2027: Keine Blutung, keine Raumforderung, keine demarkierten Territorialinfarkte, keine patholog. Kontrastmittelenhancement.\n\nThoraxröntgen 03.07.2027:\nPleuraerguss links bis über Hilushöhe reichend. Der Herzschatten ergussbedingt nicht abgrenzbar. Der rechte Hilus und das obere Mediastinum verbreitert - Lymphadenopathie?\nDer linke Hilus ergussbedingt nicht beurteilbar.\nKeine signifik. Mediastinalshift.\nDie einsehbaren Lungenabschnitte frei von rezenten umschriebenen pneumonischen Infiltraten.\nThoraxröntgen 03.17.2027 -: Z.n Pleurapunktion - Schnellbefund. Im Verleich zur Voruntersuchung keine signifikante Befundänderung.\n\n9.10.2027:\n CT Schädel: Insuspekte Stammganglienverkalkungen bds. Cavum septi  peluciti et vergae als Normvariante. Insuspekte Faxverkalkungen. 7mm  gr.  Osteom in der li Stirnhöhle. Mäßige Schleimhautschwellung in bd. Kieferhöhlen.\n\nCT Angiographie Pulmonalgefäße 17.06.2027 :\n1.) Längerer aber insgesamt zart kalibrierter Thrombus (PAE) aufgespannt zwischen der Aufteilungsstelle der Oberlappen- und Unterlappenarterie, mit Punktum max. betreffend den Unterlappen hier vor allem die posterobasale Segmentarterie. Weitere kleiner Emboli in der Peripherie.\nInsgesamt zeigt sich nur eine mäßiggradige Linksherzbelastung. 2.) Ausgedehnter maligner Pleuraerguss links (ca. 600 ml) zu Folge einer Pleurakarzinose insbesondere in den basalen (medio- und posterobasal) Pleuraanteilen.\nKonsekutiv finden sich ausgedehnte Atelektasebezirke der linken Lunge.\nAuffälig sind auch zwei nodulär konfig. Verkalkungen pleural links.\n3.) Mehrere sekundär neoplastische Veränderungen in der normal belüfteten rechten Lunge sowie auch in den belüfteten linken Lungenabschnitten.\n4.)Path. LK vor allem hilär links, mediastinal und im linken Herzzwerchfellwinkel.\nAusgeprägte degenerative Wirbelsäulenveränderungen.\n\nCT Abdomen 22.06.2027:\nAnamnestisch metastasierendes malignes Melanom, eine auswärtige Vor-CT vom Klinikum DD. Tendenzielle Befundprogredienz.\nDiagnose:\n1.) Abdomen:\nTendenzielle Progredienz der geringgr. Retroperitonealen LK-Metastasierung ventral der linken Nebenniere und oberhalb davon mit zwei Hauptlymphknoten bis 2,2 cm. Geringe Adenopathie retroperitoneal auch in Höhe der Nierenstiele. Unverändert fragl. kleine Zystenbildung von 6 mm hochcranial subcapsulär im rechten Leberlappen. Cholezystolithiasis mit fragl. Geringer Begleitcholezystitis. Die Gallenwege sind nicht ausgeweitet, die Milz ist normal groß. Homogene Parenchymstruktur der Nebennieren und der linken Niere. Bekannte Nierenzyste Bosniak III, cortikal exophytisch an der rechte Niere 5,2 x 5,2 cm partiell wandverdickt und teils randständig zart verkalkt. Kein Harnstau.\n\n2.) Becken:\nAusgeprägte Prostatavergrößerung (Organ-Ausdehnung von 7,2 x 6,7 cm).\nKein Aszites.\nSoweit miterfasst deutlich progredienter Pleuraerguss links (sagittal 18 cm) bei bekannter Pleurakarzinose mit nodulären Weichteilexpansionen bis 1,8 cm paracardial links.\n\n17.06.2027:\nfarbcod. Duplexsono UE li: Die tiefen Venen im gesamten Verlauf (inguinal - Knöchel) frei durchgängig, gut komprimierbar, ohne Hinweis für frisches thromb. Geschehen. Die dargestellten Muskelvenen komprimierbar, kein Hinweis für Muskelvenenthrombose. Dzt. kein Hinweis für größere Baker-Zyste. Am OS kurzstreckig umschriebene Thrombophlebitis.\n\n* Echocardiografie\n\nDer li. Ventrikel mit 5,3cm normal groß, der re. Ventrikel normal groß, die Vorhöfe geringgr. dilatiert, geringe diffuse Hypokinesie, LFEV 45%. Farbdoppelechokardiographie: MINS I, AINS I.\n\nLabor:\npatholog. erhöht: Kalium 5,1, Krea 1,21, NT-proBNP 125.\n\n\nTherapieempfehlung\n\nLovenox 80 mg s.c. 1 x täglich\nAglandin retard 0,4 mg 0-0-1\nPantoloc 40 mg 1-0-0\nEnalapril 2,5 mg dzt pausiert\nL-Thyroxin 150 µg 1 Tablette (MO, MI, FR und SO)\nL-Thyroxin 3/ 4 Tablette (DI, DO und SA)\nCombigan Augentropfen 2 x täglich\nParacodin Tropfen 3 x 20 bei Husten\nFeretab 1-1-1 bis zur BB Kontrolle beim HA, weiteres Procedere durch den\nHA.\nVoltaren 100 0- 0 -1 bei Schmerzen.",
+      "id": 156626,
+      "firstName": null,
+      "lastName": null,
+      "deceased": false,
+      "gender": "male",
+      "deathDate": null
+    },
+    {
+      "begin": 44,
+      "end": 52,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "3.2.1961",
+      "id": 157312
+    },
+    {
+      "begin": 85,
+      "end": 95,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "2027-08-02",
+      "id": 157326
+    },
+    {
+      "begin": 174,
+      "end": 183,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "28.7.2027",
+      "id": 157340
+    },
+    {
+      "begin": 286,
+      "end": 290,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "3/27",
+      "id": 157354
+    },
+    {
+      "begin": 337,
+      "end": 346,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "17.3.2027",
+      "id": 157368
+    },
+    {
+      "begin": 364,
+      "end": 368,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "4/27",
+      "id": 157382
+    },
+    {
+      "begin": 570,
+      "end": 578,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "1.7.2027",
+      "id": 157396
+    },
+    {
+      "begin": 580,
+      "end": 588,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "3.7.2027",
+      "id": 157410
+    },
+    {
+      "begin": 667,
+      "end": 676,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "17.6.2027",
+      "id": 157424
+    },
+    {
+      "begin": 731,
+      "end": 740,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "20.5.2027",
+      "id": 157438
+    },
+    {
+      "begin": 918,
+      "end": 927,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "12.8.2027",
+      "id": 157452
+    },
+    {
+      "begin": 1217,
+      "end": 1226,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "28.7.2027",
+      "id": 157466
+    },
+    {
+      "begin": 1328,
+      "end": 1338,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "29.07.2027",
+      "id": 157480
+    },
+    {
+      "begin": 1561,
+      "end": 1570,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "17.7.2027",
+      "id": 157494
+    },
+    {
+      "begin": 1706,
+      "end": 1716,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "03.07.2027",
+      "id": 157508
+    },
+    {
+      "begin": 2079,
+      "end": 2089,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "03.17.2027",
+      "id": 234474
+    },
+    {
+      "begin": 2197,
+      "end": 2206,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "9.10.2027",
+      "id": 157522
+    },
+    {
+      "begin": 2462,
+      "end": 2472,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "17.06.2027",
+      "id": 157536
+    },
+    {
+      "begin": 3405,
+      "end": 3415,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "22.06.2027",
+      "id": 157550
+    },
+    {
+      "begin": 4510,
+      "end": 4520,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "17.06.2027",
+      "id": 157564
+    },
+    {
+      "begin": 66,
+      "end": 71,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "09221",
+      "id": 200323,
+      "kind": "ZIP"
+    },
+    {
+      "begin": 72,
+      "end": 82,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Neukirchen",
+      "id": 200539,
+      "kind": "CITY"
+    },
+    {
+      "begin": 190,
+      "end": 192,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "TE",
+      "id": 200553,
+      "kind": "CITY"
+    },
+    {
+      "begin": 23,
+      "end": 40,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Gerhard Ypsilanti",
+      "id": 185593,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 23,
+      "end": 40,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Gerhard Ypsilanti",
+      "id": 234148,
+      "kind": "DOCTOR"
+    },
+    {
+      "begin": 0,
+      "end": 5547,
+      "type": "de.averbis.types.health.DeidentifiedDocument",
+      "coveredText": "Definitiver Arztbrief\n\nGerhard Ypsilanti, * 3.2.1961, wohnhaft in 09221 Neukirchen\n\n\n2027-08-02\nDiagnosen\n\nMaligner Pleuraerguß links mit Mediastinalshift- Pleurapunktion am 28.7.2027\nZ. n. TE und NE eines Melanoms, Level III, TD wahrscheinlich < 1mm/occipital li; NE mit Narbengewebe  3/27\nZ.n. Abtragung eines MM in situ Schläfe links 17.3.2027\nZ.n Nachexzision 4/27\nPathologische Lymphknoten / hilär links, mediastinal links, linker Herzzwerchfellwinkel\nGg. retroperitoneale Lymphknotenmetastasierung / ventral der linken Nebenniere\nZ. n. 2xiger Pleurapunktion links 1.7.2027, 3.7.2027\nZ. n. Pulmonalarterienembolie und Thrombophlebitis / linker Oberschenkel (ED: 17.6.2027)\nZ. n. 1 Zyklus einer DTIC Hochdosis Chemotherapie am 20.5.2027 (C43.4)\nMitralinsuffizienz\nzunehmende Depression komb mit Agression\n\nWeiteres Vorgehen\n\nStationäre Wiederaufnahme zum geplanten 2. Zyklus einer Chemotherapie mit Carboplatin am 12.8.2027.\n\nBezüglich der ausgeprägten Prostatahyperplasie Vorstellung beim niedergelassenen Urologen.\n \nZusammenfassender Dekurs\n\nDie stationäre Aufnahme Ihres Patienten erfolgte aufgrund zunehmender Atembeschwerden. Diesbezüglich sei auf die Vorbefunde der Klinik für Dermatologie hingewiesen.\nAm 28.7.2027 erfolgte eine erneute Pleurapunktion an der Thoraxchirurgie (1700ml hämorrhagische Flüssigkeit).\n\nAm 29.07.2027 erfolgte aufgrund der im Vordergrund stehenden Atembeschwerden die Transferierung des Patienten in stabilem Allgemeinzustand an die Pulmonologie.\n\nRelevante Befunde\n\nBildgebende Untersuchungen : CT Schädel - Schnellbefund 17.7.2027: Keine Blutung, keine Raumforderung, keine demarkierten Territorialinfarkte, keine patholog. Kontrastmittelenhancement.\n\nThoraxröntgen 03.07.2027:\nPleuraerguss links bis über Hilushöhe reichend. Der Herzschatten ergussbedingt nicht abgrenzbar. Der rechte Hilus und das obere Mediastinum verbreitert - Lymphadenopathie?\nDer linke Hilus ergussbedingt nicht beurteilbar.\nKeine signifik. Mediastinalshift.\nDie einsehbaren Lungenabschnitte frei von rezenten umschriebenen pneumonischen Infiltraten.\nThoraxröntgen 03.17.2027 -: Z.n Pleurapunktion - Schnellbefund. Im Verleich zur Voruntersuchung keine signifikante Befundänderung.\n\n9.10.2027:\n CT Schädel: Insuspekte Stammganglienverkalkungen bds. Cavum septi  peluciti et vergae als Normvariante. Insuspekte Faxverkalkungen. 7mm  gr.  Osteom in der li Stirnhöhle. Mäßige Schleimhautschwellung in bd. Kieferhöhlen.\n\nCT Angiographie Pulmonalgefäße 17.06.2027 :\n1.) Längerer aber insgesamt zart kalibrierter Thrombus (PAE) aufgespannt zwischen der Aufteilungsstelle der Oberlappen- und Unterlappenarterie, mit Punktum max. betreffend den Unterlappen hier vor allem die posterobasale Segmentarterie. Weitere kleiner Emboli in der Peripherie.\nInsgesamt zeigt sich nur eine mäßiggradige Linksherzbelastung. 2.) Ausgedehnter maligner Pleuraerguss links (ca. 600 ml) zu Folge einer Pleurakarzinose insbesondere in den basalen (medio- und posterobasal) Pleuraanteilen.\nKonsekutiv finden sich ausgedehnte Atelektasebezirke der linken Lunge.\nAuffälig sind auch zwei nodulär konfig. Verkalkungen pleural links.\n3.) Mehrere sekundär neoplastische Veränderungen in der normal belüfteten rechten Lunge sowie auch in den belüfteten linken Lungenabschnitten.\n4.)Path. LK vor allem hilär links, mediastinal und im linken Herzzwerchfellwinkel.\nAusgeprägte degenerative Wirbelsäulenveränderungen.\n\nCT Abdomen 22.06.2027:\nAnamnestisch metastasierendes malignes Melanom, eine auswärtige Vor-CT vom Klinikum DD. Tendenzielle Befundprogredienz.\nDiagnose:\n1.) Abdomen:\nTendenzielle Progredienz der geringgr. Retroperitonealen LK-Metastasierung ventral der linken Nebenniere und oberhalb davon mit zwei Hauptlymphknoten bis 2,2 cm. Geringe Adenopathie retroperitoneal auch in Höhe der Nierenstiele. Unverändert fragl. kleine Zystenbildung von 6 mm hochcranial subcapsulär im rechten Leberlappen. Cholezystolithiasis mit fragl. Geringer Begleitcholezystitis. Die Gallenwege sind nicht ausgeweitet, die Milz ist normal groß. Homogene Parenchymstruktur der Nebennieren und der linken Niere. Bekannte Nierenzyste Bosniak III, cortikal exophytisch an der rechte Niere 5,2 x 5,2 cm partiell wandverdickt und teils randständig zart verkalkt. Kein Harnstau.\n\n2.) Becken:\nAusgeprägte Prostatavergrößerung (Organ-Ausdehnung von 7,2 x 6,7 cm).\nKein Aszites.\nSoweit miterfasst deutlich progredienter Pleuraerguss links (sagittal 18 cm) bei bekannter Pleurakarzinose mit nodulären Weichteilexpansionen bis 1,8 cm paracardial links.\n\n17.06.2027:\nfarbcod. Duplexsono UE li: Die tiefen Venen im gesamten Verlauf (inguinal - Knöchel) frei durchgängig, gut komprimierbar, ohne Hinweis für frisches thromb. Geschehen. Die dargestellten Muskelvenen komprimierbar, kein Hinweis für Muskelvenenthrombose. Dzt. kein Hinweis für größere Baker-Zyste. Am OS kurzstreckig umschriebene Thrombophlebitis.\n\n* Echocardiografie\n\nDer li. Ventrikel mit 5,3cm normal groß, der re. Ventrikel normal groß, die Vorhöfe geringgr. dilatiert, geringe diffuse Hypokinesie, LFEV 45%. Farbdoppelechokardiographie: MINS I, AINS I.\n\nLabor:\npatholog. erhöht: Kalium 5,1, Krea 1,21, NT-proBNP 125.\n\n\nTherapieempfehlung\n\nLovenox 80 mg s.c. 1 x täglich\nAglandin retard 0,4 mg 0-0-1\nPantoloc 40 mg 1-0-0\nEnalapril 2,5 mg dzt pausiert\nL-Thyroxin 150 µg 1 Tablette (MO, MI, FR und SO)\nL-Thyroxin 3/ 4 Tablette (DI, DO und SA)\nCombigan Augentropfen 2 x täglich\nParacodin Tropfen 3 x 20 bei Husten\nFeretab 1-1-1 bis zur BB Kontrolle beim HA, weiteres Procedere durch den\nHA.\nVoltaren 100 0- 0 -1 bei Schmerzen.\n\n",
+      "id": 238979,
+      "kind": "crossout",
+      "deidentifiedText": "Definitiver Arztbrief\n\nXXXXXXX XXXXXXXXX, * XXXXXXXX, wohnhaft in XXXXX XXXXXXXXXX\n\n\nXXXXXXXXXX\nDiagnosen\n\nMaligner Pleuraerguß links mit Mediastinalshift- Pleurapunktion am XXXXXXXXX\nZ. n. XX und NE eines Melanoms, Level III, TD wahrscheinlich < 1mm/occipital li; NE mit Narbengewebe  XXXX\nZ.n. Abtragung eines MM in situ Schläfe links XXXXXXXXX\nZ.n Nachexzision XXXX\nPathologische Lymphknoten / hilär links, mediastinal links, linker Herzzwerchfellwinkel\nGg. retroperitoneale Lymphknotenmetastasierung / ventral der linken Nebenniere\nZ. n. 2xiger Pleurapunktion links XXXXXXXX, XXXXXXXX\nZ. n. Pulmonalarterienembolie und Thrombophlebitis / linker Oberschenkel (ED: XXXXXXXXX)\nZ. n. 1 Zyklus einer DTIC Hochdosis Chemotherapie am XXXXXXXXX (C43.4)\nMitralinsuffizienz\nzunehmende Depression komb mit Agression\n\nWeiteres Vorgehen\n\nStationäre Wiederaufnahme zum geplanten 2. Zyklus einer Chemotherapie mit Carboplatin am XXXXXXXXX.\n\nBezüglich der ausgeprägten Prostatahyperplasie Vorstellung beim niedergelassenen Urologen.\n \nZusammenfassender Dekurs\n\nDie stationäre Aufnahme Ihres Patienten erfolgte aufgrund zunehmender Atembeschwerden. Diesbezüglich sei auf die Vorbefunde der Klinik für Dermatologie hingewiesen.\nAm XXXXXXXXX erfolgte eine erneute Pleurapunktion an der Thoraxchirurgie (1700ml hämorrhagische Flüssigkeit).\n\nAm XXXXXXXXXX erfolgte aufgrund der im Vordergrund stehenden Atembeschwerden die Transferierung des Patienten in stabilem Allgemeinzustand an die Pulmonologie.\n\nRelevante Befunde\n\nBildgebende Untersuchungen : CT Schädel - Schnellbefund XXXXXXXXX: Keine Blutung, keine Raumforderung, keine demarkierten Territorialinfarkte, keine patholog. Kontrastmittelenhancement.\n\nThoraxröntgen XXXXXXXXXX:\nPleuraerguss links bis über Hilushöhe reichend. Der Herzschatten ergussbedingt nicht abgrenzbar. Der rechte Hilus und das obere Mediastinum verbreitert - Lymphadenopathie?\nDer linke Hilus ergussbedingt nicht beurteilbar.\nKeine signifik. Mediastinalshift.\nDie einsehbaren Lungenabschnitte frei von rezenten umschriebenen pneumonischen Infiltraten.\nThoraxröntgen XXXXXXXXXX -: Z.n Pleurapunktion - Schnellbefund. Im Verleich zur Voruntersuchung keine signifikante Befundänderung.\n\nXXXXXXXXX:\n CT Schädel: Insuspekte Stammganglienverkalkungen bds. Cavum septi  peluciti et vergae als Normvariante. Insuspekte Faxverkalkungen. 7mm  gr.  Osteom in der li Stirnhöhle. Mäßige Schleimhautschwellung in bd. Kieferhöhlen.\n\nCT Angiographie Pulmonalgefäße XXXXXXXXXX :\n1.) Längerer aber insgesamt zart kalibrierter Thrombus (PAE) aufgespannt zwischen der Aufteilungsstelle der Oberlappen- und Unterlappenarterie, mit Punktum max. betreffend den Unterlappen hier vor allem die posterobasale Segmentarterie. Weitere kleiner Emboli in der Peripherie.\nInsgesamt zeigt sich nur eine mäßiggradige Linksherzbelastung. 2.) Ausgedehnter maligner Pleuraerguss links (ca. 600 ml) zu Folge einer Pleurakarzinose insbesondere in den basalen (medio- und posterobasal) Pleuraanteilen.\nKonsekutiv finden sich ausgedehnte Atelektasebezirke der linken Lunge.\nAuffälig sind auch zwei nodulär konfig. Verkalkungen pleural links.\n3.) Mehrere sekundär neoplastische Veränderungen in der normal belüfteten rechten Lunge sowie auch in den belüfteten linken Lungenabschnitten.\n4.)Path. LK vor allem hilär links, mediastinal und im linken Herzzwerchfellwinkel.\nAusgeprägte degenerative Wirbelsäulenveränderungen.\n\nCT Abdomen XXXXXXXXXX:\nAnamnestisch metastasierendes malignes Melanom, eine auswärtige Vor-CT vom Klinikum DD. Tendenzielle Befundprogredienz.\nDiagnose:\n1.) Abdomen:\nTendenzielle Progredienz der geringgr. Retroperitonealen LK-Metastasierung ventral der linken Nebenniere und oberhalb davon mit zwei Hauptlymphknoten bis 2,2 cm. Geringe Adenopathie retroperitoneal auch in Höhe der Nierenstiele. Unverändert fragl. kleine Zystenbildung von 6 mm hochcranial subcapsulär im rechten Leberlappen. Cholezystolithiasis mit fragl. Geringer Begleitcholezystitis. Die Gallenwege sind nicht ausgeweitet, die Milz ist normal groß. Homogene Parenchymstruktur der Nebennieren und der linken Niere. Bekannte Nierenzyste Bosniak III, cortikal exophytisch an der rechte Niere 5,2 x 5,2 cm partiell wandverdickt und teils randständig zart verkalkt. Kein Harnstau.\n\n2.) Becken:\nAusgeprägte Prostatavergrößerung (Organ-Ausdehnung von 7,2 x 6,7 cm).\nKein Aszites.\nSoweit miterfasst deutlich progredienter Pleuraerguss links (sagittal 18 cm) bei bekannter Pleurakarzinose mit nodulären Weichteilexpansionen bis 1,8 cm paracardial links.\n\nXXXXXXXXXX:\nfarbcod. Duplexsono UE li: Die tiefen Venen im gesamten Verlauf (inguinal - Knöchel) frei durchgängig, gut komprimierbar, ohne Hinweis für frisches thromb. Geschehen. Die dargestellten Muskelvenen komprimierbar, kein Hinweis für Muskelvenenthrombose. Dzt. kein Hinweis für größere Baker-Zyste. Am OS kurzstreckig umschriebene Thrombophlebitis.\n\n* Echocardiografie\n\nDer li. Ventrikel mit 5,3cm normal groß, der re. Ventrikel normal groß, die Vorhöfe geringgr. dilatiert, geringe diffuse Hypokinesie, LFEV 45%. Farbdoppelechokardiographie: MINS I, AINS I.\n\nLabor:\npatholog. erhöht: Kalium 5,1, Krea 1,21, NT-proBNP 125.\n\n\nTherapieempfehlung\n\nLovenox 80 mg s.c. 1 x täglich\nAglandin retard 0,4 mg 0-0-1\nPantoloc 40 mg 1-0-0\nEnalapril 2,5 mg dzt pausiert\nL-Thyroxin 150 µg 1 Tablette (MO, MI, FR und SO)\nL-Thyroxin 3/ 4 Tablette (DI, DO und SA)\nCombigan Augentropfen 2 x täglich\nParacodin Tropfen 3 x 20 bei Husten\nFeretab 1-1-1 bis zur BB Kontrolle beim HA, weiteres Procedere durch den\nHA.\nVoltaren 100 0- 0 -1 bei Schmerzen.\n\n"
+    },
+    {
+      "begin": 0,
+      "end": 5547,
+      "type": "de.averbis.types.health.DocumentAnnotation",
+      "coveredText": "Definitiver Arztbrief\n\nGerhard Ypsilanti, * 3.2.1961, wohnhaft in 09221 Neukirchen\n\n\n2027-08-02\nDiagnosen\n\nMaligner Pleuraerguß links mit Mediastinalshift- Pleurapunktion am 28.7.2027\nZ. n. TE und NE eines Melanoms, Level III, TD wahrscheinlich < 1mm/occipital li; NE mit Narbengewebe  3/27\nZ.n. Abtragung eines MM in situ Schläfe links 17.3.2027\nZ.n Nachexzision 4/27\nPathologische Lymphknoten / hilär links, mediastinal links, linker Herzzwerchfellwinkel\nGg. retroperitoneale Lymphknotenmetastasierung / ventral der linken Nebenniere\nZ. n. 2xiger Pleurapunktion links 1.7.2027, 3.7.2027\nZ. n. Pulmonalarterienembolie und Thrombophlebitis / linker Oberschenkel (ED: 17.6.2027)\nZ. n. 1 Zyklus einer DTIC Hochdosis Chemotherapie am 20.5.2027 (C43.4)\nMitralinsuffizienz\nzunehmende Depression komb mit Agression\n\nWeiteres Vorgehen\n\nStationäre Wiederaufnahme zum geplanten 2. Zyklus einer Chemotherapie mit Carboplatin am 12.8.2027.\n\nBezüglich der ausgeprägten Prostatahyperplasie Vorstellung beim niedergelassenen Urologen.\n \nZusammenfassender Dekurs\n\nDie stationäre Aufnahme Ihres Patienten erfolgte aufgrund zunehmender Atembeschwerden. Diesbezüglich sei auf die Vorbefunde der Klinik für Dermatologie hingewiesen.\nAm 28.7.2027 erfolgte eine erneute Pleurapunktion an der Thoraxchirurgie (1700ml hämorrhagische Flüssigkeit).\n\nAm 29.07.2027 erfolgte aufgrund der im Vordergrund stehenden Atembeschwerden die Transferierung des Patienten in stabilem Allgemeinzustand an die Pulmonologie.\n\nRelevante Befunde\n\nBildgebende Untersuchungen : CT Schädel - Schnellbefund 17.7.2027: Keine Blutung, keine Raumforderung, keine demarkierten Territorialinfarkte, keine patholog. Kontrastmittelenhancement.\n\nThoraxröntgen 03.07.2027:\nPleuraerguss links bis über Hilushöhe reichend. Der Herzschatten ergussbedingt nicht abgrenzbar. Der rechte Hilus und das obere Mediastinum verbreitert - Lymphadenopathie?\nDer linke Hilus ergussbedingt nicht beurteilbar.\nKeine signifik. Mediastinalshift.\nDie einsehbaren Lungenabschnitte frei von rezenten umschriebenen pneumonischen Infiltraten.\nThoraxröntgen 03.17.2027 -: Z.n Pleurapunktion - Schnellbefund. Im Verleich zur Voruntersuchung keine signifikante Befundänderung.\n\n9.10.2027:\n CT Schädel: Insuspekte Stammganglienverkalkungen bds. Cavum septi  peluciti et vergae als Normvariante. Insuspekte Faxverkalkungen. 7mm  gr.  Osteom in der li Stirnhöhle. Mäßige Schleimhautschwellung in bd. Kieferhöhlen.\n\nCT Angiographie Pulmonalgefäße 17.06.2027 :\n1.) Längerer aber insgesamt zart kalibrierter Thrombus (PAE) aufgespannt zwischen der Aufteilungsstelle der Oberlappen- und Unterlappenarterie, mit Punktum max. betreffend den Unterlappen hier vor allem die posterobasale Segmentarterie. Weitere kleiner Emboli in der Peripherie.\nInsgesamt zeigt sich nur eine mäßiggradige Linksherzbelastung. 2.) Ausgedehnter maligner Pleuraerguss links (ca. 600 ml) zu Folge einer Pleurakarzinose insbesondere in den basalen (medio- und posterobasal) Pleuraanteilen.\nKonsekutiv finden sich ausgedehnte Atelektasebezirke der linken Lunge.\nAuffälig sind auch zwei nodulär konfig. Verkalkungen pleural links.\n3.) Mehrere sekundär neoplastische Veränderungen in der normal belüfteten rechten Lunge sowie auch in den belüfteten linken Lungenabschnitten.\n4.)Path. LK vor allem hilär links, mediastinal und im linken Herzzwerchfellwinkel.\nAusgeprägte degenerative Wirbelsäulenveränderungen.\n\nCT Abdomen 22.06.2027:\nAnamnestisch metastasierendes malignes Melanom, eine auswärtige Vor-CT vom Klinikum DD. Tendenzielle Befundprogredienz.\nDiagnose:\n1.) Abdomen:\nTendenzielle Progredienz der geringgr. Retroperitonealen LK-Metastasierung ventral der linken Nebenniere und oberhalb davon mit zwei Hauptlymphknoten bis 2,2 cm. Geringe Adenopathie retroperitoneal auch in Höhe der Nierenstiele. Unverändert fragl. kleine Zystenbildung von 6 mm hochcranial subcapsulär im rechten Leberlappen. Cholezystolithiasis mit fragl. Geringer Begleitcholezystitis. Die Gallenwege sind nicht ausgeweitet, die Milz ist normal groß. Homogene Parenchymstruktur der Nebennieren und der linken Niere. Bekannte Nierenzyste Bosniak III, cortikal exophytisch an der rechte Niere 5,2 x 5,2 cm partiell wandverdickt und teils randständig zart verkalkt. Kein Harnstau.\n\n2.) Becken:\nAusgeprägte Prostatavergrößerung (Organ-Ausdehnung von 7,2 x 6,7 cm).\nKein Aszites.\nSoweit miterfasst deutlich progredienter Pleuraerguss links (sagittal 18 cm) bei bekannter Pleurakarzinose mit nodulären Weichteilexpansionen bis 1,8 cm paracardial links.\n\n17.06.2027:\nfarbcod. Duplexsono UE li: Die tiefen Venen im gesamten Verlauf (inguinal - Knöchel) frei durchgängig, gut komprimierbar, ohne Hinweis für frisches thromb. Geschehen. Die dargestellten Muskelvenen komprimierbar, kein Hinweis für Muskelvenenthrombose. Dzt. kein Hinweis für größere Baker-Zyste. Am OS kurzstreckig umschriebene Thrombophlebitis.\n\n* Echocardiografie\n\nDer li. Ventrikel mit 5,3cm normal groß, der re. Ventrikel normal groß, die Vorhöfe geringgr. dilatiert, geringe diffuse Hypokinesie, LFEV 45%. Farbdoppelechokardiographie: MINS I, AINS I.\n\nLabor:\npatholog. erhöht: Kalium 5,1, Krea 1,21, NT-proBNP 125.\n\n\nTherapieempfehlung\n\nLovenox 80 mg s.c. 1 x täglich\nAglandin retard 0,4 mg 0-0-1\nPantoloc 40 mg 1-0-0\nEnalapril 2,5 mg dzt pausiert\nL-Thyroxin 150 µg 1 Tablette (MO, MI, FR und SO)\nL-Thyroxin 3/ 4 Tablette (DI, DO und SA)\nCombigan Augentropfen 2 x täglich\nParacodin Tropfen 3 x 20 bei Husten\nFeretab 1-1-1 bis zur BB Kontrolle beim HA, weiteres Procedere durch den\nHA.\nVoltaren 100 0- 0 -1 bei Schmerzen.\n\n",
+      "id": 8,
+      "language": "de",
+      "version": "5.33.1"
+    }
+  ]
+}

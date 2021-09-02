@@ -1,0 +1,183 @@
+{
+  "annotationDtos": [
+    {
+      "begin": 199,
+      "end": 299,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Diagnose: Innen- und Außenmeniskuskorbhenkelriß mit Ruptur des vorederen Kreuzbandes und Elongation.",
+      "id": 32487,
+      "matchedTerm": "Diagnose",
+      "dictCanon": "Diagnose",
+      "conceptId": "10164-2",
+      "source": "clinical_sections_de",
+      "label": "DiagnosisSection",
+      "uniqueId": "clinical_sections_de:10164-2"
+    },
+    {
+      "begin": 302,
+      "end": 774,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Therapie: Athroskopische Refixation des Innen- und Außenmeniskus und Glättung des vorderen Kreuzbandes am 27.05.2019\nDie Vorgeschichte dürfen wir freundlicherweise als bekannt vorraussetzen.\n\nNach entsprechender Vorbereitung führten wir den o.g. Eingriff durch. Es ergaben sich im intra- und postoperativen Verlauf keine Komplikationen. Die Wunde heilte primär. Die krankengymnastische Mobilisierung erfolgte in einer Kniegelenksorthese mit Fixierung auf Ext/Flex 0-0-60°.",
+      "id": 32498,
+      "matchedTerm": "Therapie",
+      "dictCanon": "Therapie",
+      "conceptId": "62387-6",
+      "source": "clinical_sections_de",
+      "label": "TherapySection",
+      "uniqueId": "clinical_sections_de:62387-6"
+    },
+    {
+      "begin": 775,
+      "end": 814,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Medikamente: Clexane, Ibuprofen, Nexium",
+      "id": 32509,
+      "matchedTerm": "Medikamente",
+      "dictCanon": "Medikation",
+      "conceptId": "29549-3",
+      "source": "clinical_sections_de",
+      "label": "MedicationSection",
+      "uniqueId": "clinical_sections_de:29549-3"
+    },
+    {
+      "begin": 815,
+      "end": 1053,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Proceder: Weitere Mobilisation unter TB 20kg für 6 Wochen in der Orthese mit Limitierung der Flexion auf 60° für 2 Wochen, dann 2 Wochen 90°, anschließend Freigabe. Med. Thromboseprophylaxe mit niedermol. Heparin bis zur schmerzfreien VB.",
+      "id": 32520,
+      "matchedTerm": "Procedere",
+      "dictCanon": "Weitere",
+      "conceptId": "Sec_Misc",
+      "source": "clinical_sections_de",
+      "label": "MiscClinicalSection",
+      "uniqueId": "clinical_sections_de:Sec_Misc"
+    },
+    {
+      "begin": 1055,
+      "end": 1115,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Mit freundlichen Grüßen\n\nDr.a med. univ. Kristina Zipperling",
+      "id": 32531,
+      "matchedTerm": "Mit freundlichen Grüßen",
+      "dictCanon": "Mit freundlichen Grüßen",
+      "conceptId": "Sec_DocumentFooter",
+      "source": "clinical_sections_de",
+      "label": "DocumentFooterSection",
+      "uniqueId": "clinical_sections_de:Sec_DocumentFooter"
+    },
+    {
+      "begin": 150,
+      "end": 179,
+      "type": "de.averbis.types.health.Hospitalisation",
+      "coveredText": "26.05.2019 bis zum 30.05.2019",
+      "id": 32628,
+      "admissionDate": "2019-05-26",
+      "dischargeDate": "2019-05-30"
+    },
+    {
+      "begin": 0,
+      "end": 1115,
+      "type": "de.averbis.types.health.PatientInformation",
+      "coveredText": "Dr. Katharina Leitner, * 23.11.1992, wohnhaft Afritschgasse 22, 9010 Klagenfurt\n\n\nSehr geehrte Frau Kollegin,\n\nwir behandelten die o.g. Patientin vom 26.05.2019 bis zum 30.05.2019 in unserer Klinik.\nDiagnose: Innen- und Außenmeniskuskorbhenkelriß mit Ruptur des vorederen Kreuzbandes und Elongation.  \nTherapie: Athroskopische Refixation des Innen- und Außenmeniskus und Glättung des vorderen Kreuzbandes am 27.05.2019\nDie Vorgeschichte dürfen wir freundlicherweise als bekannt vorraussetzen.\n\nNach entsprechender Vorbereitung führten wir den o.g. Eingriff durch. Es ergaben sich im intra- und postoperativen Verlauf keine Komplikationen. Die Wunde heilte primär. Die krankengymnastische Mobilisierung erfolgte in einer Kniegelenksorthese mit Fixierung auf Ext/Flex 0-0-60°.\nMedikamente: Clexane, Ibuprofen, Nexium\nProceder: Weitere Mobilisation unter TB 20kg für 6 Wochen in der Orthese mit Limitierung der Flexion auf 60° für 2 Wochen, dann 2 Wochen 90°, anschließend Freigabe. Med. Thromboseprophylaxe mit niedermol. Heparin bis zur schmerzfreien VB.\n\nMit freundlichen Grüßen\n\nDr.a med. univ. Kristina Zipperling",
+      "id": 32989,
+      "firstName": null,
+      "lastName": null,
+      "deceased": false,
+      "gender": "female",
+      "deathDate": null
+    },
+    {
+      "begin": 25,
+      "end": 35,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "23.11.1992",
+      "id": 33279
+    },
+    {
+      "begin": 62,
+      "end": 68,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": ", 9010",
+      "id": 49953
+    },
+    {
+      "begin": 150,
+      "end": 160,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "26.05.2019",
+      "id": 33293
+    },
+    {
+      "begin": 169,
+      "end": 179,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "30.05.2019",
+      "id": 33307
+    },
+    {
+      "begin": 408,
+      "end": 418,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "27.05.2019",
+      "id": 33321
+    },
+    {
+      "begin": 46,
+      "end": 62,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Afritschgasse 22",
+      "id": 42162,
+      "kind": "STREET"
+    },
+    {
+      "begin": 69,
+      "end": 79,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Klagenfurt",
+      "id": 43330,
+      "kind": "CITY"
+    },
+    {
+      "begin": 4,
+      "end": 21,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Katharina Leitner",
+      "id": 39805,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 4,
+      "end": 21,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Katharina Leitner",
+      "id": 49923,
+      "kind": "DOCTOR"
+    },
+    {
+      "begin": 1096,
+      "end": 1115,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Kristina Zipperling",
+      "id": 39863,
+      "kind": "DOCTOR"
+    },
+    {
+      "begin": 0,
+      "end": 1117,
+      "type": "de.averbis.types.health.DeidentifiedDocument",
+      "coveredText": "Dr. Katharina Leitner, * 23.11.1992, wohnhaft Afritschgasse 22, 9010 Klagenfurt\n\n\nSehr geehrte Frau Kollegin,\n\nwir behandelten die o.g. Patientin vom 26.05.2019 bis zum 30.05.2019 in unserer Klinik.\nDiagnose: Innen- und Außenmeniskuskorbhenkelriß mit Ruptur des vorederen Kreuzbandes und Elongation.  \nTherapie: Athroskopische Refixation des Innen- und Außenmeniskus und Glättung des vorderen Kreuzbandes am 27.05.2019\nDie Vorgeschichte dürfen wir freundlicherweise als bekannt vorraussetzen.\n\nNach entsprechender Vorbereitung führten wir den o.g. Eingriff durch. Es ergaben sich im intra- und postoperativen Verlauf keine Komplikationen. Die Wunde heilte primär. Die krankengymnastische Mobilisierung erfolgte in einer Kniegelenksorthese mit Fixierung auf Ext/Flex 0-0-60°.\nMedikamente: Clexane, Ibuprofen, Nexium\nProceder: Weitere Mobilisation unter TB 20kg für 6 Wochen in der Orthese mit Limitierung der Flexion auf 60° für 2 Wochen, dann 2 Wochen 90°, anschließend Freigabe. Med. Thromboseprophylaxe mit niedermol. Heparin bis zur schmerzfreien VB.\n\nMit freundlichen Grüßen\n\nDr.a med. univ. Kristina Zipperling\n\n",
+      "id": 51326,
+      "kind": "crossout",
+      "deidentifiedText": "Dr. XXXXXXXXX XXXXXXX, * XXXXXXXXXX, wohnhaft XXXXXXXXXXXXX XXX XXXX XXXXXXXXXX\n\n\nSehr geehrte Frau Kollegin,\n\nwir behandelten die o.g. Patientin vom XXXXXXXXXX bis zum XXXXXXXXXX in unserer Klinik.\nDiagnose: Innen- und Außenmeniskuskorbhenkelriß mit Ruptur des vorederen Kreuzbandes und Elongation.  \nTherapie: Athroskopische Refixation des Innen- und Außenmeniskus und Glättung des vorderen Kreuzbandes am XXXXXXXXXX\nDie Vorgeschichte dürfen wir freundlicherweise als bekannt vorraussetzen.\n\nNach entsprechender Vorbereitung führten wir den o.g. Eingriff durch. Es ergaben sich im intra- und postoperativen Verlauf keine Komplikationen. Die Wunde heilte primär. Die krankengymnastische Mobilisierung erfolgte in einer Kniegelenksorthese mit Fixierung auf Ext/Flex 0-0-60°.\nMedikamente: Clexane, Ibuprofen, Nexium\nProceder: Weitere Mobilisation unter TB 20kg für 6 Wochen in der Orthese mit Limitierung der Flexion auf 60° für 2 Wochen, dann 2 Wochen 90°, anschließend Freigabe. Med. Thromboseprophylaxe mit niedermol. Heparin bis zur schmerzfreien VB.\n\nMit freundlichen Grüßen\n\nDr.a med. univ. XXXXXXXX XXXXXXXXXX\n\n"
+    },
+    {
+      "begin": 0,
+      "end": 1117,
+      "type": "de.averbis.types.health.DocumentAnnotation",
+      "coveredText": "Dr. Katharina Leitner, * 23.11.1992, wohnhaft Afritschgasse 22, 9010 Klagenfurt\n\n\nSehr geehrte Frau Kollegin,\n\nwir behandelten die o.g. Patientin vom 26.05.2019 bis zum 30.05.2019 in unserer Klinik.\nDiagnose: Innen- und Außenmeniskuskorbhenkelriß mit Ruptur des vorederen Kreuzbandes und Elongation.  \nTherapie: Athroskopische Refixation des Innen- und Außenmeniskus und Glättung des vorderen Kreuzbandes am 27.05.2019\nDie Vorgeschichte dürfen wir freundlicherweise als bekannt vorraussetzen.\n\nNach entsprechender Vorbereitung führten wir den o.g. Eingriff durch. Es ergaben sich im intra- und postoperativen Verlauf keine Komplikationen. Die Wunde heilte primär. Die krankengymnastische Mobilisierung erfolgte in einer Kniegelenksorthese mit Fixierung auf Ext/Flex 0-0-60°.\nMedikamente: Clexane, Ibuprofen, Nexium\nProceder: Weitere Mobilisation unter TB 20kg für 6 Wochen in der Orthese mit Limitierung der Flexion auf 60° für 2 Wochen, dann 2 Wochen 90°, anschließend Freigabe. Med. Thromboseprophylaxe mit niedermol. Heparin bis zur schmerzfreien VB.\n\nMit freundlichen Grüßen\n\nDr.a med. univ. Kristina Zipperling\n\n",
+      "id": 8,
+      "language": "de",
+      "version": "5.33.1"
+    }
+  ]
+}

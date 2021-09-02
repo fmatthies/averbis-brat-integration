@@ -1,0 +1,432 @@
+{
+  "annotationDtos": [
+    {
+      "begin": 110,
+      "end": 477,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Sehr geehrter Frau Kollegin, sehr geehrter Herr Kollege \nWir berichten Ihnen über unsere gemeinsame Patientin M. Zezelj. Stationärer Aufenthalt: 03.07.2023 – 05.07.2023 Epilepsieklassifikation: Fokale Epilepsie rechts \nAtiologie: \nRasmussen-Enzephalitis Anfallssemiologie: Epilepsia partialis continua links Generalisiert tonisch-komische Anfälle Dialeptische Anfälle",
+      "id": 169865,
+      "matchedTerm": "Sehr geehrte Frau Kollegin, sehr geehrter Herr Kollege",
+      "dictCanon": "Weitere",
+      "conceptId": "Sec_Misc",
+      "source": "clinical_sections_de",
+      "label": "MiscClinicalSection",
+      "uniqueId": "clinical_sections_de:Sec_Misc"
+    },
+    {
+      "begin": 479,
+      "end": 649,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Zusatzdiagnosen: Unilateral Hemiparese links GMFCS-Stufe , MACS-Stufe Panaritum linke Großzehe Arterielle Hypertonie Aktueller Vorstellungsgrund: 2. Methylprednisolonstoß",
+      "id": 169876,
+      "matchedTerm": "Diagnosen",
+      "dictCanon": "Diagnose",
+      "conceptId": "10164-2",
+      "source": "clinical_sections_de",
+      "label": "DiagnosisSection",
+      "uniqueId": "clinical_sections_de:10164-2"
+    },
+    {
+      "begin": 651,
+      "end": 1895,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Anamnese:\nMarija, eine knapp 16-jährige Patientin, leidet seit etwa 1 1/2 Jahren an einer Rasmussen Enzephalitis. Aufgrund der noch bestehenden guten Restfunktion der linken Hand mit Vorhandensein der feinen Fingerbewegungen haben wir zunächst von einer Hemisphärektomie abgesehen. Stattdessen haben wir im Februar mit der Eindosierung von Tacrolimus begonnen. Unter dieser Medikation war es zunächst zu einer deutlichen Besserung der Symptomatik gekommen und insbesondere die Hemiparese war weniger stark fluktuierend in ihrer Ausprägung. Aktuell gehe es Maria für ihre Verhältnisse gut. Sie könne gehen und sei nicht mehr auf den Rollstuhl angewiesen. Die Funkt. der li Hand sei jedoch eingeschränkt. Es würden Absencen von ca. 1-2 Min Dauer auftreten und sie sei mitunter kurzzeitig verwirrt. Die Myoklonien der linken Gesichtshälfte bestünden fort. Auch die Sensibilität im Gesichtsbereich sei reduziert, Maria würde gelegentlich nicht bemerken, wenn sie Essensreste noch in der linken Backentasche habe. Die Blutdruckwerte seien stabil. Die Eltern würden 2xTag messen. Frisium hätten die Eltern aufgrund eines „Engpasses“ über das Wochenende vor 2 Wochen von 30 auf 20mg/Tag reduziert, was Marijas Zustand jedoch nicht verschlechtert habe.",
+      "id": 169887,
+      "matchedTerm": "Anamnese",
+      "dictCanon": "Anamnese",
+      "conceptId": "11329-0",
+      "source": "clinical_sections_de",
+      "label": "AnamnesisSection",
+      "uniqueId": "clinical_sections_de:11329-0"
+    },
+    {
+      "begin": 1012,
+      "end": 1190,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Unter dieser Medikation war es zunächst zu einer deutlichen Besserung der Symptomatik gekommen und insbesondere die Hemiparese war weniger stark fluktuierend in ihrer Ausprägung.",
+      "id": 169898,
+      "matchedTerm": "Medikation",
+      "dictCanon": "Medikation",
+      "conceptId": "29549-3",
+      "source": "clinical_sections_de",
+      "label": "MedicationSection",
+      "uniqueId": "clinical_sections_de:29549-3"
+    },
+    {
+      "begin": 1660,
+      "end": 1692,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Die Blutdruckwerte seien stabil.",
+      "id": 169909,
+      "matchedTerm": "Blutdruck",
+      "dictCanon": "Vitalzeichen",
+      "conceptId": "8716-3",
+      "source": "clinical_sections_de",
+      "label": "VitalSignSection",
+      "uniqueId": "clinical_sections_de:8716-3"
+    },
+    {
+      "begin": 1897,
+      "end": 1981,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Familienanamnese:\nKeine Geschwister, keine relevanten Vorerkrankungen in der Familie",
+      "id": 169920,
+      "matchedTerm": "Familienanamnese",
+      "dictCanon": "Familienanamnese",
+      "conceptId": "10157-6",
+      "source": "clinical_sections_de",
+      "label": "FamilyAnamnesisSection",
+      "uniqueId": "clinical_sections_de:10157-6"
+    },
+    {
+      "begin": 1983,
+      "end": 2246,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Medikation bei Aufnahme: \nEthosuximid 250-250-250 mg (=17,9 mg/kg KG) Tacrolimus 6-0-6 mg (=0,28 mg/kg KG) Levetiracetam 500-0-500 mg (=23,9 mg/kg KG) Clobazam 10-0-10 mg Ramipril 7,5-0-0 mg Amlodipin 5-0-0 mg Bei gen. ton.-klon. Anfällen > 3 Min.: Diazepam 10 mg",
+      "id": 169931,
+      "matchedTerm": "Medikation bei Aufnahme",
+      "dictCanon": "Medikation bei Aufnahme",
+      "conceptId": "42346-7",
+      "source": "clinical_sections_de",
+      "label": "AdmissionMedicationSection",
+      "uniqueId": "clinical_sections_de:42346-7"
+    },
+    {
+      "begin": 2248,
+      "end": 2936,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Körperlicher Untersuchungsbefund: 15–jähriges Mädchen in gutem Allgemein- und gutem Ernährungszustand. Größe: 153 cm (5 cm 1. PZ), Gewicht 41,8 kg (2 PZ), KU: 54 cm (22. PZ). Turgor normal, kein Exanthem, gute RKZ. Panaritium mit Granulationsgewebe an der linken Großzehe. Unauffälliger 1. und 2. Herzton, rhythmisch, keine pathologischen Geräusche auskultierbar. Pulmo: stgl. belüftet, ves. AG, keine RGs. Abdomen: weich, Darmgeräusche regelrecht, kein Druckschmerz, keine Abwehrspannung, keine pathologischen Resistenzen. Leber und Milz nicht vergrößert tastbar. Nierenlager frei. Rachen und Trommelfelle ohne path. Befund. Genitale reizlos. Keine pathologisch vergrößerten Lymphknoten.",
+      "id": 169942,
+      "matchedTerm": "Körperlicher Untersuchungsbefund",
+      "dictCanon": "Befund",
+      "conceptId": "29545-1",
+      "source": "clinical_sections_de",
+      "label": "FindingSection",
+      "uniqueId": "clinical_sections_de:29545-1"
+    },
+    {
+      "begin": 2939,
+      "end": 4395,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Neurologische Untersuchung: Während der Untersuchung eine Absence von ca. 1 Minute Dauer. Kein Meningismus. Hirnnerven intakt. Leicht sakkadierte Blickfolge nach links. Intermittierende Myoklonie der linken Gesichtshälfte, zeitweise unter Einbeziehung des rechten Mundwinkels. Babinski neg. MER stgl. lebhaft auslösbar. Kraft links 4/5 (OE+UE), rechts 5/5. Einbeinstand links nicht möglich, rechts unauffällig. Seiltänzer unsicher. Fingerreihe links kaum möglich, rechts unauffällig. Diadochokinese links verlangsamt mit Spiegelbewegung, rechts normal. Sprache deutlich. Sensibilität links (OE+UE) vermindert (aufgrund der Sprachbarriere nur bedingt zu testen) Labor: Siehe Anhang. Tacrolimusspiegel vom 03.07.23: 5.2 ng/ml \nKinderchirurgisches Konsil vom 05.07.23: Befund: Panaritium der Großzehe. Keine größere Infektion. Bereits verätzt und der Großteil des Granuloms bereits regredient. Die Reste des Granuloms leicht mit der Schere abgetragen. Nochmals mit Silber-Nitrat verätzt. Beurteilung: Bitte weiter 3x tgl. Fußbad mit Kamillosan und 3x tgl. Fucidine Salbe. Wenn in 1 Woche keine Besserung Wiedervorstellung; ggf. Emmert Plastik \nStationärer Verlauf: Maria erhielt Methylprednisolon (20mg/kg KG) für 3 Tage. Die Blutdruckwerte waren stabil. Es traten nicht symptomatische Blutzuckerspitzen bis 480 mg/dl auf. Ein kinderchirurgisches Konsil bzgl. des Panaritiums ergab zunächst eine konservative Weiterbehandlung mit Fußbädern und Fucidine Salbe.",
+      "id": 169953,
+      "matchedTerm": "Neurologische Untersuchung",
+      "dictCanon": "Untersuchungsbefund",
+      "conceptId": "59776-5",
+      "source": "clinical_sections_de",
+      "label": "ObservationSection",
+      "uniqueId": "clinical_sections_de:59776-5"
+    },
+    {
+      "begin": 3510,
+      "end": 3620,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Sensibilität links (OE+UE) vermindert (aufgrund der Sprachbarriere nur bedingt zu testen) Labor: Siehe Anhang.",
+      "id": 169964,
+      "matchedTerm": "Labor (",
+      "dictCanon": "Labor",
+      "conceptId": "30954-2",
+      "source": "clinical_sections_de",
+      "label": "LaboratorySection",
+      "uniqueId": "clinical_sections_de:30954-2"
+    },
+    {
+      "begin": 3621,
+      "end": 3737,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Tacrolimusspiegel vom 03.07.23: 5.2 ng/ml \nKinderchirurgisches Konsil vom 05.07.23: Befund: Panaritium der Großzehe.",
+      "id": 169975,
+      "matchedTerm": "Befund",
+      "dictCanon": "Befund",
+      "conceptId": "29545-1",
+      "source": "clinical_sections_de",
+      "label": "FindingSection",
+      "uniqueId": "clinical_sections_de:29545-1"
+    },
+    {
+      "begin": 3924,
+      "end": 4007,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Beurteilung: Bitte weiter 3x tgl. Fußbad mit Kamillosan und 3x tgl. Fucidine Salbe.",
+      "id": 169986,
+      "matchedTerm": "Beurteilung",
+      "dictCanon": "Weitere",
+      "conceptId": "Sec_Misc",
+      "source": "clinical_sections_de",
+      "label": "MiscClinicalSection",
+      "uniqueId": "clinical_sections_de:Sec_Misc"
+    },
+    {
+      "begin": 4008,
+      "end": 4157,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Wenn in 1 Woche keine Besserung Wiedervorstellung; ggf. Emmert Plastik \nStationärer Verlauf: Maria erhielt Methylprednisolon (20mg/kg KG) für 3 Tage.",
+      "id": 169997,
+      "matchedTerm": "Verlauf",
+      "dictCanon": "Epikrise",
+      "conceptId": "51848-0",
+      "source": "clinical_sections_de",
+      "label": "EpicrisisSection",
+      "uniqueId": "clinical_sections_de:51848-0"
+    },
+    {
+      "begin": 4158,
+      "end": 4190,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Die Blutdruckwerte waren stabil.",
+      "id": 170008,
+      "matchedTerm": "Blutdruck",
+      "dictCanon": "Vitalzeichen",
+      "conceptId": "8716-3",
+      "source": "clinical_sections_de",
+      "label": "VitalSignSection",
+      "uniqueId": "clinical_sections_de:8716-3"
+    },
+    {
+      "begin": 4397,
+      "end": 5080,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Zusammenfassung und Empfehlungen: Marija, ein knapp 16-jähriges Mädchen, wurde aufgrund einer akuten Verschlechterung einer bekannten Rasmussen-Enzephalitis mit Epilepsia partialis continua stationär aufgenommen. Maria scheint von der Kortisonstoßtherapie zu profitieren, wir empfehlen eine Verlaufskontrolle. \nWir empfehlen: \n- Amb. Wiedervorstellung in der Hochschulambulanz in 2 Wochen. (Terminvereinbarung unter 5110-2882). Kontrolle des BZ-Wertes. \n- Weiter 3x tgl. Fußbad mit Kamillosan und 3x tgl. Fucidine Salbe. Wenn in 1 Woche keine Besserung des Panaritiums Wiedervorstellung; ggf. Emmert Plastik - Blutdruckmessung 2x/Tag mit Protokoll. \n– Kontrolle der LZ-RR im Verlauf.",
+      "id": 170019,
+      "matchedTerm": "Zusammenfassung",
+      "dictCanon": "Epikrise",
+      "conceptId": "51848-0",
+      "source": "clinical_sections_de",
+      "label": "EpicrisisSection",
+      "uniqueId": "clinical_sections_de:51848-0"
+    },
+    {
+      "begin": 4918,
+      "end": 5045,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Wenn in 1 Woche keine Besserung des Panaritiums Wiedervorstellung; ggf. Emmert Plastik - Blutdruckmessung 2x/Tag mit Protokoll.",
+      "id": 170030,
+      "matchedTerm": "Blutdruck",
+      "dictCanon": "Vitalzeichen",
+      "conceptId": "8716-3",
+      "source": "clinical_sections_de",
+      "label": "VitalSignSection",
+      "uniqueId": "clinical_sections_de:8716-3"
+    },
+    {
+      "begin": 5082,
+      "end": 5518,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Medikation bei Entlassung: \nRamipril 7,5-0-0 mg Amlodipin 5-0-0 mg Frisium 10-0-10 mg Levetiracetam (Keppra ®) 500-0-500 mg (=23,9 mg/kg KG) Ethosuximid (Petnidan E) 250-250-250 mg (=17,9 mg/kg KG) Tacrolimus 6-0-6 mg (=0,28 mg/kg KG) Bei geri. ton.-klon. Anfällen > 3 Min.: Buccolam E 10 mg Bei Blutdruckwerten >145/95 mmHg 6 gtt Nifedipin (Adalat E) (max. alle 6-8h) Für eventuelle Rückfragen stehen wir gerne jederzeit zur Verfügung.",
+      "id": 170041,
+      "matchedTerm": "Medikation bei Entlassung",
+      "dictCanon": "Medikation bei Entlassung",
+      "conceptId": "10183-2",
+      "source": "clinical_sections_de",
+      "label": "DischargeMedicationSection",
+      "uniqueId": "clinical_sections_de:10183-2"
+    },
+    {
+      "begin": 5338,
+      "end": 5518,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Anfällen > 3 Min.: Buccolam E 10 mg Bei Blutdruckwerten >145/95 mmHg 6 gtt Nifedipin (Adalat E) (max. alle 6-8h) Für eventuelle Rückfragen stehen wir gerne jederzeit zur Verfügung.",
+      "id": 170052,
+      "matchedTerm": "Blutdruck",
+      "dictCanon": "Vitalzeichen",
+      "conceptId": "8716-3",
+      "source": "clinical_sections_de",
+      "label": "VitalSignSection",
+      "uniqueId": "clinical_sections_de:8716-3"
+    },
+    {
+      "begin": 5521,
+      "end": 5580,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Mit freundlichen, kollegialen Grüßen  \nIris Leber, Dr. med.",
+      "id": 170063,
+      "matchedTerm": "Mit freundlichen kollegialen Grüßen",
+      "dictCanon": "Mit freundlichen Grüßen",
+      "conceptId": "Sec_DocumentFooter",
+      "source": "clinical_sections_de",
+      "label": "DocumentFooterSection",
+      "uniqueId": "clinical_sections_de:Sec_DocumentFooter"
+    },
+    {
+      "begin": 0,
+      "end": 5580,
+      "type": "de.averbis.types.health.PatientInformation",
+      "coveredText": "Landeskrankenhaus Neustadt, Epilepsie-Einheit \nENTLASSUNGSBERICHT Patient: Žeželj, Maria geb. am 21.09.2007 \n\nSehr geehrter Frau Kollegin, sehr geehrter Herr Kollege \nWir berichten Ihnen über unsere gemeinsame Patientin M. Zezelj. Stationärer Aufenthalt: 03.07.2023 – 05.07.2023 Epilepsieklassifikation: Fokale Epilepsie rechts \nAtiologie: \nRasmussen-Enzephalitis Anfallssemiologie: Epilepsia partialis continua links Generalisiert tonisch-komische Anfälle Dialeptische Anfälle \nZusatzdiagnosen: Unilateral Hemiparese links GMFCS-Stufe , MACS-Stufe Panaritum linke Großzehe Arterielle Hypertonie Aktueller Vorstellungsgrund: 2. Methylprednisolonstoß \nAnamnese:\nMarija, eine knapp 16-jährige Patientin, leidet seit etwa 1 1/2 Jahren an einer Rasmussen Enzephalitis. Aufgrund der noch bestehenden guten Restfunktion der linken Hand mit Vorhandensein der feinen Fingerbewegungen haben wir zunächst von einer Hemisphärektomie abgesehen. Stattdessen haben wir im Februar mit der Eindosierung von Tacrolimus begonnen. Unter dieser Medikation war es zunächst zu einer deutlichen Besserung der Symptomatik gekommen und insbesondere die Hemiparese war weniger stark fluktuierend in ihrer Ausprägung. Aktuell gehe es Maria für ihre Verhältnisse gut. Sie könne gehen und sei nicht mehr auf den Rollstuhl angewiesen. Die Funkt. der li Hand sei jedoch eingeschränkt. Es würden Absencen von ca. 1-2 Min Dauer auftreten und sie sei mitunter kurzzeitig verwirrt. Die Myoklonien der linken Gesichtshälfte bestünden fort. Auch die Sensibilität im Gesichtsbereich sei reduziert, Maria würde gelegentlich nicht bemerken, wenn sie Essensreste noch in der linken Backentasche habe. Die Blutdruckwerte seien stabil. Die Eltern würden 2xTag messen. Frisium hätten die Eltern aufgrund eines „Engpasses“ über das Wochenende vor 2 Wochen von 30 auf 20mg/Tag reduziert, was Marijas Zustand jedoch nicht verschlechtert habe.\n\nFamilienanamnese:\nKeine Geschwister, keine relevanten Vorerkrankungen in der Familie\n\nMedikation bei Aufnahme: \nEthosuximid 250-250-250 mg (=17,9 mg/kg KG) Tacrolimus 6-0-6 mg (=0,28 mg/kg KG) Levetiracetam 500-0-500 mg (=23,9 mg/kg KG) Clobazam 10-0-10 mg Ramipril 7,5-0-0 mg Amlodipin 5-0-0 mg Bei gen. ton.-klon. Anfällen > 3 Min.: Diazepam 10 mg \nKörperlicher Untersuchungsbefund: 15–jähriges Mädchen in gutem Allgemein- und gutem Ernährungszustand. Größe: 153 cm (5 cm 1. PZ), Gewicht 41,8 kg (2 PZ), KU: 54 cm (22. PZ). Turgor normal, kein Exanthem, gute RKZ. Panaritium mit Granulationsgewebe an der linken Großzehe. Unauffälliger 1. und 2. Herzton, rhythmisch, keine pathologischen Geräusche auskultierbar. Pulmo: stgl. belüftet, ves. AG, keine RGs. Abdomen: weich, Darmgeräusche regelrecht, kein Druckschmerz, keine Abwehrspannung, keine pathologischen Resistenzen. Leber und Milz nicht vergrößert tastbar. Nierenlager frei. Rachen und Trommelfelle ohne path. Befund. Genitale reizlos. Keine pathologisch vergrößerten Lymphknoten. \n\nNeurologische Untersuchung: Während der Untersuchung eine Absence von ca. 1 Minute Dauer. Kein Meningismus. Hirnnerven intakt. Leicht sakkadierte Blickfolge nach links. Intermittierende Myoklonie der linken Gesichtshälfte, zeitweise unter Einbeziehung des rechten Mundwinkels. Babinski neg. MER stgl. lebhaft auslösbar. Kraft links 4/5 (OE+UE), rechts 5/5. Einbeinstand links nicht möglich, rechts unauffällig. Seiltänzer unsicher. Fingerreihe links kaum möglich, rechts unauffällig. Diadochokinese links verlangsamt mit Spiegelbewegung, rechts normal. Sprache deutlich. Sensibilität links (OE+UE) vermindert (aufgrund der Sprachbarriere nur bedingt zu testen) Labor: Siehe Anhang. Tacrolimusspiegel vom 03.07.23: 5.2 ng/ml \nKinderchirurgisches Konsil vom 05.07.23: Befund: Panaritium der Großzehe. Keine größere Infektion. Bereits verätzt und der Großteil des Granuloms bereits regredient. Die Reste des Granuloms leicht mit der Schere abgetragen. Nochmals mit Silber-Nitrat verätzt. Beurteilung: Bitte weiter 3x tgl. Fußbad mit Kamillosan und 3x tgl. Fucidine Salbe. Wenn in 1 Woche keine Besserung Wiedervorstellung; ggf. Emmert Plastik \nStationärer Verlauf: Maria erhielt Methylprednisolon (20mg/kg KG) für 3 Tage. Die Blutdruckwerte waren stabil. Es traten nicht symptomatische Blutzuckerspitzen bis 480 mg/dl auf. Ein kinderchirurgisches Konsil bzgl. des Panaritiums ergab zunächst eine konservative Weiterbehandlung mit Fußbädern und Fucidine Salbe. \nZusammenfassung und Empfehlungen: Marija, ein knapp 16-jähriges Mädchen, wurde aufgrund einer akuten Verschlechterung einer bekannten Rasmussen-Enzephalitis mit Epilepsia partialis continua stationär aufgenommen. Maria scheint von der Kortisonstoßtherapie zu profitieren, wir empfehlen eine Verlaufskontrolle. \nWir empfehlen: \n- Amb. Wiedervorstellung in der Hochschulambulanz in 2 Wochen. (Terminvereinbarung unter 5110-2882). Kontrolle des BZ-Wertes. \n- Weiter 3x tgl. Fußbad mit Kamillosan und 3x tgl. Fucidine Salbe. Wenn in 1 Woche keine Besserung des Panaritiums Wiedervorstellung; ggf. Emmert Plastik - Blutdruckmessung 2x/Tag mit Protokoll. \n– Kontrolle der LZ-RR im Verlauf. \nMedikation bei Entlassung: \nRamipril 7,5-0-0 mg Amlodipin 5-0-0 mg Frisium 10-0-10 mg Levetiracetam (Keppra ®) 500-0-500 mg (=23,9 mg/kg KG) Ethosuximid (Petnidan E) 250-250-250 mg (=17,9 mg/kg KG) Tacrolimus 6-0-6 mg (=0,28 mg/kg KG) Bei geri. ton.-klon. Anfällen > 3 Min.: Buccolam E 10 mg Bei Blutdruckwerten >145/95 mmHg 6 gtt Nifedipin (Adalat E) (max. alle 6-8h) Für eventuelle Rückfragen stehen wir gerne jederzeit zur Verfügung. \n\nMit freundlichen, kollegialen Grüßen  \nIris Leber, Dr. med.",
+      "id": 171391,
+      "firstName": null,
+      "lastName": null,
+      "deceased": false,
+      "gender": "female",
+      "deathDate": null
+    },
+    {
+      "begin": 680,
+      "end": 682,
+      "type": "de.averbis.types.health.Age",
+      "coveredText": "16",
+      "id": 216630
+    },
+    {
+      "begin": 2282,
+      "end": 2284,
+      "type": "de.averbis.types.health.Age",
+      "coveredText": "15",
+      "id": 249521
+    },
+    {
+      "begin": 4449,
+      "end": 4451,
+      "type": "de.averbis.types.health.Age",
+      "coveredText": "16",
+      "id": 216644
+    },
+    {
+      "begin": 4813,
+      "end": 4822,
+      "type": "de.averbis.types.health.Contact",
+      "coveredText": "5110-2882",
+      "id": 196665,
+      "kind": "PHONE"
+    },
+    {
+      "begin": 97,
+      "end": 107,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "21.09.2007",
+      "id": 172365
+    },
+    {
+      "begin": 255,
+      "end": 265,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "03.07.2023",
+      "id": 172379
+    },
+    {
+      "begin": 268,
+      "end": 278,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "05.07.2023",
+      "id": 172393
+    },
+    {
+      "begin": 958,
+      "end": 965,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "Februar",
+      "id": 172407
+    },
+    {
+      "begin": 3643,
+      "end": 3651,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "03.07.23",
+      "id": 172421
+    },
+    {
+      "begin": 3695,
+      "end": 3703,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "05.07.23",
+      "id": 172435
+    },
+    {
+      "begin": 0,
+      "end": 26,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Landeskrankenhaus Neustadt",
+      "id": 209144,
+      "kind": "HOSPITAL"
+    },
+    {
+      "begin": 75,
+      "end": 88,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Žeželj, Maria",
+      "id": 201312,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 220,
+      "end": 229,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "M. Zezelj",
+      "id": 201378,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 1207,
+      "end": 1212,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Maria",
+      "id": 202794,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 1560,
+      "end": 1565,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Maria",
+      "id": 202808,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 1846,
+      "end": 1853,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Marijas",
+      "id": 249501,
+      "kind": "DOCTOR"
+    },
+    {
+      "begin": 4101,
+      "end": 4106,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Maria",
+      "id": 202822,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 4431,
+      "end": 4437,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Marija",
+      "id": 249591,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 4610,
+      "end": 4615,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Maria",
+      "id": 202836,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 5560,
+      "end": 5570,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Iris Leber",
+      "id": 201416,
+      "kind": "DOCTOR"
+    },
+    {
+      "begin": 0,
+      "end": 5584,
+      "type": "de.averbis.types.health.DeidentifiedDocument",
+      "coveredText": "Landeskrankenhaus Neustadt, Epilepsie-Einheit \nENTLASSUNGSBERICHT Patient: Žeželj, Maria geb. am 21.09.2007 \n\nSehr geehrter Frau Kollegin, sehr geehrter Herr Kollege \nWir berichten Ihnen über unsere gemeinsame Patientin M. Zezelj. Stationärer Aufenthalt: 03.07.2023 – 05.07.2023 Epilepsieklassifikation: Fokale Epilepsie rechts \nAtiologie: \nRasmussen-Enzephalitis Anfallssemiologie: Epilepsia partialis continua links Generalisiert tonisch-komische Anfälle Dialeptische Anfälle \nZusatzdiagnosen: Unilateral Hemiparese links GMFCS-Stufe , MACS-Stufe Panaritum linke Großzehe Arterielle Hypertonie Aktueller Vorstellungsgrund: 2. Methylprednisolonstoß \nAnamnese:\nMarija, eine knapp 16-jährige Patientin, leidet seit etwa 1 1/2 Jahren an einer Rasmussen Enzephalitis. Aufgrund der noch bestehenden guten Restfunktion der linken Hand mit Vorhandensein der feinen Fingerbewegungen haben wir zunächst von einer Hemisphärektomie abgesehen. Stattdessen haben wir im Februar mit der Eindosierung von Tacrolimus begonnen. Unter dieser Medikation war es zunächst zu einer deutlichen Besserung der Symptomatik gekommen und insbesondere die Hemiparese war weniger stark fluktuierend in ihrer Ausprägung. Aktuell gehe es Maria für ihre Verhältnisse gut. Sie könne gehen und sei nicht mehr auf den Rollstuhl angewiesen. Die Funkt. der li Hand sei jedoch eingeschränkt. Es würden Absencen von ca. 1-2 Min Dauer auftreten und sie sei mitunter kurzzeitig verwirrt. Die Myoklonien der linken Gesichtshälfte bestünden fort. Auch die Sensibilität im Gesichtsbereich sei reduziert, Maria würde gelegentlich nicht bemerken, wenn sie Essensreste noch in der linken Backentasche habe. Die Blutdruckwerte seien stabil. Die Eltern würden 2xTag messen. Frisium hätten die Eltern aufgrund eines „Engpasses“ über das Wochenende vor 2 Wochen von 30 auf 20mg/Tag reduziert, was Marijas Zustand jedoch nicht verschlechtert habe.\n\nFamilienanamnese:\nKeine Geschwister, keine relevanten Vorerkrankungen in der Familie\n\nMedikation bei Aufnahme: \nEthosuximid 250-250-250 mg (=17,9 mg/kg KG) Tacrolimus 6-0-6 mg (=0,28 mg/kg KG) Levetiracetam 500-0-500 mg (=23,9 mg/kg KG) Clobazam 10-0-10 mg Ramipril 7,5-0-0 mg Amlodipin 5-0-0 mg Bei gen. ton.-klon. Anfällen > 3 Min.: Diazepam 10 mg \nKörperlicher Untersuchungsbefund: 15–jähriges Mädchen in gutem Allgemein- und gutem Ernährungszustand. Größe: 153 cm (5 cm 1. PZ), Gewicht 41,8 kg (2 PZ), KU: 54 cm (22. PZ). Turgor normal, kein Exanthem, gute RKZ. Panaritium mit Granulationsgewebe an der linken Großzehe. Unauffälliger 1. und 2. Herzton, rhythmisch, keine pathologischen Geräusche auskultierbar. Pulmo: stgl. belüftet, ves. AG, keine RGs. Abdomen: weich, Darmgeräusche regelrecht, kein Druckschmerz, keine Abwehrspannung, keine pathologischen Resistenzen. Leber und Milz nicht vergrößert tastbar. Nierenlager frei. Rachen und Trommelfelle ohne path. Befund. Genitale reizlos. Keine pathologisch vergrößerten Lymphknoten. \n\nNeurologische Untersuchung: Während der Untersuchung eine Absence von ca. 1 Minute Dauer. Kein Meningismus. Hirnnerven intakt. Leicht sakkadierte Blickfolge nach links. Intermittierende Myoklonie der linken Gesichtshälfte, zeitweise unter Einbeziehung des rechten Mundwinkels. Babinski neg. MER stgl. lebhaft auslösbar. Kraft links 4/5 (OE+UE), rechts 5/5. Einbeinstand links nicht möglich, rechts unauffällig. Seiltänzer unsicher. Fingerreihe links kaum möglich, rechts unauffällig. Diadochokinese links verlangsamt mit Spiegelbewegung, rechts normal. Sprache deutlich. Sensibilität links (OE+UE) vermindert (aufgrund der Sprachbarriere nur bedingt zu testen) Labor: Siehe Anhang. Tacrolimusspiegel vom 03.07.23: 5.2 ng/ml \nKinderchirurgisches Konsil vom 05.07.23: Befund: Panaritium der Großzehe. Keine größere Infektion. Bereits verätzt und der Großteil des Granuloms bereits regredient. Die Reste des Granuloms leicht mit der Schere abgetragen. Nochmals mit Silber-Nitrat verätzt. Beurteilung: Bitte weiter 3x tgl. Fußbad mit Kamillosan und 3x tgl. Fucidine Salbe. Wenn in 1 Woche keine Besserung Wiedervorstellung; ggf. Emmert Plastik \nStationärer Verlauf: Maria erhielt Methylprednisolon (20mg/kg KG) für 3 Tage. Die Blutdruckwerte waren stabil. Es traten nicht symptomatische Blutzuckerspitzen bis 480 mg/dl auf. Ein kinderchirurgisches Konsil bzgl. des Panaritiums ergab zunächst eine konservative Weiterbehandlung mit Fußbädern und Fucidine Salbe. \nZusammenfassung und Empfehlungen: Marija, ein knapp 16-jähriges Mädchen, wurde aufgrund einer akuten Verschlechterung einer bekannten Rasmussen-Enzephalitis mit Epilepsia partialis continua stationär aufgenommen. Maria scheint von der Kortisonstoßtherapie zu profitieren, wir empfehlen eine Verlaufskontrolle. \nWir empfehlen: \n- Amb. Wiedervorstellung in der Hochschulambulanz in 2 Wochen. (Terminvereinbarung unter 5110-2882). Kontrolle des BZ-Wertes. \n- Weiter 3x tgl. Fußbad mit Kamillosan und 3x tgl. Fucidine Salbe. Wenn in 1 Woche keine Besserung des Panaritiums Wiedervorstellung; ggf. Emmert Plastik - Blutdruckmessung 2x/Tag mit Protokoll. \n– Kontrolle der LZ-RR im Verlauf. \nMedikation bei Entlassung: \nRamipril 7,5-0-0 mg Amlodipin 5-0-0 mg Frisium 10-0-10 mg Levetiracetam (Keppra ®) 500-0-500 mg (=23,9 mg/kg KG) Ethosuximid (Petnidan E) 250-250-250 mg (=17,9 mg/kg KG) Tacrolimus 6-0-6 mg (=0,28 mg/kg KG) Bei geri. ton.-klon. Anfällen > 3 Min.: Buccolam E 10 mg Bei Blutdruckwerten >145/95 mmHg 6 gtt Nifedipin (Adalat E) (max. alle 6-8h) Für eventuelle Rückfragen stehen wir gerne jederzeit zur Verfügung. \n\nMit freundlichen, kollegialen Grüßen  \nIris Leber, Dr. med.\n\n\n\n",
+      "id": 252505,
+      "kind": "crossout",
+      "deidentifiedText": "XXXXXXXXXXXXXXXXX XXXXXXXX, Epilepsie-Einheit \nENTLASSUNGSBERICHT Patient: XXXXXXX XXXXX geb. am XXXXXXXXXX \n\nSehr geehrter Frau Kollegin, sehr geehrter Herr Kollege \nWir berichten Ihnen über unsere gemeinsame Patientin XX XXXXXX. Stationärer Aufenthalt: XXXXXXXXXX – XXXXXXXXXX Epilepsieklassifikation: Fokale Epilepsie rechts \nAtiologie: \nRasmussen-Enzephalitis Anfallssemiologie: Epilepsia partialis continua links Generalisiert tonisch-komische Anfälle Dialeptische Anfälle \nZusatzdiagnosen: Unilateral Hemiparese links GMFCS-Stufe , MACS-Stufe Panaritum linke Großzehe Arterielle Hypertonie Aktueller Vorstellungsgrund: 2. Methylprednisolonstoß \nAnamnese:\nMarija, eine knapp XX-jährige Patientin, leidet seit etwa 1 1/2 Jahren an einer Rasmussen Enzephalitis. Aufgrund der noch bestehenden guten Restfunktion der linken Hand mit Vorhandensein der feinen Fingerbewegungen haben wir zunächst von einer Hemisphärektomie abgesehen. Stattdessen haben wir im XXXXXXX mit der Eindosierung von Tacrolimus begonnen. Unter dieser Medikation war es zunächst zu einer deutlichen Besserung der Symptomatik gekommen und insbesondere die Hemiparese war weniger stark fluktuierend in ihrer Ausprägung. Aktuell gehe es XXXXX für ihre Verhältnisse gut. Sie könne gehen und sei nicht mehr auf den Rollstuhl angewiesen. Die Funkt. der li Hand sei jedoch eingeschränkt. Es würden Absencen von ca. 1-2 Min Dauer auftreten und sie sei mitunter kurzzeitig verwirrt. Die Myoklonien der linken Gesichtshälfte bestünden fort. Auch die Sensibilität im Gesichtsbereich sei reduziert, XXXXX würde gelegentlich nicht bemerken, wenn sie Essensreste noch in der linken Backentasche habe. Die Blutdruckwerte seien stabil. Die Eltern würden 2xTag messen. Frisium hätten die Eltern aufgrund eines „Engpasses“ über das Wochenende vor 2 Wochen von 30 auf 20mg/Tag reduziert, was XXXXXXX Zustand jedoch nicht verschlechtert habe.\n\nFamilienanamnese:\nKeine Geschwister, keine relevanten Vorerkrankungen in der Familie\n\nMedikation bei Aufnahme: \nEthosuximid 250-250-250 mg (=17,9 mg/kg KG) Tacrolimus 6-0-6 mg (=0,28 mg/kg KG) Levetiracetam 500-0-500 mg (=23,9 mg/kg KG) Clobazam 10-0-10 mg Ramipril 7,5-0-0 mg Amlodipin 5-0-0 mg Bei gen. ton.-klon. Anfällen > 3 Min.: Diazepam 10 mg \nKörperlicher Untersuchungsbefund: XX–jähriges Mädchen in gutem Allgemein- und gutem Ernährungszustand. Größe: 153 cm (5 cm 1. PZ), Gewicht 41,8 kg (2 PZ), KU: 54 cm (22. PZ). Turgor normal, kein Exanthem, gute RKZ. Panaritium mit Granulationsgewebe an der linken Großzehe. Unauffälliger 1. und 2. Herzton, rhythmisch, keine pathologischen Geräusche auskultierbar. Pulmo: stgl. belüftet, ves. AG, keine RGs. Abdomen: weich, Darmgeräusche regelrecht, kein Druckschmerz, keine Abwehrspannung, keine pathologischen Resistenzen. Leber und Milz nicht vergrößert tastbar. Nierenlager frei. Rachen und Trommelfelle ohne path. Befund. Genitale reizlos. Keine pathologisch vergrößerten Lymphknoten. \n\nNeurologische Untersuchung: Während der Untersuchung eine Absence von ca. 1 Minute Dauer. Kein Meningismus. Hirnnerven intakt. Leicht sakkadierte Blickfolge nach links. Intermittierende Myoklonie der linken Gesichtshälfte, zeitweise unter Einbeziehung des rechten Mundwinkels. Babinski neg. MER stgl. lebhaft auslösbar. Kraft links 4/5 (OE+UE), rechts 5/5. Einbeinstand links nicht möglich, rechts unauffällig. Seiltänzer unsicher. Fingerreihe links kaum möglich, rechts unauffällig. Diadochokinese links verlangsamt mit Spiegelbewegung, rechts normal. Sprache deutlich. Sensibilität links (OE+UE) vermindert (aufgrund der Sprachbarriere nur bedingt zu testen) Labor: Siehe Anhang. Tacrolimusspiegel vom XXXXXXXX: 5.2 ng/ml \nKinderchirurgisches Konsil vom XXXXXXXX: Befund: Panaritium der Großzehe. Keine größere Infektion. Bereits verätzt und der Großteil des Granuloms bereits regredient. Die Reste des Granuloms leicht mit der Schere abgetragen. Nochmals mit Silber-Nitrat verätzt. Beurteilung: Bitte weiter 3x tgl. Fußbad mit Kamillosan und 3x tgl. Fucidine Salbe. Wenn in 1 Woche keine Besserung Wiedervorstellung; ggf. Emmert Plastik \nStationärer Verlauf: XXXXX erhielt Methylprednisolon (20mg/kg KG) für 3 Tage. Die Blutdruckwerte waren stabil. Es traten nicht symptomatische Blutzuckerspitzen bis 480 mg/dl auf. Ein kinderchirurgisches Konsil bzgl. des Panaritiums ergab zunächst eine konservative Weiterbehandlung mit Fußbädern und Fucidine Salbe. \nZusammenfassung und Empfehlungen: XXXXXX, ein knapp XX-jähriges Mädchen, wurde aufgrund einer akuten Verschlechterung einer bekannten Rasmussen-Enzephalitis mit Epilepsia partialis continua stationär aufgenommen. XXXXX scheint von der Kortisonstoßtherapie zu profitieren, wir empfehlen eine Verlaufskontrolle. \nWir empfehlen: \n- Amb. Wiedervorstellung in der Hochschulambulanz in 2 Wochen. (Terminvereinbarung unter XXXXXXXXX). Kontrolle des BZ-Wertes. \n- Weiter 3x tgl. Fußbad mit Kamillosan und 3x tgl. Fucidine Salbe. Wenn in 1 Woche keine Besserung des Panaritiums Wiedervorstellung; ggf. Emmert Plastik - Blutdruckmessung 2x/Tag mit Protokoll. \n– Kontrolle der LZ-RR im Verlauf. \nMedikation bei Entlassung: \nRamipril 7,5-0-0 mg Amlodipin 5-0-0 mg Frisium 10-0-10 mg Levetiracetam (Keppra ®) 500-0-500 mg (=23,9 mg/kg KG) Ethosuximid (Petnidan E) 250-250-250 mg (=17,9 mg/kg KG) Tacrolimus 6-0-6 mg (=0,28 mg/kg KG) Bei geri. ton.-klon. Anfällen > 3 Min.: Buccolam E 10 mg Bei Blutdruckwerten >145/95 mmHg 6 gtt Nifedipin (Adalat E) (max. alle 6-8h) Für eventuelle Rückfragen stehen wir gerne jederzeit zur Verfügung. \n\nMit freundlichen, kollegialen Grüßen  \nXXXX XXXXX, Dr. med.\n\n\n\n"
+    },
+    {
+      "begin": 0,
+      "end": 5584,
+      "type": "de.averbis.types.health.DocumentAnnotation",
+      "coveredText": "Landeskrankenhaus Neustadt, Epilepsie-Einheit \nENTLASSUNGSBERICHT Patient: Žeželj, Maria geb. am 21.09.2007 \n\nSehr geehrter Frau Kollegin, sehr geehrter Herr Kollege \nWir berichten Ihnen über unsere gemeinsame Patientin M. Zezelj. Stationärer Aufenthalt: 03.07.2023 – 05.07.2023 Epilepsieklassifikation: Fokale Epilepsie rechts \nAtiologie: \nRasmussen-Enzephalitis Anfallssemiologie: Epilepsia partialis continua links Generalisiert tonisch-komische Anfälle Dialeptische Anfälle \nZusatzdiagnosen: Unilateral Hemiparese links GMFCS-Stufe , MACS-Stufe Panaritum linke Großzehe Arterielle Hypertonie Aktueller Vorstellungsgrund: 2. Methylprednisolonstoß \nAnamnese:\nMarija, eine knapp 16-jährige Patientin, leidet seit etwa 1 1/2 Jahren an einer Rasmussen Enzephalitis. Aufgrund der noch bestehenden guten Restfunktion der linken Hand mit Vorhandensein der feinen Fingerbewegungen haben wir zunächst von einer Hemisphärektomie abgesehen. Stattdessen haben wir im Februar mit der Eindosierung von Tacrolimus begonnen. Unter dieser Medikation war es zunächst zu einer deutlichen Besserung der Symptomatik gekommen und insbesondere die Hemiparese war weniger stark fluktuierend in ihrer Ausprägung. Aktuell gehe es Maria für ihre Verhältnisse gut. Sie könne gehen und sei nicht mehr auf den Rollstuhl angewiesen. Die Funkt. der li Hand sei jedoch eingeschränkt. Es würden Absencen von ca. 1-2 Min Dauer auftreten und sie sei mitunter kurzzeitig verwirrt. Die Myoklonien der linken Gesichtshälfte bestünden fort. Auch die Sensibilität im Gesichtsbereich sei reduziert, Maria würde gelegentlich nicht bemerken, wenn sie Essensreste noch in der linken Backentasche habe. Die Blutdruckwerte seien stabil. Die Eltern würden 2xTag messen. Frisium hätten die Eltern aufgrund eines „Engpasses“ über das Wochenende vor 2 Wochen von 30 auf 20mg/Tag reduziert, was Marijas Zustand jedoch nicht verschlechtert habe.\n\nFamilienanamnese:\nKeine Geschwister, keine relevanten Vorerkrankungen in der Familie\n\nMedikation bei Aufnahme: \nEthosuximid 250-250-250 mg (=17,9 mg/kg KG) Tacrolimus 6-0-6 mg (=0,28 mg/kg KG) Levetiracetam 500-0-500 mg (=23,9 mg/kg KG) Clobazam 10-0-10 mg Ramipril 7,5-0-0 mg Amlodipin 5-0-0 mg Bei gen. ton.-klon. Anfällen > 3 Min.: Diazepam 10 mg \nKörperlicher Untersuchungsbefund: 15–jähriges Mädchen in gutem Allgemein- und gutem Ernährungszustand. Größe: 153 cm (5 cm 1. PZ), Gewicht 41,8 kg (2 PZ), KU: 54 cm (22. PZ). Turgor normal, kein Exanthem, gute RKZ. Panaritium mit Granulationsgewebe an der linken Großzehe. Unauffälliger 1. und 2. Herzton, rhythmisch, keine pathologischen Geräusche auskultierbar. Pulmo: stgl. belüftet, ves. AG, keine RGs. Abdomen: weich, Darmgeräusche regelrecht, kein Druckschmerz, keine Abwehrspannung, keine pathologischen Resistenzen. Leber und Milz nicht vergrößert tastbar. Nierenlager frei. Rachen und Trommelfelle ohne path. Befund. Genitale reizlos. Keine pathologisch vergrößerten Lymphknoten. \n\nNeurologische Untersuchung: Während der Untersuchung eine Absence von ca. 1 Minute Dauer. Kein Meningismus. Hirnnerven intakt. Leicht sakkadierte Blickfolge nach links. Intermittierende Myoklonie der linken Gesichtshälfte, zeitweise unter Einbeziehung des rechten Mundwinkels. Babinski neg. MER stgl. lebhaft auslösbar. Kraft links 4/5 (OE+UE), rechts 5/5. Einbeinstand links nicht möglich, rechts unauffällig. Seiltänzer unsicher. Fingerreihe links kaum möglich, rechts unauffällig. Diadochokinese links verlangsamt mit Spiegelbewegung, rechts normal. Sprache deutlich. Sensibilität links (OE+UE) vermindert (aufgrund der Sprachbarriere nur bedingt zu testen) Labor: Siehe Anhang. Tacrolimusspiegel vom 03.07.23: 5.2 ng/ml \nKinderchirurgisches Konsil vom 05.07.23: Befund: Panaritium der Großzehe. Keine größere Infektion. Bereits verätzt und der Großteil des Granuloms bereits regredient. Die Reste des Granuloms leicht mit der Schere abgetragen. Nochmals mit Silber-Nitrat verätzt. Beurteilung: Bitte weiter 3x tgl. Fußbad mit Kamillosan und 3x tgl. Fucidine Salbe. Wenn in 1 Woche keine Besserung Wiedervorstellung; ggf. Emmert Plastik \nStationärer Verlauf: Maria erhielt Methylprednisolon (20mg/kg KG) für 3 Tage. Die Blutdruckwerte waren stabil. Es traten nicht symptomatische Blutzuckerspitzen bis 480 mg/dl auf. Ein kinderchirurgisches Konsil bzgl. des Panaritiums ergab zunächst eine konservative Weiterbehandlung mit Fußbädern und Fucidine Salbe. \nZusammenfassung und Empfehlungen: Marija, ein knapp 16-jähriges Mädchen, wurde aufgrund einer akuten Verschlechterung einer bekannten Rasmussen-Enzephalitis mit Epilepsia partialis continua stationär aufgenommen. Maria scheint von der Kortisonstoßtherapie zu profitieren, wir empfehlen eine Verlaufskontrolle. \nWir empfehlen: \n- Amb. Wiedervorstellung in der Hochschulambulanz in 2 Wochen. (Terminvereinbarung unter 5110-2882). Kontrolle des BZ-Wertes. \n- Weiter 3x tgl. Fußbad mit Kamillosan und 3x tgl. Fucidine Salbe. Wenn in 1 Woche keine Besserung des Panaritiums Wiedervorstellung; ggf. Emmert Plastik - Blutdruckmessung 2x/Tag mit Protokoll. \n– Kontrolle der LZ-RR im Verlauf. \nMedikation bei Entlassung: \nRamipril 7,5-0-0 mg Amlodipin 5-0-0 mg Frisium 10-0-10 mg Levetiracetam (Keppra ®) 500-0-500 mg (=23,9 mg/kg KG) Ethosuximid (Petnidan E) 250-250-250 mg (=17,9 mg/kg KG) Tacrolimus 6-0-6 mg (=0,28 mg/kg KG) Bei geri. ton.-klon. Anfällen > 3 Min.: Buccolam E 10 mg Bei Blutdruckwerten >145/95 mmHg 6 gtt Nifedipin (Adalat E) (max. alle 6-8h) Für eventuelle Rückfragen stehen wir gerne jederzeit zur Verfügung. \n\nMit freundlichen, kollegialen Grüßen  \nIris Leber, Dr. med.\n\n\n\n",
+      "id": 8,
+      "language": "de",
+      "version": "5.33.1"
+    }
+  ]
+}

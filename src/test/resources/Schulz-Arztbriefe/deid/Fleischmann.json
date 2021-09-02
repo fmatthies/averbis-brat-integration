@@ -1,0 +1,402 @@
+{
+  "annotationDtos": [
+    {
+      "begin": 158,
+      "end": 257,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Diagnose:            \nEmotional instabile Persönlichkeitsstörung, Borderline-Typus (ICD 10: F60.31)",
+      "id": 132445,
+      "matchedTerm": "Diagnose",
+      "dictCanon": "Diagnose",
+      "conceptId": "10164-2",
+      "source": "clinical_sections_de",
+      "label": "DiagnosisSection",
+      "uniqueId": "clinical_sections_de:10164-2"
+    },
+    {
+      "begin": 281,
+      "end": 2071,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Aktueller Aufnahmeanlass waren aggressive Verhaltensweisen gegenüber der Großmutter, bei der Herr Fleischmann seit Geburt lebt. Der Schulbesuch wurde von ihm im September 2027 abgebrochen. Bereits im Alter von 15 Jahren war er wegen Verhaltensauffälligkeiten kurzfristig in der Universitätsklinik Jena, danach für kurze Zeit in einer Pflegefamilie. Anschließend erfolgte ein kurzzeitiger Aufenthalt in einem Heim in Weimar. Im August 27 unternahm er einen Suizidversuch mit Alkohol und Tabletten, der eine Behandlung im Krankenhaus Naumburg erforderlich machte. Im November 27 wurde er dann eine Woche lang im ÖHK Mühlhausen behandelt. Dortige Diagnose: Adoleszentenkrise, v.a. Prodromalstadium einer schizophrenen Psychose.\n\nDie Großmutter gab an, dass es bei ihrem Enkel immer wieder zu hoch aggressiven Verhaltensweisen gekommen sei, im Rahmen derer er Möbel zerschlagen habe.\n\nDer Patient selbst gab bei der Aufnahme an, dass er sich über seine Großmutter so aufgeregt habe, dass er „ausgerastet“ sei. Den Suizidversuch 2027 begründete er mit der gescheiterten Beziehung zu seiner Freundin.\n\nDie Mutter des Patienten ist nach Angaben der Großmutter an einer schizophrenen Psychose erkrankt.\n\nPsychischer Befund: Bewusstseinsklarer, allseits orientierter Patient, der sich jetzt psychomotorisch ruhig verhält. Der Gedankengang ist etwas weitschweifig mit einer Tendenz zum Grübeln, ansonsten bestehen keine formalen und inhaltlichen Denkstörungen. Es finden sich auch keine Anhaltspunkte für akustische oder optische Halluzinationen. Vorherrschend sind ein Interessenverlust und Freudlosigkeit, verbunden mit einer generalisierten Hoffnungslosigkeit. Im direkten sowie telefonischen Kontakt zur Mutter bzw. Großmutter wird Herr Fleischmann schnell aufbrausend, laut und verbal aggressiv.",
+      "id": 132456,
+      "matchedTerm": "Diagnose",
+      "dictCanon": "Diagnose",
+      "conceptId": "10164-2",
+      "source": "clinical_sections_de",
+      "label": "DiagnosisSection",
+      "uniqueId": "clinical_sections_de:10164-2"
+    },
+    {
+      "begin": 1477,
+      "end": 1593,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Psychischer Befund: Bewusstseinsklarer, allseits orientierter Patient, der sich jetzt psychomotorisch ruhig verhält.",
+      "id": 132467,
+      "matchedTerm": "Befund",
+      "dictCanon": "Befund",
+      "conceptId": "29545-1",
+      "source": "clinical_sections_de",
+      "label": "FindingSection",
+      "uniqueId": "clinical_sections_de:29545-1"
+    },
+    {
+      "begin": 2073,
+      "end": 2168,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Körperlicher Untersuchungsbefund: Der internistische und neurologische Status sind unauffällig.",
+      "id": 132478,
+      "matchedTerm": "Körperlicher Untersuchungsbefund",
+      "dictCanon": "Befund",
+      "conceptId": "29545-1",
+      "source": "clinical_sections_de",
+      "label": "FindingSection",
+      "uniqueId": "clinical_sections_de:29545-1"
+    },
+    {
+      "begin": 2170,
+      "end": 2634,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Laborwerte: Leuko 4,2*10³/µl, Hb 15,9 g/dl, HK 48,5 %, Thrombo 155*10³/µl, MCV 94 µm³.\n\nNormwerte für Na, K Ca, GOT, ?-GT, A-PT, CK, a-Amy, Gesamteiweiß, Blutzucker, Quick, PTT, BSG. TPHA neg.\n\nGPT 38 U/l, Harnstoff 21 mg/dl, Crea 1,24 mg/dl. Bilirubin 1,24 mg/dl.\n\nBei Aufnahme im Urin Keton stark positiv, bei Kontrolle negativ.\n\nIm Drogenscreening Benzodiazepine, Barbiturate, Amphetamine, Opiate, Kokain und Cannabinoide nicht nachweisbar.\n\nTSH im Normbereich.",
+      "id": 132489,
+      "matchedTerm": "Labor",
+      "dictCanon": "Labor",
+      "conceptId": "30954-2",
+      "source": "clinical_sections_de",
+      "label": "LaboratorySection",
+      "uniqueId": "clinical_sections_de:30954-2"
+    },
+    {
+      "begin": 2636,
+      "end": 2702,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "EKG: Normfrequenter Sinusrhythmus mit negativer Endstrecke in aVL.",
+      "id": 132500,
+      "matchedTerm": "EKG",
+      "dictCanon": "EKG",
+      "conceptId": "Sec_ECG",
+      "source": "clinical_sections_de",
+      "label": "ECGSection",
+      "uniqueId": "clinical_sections_de:Sec_ECG"
+    },
+    {
+      "begin": 2704,
+      "end": 2780,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "EEG: 10-11/Sek. a-EEG, kein Herdbefund, keine epilepsietypischen Potentiale.",
+      "id": 132511,
+      "matchedTerm": "EEG",
+      "dictCanon": "Untersuchungsbefund",
+      "conceptId": "59776-5",
+      "source": "clinical_sections_de",
+      "label": "ObservationSection",
+      "uniqueId": "clinical_sections_de:59776-5"
+    },
+    {
+      "begin": 2782,
+      "end": 5759,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Zusammenfassung, Therapie und -Verlauf: Psychopathologisch fällt bei Herrn Wieland insbesondere eine Instabilität im affektiven Bereich mit einer ausgeprägten Reizbarkeit und verbalen Wutausbrüchen auf, die sich im Gesprächskontakt mit der psychisch kranken Mutter äußert. Außerdem ist er leicht kränkbar und zeigt eine deutliche Selbstwertproblematik, verbunden mit einer Unsicherheit im Hinblick auf das Selbstbild, langfristige Ziele sowie persönliche Wertvorstellungen. Die Konfliktverarbeitung erfolgt vorwiegend projektiv, d.h. er neigt dazu, die Ursache für seine Probleme ausschließlich in seinen Bezugspersonen, also der Mutter und Großmutter zu sehen.\n\nDiagnostisch handelt es sich damit am ehesten um eine emotional instabile Persönlichkeitsstörung vom Borderline-Typus, wobei die Symptomatik natürlich auch Ausdruck eines Prodromalstadiums einer psychotischen Erkrankung sein könnte, für die bisher allerdings keine eindeutigen Anhaltspunkte vorliegen.\n\nIn therapeutischer Hinsicht erschien es vordringlich, den Patienten von der zur Überversorgung neigenden Großmutter und Mutter zu trennen, damit er eine eigene Lebensperspektive entwickeln kann. Deswegen wurde vereinbart, dass die Mutter ihn nur noch zweimal pro Woche besuchte, und dass er telefonischen Kontakt zu ihr nur noch von außerhalb der Station aufnahm.\n\nMedikamentös wurde mit Taxilan in einer Dosierung von 300 mg täglich behandelt.\n\nWährend der stationären Behandlung ist dann insofern eine Besserung eingetreten, als Herr Fleischmann schließlich weniger gereizt reagierte und sich insgesamt kooperativer zeigte. Er konnte in die Beschäftigungstherapie integriert werden und nahm im Rahmen der Arbeitstherapie außerdem am Kochtraining teil. Damit wurde versucht, dem Patienten in lebenspraktischen Bereichen zu mehr Selbständigkeit zu verhelfen. Herr Fleischmann hat dann selbst den Wunsch geäußert, mit Beginn des neuen Schuljahres seine unterbrochene Schulausbildung fortzusetzen. Von seiner Schule in Jena wurde bescheinigt, dass er ab September 28 die Jahrgangsstufe 13 des Technischen Gymnasiums besuchen kann, wenn sein gesundheitlicher Zustand dies zuläßt.\n\nAus unserer Sicht ist es außerdem dringend erforderlich, dass Herr Fleischmann nach Abschluss der jetzigen stationären Behandlung in absehbarer Zeit nicht mehr bei seiner Großmutter wohnt.\n\nWir haben daher Kontakt mit dem Kreisjugendamt aufgenommen mit der Frage, ob er von dort aus in eine geeignete Wohngruppe oder in eine eigene Wohnung vermittelt werden kann, in der eine psychosoziale Betreuung gewährleistet ist. Dazu wurde vom Jugendamt am 14.05.28 mitgeteilt, dass ein betreutes Jugendwohnen wegen mangelnder Selbständigkeit wohl nicht in Betracht komme, allenfalls die Unterbringung in einer geeigneten Wohngruppe. Herr Fuß vom Kreisjugendamt wird diesbezüglich mit Herrn Fleischmann nochmals Kontakt aufnehmen.\n\nDer Patient wurde mit Ablauf der Unterbringungsfrist am 15.05.28 wieder in Ihre ambulante Behandlung entlassen.",
+      "id": 132522,
+      "matchedTerm": "Zusammenfassung",
+      "dictCanon": "Epikrise",
+      "conceptId": "51848-0",
+      "source": "clinical_sections_de",
+      "label": "EpicrisisSection",
+      "uniqueId": "clinical_sections_de:51848-0"
+    },
+    {
+      "begin": 4113,
+      "end": 4192,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Medikamentös wurde mit Taxilan in einer Dosierung von 300 mg täglich behandelt.",
+      "id": 132533,
+      "matchedTerm": "Medikation",
+      "dictCanon": "Medikation",
+      "conceptId": "29549-3",
+      "source": "clinical_sections_de",
+      "label": "MedicationSection",
+      "uniqueId": "clinical_sections_de:29549-3"
+    },
+    {
+      "begin": 5761,
+      "end": 5836,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Unsere letzte Therapie:            \nTaxilan Tbl. 100 mg            1½ -0-1½",
+      "id": 132544,
+      "matchedTerm": "Therapie",
+      "dictCanon": "Therapie",
+      "conceptId": "62387-6",
+      "source": "clinical_sections_de",
+      "label": "TherapySection",
+      "uniqueId": "clinical_sections_de:62387-6"
+    },
+    {
+      "begin": 5838,
+      "end": 5977,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Mit freundlichen Grüßen\n\n\t\nDr. Fleischmann\nArzt für Neurologie und Psychiatrie\nOberarzt für den Bereich\nRehabilitation und Sozialtherapie I",
+      "id": 132555,
+      "matchedTerm": "Mit freundlichen Grüßen",
+      "dictCanon": "Mit freundlichen Grüßen",
+      "conceptId": "Sec_DocumentFooter",
+      "source": "clinical_sections_de",
+      "label": "DocumentFooterSection",
+      "uniqueId": "clinical_sections_de:Sec_DocumentFooter"
+    },
+    {
+      "begin": 89,
+      "end": 114,
+      "type": "de.averbis.types.health.Hospitalisation",
+      "coveredText": "01.03.28 bis zum 15.05.28",
+      "id": 132902,
+      "admissionDate": "2028-03-01",
+      "dischargeDate": "2028-05-15"
+    },
+    {
+      "begin": 708,
+      "end": 717,
+      "type": "de.averbis.types.health.Hospitalisation",
+      "coveredText": "August 27",
+      "id": 133047,
+      "admissionDate": "2027-08",
+      "dischargeDate": "2027-08"
+    },
+    {
+      "begin": 5704,
+      "end": 5712,
+      "type": "de.averbis.types.health.Hospitalisation",
+      "coveredText": "15.05.28",
+      "id": 133252,
+      "admissionDate": null,
+      "dischargeDate": "2028-05-15"
+    },
+    {
+      "begin": 0,
+      "end": 5977,
+      "type": "de.averbis.types.health.PatientInformation",
+      "coveredText": "Sehr geehrte Frau Kollegin Schickedanz,\n\nwir berichten über o.g. Patienten, der sich vom 01.03.28 bis zum 15.05.28 in unserer stationären Behandlung befand.\n\nDiagnose:            \nEmotional instabile Persönlichkeitsstörung, Borderline-Typus (ICD 10: F60.31)\n\nAnamnese:            \nAktueller Aufnahmeanlass waren aggressive Verhaltensweisen gegenüber der Großmutter, bei der Herr Fleischmann seit Geburt lebt. Der Schulbesuch wurde von ihm im September 2027 abgebrochen. Bereits im Alter von 15 Jahren war er wegen Verhaltensauffälligkeiten kurzfristig in der Universitätsklinik Jena, danach für kurze Zeit in einer Pflegefamilie. Anschließend erfolgte ein kurzzeitiger Aufenthalt in einem Heim in Weimar. Im August 27 unternahm er einen Suizidversuch mit Alkohol und Tabletten, der eine Behandlung im Krankenhaus Naumburg erforderlich machte. Im November 27 wurde er dann eine Woche lang im ÖHK Mühlhausen behandelt. Dortige Diagnose: Adoleszentenkrise, v.a. Prodromalstadium einer schizophrenen Psychose.\n\nDie Großmutter gab an, dass es bei ihrem Enkel immer wieder zu hoch aggressiven Verhaltensweisen gekommen sei, im Rahmen derer er Möbel zerschlagen habe.\n\nDer Patient selbst gab bei der Aufnahme an, dass er sich über seine Großmutter so aufgeregt habe, dass er „ausgerastet“ sei. Den Suizidversuch 2027 begründete er mit der gescheiterten Beziehung zu seiner Freundin.\n\nDie Mutter des Patienten ist nach Angaben der Großmutter an einer schizophrenen Psychose erkrankt.\n\nPsychischer Befund: Bewusstseinsklarer, allseits orientierter Patient, der sich jetzt psychomotorisch ruhig verhält. Der Gedankengang ist etwas weitschweifig mit einer Tendenz zum Grübeln, ansonsten bestehen keine formalen und inhaltlichen Denkstörungen. Es finden sich auch keine Anhaltspunkte für akustische oder optische Halluzinationen. Vorherrschend sind ein Interessenverlust und Freudlosigkeit, verbunden mit einer generalisierten Hoffnungslosigkeit. Im direkten sowie telefonischen Kontakt zur Mutter bzw. Großmutter wird Herr Fleischmann schnell aufbrausend, laut und verbal aggressiv.\n\nKörperlicher Untersuchungsbefund: Der internistische und neurologische Status sind unauffällig.\n\nLaborwerte: Leuko 4,2*10³/µl, Hb 15,9 g/dl, HK 48,5 %, Thrombo 155*10³/µl, MCV 94 µm³.\n\nNormwerte für Na, K Ca, GOT, ?-GT, A-PT, CK, a-Amy, Gesamteiweiß, Blutzucker, Quick, PTT, BSG. TPHA neg.\n\nGPT 38 U/l, Harnstoff 21 mg/dl, Crea 1,24 mg/dl. Bilirubin 1,24 mg/dl.\n\nBei Aufnahme im Urin Keton stark positiv, bei Kontrolle negativ.\n\nIm Drogenscreening Benzodiazepine, Barbiturate, Amphetamine, Opiate, Kokain und Cannabinoide nicht nachweisbar.\n\nTSH im Normbereich.\n\nEKG: Normfrequenter Sinusrhythmus mit negativer Endstrecke in aVL.\n\nEEG: 10-11/Sek. a-EEG, kein Herdbefund, keine epilepsietypischen Potentiale.\n\nZusammenfassung, Therapie und -Verlauf: Psychopathologisch fällt bei Herrn Wieland insbesondere eine Instabilität im affektiven Bereich mit einer ausgeprägten Reizbarkeit und verbalen Wutausbrüchen auf, die sich im Gesprächskontakt mit der psychisch kranken Mutter äußert. Außerdem ist er leicht kränkbar und zeigt eine deutliche Selbstwertproblematik, verbunden mit einer Unsicherheit im Hinblick auf das Selbstbild, langfristige Ziele sowie persönliche Wertvorstellungen. Die Konfliktverarbeitung erfolgt vorwiegend projektiv, d.h. er neigt dazu, die Ursache für seine Probleme ausschließlich in seinen Bezugspersonen, also der Mutter und Großmutter zu sehen.\n\nDiagnostisch handelt es sich damit am ehesten um eine emotional instabile Persönlichkeitsstörung vom Borderline-Typus, wobei die Symptomatik natürlich auch Ausdruck eines Prodromalstadiums einer psychotischen Erkrankung sein könnte, für die bisher allerdings keine eindeutigen Anhaltspunkte vorliegen.\n\nIn therapeutischer Hinsicht erschien es vordringlich, den Patienten von der zur Überversorgung neigenden Großmutter und Mutter zu trennen, damit er eine eigene Lebensperspektive entwickeln kann. Deswegen wurde vereinbart, dass die Mutter ihn nur noch zweimal pro Woche besuchte, und dass er telefonischen Kontakt zu ihr nur noch von außerhalb der Station aufnahm.\n\nMedikamentös wurde mit Taxilan in einer Dosierung von 300 mg täglich behandelt.\n\nWährend der stationären Behandlung ist dann insofern eine Besserung eingetreten, als Herr Fleischmann schließlich weniger gereizt reagierte und sich insgesamt kooperativer zeigte. Er konnte in die Beschäftigungstherapie integriert werden und nahm im Rahmen der Arbeitstherapie außerdem am Kochtraining teil. Damit wurde versucht, dem Patienten in lebenspraktischen Bereichen zu mehr Selbständigkeit zu verhelfen. Herr Fleischmann hat dann selbst den Wunsch geäußert, mit Beginn des neuen Schuljahres seine unterbrochene Schulausbildung fortzusetzen. Von seiner Schule in Jena wurde bescheinigt, dass er ab September 28 die Jahrgangsstufe 13 des Technischen Gymnasiums besuchen kann, wenn sein gesundheitlicher Zustand dies zuläßt.\n\nAus unserer Sicht ist es außerdem dringend erforderlich, dass Herr Fleischmann nach Abschluss der jetzigen stationären Behandlung in absehbarer Zeit nicht mehr bei seiner Großmutter wohnt.\n\nWir haben daher Kontakt mit dem Kreisjugendamt aufgenommen mit der Frage, ob er von dort aus in eine geeignete Wohngruppe oder in eine eigene Wohnung vermittelt werden kann, in der eine psychosoziale Betreuung gewährleistet ist. Dazu wurde vom Jugendamt am 14.05.28 mitgeteilt, dass ein betreutes Jugendwohnen wegen mangelnder Selbständigkeit wohl nicht in Betracht komme, allenfalls die Unterbringung in einer geeigneten Wohngruppe. Herr Fuß vom Kreisjugendamt wird diesbezüglich mit Herrn Fleischmann nochmals Kontakt aufnehmen.\n\nDer Patient wurde mit Ablauf der Unterbringungsfrist am 15.05.28 wieder in Ihre ambulante Behandlung entlassen.\n\nUnsere letzte Therapie:            \nTaxilan Tbl. 100 mg            1½ -0-1½\n\nMit freundlichen Grüßen\n\n\t\nDr. Fleischmann\nArzt für Neurologie und Psychiatrie\nOberarzt für den Bereich\nRehabilitation und Sozialtherapie I",
+      "id": 133872,
+      "firstName": null,
+      "lastName": null,
+      "deceased": false,
+      "gender": "male",
+      "deathDate": null
+    },
+    {
+      "begin": 491,
+      "end": 493,
+      "type": "de.averbis.types.health.Age",
+      "coveredText": "15",
+      "id": 203467
+    },
+    {
+      "begin": 89,
+      "end": 97,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "01.03.28",
+      "id": 135282
+    },
+    {
+      "begin": 106,
+      "end": 114,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "15.05.28",
+      "id": 135296
+    },
+    {
+      "begin": 442,
+      "end": 456,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "September 2027",
+      "id": 135310
+    },
+    {
+      "begin": 708,
+      "end": 717,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "August 27",
+      "id": 135324
+    },
+    {
+      "begin": 846,
+      "end": 857,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "November 27",
+      "id": 135338
+    },
+    {
+      "begin": 1305,
+      "end": 1309,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "2027",
+      "id": 135352
+    },
+    {
+      "begin": 4800,
+      "end": 4812,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "September 28",
+      "id": 135366
+    },
+    {
+      "begin": 5373,
+      "end": 5381,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "14.05.28",
+      "id": 135380
+    },
+    {
+      "begin": 5704,
+      "end": 5712,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "15.05.28",
+      "id": 135394
+    },
+    {
+      "begin": 559,
+      "end": 582,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Universitätsklinik Jena",
+      "id": 174993,
+      "kind": "HOSPITAL"
+    },
+    {
+      "begin": 697,
+      "end": 703,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Weimar",
+      "id": 175173,
+      "kind": "CITY"
+    },
+    {
+      "begin": 801,
+      "end": 821,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Krankenhaus Naumburg",
+      "id": 175023,
+      "kind": "HOSPITAL"
+    },
+    {
+      "begin": 895,
+      "end": 905,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Mühlhausen",
+      "id": 175195,
+      "kind": "CITY"
+    },
+    {
+      "begin": 4765,
+      "end": 4769,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Jena",
+      "id": 175209,
+      "kind": "CITY"
+    },
+    {
+      "begin": 5563,
+      "end": 5577,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Kreisjugendamt",
+      "id": 203787,
+      "kind": "CITY"
+    },
+    {
+      "begin": 5890,
+      "end": 5975,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Neurologie und Psychiatrie\nOberarzt für den Bereich\nRehabilitation und Sozialtherapie",
+      "id": 203857,
+      "kind": "HOSPITAL"
+    },
+    {
+      "begin": 379,
+      "end": 390,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Fleischmann",
+      "id": 159055,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 2012,
+      "end": 2023,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Fleischmann",
+      "id": 159105,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 2857,
+      "end": 2864,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Wieland",
+      "id": 159155,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 4284,
+      "end": 4295,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Fleischmann",
+      "id": 159205,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 4612,
+      "end": 4623,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Fleischmann",
+      "id": 159255,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 4993,
+      "end": 5004,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Fleischmann",
+      "id": 159305,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 5555,
+      "end": 5558,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Fuß",
+      "id": 159355,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 5607,
+      "end": 5618,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Fleischmann",
+      "id": 159405,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 5869,
+      "end": 5880,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Fleischmann",
+      "id": 159435,
+      "kind": "DOCTOR"
+    },
+    {
+      "begin": 0,
+      "end": 5977,
+      "type": "de.averbis.types.health.DeidentifiedDocument",
+      "coveredText": "Sehr geehrte Frau Kollegin Schickedanz,\n\nwir berichten über o.g. Patienten, der sich vom 01.03.28 bis zum 15.05.28 in unserer stationären Behandlung befand.\n\nDiagnose:            \nEmotional instabile Persönlichkeitsstörung, Borderline-Typus (ICD 10: F60.31)\n\nAnamnese:            \nAktueller Aufnahmeanlass waren aggressive Verhaltensweisen gegenüber der Großmutter, bei der Herr Fleischmann seit Geburt lebt. Der Schulbesuch wurde von ihm im September 2027 abgebrochen. Bereits im Alter von 15 Jahren war er wegen Verhaltensauffälligkeiten kurzfristig in der Universitätsklinik Jena, danach für kurze Zeit in einer Pflegefamilie. Anschließend erfolgte ein kurzzeitiger Aufenthalt in einem Heim in Weimar. Im August 27 unternahm er einen Suizidversuch mit Alkohol und Tabletten, der eine Behandlung im Krankenhaus Naumburg erforderlich machte. Im November 27 wurde er dann eine Woche lang im ÖHK Mühlhausen behandelt. Dortige Diagnose: Adoleszentenkrise, v.a. Prodromalstadium einer schizophrenen Psychose.\n\nDie Großmutter gab an, dass es bei ihrem Enkel immer wieder zu hoch aggressiven Verhaltensweisen gekommen sei, im Rahmen derer er Möbel zerschlagen habe.\n\nDer Patient selbst gab bei der Aufnahme an, dass er sich über seine Großmutter so aufgeregt habe, dass er „ausgerastet“ sei. Den Suizidversuch 2027 begründete er mit der gescheiterten Beziehung zu seiner Freundin.\n\nDie Mutter des Patienten ist nach Angaben der Großmutter an einer schizophrenen Psychose erkrankt.\n\nPsychischer Befund: Bewusstseinsklarer, allseits orientierter Patient, der sich jetzt psychomotorisch ruhig verhält. Der Gedankengang ist etwas weitschweifig mit einer Tendenz zum Grübeln, ansonsten bestehen keine formalen und inhaltlichen Denkstörungen. Es finden sich auch keine Anhaltspunkte für akustische oder optische Halluzinationen. Vorherrschend sind ein Interessenverlust und Freudlosigkeit, verbunden mit einer generalisierten Hoffnungslosigkeit. Im direkten sowie telefonischen Kontakt zur Mutter bzw. Großmutter wird Herr Fleischmann schnell aufbrausend, laut und verbal aggressiv.\n\nKörperlicher Untersuchungsbefund: Der internistische und neurologische Status sind unauffällig.\n\nLaborwerte: Leuko 4,2*10³/µl, Hb 15,9 g/dl, HK 48,5 %, Thrombo 155*10³/µl, MCV 94 µm³.\n\nNormwerte für Na, K Ca, GOT, ?-GT, A-PT, CK, a-Amy, Gesamteiweiß, Blutzucker, Quick, PTT, BSG. TPHA neg.\n\nGPT 38 U/l, Harnstoff 21 mg/dl, Crea 1,24 mg/dl. Bilirubin 1,24 mg/dl.\n\nBei Aufnahme im Urin Keton stark positiv, bei Kontrolle negativ.\n\nIm Drogenscreening Benzodiazepine, Barbiturate, Amphetamine, Opiate, Kokain und Cannabinoide nicht nachweisbar.\n\nTSH im Normbereich.\n\nEKG: Normfrequenter Sinusrhythmus mit negativer Endstrecke in aVL.\n\nEEG: 10-11/Sek. a-EEG, kein Herdbefund, keine epilepsietypischen Potentiale.\n\nZusammenfassung, Therapie und -Verlauf: Psychopathologisch fällt bei Herrn Wieland insbesondere eine Instabilität im affektiven Bereich mit einer ausgeprägten Reizbarkeit und verbalen Wutausbrüchen auf, die sich im Gesprächskontakt mit der psychisch kranken Mutter äußert. Außerdem ist er leicht kränkbar und zeigt eine deutliche Selbstwertproblematik, verbunden mit einer Unsicherheit im Hinblick auf das Selbstbild, langfristige Ziele sowie persönliche Wertvorstellungen. Die Konfliktverarbeitung erfolgt vorwiegend projektiv, d.h. er neigt dazu, die Ursache für seine Probleme ausschließlich in seinen Bezugspersonen, also der Mutter und Großmutter zu sehen.\n\nDiagnostisch handelt es sich damit am ehesten um eine emotional instabile Persönlichkeitsstörung vom Borderline-Typus, wobei die Symptomatik natürlich auch Ausdruck eines Prodromalstadiums einer psychotischen Erkrankung sein könnte, für die bisher allerdings keine eindeutigen Anhaltspunkte vorliegen.\n\nIn therapeutischer Hinsicht erschien es vordringlich, den Patienten von der zur Überversorgung neigenden Großmutter und Mutter zu trennen, damit er eine eigene Lebensperspektive entwickeln kann. Deswegen wurde vereinbart, dass die Mutter ihn nur noch zweimal pro Woche besuchte, und dass er telefonischen Kontakt zu ihr nur noch von außerhalb der Station aufnahm.\n\nMedikamentös wurde mit Taxilan in einer Dosierung von 300 mg täglich behandelt.\n\nWährend der stationären Behandlung ist dann insofern eine Besserung eingetreten, als Herr Fleischmann schließlich weniger gereizt reagierte und sich insgesamt kooperativer zeigte. Er konnte in die Beschäftigungstherapie integriert werden und nahm im Rahmen der Arbeitstherapie außerdem am Kochtraining teil. Damit wurde versucht, dem Patienten in lebenspraktischen Bereichen zu mehr Selbständigkeit zu verhelfen. Herr Fleischmann hat dann selbst den Wunsch geäußert, mit Beginn des neuen Schuljahres seine unterbrochene Schulausbildung fortzusetzen. Von seiner Schule in Jena wurde bescheinigt, dass er ab September 28 die Jahrgangsstufe 13 des Technischen Gymnasiums besuchen kann, wenn sein gesundheitlicher Zustand dies zuläßt.\n\nAus unserer Sicht ist es außerdem dringend erforderlich, dass Herr Fleischmann nach Abschluss der jetzigen stationären Behandlung in absehbarer Zeit nicht mehr bei seiner Großmutter wohnt.\n\nWir haben daher Kontakt mit dem Kreisjugendamt aufgenommen mit der Frage, ob er von dort aus in eine geeignete Wohngruppe oder in eine eigene Wohnung vermittelt werden kann, in der eine psychosoziale Betreuung gewährleistet ist. Dazu wurde vom Jugendamt am 14.05.28 mitgeteilt, dass ein betreutes Jugendwohnen wegen mangelnder Selbständigkeit wohl nicht in Betracht komme, allenfalls die Unterbringung in einer geeigneten Wohngruppe. Herr Fuß vom Kreisjugendamt wird diesbezüglich mit Herrn Fleischmann nochmals Kontakt aufnehmen.\n\nDer Patient wurde mit Ablauf der Unterbringungsfrist am 15.05.28 wieder in Ihre ambulante Behandlung entlassen.\n\nUnsere letzte Therapie:            \nTaxilan Tbl. 100 mg            1½ -0-1½\n\nMit freundlichen Grüßen\n\n\t\nDr. Fleischmann\nArzt für Neurologie und Psychiatrie\nOberarzt für den Bereich\nRehabilitation und Sozialtherapie I",
+      "id": 207518,
+      "kind": "crossout",
+      "deidentifiedText": "Sehr geehrte Frau Kollegin Schickedanz,\n\nwir berichten über o.g. Patienten, der sich vom XXXXXXXX bis zum XXXXXXXX in unserer stationären Behandlung befand.\n\nDiagnose:            \nEmotional instabile Persönlichkeitsstörung, Borderline-Typus (ICD 10: F60.31)\n\nAnamnese:            \nAktueller Aufnahmeanlass waren aggressive Verhaltensweisen gegenüber der Großmutter, bei der Herr XXXXXXXXXXX seit Geburt lebt. Der Schulbesuch wurde von ihm im XXXXXXXXX XXXX abgebrochen. Bereits im Alter von XX Jahren war er wegen Verhaltensauffälligkeiten kurzfristig in der XXXXXXXXXXXXXXXXXX XXXX, danach für kurze Zeit in einer Pflegefamilie. Anschließend erfolgte ein kurzzeitiger Aufenthalt in einem Heim in XXXXXX. Im XXXXXX XX unternahm er einen Suizidversuch mit Alkohol und Tabletten, der eine Behandlung im XXXXXXXXXXX XXXXXXXX erforderlich machte. Im XXXXXXXX XX wurde er dann eine Woche lang im ÖHK XXXXXXXXXX behandelt. Dortige Diagnose: Adoleszentenkrise, v.a. Prodromalstadium einer schizophrenen Psychose.\n\nDie Großmutter gab an, dass es bei ihrem Enkel immer wieder zu hoch aggressiven Verhaltensweisen gekommen sei, im Rahmen derer er Möbel zerschlagen habe.\n\nDer Patient selbst gab bei der Aufnahme an, dass er sich über seine Großmutter so aufgeregt habe, dass er „ausgerastet“ sei. Den Suizidversuch XXXX begründete er mit der gescheiterten Beziehung zu seiner Freundin.\n\nDie Mutter des Patienten ist nach Angaben der Großmutter an einer schizophrenen Psychose erkrankt.\n\nPsychischer Befund: Bewusstseinsklarer, allseits orientierter Patient, der sich jetzt psychomotorisch ruhig verhält. Der Gedankengang ist etwas weitschweifig mit einer Tendenz zum Grübeln, ansonsten bestehen keine formalen und inhaltlichen Denkstörungen. Es finden sich auch keine Anhaltspunkte für akustische oder optische Halluzinationen. Vorherrschend sind ein Interessenverlust und Freudlosigkeit, verbunden mit einer generalisierten Hoffnungslosigkeit. Im direkten sowie telefonischen Kontakt zur Mutter bzw. Großmutter wird Herr XXXXXXXXXXX schnell aufbrausend, laut und verbal aggressiv.\n\nKörperlicher Untersuchungsbefund: Der internistische und neurologische Status sind unauffällig.\n\nLaborwerte: Leuko 4,2*10³/µl, Hb 15,9 g/dl, HK 48,5 %, Thrombo 155*10³/µl, MCV 94 µm³.\n\nNormwerte für Na, K Ca, GOT, ?-GT, A-PT, CK, a-Amy, Gesamteiweiß, Blutzucker, Quick, PTT, BSG. TPHA neg.\n\nGPT 38 U/l, Harnstoff 21 mg/dl, Crea 1,24 mg/dl. Bilirubin 1,24 mg/dl.\n\nBei Aufnahme im Urin Keton stark positiv, bei Kontrolle negativ.\n\nIm Drogenscreening Benzodiazepine, Barbiturate, Amphetamine, Opiate, Kokain und Cannabinoide nicht nachweisbar.\n\nTSH im Normbereich.\n\nEKG: Normfrequenter Sinusrhythmus mit negativer Endstrecke in aVL.\n\nEEG: 10-11/Sek. a-EEG, kein Herdbefund, keine epilepsietypischen Potentiale.\n\nZusammenfassung, Therapie und -Verlauf: Psychopathologisch fällt bei Herrn XXXXXXX insbesondere eine Instabilität im affektiven Bereich mit einer ausgeprägten Reizbarkeit und verbalen Wutausbrüchen auf, die sich im Gesprächskontakt mit der psychisch kranken Mutter äußert. Außerdem ist er leicht kränkbar und zeigt eine deutliche Selbstwertproblematik, verbunden mit einer Unsicherheit im Hinblick auf das Selbstbild, langfristige Ziele sowie persönliche Wertvorstellungen. Die Konfliktverarbeitung erfolgt vorwiegend projektiv, d.h. er neigt dazu, die Ursache für seine Probleme ausschließlich in seinen Bezugspersonen, also der Mutter und Großmutter zu sehen.\n\nDiagnostisch handelt es sich damit am ehesten um eine emotional instabile Persönlichkeitsstörung vom Borderline-Typus, wobei die Symptomatik natürlich auch Ausdruck eines Prodromalstadiums einer psychotischen Erkrankung sein könnte, für die bisher allerdings keine eindeutigen Anhaltspunkte vorliegen.\n\nIn therapeutischer Hinsicht erschien es vordringlich, den Patienten von der zur Überversorgung neigenden Großmutter und Mutter zu trennen, damit er eine eigene Lebensperspektive entwickeln kann. Deswegen wurde vereinbart, dass die Mutter ihn nur noch zweimal pro Woche besuchte, und dass er telefonischen Kontakt zu ihr nur noch von außerhalb der Station aufnahm.\n\nMedikamentös wurde mit Taxilan in einer Dosierung von 300 mg täglich behandelt.\n\nWährend der stationären Behandlung ist dann insofern eine Besserung eingetreten, als Herr XXXXXXXXXXX schließlich weniger gereizt reagierte und sich insgesamt kooperativer zeigte. Er konnte in die Beschäftigungstherapie integriert werden und nahm im Rahmen der Arbeitstherapie außerdem am Kochtraining teil. Damit wurde versucht, dem Patienten in lebenspraktischen Bereichen zu mehr Selbständigkeit zu verhelfen. Herr XXXXXXXXXXX hat dann selbst den Wunsch geäußert, mit Beginn des neuen Schuljahres seine unterbrochene Schulausbildung fortzusetzen. Von seiner Schule in XXXX wurde bescheinigt, dass er ab XXXXXXXXX XX die Jahrgangsstufe 13 des Technischen Gymnasiums besuchen kann, wenn sein gesundheitlicher Zustand dies zuläßt.\n\nAus unserer Sicht ist es außerdem dringend erforderlich, dass Herr XXXXXXXXXXX nach Abschluss der jetzigen stationären Behandlung in absehbarer Zeit nicht mehr bei seiner Großmutter wohnt.\n\nWir haben daher Kontakt mit dem Kreisjugendamt aufgenommen mit der Frage, ob er von dort aus in eine geeignete Wohngruppe oder in eine eigene Wohnung vermittelt werden kann, in der eine psychosoziale Betreuung gewährleistet ist. Dazu wurde vom Jugendamt am XXXXXXXX mitgeteilt, dass ein betreutes Jugendwohnen wegen mangelnder Selbständigkeit wohl nicht in Betracht komme, allenfalls die Unterbringung in einer geeigneten Wohngruppe. Herr XXX vom XXXXXXXXXXXXXX wird diesbezüglich mit Herrn XXXXXXXXXXX nochmals Kontakt aufnehmen.\n\nDer Patient wurde mit Ablauf der Unterbringungsfrist am XXXXXXXX wieder in Ihre ambulante Behandlung entlassen.\n\nUnsere letzte Therapie:            \nTaxilan Tbl. 100 mg            1½ -0-1½\n\nMit freundlichen Grüßen\n\n\t\nDr. XXXXXXXXXXX\nArzt für XXXXXXXXXX XXX XXXXXXXXXXX\nXXXXXXXX XXX XXX XXXXXXX\nXXXXXXXXXXXXXX XXX XXXXXXXXXXXXXX I"
+    },
+    {
+      "begin": 0,
+      "end": 5977,
+      "type": "de.averbis.types.health.DocumentAnnotation",
+      "coveredText": "Sehr geehrte Frau Kollegin Schickedanz,\n\nwir berichten über o.g. Patienten, der sich vom 01.03.28 bis zum 15.05.28 in unserer stationären Behandlung befand.\n\nDiagnose:            \nEmotional instabile Persönlichkeitsstörung, Borderline-Typus (ICD 10: F60.31)\n\nAnamnese:            \nAktueller Aufnahmeanlass waren aggressive Verhaltensweisen gegenüber der Großmutter, bei der Herr Fleischmann seit Geburt lebt. Der Schulbesuch wurde von ihm im September 2027 abgebrochen. Bereits im Alter von 15 Jahren war er wegen Verhaltensauffälligkeiten kurzfristig in der Universitätsklinik Jena, danach für kurze Zeit in einer Pflegefamilie. Anschließend erfolgte ein kurzzeitiger Aufenthalt in einem Heim in Weimar. Im August 27 unternahm er einen Suizidversuch mit Alkohol und Tabletten, der eine Behandlung im Krankenhaus Naumburg erforderlich machte. Im November 27 wurde er dann eine Woche lang im ÖHK Mühlhausen behandelt. Dortige Diagnose: Adoleszentenkrise, v.a. Prodromalstadium einer schizophrenen Psychose.\n\nDie Großmutter gab an, dass es bei ihrem Enkel immer wieder zu hoch aggressiven Verhaltensweisen gekommen sei, im Rahmen derer er Möbel zerschlagen habe.\n\nDer Patient selbst gab bei der Aufnahme an, dass er sich über seine Großmutter so aufgeregt habe, dass er „ausgerastet“ sei. Den Suizidversuch 2027 begründete er mit der gescheiterten Beziehung zu seiner Freundin.\n\nDie Mutter des Patienten ist nach Angaben der Großmutter an einer schizophrenen Psychose erkrankt.\n\nPsychischer Befund: Bewusstseinsklarer, allseits orientierter Patient, der sich jetzt psychomotorisch ruhig verhält. Der Gedankengang ist etwas weitschweifig mit einer Tendenz zum Grübeln, ansonsten bestehen keine formalen und inhaltlichen Denkstörungen. Es finden sich auch keine Anhaltspunkte für akustische oder optische Halluzinationen. Vorherrschend sind ein Interessenverlust und Freudlosigkeit, verbunden mit einer generalisierten Hoffnungslosigkeit. Im direkten sowie telefonischen Kontakt zur Mutter bzw. Großmutter wird Herr Fleischmann schnell aufbrausend, laut und verbal aggressiv.\n\nKörperlicher Untersuchungsbefund: Der internistische und neurologische Status sind unauffällig.\n\nLaborwerte: Leuko 4,2*10³/µl, Hb 15,9 g/dl, HK 48,5 %, Thrombo 155*10³/µl, MCV 94 µm³.\n\nNormwerte für Na, K Ca, GOT, ?-GT, A-PT, CK, a-Amy, Gesamteiweiß, Blutzucker, Quick, PTT, BSG. TPHA neg.\n\nGPT 38 U/l, Harnstoff 21 mg/dl, Crea 1,24 mg/dl. Bilirubin 1,24 mg/dl.\n\nBei Aufnahme im Urin Keton stark positiv, bei Kontrolle negativ.\n\nIm Drogenscreening Benzodiazepine, Barbiturate, Amphetamine, Opiate, Kokain und Cannabinoide nicht nachweisbar.\n\nTSH im Normbereich.\n\nEKG: Normfrequenter Sinusrhythmus mit negativer Endstrecke in aVL.\n\nEEG: 10-11/Sek. a-EEG, kein Herdbefund, keine epilepsietypischen Potentiale.\n\nZusammenfassung, Therapie und -Verlauf: Psychopathologisch fällt bei Herrn Wieland insbesondere eine Instabilität im affektiven Bereich mit einer ausgeprägten Reizbarkeit und verbalen Wutausbrüchen auf, die sich im Gesprächskontakt mit der psychisch kranken Mutter äußert. Außerdem ist er leicht kränkbar und zeigt eine deutliche Selbstwertproblematik, verbunden mit einer Unsicherheit im Hinblick auf das Selbstbild, langfristige Ziele sowie persönliche Wertvorstellungen. Die Konfliktverarbeitung erfolgt vorwiegend projektiv, d.h. er neigt dazu, die Ursache für seine Probleme ausschließlich in seinen Bezugspersonen, also der Mutter und Großmutter zu sehen.\n\nDiagnostisch handelt es sich damit am ehesten um eine emotional instabile Persönlichkeitsstörung vom Borderline-Typus, wobei die Symptomatik natürlich auch Ausdruck eines Prodromalstadiums einer psychotischen Erkrankung sein könnte, für die bisher allerdings keine eindeutigen Anhaltspunkte vorliegen.\n\nIn therapeutischer Hinsicht erschien es vordringlich, den Patienten von der zur Überversorgung neigenden Großmutter und Mutter zu trennen, damit er eine eigene Lebensperspektive entwickeln kann. Deswegen wurde vereinbart, dass die Mutter ihn nur noch zweimal pro Woche besuchte, und dass er telefonischen Kontakt zu ihr nur noch von außerhalb der Station aufnahm.\n\nMedikamentös wurde mit Taxilan in einer Dosierung von 300 mg täglich behandelt.\n\nWährend der stationären Behandlung ist dann insofern eine Besserung eingetreten, als Herr Fleischmann schließlich weniger gereizt reagierte und sich insgesamt kooperativer zeigte. Er konnte in die Beschäftigungstherapie integriert werden und nahm im Rahmen der Arbeitstherapie außerdem am Kochtraining teil. Damit wurde versucht, dem Patienten in lebenspraktischen Bereichen zu mehr Selbständigkeit zu verhelfen. Herr Fleischmann hat dann selbst den Wunsch geäußert, mit Beginn des neuen Schuljahres seine unterbrochene Schulausbildung fortzusetzen. Von seiner Schule in Jena wurde bescheinigt, dass er ab September 28 die Jahrgangsstufe 13 des Technischen Gymnasiums besuchen kann, wenn sein gesundheitlicher Zustand dies zuläßt.\n\nAus unserer Sicht ist es außerdem dringend erforderlich, dass Herr Fleischmann nach Abschluss der jetzigen stationären Behandlung in absehbarer Zeit nicht mehr bei seiner Großmutter wohnt.\n\nWir haben daher Kontakt mit dem Kreisjugendamt aufgenommen mit der Frage, ob er von dort aus in eine geeignete Wohngruppe oder in eine eigene Wohnung vermittelt werden kann, in der eine psychosoziale Betreuung gewährleistet ist. Dazu wurde vom Jugendamt am 14.05.28 mitgeteilt, dass ein betreutes Jugendwohnen wegen mangelnder Selbständigkeit wohl nicht in Betracht komme, allenfalls die Unterbringung in einer geeigneten Wohngruppe. Herr Fuß vom Kreisjugendamt wird diesbezüglich mit Herrn Fleischmann nochmals Kontakt aufnehmen.\n\nDer Patient wurde mit Ablauf der Unterbringungsfrist am 15.05.28 wieder in Ihre ambulante Behandlung entlassen.\n\nUnsere letzte Therapie:            \nTaxilan Tbl. 100 mg            1½ -0-1½\n\nMit freundlichen Grüßen\n\n\t\nDr. Fleischmann\nArzt für Neurologie und Psychiatrie\nOberarzt für den Bereich\nRehabilitation und Sozialtherapie I",
+      "id": 8,
+      "language": "de",
+      "version": "5.33.1"
+    }
+  ]
+}

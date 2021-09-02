@@ -1,0 +1,283 @@
+{
+  "annotationDtos": [
+    {
+      "begin": 38,
+      "end": 93,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Sehr geehrte Frau Kollegin, sehr geehrter Herr Kollege,",
+      "id": 70636,
+      "matchedTerm": "Sehr geehrte Frau Kollegin, sehr geehrter Herr Kollege",
+      "dictCanon": "Weitere",
+      "conceptId": "Sec_Misc",
+      "source": "clinical_sections_de",
+      "label": "MiscClinicalSection",
+      "uniqueId": "clinical_sections_de:Sec_Misc"
+    },
+    {
+      "begin": 217,
+      "end": 569,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Diagnosen: \t\t\n1. Adenokarzinom des distalen Ösophagus (ED 02/2021)\n - Status nach kombinierter Radio-Chemotherapie 03 - 05/2021\n - Chemotherapie mit Xeloda 03-06/2022\n - Chemotherapie mit Carboplatin 07/2022\n - Chemotherapie mit Ixoten 10-11/2022\n - Aktuell: Progrediente Lebermetastasen\n2. Z.n. Blasenkarzinom 2007\n3. Infrarenales Bauchaortenaneurysma",
+      "id": 70647,
+      "matchedTerm": "Diagnosen",
+      "dictCanon": "Diagnose",
+      "conceptId": "10164-2",
+      "source": "clinical_sections_de",
+      "label": "DiagnosisSection",
+      "uniqueId": "clinical_sections_de:10164-2"
+    },
+    {
+      "begin": 571,
+      "end": 660,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Aktuell:\t\tRadio-Frequenz-Thermo-Ablation (RITA) der Lebermetastasen zur  Schmerzreduktion",
+      "id": 70658,
+      "matchedTerm": "Aktuell",
+      "dictCanon": "Grund der Aufnahme",
+      "conceptId": "29299-5",
+      "source": "clinical_sections_de",
+      "label": "AdmissionReasonSection",
+      "uniqueId": "clinical_sections_de:29299-5"
+    },
+    {
+      "begin": 662,
+      "end": 1120,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Anamnese: \nZur Vorgechichte dürfen wir auf die ausführlichen Berichte von der Uniklinik vom 14.11.2021 und 29.12.2022 sowie unseren Brief vom 14.1.2023 Bezug nehmen. Der Patient berichtet über Opstipation im Rahmen der Tramal-Einnahme, weswegen dies von ihm abgesetzt wurde. Novalgin Trpf. brachten inzwischen keine Verbesserung der Schmerzsituation mehr. So klagt Herr Meyr über starke Schmerzen in rechten Oberbauch mit Ausstrahlung in die rechte Schulter.",
+      "id": 70669,
+      "matchedTerm": "Anamnese",
+      "dictCanon": "Anamnese",
+      "conceptId": "11329-0",
+      "source": "clinical_sections_de",
+      "label": "AnamnesisSection",
+      "uniqueId": "clinical_sections_de:11329-0"
+    },
+    {
+      "begin": 1122,
+      "end": 2288,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Labor vom 21.1.23:\nLeukozyten 23,3 Tsd/µl; Erythrozyten 4,00 Mio/µl; Hämoglobin 10,9 g/dl; Hämatokrit 32,0 %; MCV 80,0 fl; MCH (HbE) 27,3 pg; MCHC 34,1 g/dl; Thrombozyten 428 Tsd/µl; Anisozytose  ; Quick 81  %; Intern. norm. Ratio 1,1 ; PTT 32 sec; \n\nHerr Meyr wurde zur RITA-Therapie teilstationär aufgenommen. Diese konnte komplikationslos durchgeführt werden. Der Patient war während des gesamten Aufenthaltes bei uns kreislaufstabil. Wir bitten um klinische Kontrolle über die nächsten Tage und Kontrolle des BB. Im Rahmen der Therapie tritt häufig Fieber auf welches mit Paracetamol behandelbar ist. Periinterventionell wurde mit Novalgin (p.o.) und Dolantin (s.c.) analgetisch behandelt. Die Schmerztherapie könnte auf Dauer auf ein Fentanyl-Pflaster (Durogesic, initial 25 µg) mit entsprechender Dosisanpassung umgestellt werden. Intermittierend würden wir über die Feiertage vorschlagen, kombiniert mit Novalgin und Tramal zu behandeln. Wir möchten den Patienten bitten, sich zur Besprechung des weiteren Procedere am 28.1.2023 bei uns einzufinden.\nEin ausführlicher Bericht folgt nicht. Für Rückfragen stehen wir Ihnen selbstverständlich gern zur Verfügung.",
+      "id": 70680,
+      "matchedTerm": "Labor (",
+      "dictCanon": "Labor",
+      "conceptId": "30954-2",
+      "source": "clinical_sections_de",
+      "label": "LaboratorySection",
+      "uniqueId": "clinical_sections_de:30954-2"
+    },
+    {
+      "begin": 1373,
+      "end": 1433,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Herr Meyr wurde zur RITA-Therapie teilstationär aufgenommen.",
+      "id": 70691,
+      "matchedTerm": "Therapie",
+      "dictCanon": "Therapie",
+      "conceptId": "62387-6",
+      "source": "clinical_sections_de",
+      "label": "TherapySection",
+      "uniqueId": "clinical_sections_de:62387-6"
+    },
+    {
+      "begin": 1639,
+      "end": 1726,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Im Rahmen der Therapie tritt häufig Fieber auf welches mit Paracetamol behandelbar ist.",
+      "id": 70702,
+      "matchedTerm": "Therapie",
+      "dictCanon": "Therapie",
+      "conceptId": "62387-6",
+      "source": "clinical_sections_de",
+      "label": "TherapySection",
+      "uniqueId": "clinical_sections_de:62387-6"
+    },
+    {
+      "begin": 2067,
+      "end": 2178,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Wir möchten den Patienten bitten, sich zur Besprechung des weiteren Procedere am 28.1.2023 bei uns einzufinden.",
+      "id": 70713,
+      "matchedTerm": "Procedere",
+      "dictCanon": "Weitere",
+      "conceptId": "Sec_Misc",
+      "source": "clinical_sections_de",
+      "label": "MiscClinicalSection",
+      "uniqueId": "clinical_sections_de:Sec_Misc"
+    },
+    {
+      "begin": 160,
+      "end": 170,
+      "type": "de.averbis.types.health.Hospitalisation",
+      "coveredText": "21.01.2023",
+      "id": 70988,
+      "admissionDate": "2023-01-21",
+      "dischargeDate": "2023-01-21"
+    },
+    {
+      "begin": 4,
+      "end": 2288,
+      "type": "de.averbis.types.health.PatientInformation",
+      "coveredText": "Franz-Josef Meyr geb. 12.9.1940,\n\nSehr geehrte Frau Kollegin, sehr geehrter Herr Kollege,\n\nwir berichten Ihnen nachfolgend über o.g. Patienten, der sich am 21.01.2023 in unserer teilstationären Behandlung befand.\nDiagnosen: \t\t\n1. Adenokarzinom des distalen Ösophagus (ED 02/2021)\n - Status nach kombinierter Radio-Chemotherapie 03 - 05/2021\n - Chemotherapie mit Xeloda 03-06/2022\n - Chemotherapie mit Carboplatin 07/2022\n - Chemotherapie mit Ixoten 10-11/2022\n - Aktuell: Progrediente Lebermetastasen\n2. Z.n. Blasenkarzinom 2007\n3. Infrarenales Bauchaortenaneurysma\n\nAktuell:\t\tRadio-Frequenz-Thermo-Ablation (RITA) der Lebermetastasen zur  Schmerzreduktion\n\nAnamnese: \nZur Vorgechichte dürfen wir auf die ausführlichen Berichte von der Uniklinik vom 14.11.2021 und 29.12.2022 sowie unseren Brief vom 14.1.2023 Bezug nehmen. Der Patient berichtet über Opstipation im Rahmen der Tramal-Einnahme, weswegen dies von ihm abgesetzt wurde. Novalgin Trpf. brachten inzwischen keine Verbesserung der Schmerzsituation mehr. So klagt Herr Meyr über starke Schmerzen in rechten Oberbauch mit Ausstrahlung in die rechte Schulter.\n\nLabor vom 21.1.23:\nLeukozyten 23,3 Tsd/µl; Erythrozyten 4,00 Mio/µl; Hämoglobin 10,9 g/dl; Hämatokrit 32,0 %; MCV 80,0 fl; MCH (HbE) 27,3 pg; MCHC 34,1 g/dl; Thrombozyten 428 Tsd/µl; Anisozytose  ; Quick 81  %; Intern. norm. Ratio 1,1 ; PTT 32 sec; \n\nHerr Meyr wurde zur RITA-Therapie teilstationär aufgenommen. Diese konnte komplikationslos durchgeführt werden. Der Patient war während des gesamten Aufenthaltes bei uns kreislaufstabil. Wir bitten um klinische Kontrolle über die nächsten Tage und Kontrolle des BB. Im Rahmen der Therapie tritt häufig Fieber auf welches mit Paracetamol behandelbar ist. Periinterventionell wurde mit Novalgin (p.o.) und Dolantin (s.c.) analgetisch behandelt. Die Schmerztherapie könnte auf Dauer auf ein Fentanyl-Pflaster (Durogesic, initial 25 µg) mit entsprechender Dosisanpassung umgestellt werden. Intermittierend würden wir über die Feiertage vorschlagen, kombiniert mit Novalgin und Tramal zu behandeln. Wir möchten den Patienten bitten, sich zur Besprechung des weiteren Procedere am 28.1.2023 bei uns einzufinden.\nEin ausführlicher Bericht folgt nicht. Für Rückfragen stehen wir Ihnen selbstverständlich gern zur Verfügung.",
+      "id": 71593,
+      "firstName": null,
+      "lastName": null,
+      "deceased": false,
+      "gender": "male",
+      "deathDate": null
+    },
+    {
+      "begin": 26,
+      "end": 35,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "12.9.1940",
+      "id": 71947
+    },
+    {
+      "begin": 160,
+      "end": 170,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "21.01.2023",
+      "id": 71961
+    },
+    {
+      "begin": 275,
+      "end": 282,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "02/2021",
+      "id": 71975
+    },
+    {
+      "begin": 332,
+      "end": 334,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "03",
+      "id": 71989
+    },
+    {
+      "begin": 337,
+      "end": 344,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "05/2021",
+      "id": 72003
+    },
+    {
+      "begin": 373,
+      "end": 375,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "03",
+      "id": 72017
+    },
+    {
+      "begin": 376,
+      "end": 383,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "06/2022",
+      "id": 72031
+    },
+    {
+      "begin": 417,
+      "end": 424,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "07/2022",
+      "id": 72045
+    },
+    {
+      "begin": 453,
+      "end": 455,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "10",
+      "id": 72059
+    },
+    {
+      "begin": 456,
+      "end": 463,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "11/2022",
+      "id": 72073
+    },
+    {
+      "begin": 528,
+      "end": 532,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "2007",
+      "id": 72087
+    },
+    {
+      "begin": 754,
+      "end": 764,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "14.11.2021",
+      "id": 72101
+    },
+    {
+      "begin": 769,
+      "end": 779,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "29.12.2022",
+      "id": 72115
+    },
+    {
+      "begin": 804,
+      "end": 813,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "14.1.2023",
+      "id": 72129
+    },
+    {
+      "begin": 1132,
+      "end": 1139,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "21.1.23",
+      "id": 72143
+    },
+    {
+      "begin": 2148,
+      "end": 2157,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "28.1.2023",
+      "id": 72157
+    },
+    {
+      "begin": 10,
+      "end": 20,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Josef Meyr",
+      "id": 86468,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 1032,
+      "end": 1036,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Meyr",
+      "id": 86542,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 1378,
+      "end": 1382,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Meyr",
+      "id": 86592,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 0,
+      "end": 2290,
+      "type": "de.averbis.types.health.DeidentifiedDocument",
+      "coveredText": "\n\n\n\nFranz-Josef Meyr geb. 12.9.1940,\n\nSehr geehrte Frau Kollegin, sehr geehrter Herr Kollege,\n\nwir berichten Ihnen nachfolgend über o.g. Patienten, der sich am 21.01.2023 in unserer teilstationären Behandlung befand.\nDiagnosen: \t\t\n1. Adenokarzinom des distalen Ösophagus (ED 02/2021)\n - Status nach kombinierter Radio-Chemotherapie 03 - 05/2021\n - Chemotherapie mit Xeloda 03-06/2022\n - Chemotherapie mit Carboplatin 07/2022\n - Chemotherapie mit Ixoten 10-11/2022\n - Aktuell: Progrediente Lebermetastasen\n2. Z.n. Blasenkarzinom 2007\n3. Infrarenales Bauchaortenaneurysma\n\nAktuell:\t\tRadio-Frequenz-Thermo-Ablation (RITA) der Lebermetastasen zur  Schmerzreduktion\n\nAnamnese: \nZur Vorgechichte dürfen wir auf die ausführlichen Berichte von der Uniklinik vom 14.11.2021 und 29.12.2022 sowie unseren Brief vom 14.1.2023 Bezug nehmen. Der Patient berichtet über Opstipation im Rahmen der Tramal-Einnahme, weswegen dies von ihm abgesetzt wurde. Novalgin Trpf. brachten inzwischen keine Verbesserung der Schmerzsituation mehr. So klagt Herr Meyr über starke Schmerzen in rechten Oberbauch mit Ausstrahlung in die rechte Schulter.\n\nLabor vom 21.1.23:\nLeukozyten 23,3 Tsd/µl; Erythrozyten 4,00 Mio/µl; Hämoglobin 10,9 g/dl; Hämatokrit 32,0 %; MCV 80,0 fl; MCH (HbE) 27,3 pg; MCHC 34,1 g/dl; Thrombozyten 428 Tsd/µl; Anisozytose  ; Quick 81  %; Intern. norm. Ratio 1,1 ; PTT 32 sec; \n\nHerr Meyr wurde zur RITA-Therapie teilstationär aufgenommen. Diese konnte komplikationslos durchgeführt werden. Der Patient war während des gesamten Aufenthaltes bei uns kreislaufstabil. Wir bitten um klinische Kontrolle über die nächsten Tage und Kontrolle des BB. Im Rahmen der Therapie tritt häufig Fieber auf welches mit Paracetamol behandelbar ist. Periinterventionell wurde mit Novalgin (p.o.) und Dolantin (s.c.) analgetisch behandelt. Die Schmerztherapie könnte auf Dauer auf ein Fentanyl-Pflaster (Durogesic, initial 25 µg) mit entsprechender Dosisanpassung umgestellt werden. Intermittierend würden wir über die Feiertage vorschlagen, kombiniert mit Novalgin und Tramal zu behandeln. Wir möchten den Patienten bitten, sich zur Besprechung des weiteren Procedere am 28.1.2023 bei uns einzufinden.\nEin ausführlicher Bericht folgt nicht. Für Rückfragen stehen wir Ihnen selbstverständlich gern zur Verfügung. \n",
+      "id": 110193,
+      "kind": "crossout",
+      "deidentifiedText": "\n\n\n\nFranz-XXXXX XXXX geb. XXXXXXXXX,\n\nSehr geehrte Frau Kollegin, sehr geehrter Herr Kollege,\n\nwir berichten Ihnen nachfolgend über o.g. Patienten, der sich am XXXXXXXXXX in unserer teilstationären Behandlung befand.\nDiagnosen: \t\t\n1. Adenokarzinom des distalen Ösophagus (ED XXXXXXX)\n - Status nach kombinierter Radio-Chemotherapie XX - XXXXXXX\n - Chemotherapie mit Xeloda XX-XXXXXXX\n - Chemotherapie mit Carboplatin XXXXXXX\n - Chemotherapie mit Ixoten XX-XXXXXXX\n - Aktuell: Progrediente Lebermetastasen\n2. Z.n. Blasenkarzinom XXXX\n3. Infrarenales Bauchaortenaneurysma\n\nAktuell:\t\tRadio-Frequenz-Thermo-Ablation (RITA) der Lebermetastasen zur  Schmerzreduktion\n\nAnamnese: \nZur Vorgechichte dürfen wir auf die ausführlichen Berichte von der Uniklinik vom XXXXXXXXXX und XXXXXXXXXX sowie unseren Brief vom XXXXXXXXX Bezug nehmen. Der Patient berichtet über Opstipation im Rahmen der Tramal-Einnahme, weswegen dies von ihm abgesetzt wurde. Novalgin Trpf. brachten inzwischen keine Verbesserung der Schmerzsituation mehr. So klagt Herr XXXX über starke Schmerzen in rechten Oberbauch mit Ausstrahlung in die rechte Schulter.\n\nLabor vom XXXXXXX:\nLeukozyten 23,3 Tsd/µl; Erythrozyten 4,00 Mio/µl; Hämoglobin 10,9 g/dl; Hämatokrit 32,0 %; MCV 80,0 fl; MCH (HbE) 27,3 pg; MCHC 34,1 g/dl; Thrombozyten 428 Tsd/µl; Anisozytose  ; Quick 81  %; Intern. norm. Ratio 1,1 ; PTT 32 sec; \n\nHerr XXXX wurde zur RITA-Therapie teilstationär aufgenommen. Diese konnte komplikationslos durchgeführt werden. Der Patient war während des gesamten Aufenthaltes bei uns kreislaufstabil. Wir bitten um klinische Kontrolle über die nächsten Tage und Kontrolle des BB. Im Rahmen der Therapie tritt häufig Fieber auf welches mit Paracetamol behandelbar ist. Periinterventionell wurde mit Novalgin (p.o.) und Dolantin (s.c.) analgetisch behandelt. Die Schmerztherapie könnte auf Dauer auf ein Fentanyl-Pflaster (Durogesic, initial 25 µg) mit entsprechender Dosisanpassung umgestellt werden. Intermittierend würden wir über die Feiertage vorschlagen, kombiniert mit Novalgin und Tramal zu behandeln. Wir möchten den Patienten bitten, sich zur Besprechung des weiteren Procedere am XXXXXXXXX bei uns einzufinden.\nEin ausführlicher Bericht folgt nicht. Für Rückfragen stehen wir Ihnen selbstverständlich gern zur Verfügung. \n"
+    },
+    {
+      "begin": 0,
+      "end": 2290,
+      "type": "de.averbis.types.health.DocumentAnnotation",
+      "coveredText": "\n\n\n\nFranz-Josef Meyr geb. 12.9.1940,\n\nSehr geehrte Frau Kollegin, sehr geehrter Herr Kollege,\n\nwir berichten Ihnen nachfolgend über o.g. Patienten, der sich am 21.01.2023 in unserer teilstationären Behandlung befand.\nDiagnosen: \t\t\n1. Adenokarzinom des distalen Ösophagus (ED 02/2021)\n - Status nach kombinierter Radio-Chemotherapie 03 - 05/2021\n - Chemotherapie mit Xeloda 03-06/2022\n - Chemotherapie mit Carboplatin 07/2022\n - Chemotherapie mit Ixoten 10-11/2022\n - Aktuell: Progrediente Lebermetastasen\n2. Z.n. Blasenkarzinom 2007\n3. Infrarenales Bauchaortenaneurysma\n\nAktuell:\t\tRadio-Frequenz-Thermo-Ablation (RITA) der Lebermetastasen zur  Schmerzreduktion\n\nAnamnese: \nZur Vorgechichte dürfen wir auf die ausführlichen Berichte von der Uniklinik vom 14.11.2021 und 29.12.2022 sowie unseren Brief vom 14.1.2023 Bezug nehmen. Der Patient berichtet über Opstipation im Rahmen der Tramal-Einnahme, weswegen dies von ihm abgesetzt wurde. Novalgin Trpf. brachten inzwischen keine Verbesserung der Schmerzsituation mehr. So klagt Herr Meyr über starke Schmerzen in rechten Oberbauch mit Ausstrahlung in die rechte Schulter.\n\nLabor vom 21.1.23:\nLeukozyten 23,3 Tsd/µl; Erythrozyten 4,00 Mio/µl; Hämoglobin 10,9 g/dl; Hämatokrit 32,0 %; MCV 80,0 fl; MCH (HbE) 27,3 pg; MCHC 34,1 g/dl; Thrombozyten 428 Tsd/µl; Anisozytose  ; Quick 81  %; Intern. norm. Ratio 1,1 ; PTT 32 sec; \n\nHerr Meyr wurde zur RITA-Therapie teilstationär aufgenommen. Diese konnte komplikationslos durchgeführt werden. Der Patient war während des gesamten Aufenthaltes bei uns kreislaufstabil. Wir bitten um klinische Kontrolle über die nächsten Tage und Kontrolle des BB. Im Rahmen der Therapie tritt häufig Fieber auf welches mit Paracetamol behandelbar ist. Periinterventionell wurde mit Novalgin (p.o.) und Dolantin (s.c.) analgetisch behandelt. Die Schmerztherapie könnte auf Dauer auf ein Fentanyl-Pflaster (Durogesic, initial 25 µg) mit entsprechender Dosisanpassung umgestellt werden. Intermittierend würden wir über die Feiertage vorschlagen, kombiniert mit Novalgin und Tramal zu behandeln. Wir möchten den Patienten bitten, sich zur Besprechung des weiteren Procedere am 28.1.2023 bei uns einzufinden.\nEin ausführlicher Bericht folgt nicht. Für Rückfragen stehen wir Ihnen selbstverständlich gern zur Verfügung. \n",
+      "id": 8,
+      "language": "de",
+      "version": "5.33.1"
+    }
+  ]
+}

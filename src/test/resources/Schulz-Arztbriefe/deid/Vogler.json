@@ -1,0 +1,356 @@
+{
+  "annotationDtos": [
+    {
+      "begin": 1,
+      "end": 56,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Sehr geehrte Frau Kollegin, sehr geehrter Herr Kollege,",
+      "id": 70965,
+      "matchedTerm": "Sehr geehrte Frau Kollegin, sehr geehrter Herr Kollege",
+      "dictCanon": "Weitere",
+      "conceptId": "Sec_Misc",
+      "source": "clinical_sections_de",
+      "label": "MiscClinicalSection",
+      "uniqueId": "clinical_sections_de:Sec_Misc"
+    },
+    {
+      "begin": 214,
+      "end": 333,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Diagnosen: \nTransitorisch-ischämische Attacke \nV.a. cerebrale Microangiopathie\nArterielle Hypertonie \nDiabetes mellitus",
+      "id": 70976,
+      "matchedTerm": "Diagnosen",
+      "dictCanon": "Diagnose",
+      "conceptId": "10164-2",
+      "source": "clinical_sections_de",
+      "label": "DiagnosisSection",
+      "uniqueId": "clinical_sections_de:10164-2"
+    },
+    {
+      "begin": 336,
+      "end": 884,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Anamnese: \nDer Pat. berichtete, am Morgen des 2.10.2021 sei es für ca. 30 Minuten zu einem Taubheitsgefühl der rechten Körperseite einschließlich des Gesichtes gekommen. An vaskulären Riskiofaktoren bestehen eine langjährige arterielle Hypertonie und ein insulinpflichtiger Diabetes mellitus. Aus der Vorgeschichte erwähnenswert sind eine Strumektomie 2008 bei Struma nodosa und ein Z.n. lumbalem Bandscheibenvorfall 2012. \nNeurologischer Befund: Kein Meningismus, Hirnnerven, Motorik, Sensibilität, Reflexe, Koordination, Gangbild und Sprache o.B.",
+      "id": 70987,
+      "matchedTerm": "Anamnese",
+      "dictCanon": "Anamnese",
+      "conceptId": "11329-0",
+      "source": "clinical_sections_de",
+      "label": "AnamnesisSection",
+      "uniqueId": "clinical_sections_de:11329-0"
+    },
+    {
+      "begin": 760,
+      "end": 884,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Neurologischer Befund: Kein Meningismus, Hirnnerven, Motorik, Sensibilität, Reflexe, Koordination, Gangbild und Sprache o.B.",
+      "id": 70998,
+      "matchedTerm": "Befund",
+      "dictCanon": "Befund",
+      "conceptId": "29545-1",
+      "source": "clinical_sections_de",
+      "label": "FindingSection",
+      "uniqueId": "clinical_sections_de:29545-1"
+    },
+    {
+      "begin": 888,
+      "end": 943,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Psychischer Befund: \nWach, voll orientiert, kooperativ.",
+      "id": 71009,
+      "matchedTerm": "Befund",
+      "dictCanon": "Befund",
+      "conceptId": "29545-1",
+      "source": "clinical_sections_de",
+      "label": "FindingSection",
+      "uniqueId": "clinical_sections_de:29545-1"
+    },
+    {
+      "begin": 946,
+      "end": 1084,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Internistischer Befund: \n80-jähriger Patient in gutem AZ und adipösem EZ, RR 140/80 mmHg, Herzfrequenz 80/Minute. Cor, Pulmo, Abdomen o.B.",
+      "id": 71020,
+      "matchedTerm": "Befund",
+      "dictCanon": "Befund",
+      "conceptId": "29545-1",
+      "source": "clinical_sections_de",
+      "label": "FindingSection",
+      "uniqueId": "clinical_sections_de:29545-1"
+    },
+    {
+      "begin": 1086,
+      "end": 1106,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Labor:\nSiehe Anlage.",
+      "id": 71031,
+      "matchedTerm": "Labor (",
+      "dictCanon": "Labor",
+      "conceptId": "30954-2",
+      "source": "clinical_sections_de",
+      "label": "LaboratorySection",
+      "uniqueId": "clinical_sections_de:30954-2"
+    },
+    {
+      "begin": 1108,
+      "end": 1220,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "EKG: \nFrequenz 84/Minute, rhythmisch, Indifferenztyp, keine Erregungsausbreitungs- oder – rückbildungsstörungen.",
+      "id": 71042,
+      "matchedTerm": "EKG",
+      "dictCanon": "EKG",
+      "conceptId": "Sec_ECG",
+      "source": "clinical_sections_de",
+      "label": "ECGSection",
+      "uniqueId": "clinical_sections_de:Sec_ECG"
+    },
+    {
+      "begin": 1223,
+      "end": 1474,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Langzeit-EKG: \nVereinzelte supraventrikulären Extrasystolen, keine höhergradigen Rhythmusstörungen. Transthorakales und transösophageale Echokardiographie: keine kardiale Emboliequelle. \nCCT: Geringe Zeichen der cerebralen Mikroangiopathie, sonst o.B.",
+      "id": 71053,
+      "matchedTerm": "Langzeit-EKG",
+      "dictCanon": "EKG",
+      "conceptId": "Sec_ECG",
+      "source": "clinical_sections_de",
+      "label": "ECGSection",
+      "uniqueId": "clinical_sections_de:Sec_ECG"
+    },
+    {
+      "begin": 1323,
+      "end": 1408,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Transthorakales und transösophageale Echokardiographie: keine kardiale Emboliequelle.",
+      "id": 71064,
+      "matchedTerm": "Transösophageale Echokardiographie",
+      "dictCanon": "Echokardiographie",
+      "conceptId": "Sec_Echocardiography",
+      "source": "clinical_sections_de",
+      "label": "EchocardiographySection",
+      "uniqueId": "clinical_sections_de:Sec_Echocardiography"
+    },
+    {
+      "begin": 1477,
+      "end": 1629,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "MRT des Schädels: \nIn der T2-Wichtung periventrikuläre Hyperintensitäten als Zeichen der zerebralen Mikroangiopathie, kein Infarkt, MR-Angiographie o.B.",
+      "id": 71075,
+      "matchedTerm": "MRT",
+      "dictCanon": "Untersuchungsbefund",
+      "conceptId": "59776-5",
+      "source": "clinical_sections_de",
+      "label": "ObservationSection",
+      "uniqueId": "clinical_sections_de:59776-5"
+    },
+    {
+      "begin": 1630,
+      "end": 1737,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Ultraschall der hirnversorgenden Arterien: Arteriosklerotische Veränderungen i.B.d. Bifurkation, sonst o.B.",
+      "id": 71086,
+      "matchedTerm": "Ultraschall",
+      "dictCanon": "Sonographie",
+      "conceptId": "Sec_Sonography",
+      "source": "clinical_sections_de",
+      "label": "SonographySection",
+      "uniqueId": "clinical_sections_de:Sec_Sonography"
+    },
+    {
+      "begin": 1739,
+      "end": 2433,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Beurteilung, Therapie und Verlauf:  \nZusammenfassend erlitt Herr V. erstmalig eine transitorisch-ischämische Attacke mit vorübergehender Sensibilitätsstörung recht, die sich nach ca. 30 Minuten komplett zurückbildete. Der neurologische Befund war regelrecht, das MRT des Schädels ergab Zeichen der cerebralen Mikroangiopathie bei ausgeprägtem vaskulären Risikoprofil. Höhergr. Stenosen der hirnversorgenden Arterien oder kardiale Emboliequellen ergaben sich diagnostisch nicht. Insofern erfolgte eine medikamentöse Sekundärprophylaxe mit 100 mg ASS und einem Statin. Wir empfehlen eine regelmäßige Kontrolle von Blutdruck und eine optimale Blutzuckereinstellung zur weiteren Sekundärprophylaxe.",
+      "id": 71097,
+      "matchedTerm": "Beurteilung",
+      "dictCanon": "Weitere",
+      "conceptId": "Sec_Misc",
+      "source": "clinical_sections_de",
+      "label": "MiscClinicalSection",
+      "uniqueId": "clinical_sections_de:Sec_Misc"
+    },
+    {
+      "begin": 2306,
+      "end": 2433,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Wir empfehlen eine regelmäßige Kontrolle von Blutdruck und eine optimale Blutzuckereinstellung zur weiteren Sekundärprophylaxe.",
+      "id": 71108,
+      "matchedTerm": "Blutdruck",
+      "dictCanon": "Vitalzeichen",
+      "conceptId": "8716-3",
+      "source": "clinical_sections_de",
+      "label": "VitalSignSection",
+      "uniqueId": "clinical_sections_de:8716-3"
+    },
+    {
+      "begin": 2436,
+      "end": 2564,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Medikation bei Entlassung:\nASS 100 mg 1 – 0 - 0 \nSimvastatin 20 mg 1 – 0 - 0 \nMetoprolol 47,5 mg 1 – 0 - 1 \nZoplicon 7,5 mg z.N.",
+      "id": 71119,
+      "matchedTerm": "Medikation bei Entlassung",
+      "dictCanon": "Medikation bei Entlassung",
+      "conceptId": "10183-2",
+      "source": "clinical_sections_de",
+      "label": "DischargeMedicationSection",
+      "uniqueId": "clinical_sections_de:10183-2"
+    },
+    {
+      "begin": 2568,
+      "end": 2651,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Mit freundlichen kollegialen Grüßen \nPD Dr. Hauser Chefarzt\nDr. Rosenzweig Oberarzt",
+      "id": 71130,
+      "matchedTerm": "Mit freundlichen kollegialen Grüßen",
+      "dictCanon": "Mit freundlichen Grüßen",
+      "conceptId": "Sec_DocumentFooter",
+      "source": "clinical_sections_de",
+      "label": "DocumentFooterSection",
+      "uniqueId": "clinical_sections_de:Sec_DocumentFooter"
+    },
+    {
+      "begin": 149,
+      "end": 150,
+      "type": "de.averbis.types.health.Hospitalisation",
+      "coveredText": "2",
+      "id": 71388,
+      "admissionDate": "2021-10-02",
+      "dischargeDate": null
+    },
+    {
+      "begin": 1,
+      "end": 2651,
+      "type": "de.averbis.types.health.PatientInformation",
+      "coveredText": "Sehr geehrte Frau Kollegin, sehr geehrter Herr Kollege, \n\nwir berichten über unseren Patienten Willibald Vogler, geboren am 23.2.1941, der sich vom 2. bis zum 7.10.2021 in unserer stationären Behandlung befand. \n\nDiagnosen: \nTransitorisch-ischämische Attacke \nV.a. cerebrale Microangiopathie\nArterielle Hypertonie \nDiabetes mellitus \n\nAnamnese: \nDer Pat. berichtete, am Morgen des 2.10.2021 sei es für ca. 30 Minuten zu einem Taubheitsgefühl der rechten Körperseite einschließlich des Gesichtes gekommen. An vaskulären Riskiofaktoren bestehen eine langjährige arterielle Hypertonie und ein insulinpflichtiger Diabetes mellitus. Aus der Vorgeschichte erwähnenswert sind eine Strumektomie 2008 bei Struma nodosa und ein Z.n. lumbalem Bandscheibenvorfall 2012. \nNeurologischer Befund: Kein Meningismus, Hirnnerven, Motorik, Sensibilität, Reflexe, Koordination, Gangbild und Sprache o.B.  \n\nPsychischer Befund: \nWach, voll orientiert, kooperativ. \n\nInternistischer Befund: \n80-jähriger Patient in gutem AZ und adipösem EZ, RR 140/80 mmHg, Herzfrequenz 80/Minute. Cor, Pulmo, Abdomen o.B.\n\nLabor:\nSiehe Anlage.\n\nEKG: \nFrequenz 84/Minute, rhythmisch, Indifferenztyp, keine Erregungsausbreitungs- oder – rückbildungsstörungen. \n\nLangzeit-EKG: \nVereinzelte supraventrikulären Extrasystolen, keine höhergradigen Rhythmusstörungen. Transthorakales und transösophageale Echokardiographie: keine kardiale Emboliequelle. \nCCT: Geringe Zeichen der cerebralen Mikroangiopathie, sonst o.B. \n\nMRT des Schädels: \nIn der T2-Wichtung periventrikuläre Hyperintensitäten als Zeichen der zerebralen Mikroangiopathie, kein Infarkt, MR-Angiographie o.B.\nUltraschall der hirnversorgenden Arterien: Arteriosklerotische Veränderungen i.B.d. Bifurkation, sonst o.B.\n\nBeurteilung, Therapie und Verlauf:  \nZusammenfassend erlitt Herr V. erstmalig eine transitorisch-ischämische Attacke mit vorübergehender Sensibilitätsstörung recht, die sich nach ca. 30 Minuten komplett zurückbildete. Der neurologische Befund war regelrecht, das MRT des Schädels ergab Zeichen der cerebralen Mikroangiopathie bei ausgeprägtem vaskulären Risikoprofil. Höhergr. Stenosen der hirnversorgenden Arterien oder kardiale Emboliequellen ergaben sich diagnostisch nicht. Insofern erfolgte eine medikamentöse Sekundärprophylaxe mit 100 mg ASS und einem Statin. Wir empfehlen eine regelmäßige Kontrolle von Blutdruck und eine optimale Blutzuckereinstellung zur weiteren Sekundärprophylaxe. \n\nMedikation bei Entlassung:\nASS 100 mg 1 – 0 - 0 \nSimvastatin 20 mg 1 – 0 - 0 \nMetoprolol 47,5 mg 1 – 0 - 1 \nZoplicon 7,5 mg z.N. \n\n\nMit freundlichen kollegialen Grüßen \nPD Dr. Hauser Chefarzt\nDr. Rosenzweig Oberarzt",
+      "id": 71779,
+      "firstName": null,
+      "lastName": null,
+      "deceased": false,
+      "gender": "male",
+      "deathDate": null
+    },
+    {
+      "begin": 971,
+      "end": 973,
+      "type": "de.averbis.types.health.Age",
+      "coveredText": "80",
+      "id": 91915
+    },
+    {
+      "begin": 2474,
+      "end": 2483,
+      "type": "de.averbis.types.health.Contact",
+      "coveredText": "1 – 0 - 0",
+      "id": 82053,
+      "kind": "PHONE"
+    },
+    {
+      "begin": 2503,
+      "end": 2512,
+      "type": "de.averbis.types.health.Contact",
+      "coveredText": "1 – 0 - 0",
+      "id": 82071,
+      "kind": "PHONE"
+    },
+    {
+      "begin": 2533,
+      "end": 2542,
+      "type": "de.averbis.types.health.Contact",
+      "coveredText": "1 – 0 - 1",
+      "id": 82089,
+      "kind": "PHONE"
+    },
+    {
+      "begin": 125,
+      "end": 134,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "23.2.1941",
+      "id": 72121
+    },
+    {
+      "begin": 149,
+      "end": 150,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "2",
+      "id": 72135
+    },
+    {
+      "begin": 160,
+      "end": 169,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "7.10.2021",
+      "id": 72149
+    },
+    {
+      "begin": 382,
+      "end": 391,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "2.10.2021",
+      "id": 72163
+    },
+    {
+      "begin": 688,
+      "end": 692,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "2008",
+      "id": 72177
+    },
+    {
+      "begin": 753,
+      "end": 757,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "2012",
+      "id": 72191
+    },
+    {
+      "begin": 96,
+      "end": 112,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Willibald Vogler",
+      "id": 84503,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 1804,
+      "end": 1805,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "V",
+      "id": 84577,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 2612,
+      "end": 2627,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Hauser Chefarzt",
+      "id": 84607,
+      "kind": "DOCTOR"
+    },
+    {
+      "begin": 2632,
+      "end": 2651,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Rosenzweig Oberarzt",
+      "id": 84657,
+      "kind": "DOCTOR"
+    },
+    {
+      "begin": 0,
+      "end": 2653,
+      "type": "de.averbis.types.health.DeidentifiedDocument",
+      "coveredText": "\nSehr geehrte Frau Kollegin, sehr geehrter Herr Kollege, \n\nwir berichten über unseren Patienten Willibald Vogler, geboren am 23.2.1941, der sich vom 2. bis zum 7.10.2021 in unserer stationären Behandlung befand. \n\nDiagnosen: \nTransitorisch-ischämische Attacke \nV.a. cerebrale Microangiopathie\nArterielle Hypertonie \nDiabetes mellitus \n\nAnamnese: \nDer Pat. berichtete, am Morgen des 2.10.2021 sei es für ca. 30 Minuten zu einem Taubheitsgefühl der rechten Körperseite einschließlich des Gesichtes gekommen. An vaskulären Riskiofaktoren bestehen eine langjährige arterielle Hypertonie und ein insulinpflichtiger Diabetes mellitus. Aus der Vorgeschichte erwähnenswert sind eine Strumektomie 2008 bei Struma nodosa und ein Z.n. lumbalem Bandscheibenvorfall 2012. \nNeurologischer Befund: Kein Meningismus, Hirnnerven, Motorik, Sensibilität, Reflexe, Koordination, Gangbild und Sprache o.B.  \n\nPsychischer Befund: \nWach, voll orientiert, kooperativ. \n\nInternistischer Befund: \n80-jähriger Patient in gutem AZ und adipösem EZ, RR 140/80 mmHg, Herzfrequenz 80/Minute. Cor, Pulmo, Abdomen o.B.\n\nLabor:\nSiehe Anlage.\n\nEKG: \nFrequenz 84/Minute, rhythmisch, Indifferenztyp, keine Erregungsausbreitungs- oder – rückbildungsstörungen. \n\nLangzeit-EKG: \nVereinzelte supraventrikulären Extrasystolen, keine höhergradigen Rhythmusstörungen. Transthorakales und transösophageale Echokardiographie: keine kardiale Emboliequelle. \nCCT: Geringe Zeichen der cerebralen Mikroangiopathie, sonst o.B. \n\nMRT des Schädels: \nIn der T2-Wichtung periventrikuläre Hyperintensitäten als Zeichen der zerebralen Mikroangiopathie, kein Infarkt, MR-Angiographie o.B.\nUltraschall der hirnversorgenden Arterien: Arteriosklerotische Veränderungen i.B.d. Bifurkation, sonst o.B.\n\nBeurteilung, Therapie und Verlauf:  \nZusammenfassend erlitt Herr V. erstmalig eine transitorisch-ischämische Attacke mit vorübergehender Sensibilitätsstörung recht, die sich nach ca. 30 Minuten komplett zurückbildete. Der neurologische Befund war regelrecht, das MRT des Schädels ergab Zeichen der cerebralen Mikroangiopathie bei ausgeprägtem vaskulären Risikoprofil. Höhergr. Stenosen der hirnversorgenden Arterien oder kardiale Emboliequellen ergaben sich diagnostisch nicht. Insofern erfolgte eine medikamentöse Sekundärprophylaxe mit 100 mg ASS und einem Statin. Wir empfehlen eine regelmäßige Kontrolle von Blutdruck und eine optimale Blutzuckereinstellung zur weiteren Sekundärprophylaxe. \n\nMedikation bei Entlassung:\nASS 100 mg 1 – 0 - 0 \nSimvastatin 20 mg 1 – 0 - 0 \nMetoprolol 47,5 mg 1 – 0 - 1 \nZoplicon 7,5 mg z.N. \n\n\nMit freundlichen kollegialen Grüßen \nPD Dr. Hauser Chefarzt\nDr. Rosenzweig Oberarzt \n",
+      "id": 108222,
+      "kind": "crossout",
+      "deidentifiedText": "\nSehr geehrte Frau Kollegin, sehr geehrter Herr Kollege, \n\nwir berichten über unseren Patienten XXXXXXXXX XXXXXX, geboren am XXXXXXXXX, der sich vom X. bis zum XXXXXXXXX in unserer stationären Behandlung befand. \n\nDiagnosen: \nTransitorisch-ischämische Attacke \nV.a. cerebrale Microangiopathie\nArterielle Hypertonie \nDiabetes mellitus \n\nAnamnese: \nDer Pat. berichtete, am Morgen des XXXXXXXXX sei es für ca. 30 Minuten zu einem Taubheitsgefühl der rechten Körperseite einschließlich des Gesichtes gekommen. An vaskulären Riskiofaktoren bestehen eine langjährige arterielle Hypertonie und ein insulinpflichtiger Diabetes mellitus. Aus der Vorgeschichte erwähnenswert sind eine Strumektomie XXXX bei Struma nodosa und ein Z.n. lumbalem Bandscheibenvorfall XXXX. \nNeurologischer Befund: Kein Meningismus, Hirnnerven, Motorik, Sensibilität, Reflexe, Koordination, Gangbild und Sprache o.B.  \n\nPsychischer Befund: \nWach, voll orientiert, kooperativ. \n\nInternistischer Befund: \nXX-jähriger Patient in gutem AZ und adipösem EZ, RR 140/80 mmHg, Herzfrequenz 80/Minute. Cor, Pulmo, Abdomen o.B.\n\nLabor:\nSiehe Anlage.\n\nEKG: \nFrequenz 84/Minute, rhythmisch, Indifferenztyp, keine Erregungsausbreitungs- oder – rückbildungsstörungen. \n\nLangzeit-EKG: \nVereinzelte supraventrikulären Extrasystolen, keine höhergradigen Rhythmusstörungen. Transthorakales und transösophageale Echokardiographie: keine kardiale Emboliequelle. \nCCT: Geringe Zeichen der cerebralen Mikroangiopathie, sonst o.B. \n\nMRT des Schädels: \nIn der T2-Wichtung periventrikuläre Hyperintensitäten als Zeichen der zerebralen Mikroangiopathie, kein Infarkt, MR-Angiographie o.B.\nUltraschall der hirnversorgenden Arterien: Arteriosklerotische Veränderungen i.B.d. Bifurkation, sonst o.B.\n\nBeurteilung, Therapie und Verlauf:  \nZusammenfassend erlitt Herr X. erstmalig eine transitorisch-ischämische Attacke mit vorübergehender Sensibilitätsstörung recht, die sich nach ca. 30 Minuten komplett zurückbildete. Der neurologische Befund war regelrecht, das MRT des Schädels ergab Zeichen der cerebralen Mikroangiopathie bei ausgeprägtem vaskulären Risikoprofil. Höhergr. Stenosen der hirnversorgenden Arterien oder kardiale Emboliequellen ergaben sich diagnostisch nicht. Insofern erfolgte eine medikamentöse Sekundärprophylaxe mit 100 mg ASS und einem Statin. Wir empfehlen eine regelmäßige Kontrolle von Blutdruck und eine optimale Blutzuckereinstellung zur weiteren Sekundärprophylaxe. \n\nMedikation bei Entlassung:\nASS 100 mg X X X X X \nSimvastatin 20 mg X X X X X \nMetoprolol 47,5 mg X X X X X \nZoplicon 7,5 mg z.N. \n\n\nMit freundlichen kollegialen Grüßen \nPD Dr. XXXXXX XXXXXXXX\nDr. XXXXXXXXXX XXXXXXXX \n"
+    },
+    {
+      "begin": 0,
+      "end": 2653,
+      "type": "de.averbis.types.health.DocumentAnnotation",
+      "coveredText": "\nSehr geehrte Frau Kollegin, sehr geehrter Herr Kollege, \n\nwir berichten über unseren Patienten Willibald Vogler, geboren am 23.2.1941, der sich vom 2. bis zum 7.10.2021 in unserer stationären Behandlung befand. \n\nDiagnosen: \nTransitorisch-ischämische Attacke \nV.a. cerebrale Microangiopathie\nArterielle Hypertonie \nDiabetes mellitus \n\nAnamnese: \nDer Pat. berichtete, am Morgen des 2.10.2021 sei es für ca. 30 Minuten zu einem Taubheitsgefühl der rechten Körperseite einschließlich des Gesichtes gekommen. An vaskulären Riskiofaktoren bestehen eine langjährige arterielle Hypertonie und ein insulinpflichtiger Diabetes mellitus. Aus der Vorgeschichte erwähnenswert sind eine Strumektomie 2008 bei Struma nodosa und ein Z.n. lumbalem Bandscheibenvorfall 2012. \nNeurologischer Befund: Kein Meningismus, Hirnnerven, Motorik, Sensibilität, Reflexe, Koordination, Gangbild und Sprache o.B.  \n\nPsychischer Befund: \nWach, voll orientiert, kooperativ. \n\nInternistischer Befund: \n80-jähriger Patient in gutem AZ und adipösem EZ, RR 140/80 mmHg, Herzfrequenz 80/Minute. Cor, Pulmo, Abdomen o.B.\n\nLabor:\nSiehe Anlage.\n\nEKG: \nFrequenz 84/Minute, rhythmisch, Indifferenztyp, keine Erregungsausbreitungs- oder – rückbildungsstörungen. \n\nLangzeit-EKG: \nVereinzelte supraventrikulären Extrasystolen, keine höhergradigen Rhythmusstörungen. Transthorakales und transösophageale Echokardiographie: keine kardiale Emboliequelle. \nCCT: Geringe Zeichen der cerebralen Mikroangiopathie, sonst o.B. \n\nMRT des Schädels: \nIn der T2-Wichtung periventrikuläre Hyperintensitäten als Zeichen der zerebralen Mikroangiopathie, kein Infarkt, MR-Angiographie o.B.\nUltraschall der hirnversorgenden Arterien: Arteriosklerotische Veränderungen i.B.d. Bifurkation, sonst o.B.\n\nBeurteilung, Therapie und Verlauf:  \nZusammenfassend erlitt Herr V. erstmalig eine transitorisch-ischämische Attacke mit vorübergehender Sensibilitätsstörung recht, die sich nach ca. 30 Minuten komplett zurückbildete. Der neurologische Befund war regelrecht, das MRT des Schädels ergab Zeichen der cerebralen Mikroangiopathie bei ausgeprägtem vaskulären Risikoprofil. Höhergr. Stenosen der hirnversorgenden Arterien oder kardiale Emboliequellen ergaben sich diagnostisch nicht. Insofern erfolgte eine medikamentöse Sekundärprophylaxe mit 100 mg ASS und einem Statin. Wir empfehlen eine regelmäßige Kontrolle von Blutdruck und eine optimale Blutzuckereinstellung zur weiteren Sekundärprophylaxe. \n\nMedikation bei Entlassung:\nASS 100 mg 1 – 0 - 0 \nSimvastatin 20 mg 1 – 0 - 0 \nMetoprolol 47,5 mg 1 – 0 - 1 \nZoplicon 7,5 mg z.N. \n\n\nMit freundlichen kollegialen Grüßen \nPD Dr. Hauser Chefarzt\nDr. Rosenzweig Oberarzt \n",
+      "id": 8,
+      "language": "de",
+      "version": "5.33.1"
+    }
+  ]
+}

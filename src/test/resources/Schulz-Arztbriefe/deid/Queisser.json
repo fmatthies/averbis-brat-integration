@@ -1,0 +1,304 @@
+{
+  "annotationDtos": [
+    {
+      "begin": 199,
+      "end": 495,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Diagnosen: \n1. Herzrhythmusstörungen mit SVES, VES u. bekannten Salven. \n2. Grundkrankheit: Hypertensive Herzkrankheit. \n3. KHK bisher nicht nachweisbar, aber auch noch nicht angiographisch ausgeschlossen. \n4. Risikofaktoren: Art. Hypertonie bei Belastung. Nikotinabusus. \n5. Wirbelsäulensyndrom.",
+      "id": 121806,
+      "matchedTerm": "Diagnosen",
+      "dictCanon": "Diagnose",
+      "conceptId": "10164-2",
+      "source": "clinical_sections_de",
+      "label": "DiagnosisSection",
+      "uniqueId": "clinical_sections_de:10164-2"
+    },
+    {
+      "begin": 498,
+      "end": 736,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Anamnese: Seit Jahren sind bei ihm Herzrhythmusstör. bek.. Früher wurde dies z. T. mit einem Alkoholabusus u. Diazepam-Abusus in Verbindung gebracht. Seit Jahren ist er jedoch trocken u. hat weniger Beruhigungstbl. eingenommen. Das letzte",
+      "id": 121817,
+      "matchedTerm": "Anamnese",
+      "dictCanon": "Anamnese",
+      "conceptId": "11329-0",
+      "source": "clinical_sections_de",
+      "label": "AnamnesisSection",
+      "uniqueId": "clinical_sections_de:11329-0"
+    },
+    {
+      "begin": 737,
+      "end": 1515,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "LZ.-EKG von Ihnen vom 02.09.18 ergab einen regelr. Sinusrhythm. mit Kammerfreq.-Schw. zw. minim. 59 u. max. 139/Min. sowie vereinzelte VES (87) u. keine SVES. 3 Pausen mit einer max. Pausenlänge von 2.075ms infolge einer vorübergehenden AV-Beschwerden werden negiert. Bei Bel. habe er Atemnot, was mit seinem Übergewicht von 16 kg in Verbindung gebracht wird. Keine Beinödeme. Risikofaktoren: Fortbestehender Nikotinabusus von 20 Zigaretten pro Tag. \nKörperl. Untersuchungsbefund: 49jähr. Pat., RR in Ruhe re. 140/80, li. 125/80mmHg. Gewicht 91kg. Größe 175cm. Keine card. Insuff.-zeichen. Herzspitzenstoß nicht tastbar. Normal lauter 1. u. 2. HAT unter Beta-Blocker-Therapie. Keine Extrasystolen. Kein Herzgeräusch. Unauffälliger physikalischer Lungenbefund. Art. Pulse regelr.",
+      "id": 121828,
+      "matchedTerm": "LZ-EKG",
+      "dictCanon": "EKG",
+      "conceptId": "Sec_ECG",
+      "source": "clinical_sections_de",
+      "label": "ECGSection",
+      "uniqueId": "clinical_sections_de:Sec_ECG"
+    },
+    {
+      "begin": 1197,
+      "end": 1225,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Untersuchungsbefund: 49jähr.",
+      "id": 121839,
+      "matchedTerm": "Untersuchungsbefund",
+      "dictCanon": "Untersuchungsbefund",
+      "conceptId": "59776-5",
+      "source": "clinical_sections_de",
+      "label": "ObservationSection",
+      "uniqueId": "clinical_sections_de:59776-5"
+    },
+    {
+      "begin": 1358,
+      "end": 1413,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Normal lauter 1. u. 2. HAT unter Beta-Blocker-Therapie.",
+      "id": 121850,
+      "matchedTerm": "Therapie",
+      "dictCanon": "Therapie",
+      "conceptId": "62387-6",
+      "source": "clinical_sections_de",
+      "label": "TherapySection",
+      "uniqueId": "clinical_sections_de:62387-6"
+    },
+    {
+      "begin": 1517,
+      "end": 1683,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Rö.-Thorax in 2 Eb. Mit Breischluck: Li. betontes Herz mit einem CT-Quot. von 0,42 u. freiem Retrokardialraum. Bds. dichte Hili. Aortensklerose. Lungen u. Sinus o.B..",
+      "id": 121861,
+      "matchedTerm": "Rö.-Thorax",
+      "dictCanon": "Untersuchungsbefund",
+      "conceptId": "59776-5",
+      "source": "clinical_sections_de",
+      "label": "ObservationSection",
+      "uniqueId": "clinical_sections_de:59776-5"
+    },
+    {
+      "begin": 1685,
+      "end": 2483,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Ruhe-EKG: Sinusrhythm. 75/Min., Linkstyp. Grenzwertig normale PQ-Zeit von 0,2s u. normale QT-Dauer. Unauff. Brustwandabltg.. \nDiagn. Ergometrie ( / ): Während Fahrradergometr. Bel. im Sitzen, beg. mit 50 Watt u. 1minüt. Steigerung um 50 Watt bis auf 250 Watt kam es zu einem Pulsanst. Von 60 auf max. 130/Min. u. RR-Anst. von 112/74 auf max. 179/70mmHg. Abbruch wegen Beinermüdung. Keine AP. Keine ST-Senkung. In der Nachbeobachtung 2 VES. \nFarbdoppler-Echokardiographie: LA mit 45mm vergrößert u. LV mit EDD 58 u. ESD 33mm grenzwertig groß. Hinterwand mit 19mm verdickt u. normal bewegl.. Septum mit 17mm verdickt u. normal bewegl.. FS 44%. Unauff. Aorten- u. Mitralklappenbewegungen. Nach Farbkodierung kein Anhalt für eine Klappeninsuff.. Im gepulsten Doppler keine Zeichen einer Klappenstenose.",
+      "id": 121872,
+      "matchedTerm": "Ruhe-EKG",
+      "dictCanon": "EKG",
+      "conceptId": "Sec_ECG",
+      "source": "clinical_sections_de",
+      "label": "ECGSection",
+      "uniqueId": "clinical_sections_de:Sec_ECG"
+    },
+    {
+      "begin": 1818,
+      "end": 1904,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Ergometrie ( / ): Während Fahrradergometr. Bel. im Sitzen, beg. mit 50 Watt u. 1minüt.",
+      "id": 121883,
+      "matchedTerm": "Ergometrie",
+      "dictCanon": "Echocardiographie",
+      "conceptId": "Sec_Echocardiography",
+      "source": "clinical_sections_de",
+      "label": "EchocardiographySection",
+      "uniqueId": "clinical_sections_de:Sec_Echocardiography"
+    },
+    {
+      "begin": 2126,
+      "end": 2226,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Farbdoppler-Echokardiographie: LA mit 45mm vergrößert u. LV mit EDD 58 u. ESD 33mm grenzwertig groß.",
+      "id": 121894,
+      "matchedTerm": "Echokardiographie",
+      "dictCanon": "Echokardiographie",
+      "conceptId": "Sec_Echocardiography",
+      "source": "clinical_sections_de",
+      "label": "EchocardiographySection",
+      "uniqueId": "clinical_sections_de:Sec_Echocardiography"
+    },
+    {
+      "begin": 2486,
+      "end": 2708,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Zusammenfass. Beurteilung: \nBei unserer Unters. kam es jetzt nur ganz vereinzelt zu VES bei der Ergometrie. Besorgniserregende Rhythmusstör. fanden sich nicht. Die seltene AV-Blockierung Typ Wenckenbach im vorausgegangenen",
+      "id": 121905,
+      "matchedTerm": "Beurteilung",
+      "dictCanon": "Weitere",
+      "conceptId": "Sec_Misc",
+      "source": "clinical_sections_de",
+      "label": "MiscClinicalSection",
+      "uniqueId": "clinical_sections_de:Sec_Misc"
+    },
+    {
+      "begin": 2500,
+      "end": 2593,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Beurteilung: \nBei unserer Unters. kam es jetzt nur ganz vereinzelt zu VES bei der Ergometrie.",
+      "id": 121916,
+      "matchedTerm": "Ergometrie",
+      "dictCanon": "Echocardiographie",
+      "conceptId": "Sec_Echocardiography",
+      "source": "clinical_sections_de",
+      "label": "EchocardiographySection",
+      "uniqueId": "clinical_sections_de:Sec_Echocardiography"
+    },
+    {
+      "begin": 2709,
+      "end": 3187,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "LZ.-EKG kann durchaus funktioneller Genese sein. Anhaltspunkte für eine KHK hatte ich jetzt nicht. Im Vordergrund steht eine hypertensive Herzkrankheit bei Übergewicht von 16kg. U. echocardiogr. Zeichen einer beg. Linksherzhypertrophie u. Vergrößerung des li. Vorhofs. Die laufende Medik. mit einem niedrig dosierten Beta-Blocker halte ich für ausreichend. Wichtig ist, dass er den Nikotinabusus einstellt u. sein Übergewicht abbaut. Ferner empf. sich regelm. Körperl. Bewegung.",
+      "id": 121927,
+      "matchedTerm": "LZ-EKG",
+      "dictCanon": "EKG",
+      "conceptId": "Sec_ECG",
+      "source": "clinical_sections_de",
+      "label": "ECGSection",
+      "uniqueId": "clinical_sections_de:Sec_ECG"
+    },
+    {
+      "begin": 2978,
+      "end": 3065,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Die laufende Medik. mit einem niedrig dosierten Beta-Blocker halte ich für ausreichend.",
+      "id": 121938,
+      "matchedTerm": "Medikation",
+      "dictCanon": "Medikation",
+      "conceptId": "29549-3",
+      "source": "clinical_sections_de",
+      "label": "MedicationSection",
+      "uniqueId": "clinical_sections_de:29549-3"
+    },
+    {
+      "begin": 3189,
+      "end": 3437,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Therapievorschlag u. Procedere: Metoprolol 50 1/2-0-1/2. Natrium-u. cholesterinarme 800-kcal-Reduktionskost zur Verminderung des Übergewichtes von 16kg. Regelm. körperl. Training bei hervorragender körperl Belastbarkeit. Nächste Kontrolle nach 1J..",
+      "id": 121949,
+      "matchedTerm": "Therapievorschlag",
+      "dictCanon": "Medikationsempfehlung",
+      "conceptId": "Sec_MedicationRecommendation",
+      "source": "clinical_sections_de",
+      "label": "MedicationRecommendationSection",
+      "uniqueId": "clinical_sections_de:Sec_MedicationRecommendation"
+    },
+    {
+      "begin": 3440,
+      "end": 3505,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Mit freundlichen kollegialen Grüßen \nProf. Dr.Dr. med. Wang Qiang",
+      "id": 121960,
+      "matchedTerm": "Mit freundlichen kollegialen Grüßen",
+      "dictCanon": "Mit freundlichen Grüßen",
+      "conceptId": "Sec_DocumentFooter",
+      "source": "clinical_sections_de",
+      "label": "DocumentFooterSection",
+      "uniqueId": "clinical_sections_de:Sec_DocumentFooter"
+    },
+    {
+      "begin": 0,
+      "end": 3505,
+      "type": "de.averbis.types.health.PatientInformation",
+      "coveredText": "Andreas Queisser, * 21.1.1961, wohnhaft Iris-Leber-Straße 42, 35745 Herborn\n\nSehr geehrte Herren Kollegen, \n\nBei Ihrem o. g. Patienten habe ich am 23.02.2019 eine Kontrolluntersuchung durchgeführt. \nDiagnosen: \n1. Herzrhythmusstörungen mit SVES, VES u. bekannten Salven. \n2. Grundkrankheit: Hypertensive Herzkrankheit. \n3. KHK bisher nicht nachweisbar, aber auch noch nicht angiographisch ausgeschlossen. \n4. Risikofaktoren: Art. Hypertonie bei Belastung. Nikotinabusus. \n5. Wirbelsäulensyndrom. \n\nAnamnese: Seit Jahren sind bei ihm Herzrhythmusstör. bek.. Früher wurde dies z. T. mit einem Alkoholabusus u. Diazepam-Abusus in Verbindung gebracht. Seit Jahren ist er jedoch trocken u. hat weniger Beruhigungstbl. eingenommen. Das letzte LZ.-EKG von Ihnen vom 02.09.18 ergab einen regelr. Sinusrhythm. mit Kammerfreq.-Schw. zw. minim. 59 u. max. 139/Min. sowie vereinzelte VES (87) u. keine SVES. 3 Pausen mit einer max. Pausenlänge von 2.075ms infolge einer vorübergehenden AV-Beschwerden werden negiert. Bei Bel. habe er Atemnot, was mit seinem Übergewicht von 16 kg in Verbindung gebracht wird. Keine Beinödeme. Risikofaktoren: Fortbestehender Nikotinabusus von 20 Zigaretten pro Tag. \nKörperl. Untersuchungsbefund: 49jähr. Pat., RR in Ruhe re. 140/80, li. 125/80mmHg. Gewicht 91kg. Größe 175cm. Keine card. Insuff.-zeichen. Herzspitzenstoß nicht tastbar. Normal lauter 1. u. 2. HAT unter Beta-Blocker-Therapie. Keine Extrasystolen. Kein Herzgeräusch. Unauffälliger physikalischer Lungenbefund. Art. Pulse regelr. \nRö.-Thorax in 2 Eb. Mit Breischluck: Li. betontes Herz mit einem CT-Quot. von 0,42 u. freiem Retrokardialraum. Bds. dichte Hili. Aortensklerose. Lungen u. Sinus o.B.. \nRuhe-EKG: Sinusrhythm. 75/Min., Linkstyp. Grenzwertig normale PQ-Zeit von 0,2s u. normale QT-Dauer. Unauff. Brustwandabltg.. \nDiagn. Ergometrie ( / ): Während Fahrradergometr. Bel. im Sitzen, beg. mit 50 Watt u. 1minüt. Steigerung um 50 Watt bis auf 250 Watt kam es zu einem Pulsanst. Von 60 auf max. 130/Min. u. RR-Anst. von 112/74 auf max. 179/70mmHg. Abbruch wegen Beinermüdung. Keine AP. Keine ST-Senkung. In der Nachbeobachtung 2 VES. \nFarbdoppler-Echokardiographie: LA mit 45mm vergrößert u. LV mit EDD 58 u. ESD 33mm grenzwertig groß. Hinterwand mit 19mm verdickt u. normal bewegl.. Septum mit 17mm verdickt u. normal bewegl.. FS 44%. Unauff. Aorten- u. Mitralklappenbewegungen. Nach Farbkodierung kein Anhalt für eine Klappeninsuff.. Im gepulsten Doppler keine Zeichen einer Klappenstenose. \n\nZusammenfass. Beurteilung: \nBei unserer Unters. kam es jetzt nur ganz vereinzelt zu VES bei der Ergometrie. Besorgniserregende Rhythmusstör. fanden sich nicht. Die seltene AV-Blockierung Typ Wenckenbach im vorausgegangenen LZ.-EKG kann durchaus funktioneller Genese sein. Anhaltspunkte für eine KHK hatte ich jetzt nicht. Im Vordergrund steht eine hypertensive Herzkrankheit bei Übergewicht von 16kg. U. echocardiogr. Zeichen einer beg. Linksherzhypertrophie u. Vergrößerung des li. Vorhofs. Die laufende Medik. mit einem niedrig dosierten Beta-Blocker halte ich für ausreichend. Wichtig ist, dass er den Nikotinabusus einstellt u. sein Übergewicht abbaut. Ferner empf. sich regelm. Körperl. Bewegung. \nTherapievorschlag u. Procedere: Metoprolol 50 1/2-0-1/2. Natrium-u. cholesterinarme 800-kcal-Reduktionskost zur Verminderung des Übergewichtes von 16kg. Regelm. körperl. Training bei hervorragender körperl Belastbarkeit. Nächste Kontrolle nach 1J.. \n\nMit freundlichen kollegialen Grüßen \nProf. Dr.Dr. med. Wang Qiang",
+      "id": 122516,
+      "firstName": null,
+      "lastName": null,
+      "deceased": false,
+      "gender": "male",
+      "deathDate": null
+    },
+    {
+      "begin": 834,
+      "end": 836,
+      "type": "de.averbis.types.health.Age",
+      "coveredText": "59",
+      "id": 174500
+    },
+    {
+      "begin": 1218,
+      "end": 1220,
+      "type": "de.averbis.types.health.Age",
+      "coveredText": "49",
+      "id": 174520
+    },
+    {
+      "begin": 20,
+      "end": 29,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "21.1.1961",
+      "id": 123414
+    },
+    {
+      "begin": 147,
+      "end": 157,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "23.02.2019",
+      "id": 123428
+    },
+    {
+      "begin": 759,
+      "end": 767,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "02.09.18",
+      "id": 123442
+    },
+    {
+      "begin": 40,
+      "end": 60,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Iris-Leber-Straße 42",
+      "id": 148478,
+      "kind": "STREET"
+    },
+    {
+      "begin": 62,
+      "end": 67,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "35745",
+      "id": 152144,
+      "kind": "ZIP"
+    },
+    {
+      "begin": 68,
+      "end": 75,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Herborn",
+      "id": 152198,
+      "kind": "CITY"
+    },
+    {
+      "begin": 0,
+      "end": 16,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Andreas Queisser",
+      "id": 142058,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 3495,
+      "end": 3505,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Wang Qiang",
+      "id": 142112,
+      "kind": "DOCTOR"
+    },
+    {
+      "begin": 0,
+      "end": 3506,
+      "type": "de.averbis.types.health.DeidentifiedDocument",
+      "coveredText": "Andreas Queisser, * 21.1.1961, wohnhaft Iris-Leber-Straße 42, 35745 Herborn\n\nSehr geehrte Herren Kollegen, \n\nBei Ihrem o. g. Patienten habe ich am 23.02.2019 eine Kontrolluntersuchung durchgeführt. \nDiagnosen: \n1. Herzrhythmusstörungen mit SVES, VES u. bekannten Salven. \n2. Grundkrankheit: Hypertensive Herzkrankheit. \n3. KHK bisher nicht nachweisbar, aber auch noch nicht angiographisch ausgeschlossen. \n4. Risikofaktoren: Art. Hypertonie bei Belastung. Nikotinabusus. \n5. Wirbelsäulensyndrom. \n\nAnamnese: Seit Jahren sind bei ihm Herzrhythmusstör. bek.. Früher wurde dies z. T. mit einem Alkoholabusus u. Diazepam-Abusus in Verbindung gebracht. Seit Jahren ist er jedoch trocken u. hat weniger Beruhigungstbl. eingenommen. Das letzte LZ.-EKG von Ihnen vom 02.09.18 ergab einen regelr. Sinusrhythm. mit Kammerfreq.-Schw. zw. minim. 59 u. max. 139/Min. sowie vereinzelte VES (87) u. keine SVES. 3 Pausen mit einer max. Pausenlänge von 2.075ms infolge einer vorübergehenden AV-Beschwerden werden negiert. Bei Bel. habe er Atemnot, was mit seinem Übergewicht von 16 kg in Verbindung gebracht wird. Keine Beinödeme. Risikofaktoren: Fortbestehender Nikotinabusus von 20 Zigaretten pro Tag. \nKörperl. Untersuchungsbefund: 49jähr. Pat., RR in Ruhe re. 140/80, li. 125/80mmHg. Gewicht 91kg. Größe 175cm. Keine card. Insuff.-zeichen. Herzspitzenstoß nicht tastbar. Normal lauter 1. u. 2. HAT unter Beta-Blocker-Therapie. Keine Extrasystolen. Kein Herzgeräusch. Unauffälliger physikalischer Lungenbefund. Art. Pulse regelr. \nRö.-Thorax in 2 Eb. Mit Breischluck: Li. betontes Herz mit einem CT-Quot. von 0,42 u. freiem Retrokardialraum. Bds. dichte Hili. Aortensklerose. Lungen u. Sinus o.B.. \nRuhe-EKG: Sinusrhythm. 75/Min., Linkstyp. Grenzwertig normale PQ-Zeit von 0,2s u. normale QT-Dauer. Unauff. Brustwandabltg.. \nDiagn. Ergometrie ( / ): Während Fahrradergometr. Bel. im Sitzen, beg. mit 50 Watt u. 1minüt. Steigerung um 50 Watt bis auf 250 Watt kam es zu einem Pulsanst. Von 60 auf max. 130/Min. u. RR-Anst. von 112/74 auf max. 179/70mmHg. Abbruch wegen Beinermüdung. Keine AP. Keine ST-Senkung. In der Nachbeobachtung 2 VES. \nFarbdoppler-Echokardiographie: LA mit 45mm vergrößert u. LV mit EDD 58 u. ESD 33mm grenzwertig groß. Hinterwand mit 19mm verdickt u. normal bewegl.. Septum mit 17mm verdickt u. normal bewegl.. FS 44%. Unauff. Aorten- u. Mitralklappenbewegungen. Nach Farbkodierung kein Anhalt für eine Klappeninsuff.. Im gepulsten Doppler keine Zeichen einer Klappenstenose. \n\nZusammenfass. Beurteilung: \nBei unserer Unters. kam es jetzt nur ganz vereinzelt zu VES bei der Ergometrie. Besorgniserregende Rhythmusstör. fanden sich nicht. Die seltene AV-Blockierung Typ Wenckenbach im vorausgegangenen LZ.-EKG kann durchaus funktioneller Genese sein. Anhaltspunkte für eine KHK hatte ich jetzt nicht. Im Vordergrund steht eine hypertensive Herzkrankheit bei Übergewicht von 16kg. U. echocardiogr. Zeichen einer beg. Linksherzhypertrophie u. Vergrößerung des li. Vorhofs. Die laufende Medik. mit einem niedrig dosierten Beta-Blocker halte ich für ausreichend. Wichtig ist, dass er den Nikotinabusus einstellt u. sein Übergewicht abbaut. Ferner empf. sich regelm. Körperl. Bewegung. \nTherapievorschlag u. Procedere: Metoprolol 50 1/2-0-1/2. Natrium-u. cholesterinarme 800-kcal-Reduktionskost zur Verminderung des Übergewichtes von 16kg. Regelm. körperl. Training bei hervorragender körperl Belastbarkeit. Nächste Kontrolle nach 1J.. \n\nMit freundlichen kollegialen Grüßen \nProf. Dr.Dr. med. Wang Qiang\n",
+      "id": 176283,
+      "kind": "crossout",
+      "deidentifiedText": "XXXXXXX XXXXXXXX, * XXXXXXXXX, wohnhaft XXXXXXXXXXXXXXXXX XX, XXXXX XXXXXXX\n\nSehr geehrte Herren Kollegen, \n\nBei Ihrem o. g. Patienten habe ich am XXXXXXXXXX eine Kontrolluntersuchung durchgeführt. \nDiagnosen: \n1. Herzrhythmusstörungen mit SVES, VES u. bekannten Salven. \n2. Grundkrankheit: Hypertensive Herzkrankheit. \n3. KHK bisher nicht nachweisbar, aber auch noch nicht angiographisch ausgeschlossen. \n4. Risikofaktoren: Art. Hypertonie bei Belastung. Nikotinabusus. \n5. Wirbelsäulensyndrom. \n\nAnamnese: Seit Jahren sind bei ihm Herzrhythmusstör. bek.. Früher wurde dies z. T. mit einem Alkoholabusus u. Diazepam-Abusus in Verbindung gebracht. Seit Jahren ist er jedoch trocken u. hat weniger Beruhigungstbl. eingenommen. Das letzte LZ.-EKG von Ihnen vom XXXXXXXX ergab einen regelr. Sinusrhythm. mit Kammerfreq.-Schw. zw. minim. XX u. max. 139/Min. sowie vereinzelte VES (87) u. keine SVES. 3 Pausen mit einer max. Pausenlänge von 2.075ms infolge einer vorübergehenden AV-Beschwerden werden negiert. Bei Bel. habe er Atemnot, was mit seinem Übergewicht von 16 kg in Verbindung gebracht wird. Keine Beinödeme. Risikofaktoren: Fortbestehender Nikotinabusus von 20 Zigaretten pro Tag. \nKörperl. Untersuchungsbefund: XXjähr. Pat., RR in Ruhe re. 140/80, li. 125/80mmHg. Gewicht 91kg. Größe 175cm. Keine card. Insuff.-zeichen. Herzspitzenstoß nicht tastbar. Normal lauter 1. u. 2. HAT unter Beta-Blocker-Therapie. Keine Extrasystolen. Kein Herzgeräusch. Unauffälliger physikalischer Lungenbefund. Art. Pulse regelr. \nRö.-Thorax in 2 Eb. Mit Breischluck: Li. betontes Herz mit einem CT-Quot. von 0,42 u. freiem Retrokardialraum. Bds. dichte Hili. Aortensklerose. Lungen u. Sinus o.B.. \nRuhe-EKG: Sinusrhythm. 75/Min., Linkstyp. Grenzwertig normale PQ-Zeit von 0,2s u. normale QT-Dauer. Unauff. Brustwandabltg.. \nDiagn. Ergometrie ( / ): Während Fahrradergometr. Bel. im Sitzen, beg. mit 50 Watt u. 1minüt. Steigerung um 50 Watt bis auf 250 Watt kam es zu einem Pulsanst. Von 60 auf max. 130/Min. u. RR-Anst. von 112/74 auf max. 179/70mmHg. Abbruch wegen Beinermüdung. Keine AP. Keine ST-Senkung. In der Nachbeobachtung 2 VES. \nFarbdoppler-Echokardiographie: LA mit 45mm vergrößert u. LV mit EDD 58 u. ESD 33mm grenzwertig groß. Hinterwand mit 19mm verdickt u. normal bewegl.. Septum mit 17mm verdickt u. normal bewegl.. FS 44%. Unauff. Aorten- u. Mitralklappenbewegungen. Nach Farbkodierung kein Anhalt für eine Klappeninsuff.. Im gepulsten Doppler keine Zeichen einer Klappenstenose. \n\nZusammenfass. Beurteilung: \nBei unserer Unters. kam es jetzt nur ganz vereinzelt zu VES bei der Ergometrie. Besorgniserregende Rhythmusstör. fanden sich nicht. Die seltene AV-Blockierung Typ Wenckenbach im vorausgegangenen LZ.-EKG kann durchaus funktioneller Genese sein. Anhaltspunkte für eine KHK hatte ich jetzt nicht. Im Vordergrund steht eine hypertensive Herzkrankheit bei Übergewicht von 16kg. U. echocardiogr. Zeichen einer beg. Linksherzhypertrophie u. Vergrößerung des li. Vorhofs. Die laufende Medik. mit einem niedrig dosierten Beta-Blocker halte ich für ausreichend. Wichtig ist, dass er den Nikotinabusus einstellt u. sein Übergewicht abbaut. Ferner empf. sich regelm. Körperl. Bewegung. \nTherapievorschlag u. Procedere: Metoprolol 50 1/2-0-1/2. Natrium-u. cholesterinarme 800-kcal-Reduktionskost zur Verminderung des Übergewichtes von 16kg. Regelm. körperl. Training bei hervorragender körperl Belastbarkeit. Nächste Kontrolle nach 1J.. \n\nMit freundlichen kollegialen Grüßen \nProf. Dr.Dr. med. XXXX XXXXX\n"
+    },
+    {
+      "begin": 0,
+      "end": 3506,
+      "type": "de.averbis.types.health.DocumentAnnotation",
+      "coveredText": "Andreas Queisser, * 21.1.1961, wohnhaft Iris-Leber-Straße 42, 35745 Herborn\n\nSehr geehrte Herren Kollegen, \n\nBei Ihrem o. g. Patienten habe ich am 23.02.2019 eine Kontrolluntersuchung durchgeführt. \nDiagnosen: \n1. Herzrhythmusstörungen mit SVES, VES u. bekannten Salven. \n2. Grundkrankheit: Hypertensive Herzkrankheit. \n3. KHK bisher nicht nachweisbar, aber auch noch nicht angiographisch ausgeschlossen. \n4. Risikofaktoren: Art. Hypertonie bei Belastung. Nikotinabusus. \n5. Wirbelsäulensyndrom. \n\nAnamnese: Seit Jahren sind bei ihm Herzrhythmusstör. bek.. Früher wurde dies z. T. mit einem Alkoholabusus u. Diazepam-Abusus in Verbindung gebracht. Seit Jahren ist er jedoch trocken u. hat weniger Beruhigungstbl. eingenommen. Das letzte LZ.-EKG von Ihnen vom 02.09.18 ergab einen regelr. Sinusrhythm. mit Kammerfreq.-Schw. zw. minim. 59 u. max. 139/Min. sowie vereinzelte VES (87) u. keine SVES. 3 Pausen mit einer max. Pausenlänge von 2.075ms infolge einer vorübergehenden AV-Beschwerden werden negiert. Bei Bel. habe er Atemnot, was mit seinem Übergewicht von 16 kg in Verbindung gebracht wird. Keine Beinödeme. Risikofaktoren: Fortbestehender Nikotinabusus von 20 Zigaretten pro Tag. \nKörperl. Untersuchungsbefund: 49jähr. Pat., RR in Ruhe re. 140/80, li. 125/80mmHg. Gewicht 91kg. Größe 175cm. Keine card. Insuff.-zeichen. Herzspitzenstoß nicht tastbar. Normal lauter 1. u. 2. HAT unter Beta-Blocker-Therapie. Keine Extrasystolen. Kein Herzgeräusch. Unauffälliger physikalischer Lungenbefund. Art. Pulse regelr. \nRö.-Thorax in 2 Eb. Mit Breischluck: Li. betontes Herz mit einem CT-Quot. von 0,42 u. freiem Retrokardialraum. Bds. dichte Hili. Aortensklerose. Lungen u. Sinus o.B.. \nRuhe-EKG: Sinusrhythm. 75/Min., Linkstyp. Grenzwertig normale PQ-Zeit von 0,2s u. normale QT-Dauer. Unauff. Brustwandabltg.. \nDiagn. Ergometrie ( / ): Während Fahrradergometr. Bel. im Sitzen, beg. mit 50 Watt u. 1minüt. Steigerung um 50 Watt bis auf 250 Watt kam es zu einem Pulsanst. Von 60 auf max. 130/Min. u. RR-Anst. von 112/74 auf max. 179/70mmHg. Abbruch wegen Beinermüdung. Keine AP. Keine ST-Senkung. In der Nachbeobachtung 2 VES. \nFarbdoppler-Echokardiographie: LA mit 45mm vergrößert u. LV mit EDD 58 u. ESD 33mm grenzwertig groß. Hinterwand mit 19mm verdickt u. normal bewegl.. Septum mit 17mm verdickt u. normal bewegl.. FS 44%. Unauff. Aorten- u. Mitralklappenbewegungen. Nach Farbkodierung kein Anhalt für eine Klappeninsuff.. Im gepulsten Doppler keine Zeichen einer Klappenstenose. \n\nZusammenfass. Beurteilung: \nBei unserer Unters. kam es jetzt nur ganz vereinzelt zu VES bei der Ergometrie. Besorgniserregende Rhythmusstör. fanden sich nicht. Die seltene AV-Blockierung Typ Wenckenbach im vorausgegangenen LZ.-EKG kann durchaus funktioneller Genese sein. Anhaltspunkte für eine KHK hatte ich jetzt nicht. Im Vordergrund steht eine hypertensive Herzkrankheit bei Übergewicht von 16kg. U. echocardiogr. Zeichen einer beg. Linksherzhypertrophie u. Vergrößerung des li. Vorhofs. Die laufende Medik. mit einem niedrig dosierten Beta-Blocker halte ich für ausreichend. Wichtig ist, dass er den Nikotinabusus einstellt u. sein Übergewicht abbaut. Ferner empf. sich regelm. Körperl. Bewegung. \nTherapievorschlag u. Procedere: Metoprolol 50 1/2-0-1/2. Natrium-u. cholesterinarme 800-kcal-Reduktionskost zur Verminderung des Übergewichtes von 16kg. Regelm. körperl. Training bei hervorragender körperl Belastbarkeit. Nächste Kontrolle nach 1J.. \n\nMit freundlichen kollegialen Grüßen \nProf. Dr.Dr. med. Wang Qiang\n",
+      "id": 8,
+      "language": "de",
+      "version": "5.33.1"
+    }
+  ]
+}

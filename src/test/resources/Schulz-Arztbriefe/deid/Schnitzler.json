@@ -1,0 +1,290 @@
+{
+  "annotationDtos": [
+    {
+      "begin": 2,
+      "end": 40,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Befund - Ambulanz für Melanomnachsorge",
+      "id": 50852,
+      "matchedTerm": "Befund",
+      "dictCanon": "Befund",
+      "conceptId": "29545-1",
+      "source": "clinical_sections_de",
+      "label": "FindingSection",
+      "uniqueId": "clinical_sections_de:29545-1"
+    },
+    {
+      "begin": 107,
+      "end": 265,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Anamnese\n\nPatient kommt heute zur Kontrolle und Entscheidung über weiteres  Procedere.\nHerr Schnitzler entscheidet sich für die einjährige Interferontherapie.",
+      "id": 50863,
+      "matchedTerm": "Anamnese",
+      "dictCanon": "Anamnese",
+      "conceptId": "11329-0",
+      "source": "clinical_sections_de",
+      "label": "AnamnesisSection",
+      "uniqueId": "clinical_sections_de:11329-0"
+    },
+    {
+      "begin": 117,
+      "end": 193,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Patient kommt heute zur Kontrolle und Entscheidung über weiteres  Procedere.",
+      "id": 50874,
+      "matchedTerm": "Procedere",
+      "dictCanon": "Weitere",
+      "conceptId": "Sec_Misc",
+      "source": "clinical_sections_de",
+      "label": "MiscClinicalSection",
+      "uniqueId": "clinical_sections_de:Sec_Misc"
+    },
+    {
+      "begin": 267,
+      "end": 356,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Beurteilung\n\nAufklärung über eine Interferontherapie erfolgte.  Dokumentation mitgegeben.",
+      "id": 50885,
+      "matchedTerm": "Beurteilung",
+      "dictCanon": "Weitere",
+      "conceptId": "Sec_Misc",
+      "source": "clinical_sections_de",
+      "label": "MiscClinicalSection",
+      "uniqueId": "clinical_sections_de:Sec_Misc"
+    },
+    {
+      "begin": 359,
+      "end": 565,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Diagnose\n\nSt.p. TE eines Malignen Melanoms ( Level IV, TD 3,75mm)/ Oberbauch links  \nSt.p. NE tumorfrei und Sentinel Node -Exstirpation (tumorfrei)\nPsychose (ED 2018) seither Therapie mit Abilify + Cipralex",
+      "id": 50896,
+      "matchedTerm": "Diagnose",
+      "dictCanon": "Diagnose",
+      "conceptId": "10164-2",
+      "source": "clinical_sections_de",
+      "label": "DiagnosisSection",
+      "uniqueId": "clinical_sections_de:10164-2"
+    },
+    {
+      "begin": 369,
+      "end": 565,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "St.p. TE eines Malignen Melanoms ( Level IV, TD 3,75mm)/ Oberbauch links  \nSt.p. NE tumorfrei und Sentinel Node -Exstirpation (tumorfrei)\nPsychose (ED 2018) seither Therapie mit Abilify + Cipralex",
+      "id": 50907,
+      "matchedTerm": "Therapie",
+      "dictCanon": "Therapie",
+      "conceptId": "62387-6",
+      "source": "clinical_sections_de",
+      "label": "TherapySection",
+      "uniqueId": "clinical_sections_de:62387-6"
+    },
+    {
+      "begin": 581,
+      "end": 1078,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Histologie vom 19.4.2023: Abtragung rechts: Dermaler melanocytärer Naevus.\n E-Nr.: 17217277: NE Oberbauch l: NE-präparat mit Narbengewebe.\n E-Nr.: 37844677 Patho Klagenfurt: Sentinel Node, Leiste links: Tumofr. Sentinel node.\n E-Nr.: 17663757: TE Oberarm rechts: Angiolipom\n \nInspektion u. Palpation\n\nBlande Narbe im Bereich des Oberbauchs. Ein sichtbarer kleiner subkutaner Faden wird entfernt.\nLetzte Durchuntersuchungen:  Thoraxröntgen, OB-Sono, Son axillär, ing.:  unauffällig.\nRR: 145/85 mmHg",
+      "id": 50918,
+      "matchedTerm": "Histologie",
+      "dictCanon": "Befund",
+      "conceptId": "29545-1",
+      "source": "clinical_sections_de",
+      "label": "FindingSection",
+      "uniqueId": "clinical_sections_de:29545-1"
+    },
+    {
+      "begin": 1080,
+      "end": 1328,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Labor : incl. BB und Diff-BB, Elektrolyte (Na, K, Cl, Ca), Niere (Krea, Harnstoff, Harnsäure), Leber (Bili, AP, GGT, CHE, AST, ALT), Herz (CK, LDH), Pankreas (P-Amylase, Lipase), Glucose, CRP, Chol, Tri unauff. bis auf: Lipase 122, Cholesterin 219.",
+      "id": 50929,
+      "matchedTerm": "Labor (",
+      "dictCanon": "Labor",
+      "conceptId": "30954-2",
+      "source": "clinical_sections_de",
+      "label": "LaboratorySection",
+      "uniqueId": "clinical_sections_de:30954-2"
+    },
+    {
+      "begin": 1330,
+      "end": 1506,
+      "type": "de.averbis.types.health.ClinicalSection",
+      "coveredText": "Procedere\n\nEine stationäre Aufnahme zur Einleitung der  Interferontherapie wurde für  den 2.05.2023 auf Station 1502 um 14.30Uhr vereinbart.\n\nMedilkation:\nAbilify 10 mg 1/2-0-0",
+      "id": 50940,
+      "matchedTerm": "Procedere",
+      "dictCanon": "Weitere",
+      "conceptId": "Sec_Misc",
+      "source": "clinical_sections_de",
+      "label": "MiscClinicalSection",
+      "uniqueId": "clinical_sections_de:Sec_Misc"
+    },
+    {
+      "begin": 2,
+      "end": 1506,
+      "type": "de.averbis.types.health.PatientInformation",
+      "coveredText": "Befund - Ambulanz für Melanomnachsorge\n\nKlaus Schnitzler, * 3.2.1959, wohnhaft in Klagenfurt\n\n2023-04-26\nAnamnese\n\nPatient kommt heute zur Kontrolle und Entscheidung über weiteres  Procedere.\nHerr Schnitzler entscheidet sich für die einjährige Interferontherapie.\n\nBeurteilung\n\nAufklärung über eine Interferontherapie erfolgte.  Dokumentation mitgegeben.\n \nDiagnose\n\nSt.p. TE eines Malignen Melanoms ( Level IV, TD 3,75mm)/ Oberbauch links  \nSt.p. NE tumorfrei und Sentinel Node -Exstirpation (tumorfrei)\nPsychose (ED 2018) seither Therapie mit Abilify + Cipralex\n\n\n Histologie\n\nHistologie vom 19.4.2023: Abtragung rechts: Dermaler melanocytärer Naevus.\n E-Nr.: 17217277: NE Oberbauch l: NE-präparat mit Narbengewebe.\n E-Nr.: 37844677 Patho Klagenfurt: Sentinel Node, Leiste links: Tumofr. Sentinel node.\n E-Nr.: 17663757: TE Oberarm rechts: Angiolipom\n \nInspektion u. Palpation\n\nBlande Narbe im Bereich des Oberbauchs. Ein sichtbarer kleiner subkutaner Faden wird entfernt.\nLetzte Durchuntersuchungen:  Thoraxröntgen, OB-Sono, Son axillär, ing.:  unauffällig.\nRR: 145/85 mmHg\n\nLabor : incl. BB und Diff-BB, Elektrolyte (Na, K, Cl, Ca), Niere (Krea, Harnstoff, Harnsäure), Leber (Bili, AP, GGT, CHE, AST, ALT), Herz (CK, LDH), Pankreas (P-Amylase, Lipase), Glucose, CRP, Chol, Tri unauff. bis auf: Lipase 122, Cholesterin 219.\n\nProcedere\n\nEine stationäre Aufnahme zur Einleitung der  Interferontherapie wurde für  den 2.05.2023 auf Station 1502 um 14.30Uhr vereinbart.\n\nMedilkation:\nAbilify 10 mg 1/2-0-0",
+      "id": 51641,
+      "firstName": null,
+      "lastName": null,
+      "deceased": false,
+      "gender": "male",
+      "deathDate": null
+    },
+    {
+      "begin": 664,
+      "end": 672,
+      "type": "de.averbis.types.health.Contact",
+      "coveredText": "17217277",
+      "id": 59329,
+      "kind": "PHONE"
+    },
+    {
+      "begin": 728,
+      "end": 736,
+      "type": "de.averbis.types.health.Contact",
+      "coveredText": "37844677",
+      "id": 59347,
+      "kind": "PHONE"
+    },
+    {
+      "begin": 815,
+      "end": 823,
+      "type": "de.averbis.types.health.Contact",
+      "coveredText": "17663757",
+      "id": 59365,
+      "kind": "PHONE"
+    },
+    {
+      "begin": 62,
+      "end": 70,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "3.2.1959",
+      "id": 52035
+    },
+    {
+      "begin": 96,
+      "end": 106,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "2023-04-26",
+      "id": 52049
+    },
+    {
+      "begin": 520,
+      "end": 524,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "2018",
+      "id": 52063
+    },
+    {
+      "begin": 596,
+      "end": 605,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "19.4.2023",
+      "id": 52077
+    },
+    {
+      "begin": 1420,
+      "end": 1429,
+      "type": "de.averbis.types.health.Date",
+      "coveredText": "2.05.2023",
+      "id": 52091
+    },
+    {
+      "begin": 664,
+      "end": 672,
+      "type": "de.averbis.types.health.ID",
+      "coveredText": "17217277",
+      "id": 76030,
+      "kind": "PATIENTID"
+    },
+    {
+      "begin": 728,
+      "end": 736,
+      "type": "de.averbis.types.health.ID",
+      "coveredText": "37844677",
+      "id": 76050,
+      "kind": "OTHER"
+    },
+    {
+      "begin": 815,
+      "end": 823,
+      "type": "de.averbis.types.health.ID",
+      "coveredText": "17663757",
+      "id": 76070,
+      "kind": "OTHER"
+    },
+    {
+      "begin": 84,
+      "end": 94,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Klagenfurt",
+      "id": 65923,
+      "kind": "CITY"
+    },
+    {
+      "begin": 375,
+      "end": 377,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "TE",
+      "id": 65937,
+      "kind": "CITY"
+    },
+    {
+      "begin": 743,
+      "end": 753,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "Klagenfurt",
+      "id": 65951,
+      "kind": "CITY"
+    },
+    {
+      "begin": 825,
+      "end": 827,
+      "type": "de.averbis.types.health.Location",
+      "coveredText": "TE",
+      "id": 65965,
+      "kind": "CITY"
+    },
+    {
+      "begin": 42,
+      "end": 58,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Klaus Schnitzler",
+      "id": 60989,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 42,
+      "end": 58,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Klaus Schnitzler",
+      "id": 75930,
+      "kind": "DOCTOR"
+    },
+    {
+      "begin": 199,
+      "end": 209,
+      "type": "de.averbis.types.health.Name",
+      "coveredText": "Schnitzler",
+      "id": 61063,
+      "kind": "PATIENT"
+    },
+    {
+      "begin": 0,
+      "end": 1511,
+      "type": "de.averbis.types.health.DeidentifiedDocument",
+      "coveredText": "\n\nBefund - Ambulanz für Melanomnachsorge\n\nKlaus Schnitzler, * 3.2.1959, wohnhaft in Klagenfurt\n\n2023-04-26\nAnamnese\n\nPatient kommt heute zur Kontrolle und Entscheidung über weiteres  Procedere.\nHerr Schnitzler entscheidet sich für die einjährige Interferontherapie.\n\nBeurteilung\n\nAufklärung über eine Interferontherapie erfolgte.  Dokumentation mitgegeben.\n \nDiagnose\n\nSt.p. TE eines Malignen Melanoms ( Level IV, TD 3,75mm)/ Oberbauch links  \nSt.p. NE tumorfrei und Sentinel Node -Exstirpation (tumorfrei)\nPsychose (ED 2018) seither Therapie mit Abilify + Cipralex\n\n\n Histologie\n\nHistologie vom 19.4.2023: Abtragung rechts: Dermaler melanocytärer Naevus.\n E-Nr.: 17217277: NE Oberbauch l: NE-präparat mit Narbengewebe.\n E-Nr.: 37844677 Patho Klagenfurt: Sentinel Node, Leiste links: Tumofr. Sentinel node.\n E-Nr.: 17663757: TE Oberarm rechts: Angiolipom\n \nInspektion u. Palpation\n\nBlande Narbe im Bereich des Oberbauchs. Ein sichtbarer kleiner subkutaner Faden wird entfernt.\nLetzte Durchuntersuchungen:  Thoraxröntgen, OB-Sono, Son axillär, ing.:  unauffällig.\nRR: 145/85 mmHg\n\nLabor : incl. BB und Diff-BB, Elektrolyte (Na, K, Cl, Ca), Niere (Krea, Harnstoff, Harnsäure), Leber (Bili, AP, GGT, CHE, AST, ALT), Herz (CK, LDH), Pankreas (P-Amylase, Lipase), Glucose, CRP, Chol, Tri unauff. bis auf: Lipase 122, Cholesterin 219.\n\nProcedere\n\nEine stationäre Aufnahme zur Einleitung der  Interferontherapie wurde für  den 2.05.2023 auf Station 1502 um 14.30Uhr vereinbart.\n\nMedilkation:\nAbilify 10 mg 1/2-0-0\n\n \n\n",
+      "id": 78029,
+      "kind": "crossout",
+      "deidentifiedText": "\n\nBefund - Ambulanz für Melanomnachsorge\n\nXXXXX XXXXXXXXXX, * XXXXXXXX, wohnhaft in XXXXXXXXXX\n\nXXXXXXXXXX\nAnamnese\n\nPatient kommt heute zur Kontrolle und Entscheidung über weiteres  Procedere.\nHerr XXXXXXXXXX entscheidet sich für die einjährige Interferontherapie.\n\nBeurteilung\n\nAufklärung über eine Interferontherapie erfolgte.  Dokumentation mitgegeben.\n \nDiagnose\n\nSt.p. XX eines Malignen Melanoms ( Level IV, TD 3,75mm)/ Oberbauch links  \nSt.p. NE tumorfrei und Sentinel Node -Exstirpation (tumorfrei)\nPsychose (ED XXXX) seither Therapie mit Abilify + Cipralex\n\n\n Histologie\n\nHistologie vom XXXXXXXXX: Abtragung rechts: Dermaler melanocytärer Naevus.\n E-Nr.: XXXXXXXX: NE Oberbauch l: NE-präparat mit Narbengewebe.\n E-Nr.: XXXXXXXX Patho XXXXXXXXXX: Sentinel Node, Leiste links: Tumofr. Sentinel node.\n E-Nr.: XXXXXXXX: XX Oberarm rechts: Angiolipom\n \nInspektion u. Palpation\n\nBlande Narbe im Bereich des Oberbauchs. Ein sichtbarer kleiner subkutaner Faden wird entfernt.\nLetzte Durchuntersuchungen:  Thoraxröntgen, OB-Sono, Son axillär, ing.:  unauffällig.\nRR: 145/85 mmHg\n\nLabor : incl. BB und Diff-BB, Elektrolyte (Na, K, Cl, Ca), Niere (Krea, Harnstoff, Harnsäure), Leber (Bili, AP, GGT, CHE, AST, ALT), Herz (CK, LDH), Pankreas (P-Amylase, Lipase), Glucose, CRP, Chol, Tri unauff. bis auf: Lipase 122, Cholesterin 219.\n\nProcedere\n\nEine stationäre Aufnahme zur Einleitung der  Interferontherapie wurde für  den XXXXXXXXX auf Station 1502 um 14.30Uhr vereinbart.\n\nMedilkation:\nAbilify 10 mg 1/2-0-0\n\n \n\n"
+    },
+    {
+      "begin": 0,
+      "end": 1511,
+      "type": "de.averbis.types.health.DocumentAnnotation",
+      "coveredText": "\n\nBefund - Ambulanz für Melanomnachsorge\n\nKlaus Schnitzler, * 3.2.1959, wohnhaft in Klagenfurt\n\n2023-04-26\nAnamnese\n\nPatient kommt heute zur Kontrolle und Entscheidung über weiteres  Procedere.\nHerr Schnitzler entscheidet sich für die einjährige Interferontherapie.\n\nBeurteilung\n\nAufklärung über eine Interferontherapie erfolgte.  Dokumentation mitgegeben.\n \nDiagnose\n\nSt.p. TE eines Malignen Melanoms ( Level IV, TD 3,75mm)/ Oberbauch links  \nSt.p. NE tumorfrei und Sentinel Node -Exstirpation (tumorfrei)\nPsychose (ED 2018) seither Therapie mit Abilify + Cipralex\n\n\n Histologie\n\nHistologie vom 19.4.2023: Abtragung rechts: Dermaler melanocytärer Naevus.\n E-Nr.: 17217277: NE Oberbauch l: NE-präparat mit Narbengewebe.\n E-Nr.: 37844677 Patho Klagenfurt: Sentinel Node, Leiste links: Tumofr. Sentinel node.\n E-Nr.: 17663757: TE Oberarm rechts: Angiolipom\n \nInspektion u. Palpation\n\nBlande Narbe im Bereich des Oberbauchs. Ein sichtbarer kleiner subkutaner Faden wird entfernt.\nLetzte Durchuntersuchungen:  Thoraxröntgen, OB-Sono, Son axillär, ing.:  unauffällig.\nRR: 145/85 mmHg\n\nLabor : incl. BB und Diff-BB, Elektrolyte (Na, K, Cl, Ca), Niere (Krea, Harnstoff, Harnsäure), Leber (Bili, AP, GGT, CHE, AST, ALT), Herz (CK, LDH), Pankreas (P-Amylase, Lipase), Glucose, CRP, Chol, Tri unauff. bis auf: Lipase 122, Cholesterin 219.\n\nProcedere\n\nEine stationäre Aufnahme zur Einleitung der  Interferontherapie wurde für  den 2.05.2023 auf Station 1502 um 14.30Uhr vereinbart.\n\nMedilkation:\nAbilify 10 mg 1/2-0-0\n\n \n\n",
+      "id": 8,
+      "language": "de",
+      "version": "5.33.1"
+    }
+  ]
+}
