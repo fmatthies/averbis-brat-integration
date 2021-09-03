@@ -1,18 +1,18 @@
 package de.imise.integrator.controller
 
-import com.palominolabs.http.url.UrlBuilder
 import de.imise.integrator.view.MainView
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
+import okhttp3.HttpUrl
 import tornadofx.*
 import java.io.File
 import java.io.IOException
 import java.nio.charset.Charset
 
 
-class AverbisController: Controller() {
+class AverbisController(private val url: String? = null): Controller() {
     private val mainView: MainView by inject()
     private val client = OkHttpClient()
 
@@ -21,7 +21,7 @@ class AverbisController: Controller() {
     ): String {
         val postBody = File(document_path).readText(encoding)
         val request = Request.Builder()
-            .url(buildFinalUrl())
+            .url(url?: buildFinalUrl())
             .post(postBody.toRequestBody(MEDIA_TYPE_TXT))
             .build()
 
@@ -33,30 +33,44 @@ class AverbisController: Controller() {
 
     fun buildFinalUrl(): String {
         val schemeHost = buildUrlBasePath()
-        val finalUrl = UrlBuilder.forHost(schemeHost.scheme, schemeHost.host)
-            .pathSegments(URL_ENDPOINT, URL_VERSION, URL_ANALYSIS_TYPE)
-            .pathSegments(URL_PROJECTS, mainView.projectNameField.text)
-            .pathSegments(URL_PIPELINES, mainView.pipelineNameField.text)
-            .pathSegment(URL_ANALYSIS)
-            .queryParam(URL_PARAM_LANG, "de")
-            .toUrlString()
-        return finalUrl
+        val finalUrl = HttpUrl.Builder()
+            .scheme(schemeHost.scheme)
+            .host(schemeHost.host)
+        schemeHost.args.forEach { finalUrl.addPathSegment(it) }
+        if (schemeHost.port != null) { finalUrl.port(schemeHost.port.toInt()) }
+        finalUrl
+            .addPathSegments("$URL_ENDPOINT/$URL_VERSION/$URL_ANALYSIS_TYPE")
+            .addPathSegments("$URL_PROJECTS/${mainView.projectNameField.text}")
+            .addPathSegments("$URL_PIPELINES/${mainView.pipelineNameField.text}")
+            .addPathSegment(URL_ANALYSIS)
+            .addQueryParameter(URL_PARAM_LANG, "de")
+        return finalUrl.build().toString()
     }
 
     private fun buildUrlBasePath(): SchemeHost {
-        //ToDo: port (:8445) is a problem for the UrlBuilder...
-        val buildScheme: String
-        val buildHost: String
-        val urlField = mainView.urlField.text
+        fun extractHost(scheme: String, url: String): SchemeHost {
+            val buildHost: String
+            val buildArgs: List<String>
+            var buildPort: String? = null
+            val rest = url.split("/")
 
-        if (urlField.startsWith("http")) {
-            buildScheme = urlField.substringBefore(":")
-            buildHost = urlField.substringAfter("://")
-        } else {
-            buildScheme = "http"
-            buildHost = urlField
+            if (rest.first().contains(":")) {
+                buildHost = rest.first().split(":").first()
+                buildPort = rest.first().split(":").last()
+            } else {
+                buildHost = rest.first()
+            }
+            buildArgs = rest.drop(1)
+
+            return SchemeHost(scheme, buildHost, buildPort, buildArgs)
         }
-        return SchemeHost(buildScheme, buildHost)
+
+        val urlField = mainView.urlField.text
+        return if (urlField.startsWith("http")) {
+            extractHost(urlField.substringBefore(":"), urlField.substringAfter("://"))
+        } else {
+            extractHost("http", urlField)
+        }
     }
 
     companion object {
@@ -71,4 +85,4 @@ class AverbisController: Controller() {
     }
 }
 
-data class SchemeHost(val scheme: String, val host: String)
+data class SchemeHost(val scheme: String, val host: String, val port: String?, val args: List<String>)
