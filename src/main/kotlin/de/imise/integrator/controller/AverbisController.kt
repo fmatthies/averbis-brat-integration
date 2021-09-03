@@ -1,6 +1,7 @@
 package de.imise.integrator.controller
 
 import de.imise.integrator.view.MainView
+import javafx.scene.control.RadioButton
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -15,6 +16,11 @@ import java.nio.charset.Charset
 class AverbisController(private val url: String? = null): Controller() {
     private val mainView: MainView by inject()
     private val client = OkHttpClient()
+
+    fun postDocuments(documents: List<File>) {
+        val response = postDocument(documents.first().absolutePath)
+        mainView.outputField.text = response
+    }
 
     fun postDocument(document_path: String,
                      encoding: Charset = Charsets.UTF_8
@@ -43,7 +49,7 @@ class AverbisController(private val url: String? = null): Controller() {
             .addPathSegments("$URL_PROJECTS/${mainView.projectNameField.text}")
             .addPathSegments("$URL_PIPELINES/${mainView.pipelineNameField.text}")
             .addPathSegment(URL_ANALYSIS)
-            .addQueryParameter(URL_PARAM_LANG, "de")
+            .addQueryParameter(URL_PARAM_LANG, (mainView.languageGroup.selectedToggle as RadioButton).text)
         return finalUrl.build().toString()
     }
 
