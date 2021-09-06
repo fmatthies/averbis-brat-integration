@@ -12,6 +12,7 @@ import java.io.File
 import java.io.IOException
 import java.nio.charset.Charset
 import java.util.concurrent.TimeUnit
+import kotlin.reflect.jvm.isAccessible
 
 
 class AverbisController(private val url: String? = null): Controller() {
@@ -20,12 +21,13 @@ class AverbisController(private val url: String? = null): Controller() {
         .connectTimeout(15, TimeUnit.SECONDS)
         .build()
 
-    fun postDocuments(documents: List<File>) {
+    fun postDocuments(documents: List<File>): String {
         var response = "No documents posted."
         if (documents.isNotEmpty()) {
             response = postDocument(documents.first().absolutePath)
         }
-        mainView.outputField.text = response
+//        mainView.outputField.text = response
+        return response
     }
 
     fun postDocument(document_path: String,
@@ -34,7 +36,7 @@ class AverbisController(private val url: String? = null): Controller() {
         val postBody = File(document_path).readText(encoding)
         val request = Request.Builder()
             .url(url?: buildFinalUrl())
-            .addHeader(API_HEADER_STRING, mainView.apiTokenField.text)
+            .addHeader(API_HEADER_STRING, if (this::mainView.isAccessible) { mainView.apiTokenField.text } else { "" })
             .addHeader(ACCEPT_HEADER_STRING, ACCEPT_HEADER_VAL)
             .post(postBody.toRequestBody(MEDIA_TYPE_TXT))
             .build()

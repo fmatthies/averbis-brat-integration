@@ -1,6 +1,7 @@
 package de.imise.integrator.view
 
 import de.imise.integrator.controller.AverbisController
+import de.imise.integrator.controller.FileHandlingController
 import javafx.beans.property.SimpleStringProperty
 import javafx.collections.FXCollections
 import javafx.geometry.Pos
@@ -12,9 +13,7 @@ import java.io.File
 
 class MainView : View("Averbis & Brat Integrator") {
     private val averbisController: AverbisController by inject()
-    private val averbisUrl = "http://10.230.7.129:8445/health-discovery"
-    private val projectName = "1000PA"
-    private val pipelineName = "deid"
+    private val fileHandlingController: FileHandlingController by inject()
 
     var urlField: TextField by singleAssign()
     var apiTokenField: TextField by singleAssign()
@@ -35,6 +34,13 @@ class MainView : View("Averbis & Brat Integrator") {
         x
     }
 
+    companion object {
+        const val AVERBIS_URL_CONFIG_STRING = "default_url"
+        const val DEFAULT_PROJECT_CONFIG_STRING = "default_project"
+        const val DEFAULT_PIPELINE_CONFIG_STRING = "default_pipeline"
+        const val DEFAULT_LANGUAGES_CONFIG_LIST = "default_languages"
+    }
+
     override val root = hbox {
         var fis: List<File> = listOf()
 
@@ -49,21 +55,25 @@ class MainView : View("Averbis & Brat Integrator") {
                 form { //ToDo: check -> no empty fields in form!!
                     fieldset("Setup") {
                         field("Health Discovery URL") {
-                            urlField = textfield(averbisUrl)
+                            urlField = textfield(app.config.getProperty(AVERBIS_URL_CONFIG_STRING))
                         }
                         field("API Token") {
                             apiTokenField = textfield()
                         }
                         field("Project Name") {
-                            projectNameField = textfield(projectName)
+                            projectNameField = textfield(app.config.getProperty(DEFAULT_PROJECT_CONFIG_STRING))
                         }
                         field("Pipeline Name") {
-                            pipelineNameField = textfield(pipelineName)
+                            pipelineNameField = textfield(app.config.getProperty(DEFAULT_PIPELINE_CONFIG_STRING))
                         }
                         field("Language") {
                             languageGroup = togglegroup {
-                                radiobutton("de").isSelected = true
-                                radiobutton("en")
+                                app.config.getProperty(DEFAULT_LANGUAGES_CONFIG_LIST).split(",").forEach {
+                                    val rad = radiobutton(it)
+                                    if (this.selectedToggle as ToggleButton? == null) {
+                                        rad.isSelected = true
+                                    }
+                                }
                             }
                         }
                     }
@@ -83,26 +93,7 @@ class MainView : View("Averbis & Brat Integrator") {
                             inputDirField = textfield()
                             inputDirButton = button("Choose ${inputSelectionMode.value}") {
                                 action {
-                                    //ToDo extract this to controller
-                                    when (inputSelectionMode.value) {
-                                        "File(s)" -> {
-                                            fis = chooseFile(
-                                                title = "Choose File(s)",
-                                                filters = arrayOf(FileChooser.ExtensionFilter("text files", "*.txt")),
-                                                mode = FileChooserMode.Multi
-                                            )
-                                            inputDirField.text = fis.joinToString { it.name }
-                                            }
-                                        "Folder" -> {
-                                            val dir = chooseDirectory("Choose Folder")
-                                            //ToDo: transform list of txt files in folder to `fis`
-                                            inputDirField.text = dir?.absolutePath
-                                        }
-                                        else -> {
-                                            fis = listOf()
-                                        }
-                                    }
-
+                                    fis = fileHandlingController.readFiles(inputSelectionMode.value)
                                 }
                             }
                         }
@@ -127,11 +118,12 @@ class MainView : View("Averbis & Brat Integrator") {
                                         button("Post data") {
                                             setPrefSize(200.0, 40.0)
                                             action {
-                                                averbisController.postDocuments(fis)
+                                                runAsyncWithProgress {
+                                                    averbisController.postDocuments(fis)
+                                                } ui { response ->
+                                                    outputField.text = response
+                                                }
                                             }
-                                        }
-                                        progress = progressbar(0.0) {
-                                            prefWidth = 200.0
                                         }
                                     }
                                 }
