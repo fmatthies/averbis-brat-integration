@@ -11,14 +11,20 @@ import tornadofx.*
 import java.io.File
 import java.io.IOException
 import java.nio.charset.Charset
+import java.util.concurrent.TimeUnit
 
 
 class AverbisController(private val url: String? = null): Controller() {
     private val mainView: MainView by inject()
-    private val client = OkHttpClient()
+    private val client = OkHttpClient().newBuilder()
+        .connectTimeout(15, TimeUnit.SECONDS)
+        .build()
 
     fun postDocuments(documents: List<File>) {
-        val response = postDocument(documents.first().absolutePath)
+        var response = "No documents posted."
+        if (documents.isNotEmpty()) {
+            response = postDocument(documents.first().absolutePath)
+        }
         mainView.outputField.text = response
     }
 
@@ -28,13 +34,15 @@ class AverbisController(private val url: String? = null): Controller() {
         val postBody = File(document_path).readText(encoding)
         val request = Request.Builder()
             .url(url?: buildFinalUrl())
+            .addHeader(API_HEADER_STRING, mainView.apiTokenField.text)
+            .addHeader(ACCEPT_HEADER_STRING, ACCEPT_HEADER_VAL)
             .post(postBody.toRequestBody(MEDIA_TYPE_TXT))
             .build()
 
         client.newCall(request).execute().use { response ->
             if (!response.isSuccessful) throw IOException("Unexpected code $response")
             return response.body?.string() ?: ""
-        }
+        } //ToDo: catch no connection
     }
 
     fun buildFinalUrl(): String {
@@ -88,6 +96,9 @@ class AverbisController(private val url: String? = null): Controller() {
         const val URL_PIPELINES = "pipelines"
         const val URL_ANALYSIS = "analyseText"
         const val URL_PARAM_LANG = "language"
+        const val API_HEADER_STRING = "api-token"
+        const val ACCEPT_HEADER_STRING = "accept"
+        const val ACCEPT_HEADER_VAL = "application/json"
     }
 }
 

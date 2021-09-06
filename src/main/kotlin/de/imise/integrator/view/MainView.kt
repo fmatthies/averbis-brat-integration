@@ -12,9 +12,12 @@ import java.io.File
 
 class MainView : View("Averbis & Brat Integrator") {
     private val averbisController: AverbisController by inject()
-    private val averbis_url = "http://10.230.7.129:8445/health-discovery"
+    private val averbisUrl = "http://10.230.7.129:8445/health-discovery"
+    private val projectName = "1000PA"
+    private val pipelineName = "deid"
 
     var urlField: TextField by singleAssign()
+    var apiTokenField: TextField by singleAssign()
     var projectNameField: TextField by singleAssign()
     var pipelineNameField: TextField by singleAssign()
     var outputField: TextArea by singleAssign()
@@ -43,16 +46,19 @@ class MainView : View("Averbis & Brat Integrator") {
             tabMaxWidthProperty().bind(tabBinding(this, this@hbox))
 
             tab("Averbis") {
-                form {
+                form { //ToDo: check -> no empty fields in form!!
                     fieldset("Setup") {
                         field("Health Discovery URL") {
-                            urlField = textfield(averbis_url)
+                            urlField = textfield(averbisUrl)
+                        }
+                        field("API Token") {
+                            apiTokenField = textfield()
                         }
                         field("Project Name") {
-                            projectNameField = textfield("test-project")
+                            projectNameField = textfield(projectName)
                         }
                         field("Pipeline Name") {
-                            pipelineNameField = textfield("deid")
+                            pipelineNameField = textfield(pipelineName)
                         }
                         field("Language") {
                             languageGroup = togglegroup {
@@ -66,7 +72,11 @@ class MainView : View("Averbis & Brat Integrator") {
                             val selects = FXCollections.observableArrayList("File(s)", "Folder")
                             combobox(inputSelectionMode, selects).apply {
                                 selectionModel.selectFirst()
-                                setOnAction { inputDirButton.text = "Choose ${inputSelectionMode.value}" }
+                                setOnAction {
+                                    inputDirButton.text = "Choose ${inputSelectionMode.value}"
+                                    fis = listOf()
+                                    inputDirField.text = ""
+                                }
                             }
                         }
                         field("Select Input") {
