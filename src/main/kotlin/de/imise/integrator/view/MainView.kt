@@ -2,18 +2,26 @@ package de.imise.integrator.view
 
 import de.imise.integrator.controller.AverbisController
 import de.imise.integrator.controller.FileHandlingController
+import de.imise.integrator.model.Setup
+import de.imise.integrator.model.SetupModel
 import javafx.beans.property.SimpleStringProperty
 import javafx.collections.FXCollections
+import javafx.event.EventTarget
 import javafx.geometry.Pos
 import javafx.scene.control.*
 import javafx.scene.layout.HBox
-import javafx.stage.FileChooser
 import tornadofx.*
 import java.io.File
 
 class MainView : View("Averbis & Brat Integrator") {
     private val averbisController: AverbisController by inject()
     private val fileHandlingController: FileHandlingController by inject()
+
+    val setupModel = SetupModel(Setup(
+        url = app.config.getProperty(AVERBIS_URL_CONFIG_STRING),
+        projectName = app.config.getProperty(DEFAULT_PROJECT_CONFIG_STRING),
+        pipelineName = app.config.getProperty(DEFAULT_PIPELINE_CONFIG_STRING)
+    ))
 
     var urlField: TextField by singleAssign()
     var apiTokenField: TextField by singleAssign()
@@ -25,7 +33,6 @@ class MainView : View("Averbis & Brat Integrator") {
     var inputDirButton: Button by singleAssign()
     val inputSelectionMode = SimpleStringProperty()
     var outputDirField: TextField by singleAssign()
-    var progress: ProgressBar by singleAssign()
 
     val tabBinding = { tabPane: TabPane, parent: HBox ->
         val x = parent.widthProperty().doubleBinding(tabPane.tabs) {
@@ -33,6 +40,10 @@ class MainView : View("Averbis & Brat Integrator") {
         }
         x
     }
+
+//    fun textfield(text: String, model: ItemViewModel<Any>) = textfield(text).apply {
+//        model.rebindOnChange
+//    }
 
     companion object {
         const val AVERBIS_URL_CONFIG_STRING = "default_url"
@@ -55,23 +66,24 @@ class MainView : View("Averbis & Brat Integrator") {
                 form { //ToDo: check -> no empty fields in form!!
                     fieldset("Setup") {
                         field("Health Discovery URL") {
-                            urlField = textfield(app.config.getProperty(AVERBIS_URL_CONFIG_STRING))
+                            urlField = textfield(setupModel.url)
                         }
                         field("API Token") {
-                            apiTokenField = textfield()
+                            apiTokenField = textfield(setupModel.apiToken)
                         }
                         field("Project Name") {
-                            projectNameField = textfield(app.config.getProperty(DEFAULT_PROJECT_CONFIG_STRING))
+                            projectNameField = textfield(setupModel.projectName)
                         }
                         field("Pipeline Name") {
-                            pipelineNameField = textfield(app.config.getProperty(DEFAULT_PIPELINE_CONFIG_STRING))
+                            pipelineNameField = textfield(setupModel.pipelineName)
                         }
                         field("Language") {
                             languageGroup = togglegroup {
+                                bind(setupModel.language)
                                 app.config.getProperty(DEFAULT_LANGUAGES_CONFIG_LIST).split(",").forEach {
                                     val rad = radiobutton(it)
                                     if (this.selectedToggle as ToggleButton? == null) {
-                                        rad.isSelected = true
+                                        this.selectToggle(rad)
                                     }
                                 }
                             }
@@ -118,10 +130,16 @@ class MainView : View("Averbis & Brat Integrator") {
                                         button("Post data") {
                                             setPrefSize(200.0, 40.0)
                                             action {
-                                                runAsyncWithProgress {
-                                                    averbisController.postDocuments(fis)
-                                                } ui { response ->
-                                                    outputField.text = response
+                                                setupModel.commit()
+                                                val setup: Setup = setupModel.item
+                                                if (!setup.hasAnyNullProperties()) {
+                                                    runAsyncWithProgress {
+                                                        averbisController.postDocuments(fis)
+                                                    } ui { response ->
+                                                        outputField.text = response
+                                                    }
+                                                } else {
+                                                    println("Not all Form Fields are filled!")
                                                 }
                                             }
                                         }
