@@ -4,11 +4,11 @@ import javafx.beans.property.Property
 import tornadofx.*
 
 class Setup(
-    url: String? = null,
-    apiToken: String? = null,
-    projectName: String? = null,
-    pipelineName: String? = null,
-    language: String? = null
+    url: String = "",
+    apiToken: String? = "",
+    projectName: String? = "",
+    pipelineName: String? = "",
+    language: String? = ""
 ) {
     var url by property(url)
     fun urlProperty() = getProperty(Setup::url)
@@ -25,23 +25,34 @@ class Setup(
     var language by property(language)
     fun languageProperty() = getProperty(Setup::language)
 
-    fun hasAnyNullProperties() : Boolean{
-        if (url != null) {
-            if (apiToken != null) {
-                if (projectName != null) {
-                    if (pipelineName != null) {
-                        if (language != null) {
-                            return false
+    fun hasNoNullProperties() : Boolean{
+        if (!url.isNullOrBlank()) {
+            if (!apiToken.isNullOrBlank()) {
+                if (!projectName.isNullOrBlank()) {
+                    if (!pipelineName.isNullOrBlank()) {
+                        if (!language.isNullOrBlank()) {
+                            return true
                         }
                     }
                 }
             }
         }
-        return true
+        return false
     }
 }
 
-class Input {
+class Input(
+    inputData: String? = ""
+) {
+    var inputData by property(inputData)
+    fun inputDataProperty() = getProperty(Input::inputData)
+
+    fun hasNoNullProperties() : Boolean {
+        if (!inputData.isNullOrBlank()) {
+            return true
+        }
+        return false
+    }
 }
 
 class Analysis {
@@ -55,7 +66,8 @@ class SetupModel(setup: Setup) : ItemViewModel<Setup>(setup) {
     val language: Property<String> = bind(Setup::languageProperty)
 }
 
-class InputModel {
+class InputModel(input: Input): ItemViewModel<Input>(input) {
+    val input: Property<String> = bind(Input::inputDataProperty)
 }
 
 class AnalysisModel {

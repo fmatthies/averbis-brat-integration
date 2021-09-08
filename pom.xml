@@ -37,6 +37,11 @@
             <version>4.10.0-RC1</version>
         </dependency>
         <dependency>
+            <groupId>com.beust</groupId>
+            <artifactId>klaxon</artifactId>
+            <version>5.5</version>
+        </dependency>
+        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>RELEASE</version>
