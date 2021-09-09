@@ -1,5 +1,6 @@
 package de.imise.integrator.controller
 
+import com.beust.klaxon.JsonObject
 import de.imise.integrator.view.MainView
 import javafx.scene.control.RadioButton
 import okhttp3.MediaType.Companion.toMediaType
@@ -11,9 +12,20 @@ import tornadofx.*
 import java.io.File
 import java.io.IOException
 import java.nio.charset.Charset
+import java.nio.file.Path
 import java.util.concurrent.TimeUnit
 import kotlin.reflect.jvm.isAccessible
 
+
+// ToDo: create Response class that contains file infos and json response
+class AverbisResponse(file: File) {
+    var jsonResponse: JsonObject? = null
+
+    init {
+        val inputFileName: String = file.name
+        val inputFilePath: String = file.parent
+    }
+}
 
 class AverbisController(private val url: String? = null): Controller() {
     private val mainView: MainView by inject()
@@ -24,7 +36,7 @@ class AverbisController(private val url: String? = null): Controller() {
     fun postDocuments(documents: List<File>): String {
         var response = "No documents posted."
         if (documents.isNotEmpty()) {
-            response = postDocument(documents.first().absolutePath)
+            response = postDocument(documents.first().absolutePath) //ToDo: post all documents!
         }
 //        mainView.outputField.text = response
         return response

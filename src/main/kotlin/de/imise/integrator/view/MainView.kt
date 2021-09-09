@@ -2,6 +2,7 @@ package de.imise.integrator.view
 
 import de.imise.integrator.controller.AverbisController
 import de.imise.integrator.controller.FileHandlingController
+import de.imise.integrator.controller.OutputTransformationController
 import de.imise.integrator.model.Input
 import de.imise.integrator.model.InputModel
 import de.imise.integrator.model.Setup
@@ -143,7 +144,10 @@ class MainView : View("Averbis & Brat Integrator") {
                                                             runAsyncWithProgress {
                                                                 averbisController.postDocuments(fis)
                                                             } ui { response ->
-                                                                outputField.text = response
+                                                                outputField.text =
+                                                                    OutputTransformationController.Builder()
+//                                                                    .annotationValues(listOf("de.averbis.types.health.Date"))
+                                                                    .build().getResults(response)
                                                                 outputDrawerItem.expanded = true
                                                             }
                                                         }
