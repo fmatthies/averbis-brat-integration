@@ -1,6 +1,8 @@
 package de.imise.integrator.controller
 
+import com.beust.klaxon.JsonArray
 import com.beust.klaxon.JsonObject
+import com.beust.klaxon.Parser
 import de.imise.integrator.view.MainView
 import javafx.scene.control.RadioButton
 import okhttp3.MediaType.Companion.toMediaType
@@ -11,19 +13,75 @@ import okhttp3.HttpUrl
 import tornadofx.*
 import java.io.File
 import java.io.IOException
+import java.io.InputStream
 import java.nio.charset.Charset
-import java.nio.file.Path
 import java.util.concurrent.TimeUnit
 import kotlin.reflect.jvm.isAccessible
 
 
-// ToDo: create Response class that contains file infos and json response
-class AverbisResponse(file: File) {
-    var jsonResponse: JsonObject? = null
+interface AverbisJsonEntry {
+    val begin: Int
+    val end: Int
+    val id: Int
+    val coveredText: String
+    val type: String
 
-    init {
-        val inputFileName: String = file.name
-        val inputFilePath: String = file.parent
+    fun asTextboundAnnotation(): String {
+        return "T${id}\t" +
+               "${type.substringAfterLast('.')} " +
+               "$begin $end\t" +
+               coveredText
+    }
+}
+
+class AverbisPHIEntry(private val jsonObject: JsonObject) : AverbisJsonEntry {
+    override val begin: Int
+        get() = jsonObject["begin"] as Int
+    override val end: Int
+        get() = jsonObject["end"] as Int
+    override val id: Int
+        get() = jsonObject["id"] as Int
+    override val coveredText: String
+        get() = jsonObject["coveredText"] as String
+    override val type: String
+        get() = jsonObject["type"] as String
+}
+
+class AverbisResponse(file: File) {
+
+    var jsonResponse: JsonArray<JsonObject>? = null
+    val parser = Parser.default()
+    val annotationBaseString: String = "annotationDtos"
+    var outputTransform: OutputTransformationController =  OutputTransformationController.Builder().build()
+    val inputFileName: String = file.name
+    val inputFilePath: String = file.parent
+    var documentText: String = ""
+
+    fun setAnnotationValues(values: List<String>) {
+        outputTransform = OutputTransformationController.Builder()
+            .annotationValues(values)
+            .build()
+    }
+
+    fun transformToType(type: TransformationTypes): String {
+        return when (type) {
+            TransformationTypes.STRING -> outputTransform.jsonToString(jsonResponse)
+            TransformationTypes.BRAT -> outputTransform.jsonToBrat(jsonResponse)
+        }
+    }
+
+    fun readJson(jsonString: String) {
+        jsonResponse = readJson(jsonString.byteInputStream())
+    }
+
+    private fun readJson(jsonStream: InputStream): JsonArray<JsonObject> {
+        val json: JsonObject = parser.parse(jsonStream) as JsonObject
+        val jsonArray = json.array<JsonObject>(annotationBaseString)
+
+        if (jsonArray != null) {
+            return jsonArray
+        }
+        return JsonArray(listOf())
     }
 }
 
@@ -33,18 +91,19 @@ class AverbisController(private val url: String? = null): Controller() {
         .connectTimeout(15, TimeUnit.SECONDS)
         .build()
 
-    fun postDocuments(documents: List<File>): String {
-        var response = "No documents posted."
-        if (documents.isNotEmpty()) {
-            response = postDocument(documents.first().absolutePath) //ToDo: post all documents!
+    fun postDocuments(documents: List<File>): List<AverbisResponse> {
+        val responseList = mutableListOf<AverbisResponse>()
+        documents.forEach {
+            responseList.add(postDocument(it.absolutePath).apply {
+                setAnnotationValues(mainView.analysisModel.annotationValues.value) })
         }
-//        mainView.outputField.text = response
-        return response
+        return responseList.toList()
     }
 
-    fun postDocument(document_path: String,
-                     encoding: Charset = Charsets.UTF_8
-    ): String {
+    private fun postDocument(document_path: String,
+                             encoding: Charset = Charsets.UTF_8
+    ): AverbisResponse {
+        val responseObj = AverbisResponse(File(document_path))
         val postBody = File(document_path).readText(encoding)
         val request = Request.Builder()
             .url(url?: buildFinalUrl())
@@ -55,7 +114,8 @@ class AverbisController(private val url: String? = null): Controller() {
 
         client.newCall(request).execute().use { response ->
             if (!response.isSuccessful) throw IOException("Unexpected code $response")
-            return response.body?.string() ?: ""
+            responseObj.readJson(response.body?.string() ?: "")
+            return responseObj
         } //ToDo: catch no connection
     }
 

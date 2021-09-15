@@ -2,11 +2,8 @@ package de.imise.integrator.view
 
 import de.imise.integrator.controller.AverbisController
 import de.imise.integrator.controller.FileHandlingController
-import de.imise.integrator.controller.OutputTransformationController
-import de.imise.integrator.model.Input
-import de.imise.integrator.model.InputModel
-import de.imise.integrator.model.Setup
-import de.imise.integrator.model.SetupModel
+import de.imise.integrator.controller.TransformationTypes
+import de.imise.integrator.model.*
 import javafx.beans.property.SimpleStringProperty
 import javafx.collections.FXCollections
 import javafx.geometry.Pos
@@ -27,6 +24,10 @@ class MainView : View("Averbis & Brat Integrator") {
     ))
 
     val inputDataModel = InputModel(Input())
+
+    val analysisModel = AnalysisModel(Analysis(
+        annotationValues = app.config.getProperty(ANNOTATION_TYPES).split(",").toMutableList().asObservable()
+    ))
 
     var urlField: TextField by singleAssign()
     var apiTokenField: TextField by singleAssign()
@@ -52,6 +53,7 @@ class MainView : View("Averbis & Brat Integrator") {
         const val DEFAULT_PROJECT_CONFIG_STRING = "default_project"
         const val DEFAULT_PIPELINE_CONFIG_STRING = "default_pipeline"
         const val DEFAULT_LANGUAGES_CONFIG_LIST = "default_languages"
+        const val ANNOTATION_TYPES = "annotation_types"
     }
 
     override val root = hbox {
@@ -115,6 +117,22 @@ class MainView : View("Averbis & Brat Integrator") {
                                 }
                             }
                             fieldset("Analyze Data") {
+                                squeezebox {
+                                    fold("Annotation Values") {
+                                        analysisModel.annotationValues.value.forEach {
+                                            checkbox(it).apply {
+                                                isSelected = true
+                                                action {
+                                                    if (isSelected) {
+                                                        analysisModel.annotationValues.value.add(this.text)
+                                                    } else {
+                                                        analysisModel.annotationValues.value.remove(this.text)
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                                 field("Select Output") {
                                     outputDirField = textfield()
                                     button("Choose Folder") {
@@ -136,18 +154,21 @@ class MainView : View("Averbis & Brat Integrator") {
                                                     action {
                                                         setupModel.commit()
                                                         inputDataModel.commit()
+                                                        analysisModel.commit()
 
                                                         val setup: Setup = setupModel.item
                                                         val input: Input = inputDataModel.item
+//                                                        val analysis: Analysis = analysisModel.item
 
                                                         if (setup.hasNoNullProperties() and input.hasNoNullProperties()) {
                                                             runAsyncWithProgress {
                                                                 averbisController.postDocuments(fis)
                                                             } ui { response ->
-                                                                outputField.text =
-                                                                    OutputTransformationController.Builder()
-//                                                                    .annotationValues(listOf("de.averbis.types.health.Date"))
-                                                                    .build().getResults(response)
+                                                                response.forEach {
+                                                                    val text = "---${it.inputFileName}---\n" +
+                                                                            "${it.transformToType(TransformationTypes.BRAT)}\n"
+                                                                    outputField.text += text
+                                                                }
                                                                 outputDrawerItem.expanded = true
                                                             }
                                                         }

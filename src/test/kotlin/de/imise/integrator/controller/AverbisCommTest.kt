@@ -14,6 +14,6 @@ class AverbisCommTest {
             "https://7db06374-f5b2-4579-af64-1391102a4852.mock.pstmn.io" +
                     "/rest/v1/textanalysis/projects/test-project/pipelines/deid/analyseText?language=de"
         )
-        assert(averbis_hd.postDocument(testFile) == testResponse)
+        assert(averbis_hd.postDocuments(listOf(File(testFile))).toString() == testResponse)
     }
 }

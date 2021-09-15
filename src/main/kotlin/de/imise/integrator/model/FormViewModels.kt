@@ -1,6 +1,7 @@
 package de.imise.integrator.model
 
 import javafx.beans.property.Property
+import javafx.collections.ObservableList
 import tornadofx.*
 
 class Setup(
@@ -55,7 +56,22 @@ class Input(
     }
 }
 
-class Analysis {
+class Analysis(
+    outputData: String? = "",
+    annotationValues: MutableList<String> = mutableListOf<String>().asObservable()
+) {
+    var outputData by property(outputData)
+    fun outputDataProperty() = getProperty(Analysis::outputData)
+
+    var annotationValues by property(annotationValues)
+    fun annotationValuesProperty() = getProperty(Analysis::annotationValues)
+
+    fun hasNoNullProperties() : Boolean {
+        if (!outputData.isNullOrBlank()) {
+            return true
+        }
+        return false
+    }
 }
 
 class SetupModel(setup: Setup) : ItemViewModel<Setup>(setup) {
@@ -70,5 +86,7 @@ class InputModel(input: Input): ItemViewModel<Input>(input) {
     val input: Property<String> = bind(Input::inputDataProperty)
 }
 
-class AnalysisModel {
+class AnalysisModel(analysis: Analysis): ItemViewModel<Analysis>(analysis) {
+    val output: Property<String> = bind(Analysis::outputDataProperty)
+    val annotationValues: Property<MutableList<String>> = bind(Analysis::annotationValuesProperty)
 }
