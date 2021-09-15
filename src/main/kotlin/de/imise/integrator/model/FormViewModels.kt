@@ -3,6 +3,7 @@ package de.imise.integrator.model
 import javafx.beans.property.Property
 import javafx.collections.ObservableList
 import tornadofx.*
+import java.io.File
 
 class Setup(
     url: String = "",
@@ -57,7 +58,7 @@ class Input(
 }
 
 class Analysis(
-    outputData: String? = "",
+    outputData: String = "",
     annotationValues: MutableList<String> = mutableListOf<String>().asObservable()
 ) {
     var outputData by property(outputData)
@@ -69,6 +70,13 @@ class Analysis(
     fun hasNoNullProperties() : Boolean {
         if (!outputData.isNullOrBlank()) {
             return true
+        }
+        return false
+    }
+
+    fun outputIsProperPath(): Boolean {
+        if (!outputData.isNullOrBlank()) {
+            return File(outputData).isDirectory
         }
         return false
     }

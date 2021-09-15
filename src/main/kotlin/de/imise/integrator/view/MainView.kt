@@ -40,6 +40,8 @@ class MainView : View("Averbis & Brat Integrator") {
     val inputSelectionMode = SimpleStringProperty()
     var outputDirField: TextField by singleAssign()
     var outputDrawerItem: DrawerItem by singleAssign()
+    var outputTransformationTypeBox: ComboBox<String> by singleAssign()
+    val outputTransformationType = SimpleStringProperty()
 
     val tabBinding = { tabPane: TabPane, parent: HBox ->
         val x = parent.widthProperty().doubleBinding(tabPane.tabs) {
@@ -133,8 +135,15 @@ class MainView : View("Averbis & Brat Integrator") {
                                         }
                                     }
                                 }
+                                field("Output Mode") {
+                                    val selects = FXCollections.observableArrayList(
+                                        TransformationTypes.values().map { it.name })
+                                    outputTransformationTypeBox = combobox(outputTransformationType, selects).apply {
+                                        selectionModel.selectFirst()
+                                    }
+                                }
                                 field("Select Output") {
-                                    outputDirField = textfield()
+                                    outputDirField = textfield(analysisModel.output)
                                     button("Choose Folder") {
                                         action {
                                             val dir = chooseDirectory("Choose Folder")
@@ -142,6 +151,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                         }
                                     }
                                 }
+                                //ToDo: add viewer (and selector) for which path parts should be used for later output path
                                 field {
                                     borderpane {
                                         padding = insets(10)
@@ -158,18 +168,17 @@ class MainView : View("Averbis & Brat Integrator") {
 
                                                         val setup: Setup = setupModel.item
                                                         val input: Input = inputDataModel.item
-//                                                        val analysis: Analysis = analysisModel.item
+                                                        val analysis: Analysis = analysisModel.item
 
                                                         if (setup.hasNoNullProperties() and input.hasNoNullProperties()) {
                                                             runAsyncWithProgress {
                                                                 averbisController.postDocuments(fis)
                                                             } ui { response ->
-                                                                response.forEach {
-                                                                    val text = "---${it.inputFileName}---\n" +
-                                                                            "${it.transformToType(TransformationTypes.BRAT)}\n"
-                                                                    outputField.text += text
+                                                                if (analysis.outputIsProperPath()) {
+                                                                    fileHandlingController.writeOutputToDisk(response, analysis.outputData!!)
+                                                                } else {
+                                                                    fileHandlingController.writeOutputToApp(response)
                                                                 }
-                                                                outputDrawerItem.expanded = true
                                                             }
                                                         }
                                                     }

@@ -10,7 +10,7 @@ const val JSON_DOCUMENT_ANNOTATION_STRING = "de.averbis.types.health.DocumentAnn
 const val JSON_DEID_DOCUMENT_ANNOTATION_STRING = "de.averbis.types.health.DeidentifiedDocument"
 
 enum class TransformationTypes {
-    BRAT, STRING
+    BRAT, STRING, JSON
 }
 
 class OutputTransformationController(
@@ -50,6 +50,18 @@ class OutputTransformationController(
         }.forEach { sb.append(AverbisPHIEntry(it).asTextboundAnnotation()).append("\n") }
 
         return sb.toString().removeSuffix("\n")
+    }
+
+    fun keepJson(jsonResponse: JsonArray<JsonObject>?, annotationBaseString: String): String {
+        val sb = StringBuilder().append("{").append("${annotationBaseString}: [\n")
+
+        if ((annotationValues != null) and (jsonResponse != null)) {
+            queryArrayBy(jsonResponse!!, annotationKey, annotationValues!!)
+        } else {
+            listOf<JsonObject>()
+        }.forEach { sb.append(it.toJsonString(prettyPrint = true, canonical = true)).append(",\n") }
+
+        return sb.toString().removeSuffix(",\n") + "\n]}"
     }
 
     open class Builder {

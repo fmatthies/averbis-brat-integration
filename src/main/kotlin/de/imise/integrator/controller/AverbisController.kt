@@ -53,7 +53,7 @@ class AverbisResponse(file: File) {
     val parser = Parser.default()
     val annotationBaseString: String = "annotationDtos"
     var outputTransform: OutputTransformationController =  OutputTransformationController.Builder().build()
-    val inputFileName: String = file.name
+    val inputFileName: String = file.nameWithoutExtension
     val inputFilePath: String = file.parent
     var documentText: String = ""
 
@@ -67,6 +67,7 @@ class AverbisResponse(file: File) {
         return when (type) {
             TransformationTypes.STRING -> outputTransform.jsonToString(jsonResponse)
             TransformationTypes.BRAT -> outputTransform.jsonToBrat(jsonResponse)
+            TransformationTypes.JSON -> outputTransform.keepJson(jsonResponse, annotationBaseString)
         }
     }
 
