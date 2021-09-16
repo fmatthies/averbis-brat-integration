@@ -108,11 +108,12 @@ class AverbisController(private val url: String? = null): Controller() {
         val postBody = File(document_path).readText(encoding)
         val request = Request.Builder()
             .url(url?: buildFinalUrl())
-            .addHeader(API_HEADER_STRING, if (this::mainView.isAccessible) { mainView.apiTokenField.text } else { "" })
+            .addHeader(API_HEADER_STRING, mainView.apiTokenField.text)
             .addHeader(ACCEPT_HEADER_STRING, ACCEPT_HEADER_VAL)
             .post(postBody.toRequestBody(MEDIA_TYPE_TXT))
             .build()
 
+        mainView.logField.text += request.toString()
         client.newCall(request).execute().use { response ->
             if (!response.isSuccessful) throw IOException("Unexpected code $response")
             responseObj.readJson(response.body?.string() ?: "")

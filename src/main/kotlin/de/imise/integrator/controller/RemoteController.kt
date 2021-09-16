@@ -26,6 +26,7 @@ class RemoteController : Controller() {
                 mainView.remotePortField.text.toInt()
             )
             jschSession.setPassword(mainView.passwordField.text)
+            jschSession.setConfig("StrictHostKeyChecking", "no")
             jschSession.connect() // jschSession.connect(SESSION_TIMEOUT)
 
             val channel = jschSession.openChannel("sftp")

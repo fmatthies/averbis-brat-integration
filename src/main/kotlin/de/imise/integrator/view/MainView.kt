@@ -37,6 +37,7 @@ class MainView : View("Averbis & Brat Integrator") {
     var projectNameField: TextField by singleAssign()
     var pipelineNameField: TextField by singleAssign()
     var outputField: TextArea by singleAssign()
+    var logField: TextArea by singleAssign()
     var languageGroup: ToggleGroup by singleAssign()
     var inputDirField: TextField by singleAssign()
     var inputDirButton: Button by singleAssign()
@@ -74,7 +75,7 @@ class MainView : View("Averbis & Brat Integrator") {
     override val root = hbox {
         var fis: List<File> = listOf()
 
-        prefHeight = 600.0
+        prefHeight = 750.0
         prefWidth = 550.0
         tabpane {
             tabClosingPolicy = TabPane.TabClosingPolicy.UNAVAILABLE
@@ -200,6 +201,9 @@ class MainView : View("Averbis & Brat Integrator") {
                                         }
                                     }
                                 }
+                            }
+                            fieldset("Log") {
+                                logField = textarea { isEditable = false }
                             }
                         }
                     }
