@@ -2,6 +2,7 @@ package de.imise.integrator.view
 
 import de.imise.integrator.controller.AverbisController
 import de.imise.integrator.controller.FileHandlingController
+import de.imise.integrator.controller.RemoteController
 import de.imise.integrator.controller.TransformationTypes
 import de.imise.integrator.model.*
 import javafx.beans.property.SimpleStringProperty
@@ -16,6 +17,7 @@ import java.io.File
 class MainView : View("Averbis & Brat Integrator") {
     private val averbisController: AverbisController by inject()
     private val fileHandlingController: FileHandlingController by inject()
+    private val remoteController: RemoteController by inject()
 
     val setupModel = SetupModel(Setup(
         url = app.config.getProperty(AVERBIS_URL_CONFIG_STRING),
@@ -29,6 +31,7 @@ class MainView : View("Averbis & Brat Integrator") {
         annotationValues = app.config.getProperty(ANNOTATION_TYPES).split(",").toMutableList().asObservable()
     ))
 
+    // Averbis Tab
     var urlField: TextField by singleAssign()
     var apiTokenField: TextField by singleAssign()
     var projectNameField: TextField by singleAssign()
@@ -43,6 +46,13 @@ class MainView : View("Averbis & Brat Integrator") {
     var outputTransformationTypeBox: ComboBox<String> by singleAssign()
     val outputTransformationType = SimpleStringProperty()
 
+    // Brat Tab
+    var hostField: TextField by singleAssign()
+    var usernameField: TextField by singleAssign()
+    var passwordField: PasswordField by singleAssign()
+    var remotePortField: TextField by singleAssign()
+    var destinationField: TextField by singleAssign()
+
     val tabBinding = { tabPane: TabPane, parent: HBox ->
         val x = parent.widthProperty().doubleBinding(tabPane.tabs) {
             it as Double / tabPane.tabs.size - 25
@@ -56,6 +66,9 @@ class MainView : View("Averbis & Brat Integrator") {
         const val DEFAULT_PIPELINE_CONFIG_STRING = "default_pipeline"
         const val DEFAULT_LANGUAGES_CONFIG_LIST = "default_languages"
         const val ANNOTATION_TYPES = "annotation_types"
+        const val DEFAULT_REMOTE_HOST = "default_remote"
+        const val DEFAULT_REMOTE_PORT = "default_port"
+        const val DEFAULT_REMOTE_DEST = "default_destination"
     }
 
     override val root = hbox {
@@ -203,7 +216,49 @@ class MainView : View("Averbis & Brat Integrator") {
                 }
             }
             tab("Brat") {
-                label("Brat")
+                form {
+                    //ToDo: use models here as well
+                    fieldset("Setup") {
+                        field("Remote Host") {
+                            hostField = textfield(app.config.getProperty(DEFAULT_REMOTE_HOST)).apply {  }
+                        }
+                        field("Remote Port") {
+                            remotePortField = textfield(app.config.getProperty(DEFAULT_REMOTE_PORT)).apply {  }
+                        }
+                        field("Username") {
+                            usernameField = textfield().apply {  }
+                        }
+                        field("Password") {
+                            passwordField = passwordfield().apply {  }
+                        }
+                        field("Destination Folder") {
+                            destinationField = textfield(app.config.getProperty(DEFAULT_REMOTE_DEST)).apply {  }
+                        }
+                    }
+                    fieldset("Transfer") {
+                        field("Files") {
+
+                        }
+                        field {
+                            borderpane {
+                                padding = insets(10)
+                                center {
+                                    vbox {
+                                        alignment = Pos.CENTER
+                                        spacing = 10.0
+                                        button("Transfer data") {
+                                            action {
+                                                remoteController.SFTPFileTransfer().apply {
+                                                    transferFilesToRemote(fis)
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
