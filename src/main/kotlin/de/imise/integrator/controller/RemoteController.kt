@@ -22,7 +22,7 @@ class RemoteController : Controller() {
         private fun openConnection(): ChannelSftp {
             val jschSession = jsch.getSession(
                 mainView.usernameField.text,
-                mainView.hostField.text,
+                "${mainView.usernameField.text}@${mainView.hostField.text}",
                 mainView.remotePortField.text.toInt()
             )
             jschSession.setPassword(mainView.passwordField.text)

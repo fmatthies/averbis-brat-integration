@@ -116,7 +116,9 @@ class AverbisController(private val url: String? = null): Controller() {
         mainView.logField.text += request.toString()
         client.newCall(request).execute().use { response ->
             if (!response.isSuccessful) throw IOException("Unexpected code $response")
-            responseObj.readJson(response.body?.string() ?: "")
+            val responseBodyString = response.body?.string() ?: ""
+            responseObj.readJson(responseBodyString)
+            mainView.logField.text += responseBodyString //ToDo: remove!
             return responseObj
         } //ToDo: catch no connection
     }
