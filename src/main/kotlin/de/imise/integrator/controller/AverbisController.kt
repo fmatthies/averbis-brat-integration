@@ -51,7 +51,6 @@ class AverbisResponse(file: File) {
 
     var jsonResponse: JsonArray<JsonObject>? = null
     val parser = Parser.default()
-    val annotationBaseString: String = "annotationDtos"
     var outputTransform: OutputTransformationController =  OutputTransformationController.Builder().build()
     val inputFileName: String = file.nameWithoutExtension
     val inputFilePath: String = file.parent
@@ -67,7 +66,7 @@ class AverbisResponse(file: File) {
         return when (type) {
             TransformationTypes.STRING -> outputTransform.jsonToString(jsonResponse)
             TransformationTypes.BRAT -> outputTransform.jsonToBrat(jsonResponse)
-            TransformationTypes.JSON -> outputTransform.keepJson(jsonResponse, annotationBaseString)
+            TransformationTypes.JSON -> outputTransform.keepJson(jsonResponse)
         }
     }
 
@@ -77,9 +76,11 @@ class AverbisResponse(file: File) {
 
     private fun readJson(jsonStream: InputStream): JsonArray<JsonObject> {
         val json: JsonObject = parser.parse(jsonStream) as JsonObject
-        val jsonArray = json.array<JsonObject>(annotationBaseString)
-
-        if (jsonArray != null) {
+        val jsonArray = JsonArray<JsonObject>()
+        json.keys.forEach {
+            json.array<JsonObject>(it)?.let { array -> jsonArray.addAll(array) }
+        }
+        if (jsonArray.isNotEmpty()) {
             return jsonArray
         }
         return JsonArray(listOf())
@@ -113,12 +114,11 @@ class AverbisController(private val url: String? = null): Controller() {
             .post(postBody.toRequestBody(MEDIA_TYPE_TXT))
             .build()
 
-        mainView.logField.text += request.toString()
+        LoggingController().log(request.toString())
         client.newCall(request).execute().use { response ->
             if (!response.isSuccessful) throw IOException("Unexpected code $response")
             val responseBodyString = response.body?.string() ?: ""
             responseObj.readJson(responseBodyString)
-            mainView.logField.text += responseBodyString //ToDo: remove!
             return responseObj
         } //ToDo: catch no connection
     }

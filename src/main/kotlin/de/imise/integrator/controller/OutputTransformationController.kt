@@ -52,8 +52,8 @@ class OutputTransformationController(
         return sb.toString().removeSuffix("\n")
     }
 
-    fun keepJson(jsonResponse: JsonArray<JsonObject>?, annotationBaseString: String): String {
-        val sb = StringBuilder().append("{").append("${annotationBaseString}: [\n")
+    fun keepJson(jsonResponse: JsonArray<JsonObject>?): String {
+        val sb = StringBuilder().append("{").append("annotations: [\n") //ToDo: extract 'annotations' as Parameter
 
         if ((annotationValues != null) and (jsonResponse != null)) {
             queryArrayBy(jsonResponse!!, annotationKey, annotationValues!!)
