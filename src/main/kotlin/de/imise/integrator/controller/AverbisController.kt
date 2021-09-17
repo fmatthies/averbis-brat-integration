@@ -16,7 +16,6 @@ import java.io.IOException
 import java.io.InputStream
 import java.nio.charset.Charset
 import java.util.concurrent.TimeUnit
-import kotlin.reflect.jvm.isAccessible
 
 
 interface AverbisJsonEntry {
@@ -34,6 +33,8 @@ interface AverbisJsonEntry {
     }
 }
 
+//ToDo: I need to make sure that "DocumentAnnotation" and "DeidentifiedDocument" are updated according
+// to the replacements by `removeNewlines`
 class AverbisPHIEntry(private val jsonObject: JsonObject) : AverbisJsonEntry {
     override val begin: Int
         get() = jsonObject["begin"] as Int
@@ -42,9 +43,22 @@ class AverbisPHIEntry(private val jsonObject: JsonObject) : AverbisJsonEntry {
     override val id: Int
         get() = jsonObject["id"] as Int
     override val coveredText: String
-        get() = jsonObject["coveredText"] as String
+        get() = removeNewlines(jsonObject["coveredText"] as String)
     override val type: String
         get() = jsonObject["type"] as String
+
+    private fun removeNewlines(s: String): String {
+        if (s.contains("\n")) {
+            if (s.contains("\r")) {
+                return s.replace("\r\n", "  ")
+            }
+            return s.replace("\n", " ")
+        }
+        else if (s.contains("\r")) {
+            return s.replace("\r", " ")
+        }
+        return s
+    }
 }
 
 class AverbisResponse(file: File) {

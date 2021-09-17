@@ -21,6 +21,7 @@ class MainView : View("Averbis & Brat Integrator") {
 
     val setupModel = SetupModel(Setup(
         url = app.config.getProperty(AVERBIS_URL_CONFIG_STRING),
+        apiToken = app.config.getProperty(AVERBIS_API_TOKEN),
         projectName = app.config.getProperty(DEFAULT_PROJECT_CONFIG_STRING),
         pipelineName = app.config.getProperty(DEFAULT_PIPELINE_CONFIG_STRING)
     ))
@@ -63,6 +64,7 @@ class MainView : View("Averbis & Brat Integrator") {
 
     companion object {
         const val AVERBIS_URL_CONFIG_STRING = "default_url"
+        const val AVERBIS_API_TOKEN = "default_api_token"
         const val DEFAULT_PROJECT_CONFIG_STRING = "default_project"
         const val DEFAULT_PIPELINE_CONFIG_STRING = "default_pipeline"
         const val DEFAULT_LANGUAGES_CONFIG_LIST = "default_languages"
@@ -189,6 +191,12 @@ class MainView : View("Averbis & Brat Integrator") {
                                                                 averbisController.postDocuments(fis)
                                                             } ui { response ->
                                                                 if (analysis.outputIsProperPath()) {
+                                                                    //ToDo: I need some kind of an uber class that watches the changes to the annotations when they are transformed to brat format
+                                                                    // since I need to remove newlines in the covered text for brat. These changes need to be reflected in the brat txt as well
+                                                                    // probably the best way to do this is to change the json formatted results as well and store all three files (ann, txt, json)
+                                                                    // alongside each other...
+                                                                    // This also means I don't really need the combobox for choosing file format (maybe move this to the Output tab
+                                                                    // to change the view when files are not saved to disk)
                                                                     fileHandlingController.writeOutputToDisk(response, analysis.outputData!!)
                                                                 } else {
                                                                     fileHandlingController.writeOutputToApp(response)
