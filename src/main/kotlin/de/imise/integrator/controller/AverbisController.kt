@@ -35,7 +35,7 @@ interface AverbisJsonEntry {
 
 //ToDo: I need to make sure that "DocumentAnnotation" and "DeidentifiedDocument" are updated according
 // to the replacements by `removeNewlines`
-class AverbisPHIEntry(private val jsonObject: JsonObject) : AverbisJsonEntry {
+class AverbisPHIEntry(private val jsonObject: JsonObject, private val responseRef: AverbisResponse) : AverbisJsonEntry {
     override val begin: Int
         get() = jsonObject["begin"] as Int
     override val end: Int
@@ -43,21 +43,36 @@ class AverbisPHIEntry(private val jsonObject: JsonObject) : AverbisJsonEntry {
     override val id: Int
         get() = jsonObject["id"] as Int
     override val coveredText: String
-        get() = removeNewlines(jsonObject["coveredText"] as String)
+        get() = removeNewlines(jsonObject["coveredText"] as String, responseRef)
     override val type: String
         get() = jsonObject["type"] as String
 
-    private fun removeNewlines(s: String): String {
+    private fun removeNewlines(s: String, responseRef: AverbisResponse): String {
         if (s.contains("\n")) {
             if (s.contains("\r")) {
+                alignDocumentText(begin, end, 2, responseRef)
                 return s.replace("\r\n", "  ")
             }
+            alignDocumentText(begin, end, 1, responseRef)
             return s.replace("\n", " ")
         }
         else if (s.contains("\r")) {
+            alignDocumentText(begin, end, 1, responseRef)
             return s.replace("\r", " ")
         }
         return s
+    }
+
+    //ToDo: that is so stupid (and doesnt work) -- I need a watching class that replaces all in one fell swoop after
+    // all annotations were replaced
+    private fun alignDocumentText(begin: Int, end: Int, span: Int, responseRef: AverbisResponse) {
+        responseRef.documentText = StringBuilder(responseRef.documentText).also {
+            it.setRange(begin, end, responseRef.documentText.substring(IntRange(begin, end - span)).replace("\\n", " ".repeat(span)))
+        }.toString()
+//        responseRef.documentText = responseRef.documentText
+//            .replaceRange(begin, end + 1, responseRef.documentText.substring(IntRange(begin, end - span)))
+//        responseRef.deidedDocumentText = responseRef.deidedDocumentText
+//            .replaceRange(begin, end + 1, responseRef.deidedDocumentText.substring(IntRange(begin, end - span)))
     }
 }
 
@@ -69,6 +84,7 @@ class AverbisResponse(file: File) {
     val inputFileName: String = file.nameWithoutExtension
     val inputFilePath: String = file.parent
     var documentText: String = ""
+    var deidedDocumentText: String = ""
 
     fun setAnnotationValues(values: List<String>) {
         outputTransform = OutputTransformationController.Builder()
@@ -78,9 +94,9 @@ class AverbisResponse(file: File) {
 
     fun transformToType(type: TransformationTypes): String {
         return when (type) {
-            TransformationTypes.STRING -> outputTransform.jsonToString(jsonResponse)
-            TransformationTypes.BRAT -> outputTransform.jsonToBrat(jsonResponse)
-            TransformationTypes.JSON -> outputTransform.keepJson(jsonResponse)
+//            TransformationTypes.STRING -> outputTransform.jsonToString(jsonResponse)
+            TransformationTypes.BRAT -> outputTransform.jsonToBrat(jsonResponse, this)
+//            TransformationTypes.JSON -> outputTransform.keepJson(jsonResponse)
         }
     }
 
@@ -99,6 +115,11 @@ class AverbisResponse(file: File) {
         }
         return JsonArray(listOf())
     }
+
+//    companion object {
+//        const val DEIDED_DOCUMENT_TEXT_TYPE: String = "de.averbis.types.health.DeidentifiedDocument"
+//        const val DOCUMENT_TEXT_TYPE: String = "de.averbis.types.health.DocumentAnnotation"
+//    }
 }
 
 class AverbisController(private val url: String? = null): Controller() {

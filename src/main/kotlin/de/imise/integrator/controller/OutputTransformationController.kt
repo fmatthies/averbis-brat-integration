@@ -6,11 +6,13 @@ import tornadofx.*
 
 const val JSON_TYPE_STRING = "type"
 const val JSON_COVERED_TEXT_KEY_STRING = "coveredText"
+const val JSON_DEIDED_TEXT_KEY_STRING = "deidentifiedText"
 const val JSON_DOCUMENT_ANNOTATION_STRING = "de.averbis.types.health.DocumentAnnotation"
 const val JSON_DEID_DOCUMENT_ANNOTATION_STRING = "de.averbis.types.health.DeidentifiedDocument"
 
 enum class TransformationTypes {
-    BRAT, STRING, JSON
+//    BRAT, STRING, JSON
+    BRAT
 }
 
 class OutputTransformationController(
@@ -40,14 +42,20 @@ class OutputTransformationController(
         return sb.toString().removeSuffix("\n")
     }
 
-    fun jsonToBrat(jsonResponse: JsonArray<JsonObject>?) : String {
+    fun jsonToBrat(jsonResponse: JsonArray<JsonObject>?, responseRef: AverbisResponse) : String {
         val sb = StringBuilder()
+        responseRef.documentText =
+            queryArrayBy(jsonResponse!!, annotationKey, listOf(JSON_DOCUMENT_ANNOTATION_STRING))
+            .first().string(JSON_COVERED_TEXT_KEY_STRING)!!
+        responseRef.deidedDocumentText =
+            queryArrayBy(jsonResponse!!, annotationKey, listOf(JSON_DEID_DOCUMENT_ANNOTATION_STRING))
+            .first().string(JSON_DEIDED_TEXT_KEY_STRING)!!
 
         if ((annotationValues != null) and (jsonResponse != null)) {
             queryArrayBy(jsonResponse!!, annotationKey, annotationValues!!)
         } else {
             listOf<JsonObject>()
-        }.forEach { sb.append(AverbisPHIEntry(it).asTextboundAnnotation()).append("\n") }
+        }.forEach { sb.append(AverbisPHIEntry(it, responseRef).asTextboundAnnotation()).append("\n") }
 
         return sb.toString().removeSuffix("\n")
     }

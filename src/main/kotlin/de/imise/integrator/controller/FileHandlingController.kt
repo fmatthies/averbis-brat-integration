@@ -42,18 +42,24 @@ class FileHandlingController : Controller() {
     fun writeOutputToDisk(response: List<AverbisResponse>, outputData: String) {
         val ext = mapOf(
             TransformationTypes.BRAT.name to "ann",
-            TransformationTypes.STRING.name to "txt",
-            TransformationTypes.JSON.name to "json"
+//            TransformationTypes.STRING.name to "txt",
+//            TransformationTypes.JSON.name to "json"
         )
         response.forEach {
             File(outputData,
-                "${it.inputFileName}.${ext.getValue(mainView.outputTransformationTypeBox.selectedItem!!)}"
-            ).bufferedWriter().use { out ->
-                out.write(
-                    it.transformToType(TransformationTypes.valueOf(mainView.outputTransformationTypeBox.selectedItem!!))
-                        .replace("\\r\\n?", "\n")
+                "${it.inputFileName}.${ext.getValue(mainView.outputTransformationTypeBox.selectedItem!!)}")
+                .bufferedWriter()
+                .use { out ->
+                    out.write(
+                        it.transformToType(TransformationTypes.valueOf(mainView.outputTransformationTypeBox.selectedItem!!))
+                            .replace("\\r\\n?", "\n")
                 )
             }
+            File(outputData,"${it.inputFileName}.txt")
+                .bufferedWriter()
+                .use { out ->
+                    out.write(it.documentText.replace("\\r\\n?", "\n"))
+                }
         }
     }
 
