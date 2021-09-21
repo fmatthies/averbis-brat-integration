@@ -17,6 +17,7 @@ import java.io.InputStream
 import java.nio.charset.Charset
 import java.util.concurrent.TimeUnit
 
+const val JSON_ID_STRING = "id"
 
 interface AverbisJsonEntry {
     val begin: Int
@@ -35,7 +36,7 @@ interface AverbisJsonEntry {
 
 //ToDo: I need to make sure that "DocumentAnnotation" and "DeidentifiedDocument" are updated according
 // to the replacements by `removeNewlines`
-class AverbisPHIEntry(private val jsonObject: JsonObject, private val responseRef: AverbisResponse) : AverbisJsonEntry {
+class AverbisPHIEntry(private val jsonObject: JsonObject, private val jsonResponse: AverbisResponse) : AverbisJsonEntry {
     override val begin: Int
         get() = jsonObject["begin"] as Int
     override val end: Int
@@ -43,65 +44,88 @@ class AverbisPHIEntry(private val jsonObject: JsonObject, private val responseRe
     override val id: Int
         get() = jsonObject["id"] as Int
     override val coveredText: String
-        get() = removeNewlines(jsonObject["coveredText"] as String, responseRef)
+        get() = removeNewlines(jsonObject["coveredText"] as String)
     override val type: String
         get() = jsonObject["type"] as String
 
-    private fun removeNewlines(s: String, responseRef: AverbisResponse): String {
+    init {
+        if (jsonObject["coveredText"] != coveredText) {
+            jsonResponse.documentText = StringBuilder(jsonResponse.documentText).also {
+                it.setRange(begin, end, coveredText) }.toString()
+        }
+    }
+
+    private fun removeNewlines(s: String): String {
         if (s.contains("\n")) {
             if (s.contains("\r")) {
-                alignDocumentText(begin, end, 2, responseRef)
                 return s.replace("\r\n", "  ")
             }
-            alignDocumentText(begin, end, 1, responseRef)
             return s.replace("\n", " ")
         }
         else if (s.contains("\r")) {
-            alignDocumentText(begin, end, 1, responseRef)
             return s.replace("\r", " ")
         }
         return s
-    }
-
-    //ToDo: that is so stupid (and doesnt work) -- I need a watching class that replaces all in one fell swoop after
-    // all annotations were replaced
-    private fun alignDocumentText(begin: Int, end: Int, span: Int, responseRef: AverbisResponse) {
-        responseRef.documentText = StringBuilder(responseRef.documentText).also {
-            it.setRange(begin, end, responseRef.documentText.substring(IntRange(begin, end - span)).replace("\\n", " ".repeat(span)))
-        }.toString()
-//        responseRef.documentText = responseRef.documentText
-//            .replaceRange(begin, end + 1, responseRef.documentText.substring(IntRange(begin, end - span)))
-//        responseRef.deidedDocumentText = responseRef.deidedDocumentText
-//            .replaceRange(begin, end + 1, responseRef.deidedDocumentText.substring(IntRange(begin, end - span)))
     }
 }
 
 class AverbisResponse(file: File) {
 
-    var jsonResponse: JsonArray<JsonObject>? = null
+//    var jsonResponse: JsonArray<JsonObject>? = null
+    var jsonResponse: MutableMap<Int, JsonObject> = mutableMapOf()
     val parser = Parser.default()
-    var outputTransform: OutputTransformationController =  OutputTransformationController.Builder().build()
+//    var outputTransform: OutputTransformationController =  OutputTransformationController.Builder().build()
     val inputFileName: String = file.nameWithoutExtension
     val inputFilePath: String = file.parent
     var documentText: String = ""
-    var deidedDocumentText: String = ""
+    var documentTextId: Int = -1
+//    var deidedDocumentText: String = ""
+//    var deidedDocumentTextId: Int = -1
+    var annotationValues: List<String> = listOf()
 
-    fun setAnnotationValues(values: List<String>) {
-        outputTransform = OutputTransformationController.Builder()
-            .annotationValues(values)
-            .build()
+    fun setAnnotations(values: List<String>) {
+        annotationValues = values
+//        outputTransform = OutputTransformationController.Builder()
+//            .annotationValues(values)
+//            .build()
     }
 
     fun transformToType(type: TransformationTypes): String {
         return when (type) {
 //            TransformationTypes.STRING -> outputTransform.jsonToString(jsonResponse)
-            TransformationTypes.BRAT -> outputTransform.jsonToBrat(jsonResponse, this)
+//            TransformationTypes.BRAT -> outputTransform.jsonToBrat(jsonResponse, this)
+            TransformationTypes.BRAT -> jsonToBrat()
 //            TransformationTypes.JSON -> outputTransform.keepJson(jsonResponse)
         }
     }
 
     fun readJson(jsonString: String) {
-        jsonResponse = readJson(jsonString.byteInputStream())
+        readJson(jsonString.byteInputStream()).forEach {
+            if (it[JSON_ID_STRING] != null) {
+                val id = it[JSON_ID_STRING] as Int
+                jsonResponse[id] = it
+                if (it.string(JSON_TYPE_KEY_STRING).toString() == DOCUMENT_TEXT_TYPE) {
+                    documentText = it.string(JSON_COVERED_TEXT_KEY_STRING).toString()
+                    documentTextId = id
+                }
+//                if (it.string(JSON_TYPE_KEY_STRING).toString() == DEIDED_DOCUMENT_TEXT_TYPE) {
+//                    deidedDocumentText = it.string(JSON_DEIDED_TEXT_KEY_STRING).toString()
+//                    deidedDocumentTextId = id
+//                }
+            }
+        }
+    }
+
+    private fun jsonToBrat() : String {
+        val sb = StringBuilder()
+
+        jsonResponse.filter { entry ->
+            annotationValues.any {
+                it == entry.value.string(JSON_TYPE_KEY_STRING)
+            }
+        }.forEach { sb.append(AverbisPHIEntry(it.value, this).asTextboundAnnotation()).append("\n") }
+
+        return sb.toString().removeSuffix("\n")
     }
 
     private fun readJson(jsonStream: InputStream): JsonArray<JsonObject> {
@@ -116,10 +140,13 @@ class AverbisResponse(file: File) {
         return JsonArray(listOf())
     }
 
-//    companion object {
-//        const val DEIDED_DOCUMENT_TEXT_TYPE: String = "de.averbis.types.health.DeidentifiedDocument"
-//        const val DOCUMENT_TEXT_TYPE: String = "de.averbis.types.health.DocumentAnnotation"
-//    }
+    companion object {
+        const val DEIDED_DOCUMENT_TEXT_TYPE: String = "de.averbis.types.health.DeidentifiedDocument"
+        const val DOCUMENT_TEXT_TYPE: String = "de.averbis.types.health.DocumentAnnotation"
+        const val JSON_COVERED_TEXT_KEY_STRING = "coveredText"
+        const val JSON_DEIDED_TEXT_KEY_STRING: String = "deidentifiedText"
+        const val JSON_TYPE_KEY_STRING = "type"
+    }
 }
 
 class AverbisController(private val url: String? = null): Controller() {
@@ -132,7 +159,7 @@ class AverbisController(private val url: String? = null): Controller() {
         val responseList = mutableListOf<AverbisResponse>()
         documents.forEach {
             responseList.add(postDocument(it.absolutePath).apply {
-                setAnnotationValues(mainView.analysisModel.annotationValues.value) })
+                setAnnotations(mainView.analysisModel.annotationValues.value) })
         }
         return responseList.toList()
     }
