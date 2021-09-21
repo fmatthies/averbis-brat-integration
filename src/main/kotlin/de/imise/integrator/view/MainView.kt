@@ -191,12 +191,6 @@ class MainView : View("Averbis & Brat Integrator") {
                                                                 averbisController.postDocuments(fis)
                                                             } ui { response ->
                                                                 if (analysis.outputIsProperPath()) {
-                                                                    //ToDo: I need some kind of an uber class that watches the changes to the annotations when they are transformed to brat format
-                                                                    // since I need to remove newlines in the covered text for brat. These changes need to be reflected in the brat txt as well
-                                                                    // probably the best way to do this is to change the json formatted results as well and store all three files (ann, txt, json)
-                                                                    // alongside each other...
-                                                                    // This also means I don't really need the combobox for choosing file format (maybe move this to the Output tab
-                                                                    // to change the view when files are not saved to disk)
                                                                     fileHandlingController.writeOutputToDisk(response, analysis.outputData!!)
                                                                 } else {
                                                                     fileHandlingController.writeOutputToApp(response)
@@ -260,8 +254,8 @@ class MainView : View("Averbis & Brat Integrator") {
                                         spacing = 10.0
                                         button("Transfer data") {
                                             action {
-                                                remoteController.SFTPFileTransfer().apply {
-                                                    transferFilesToRemote(fis)
+                                                remoteController.FileTransfer().apply {
+                                                    transferData(fis)
                                                 }
                                             }
                                         }

@@ -34,9 +34,7 @@ interface AverbisJsonEntry {
     }
 }
 
-//ToDo: I need to make sure that "DocumentAnnotation" and "DeidentifiedDocument" are updated according
-// to the replacements by `removeNewlines`
-class AverbisPHIEntry(private val jsonObject: JsonObject, private val jsonResponse: AverbisResponse) : AverbisJsonEntry {
+class AverbisPHIEntry(private val jsonObject: JsonObject, jsonResponse: AverbisResponse) : AverbisJsonEntry {
     override val begin: Int
         get() = jsonObject["begin"] as Int
     override val end: Int

@@ -61,7 +61,7 @@ class OutputTransformationController(
 //    }
 
 //    fun keepJson(jsonResponse: JsonArray<JsonObject>?): String {
-//        val sb = StringBuilder().append("{").append("annotations: [\n") //ToDo: extract 'annotations' as Parameter
+//        val sb = StringBuilder().append("{").append("annotations: [\n")
 //
 //        if ((annotationValues != null) and (jsonResponse != null)) {
 //            queryArrayBy(jsonResponse!!, annotationKey, annotationValues!!)

@@ -45,21 +45,25 @@ class FileHandlingController : Controller() {
 //            TransformationTypes.STRING.name to "txt",
 //            TransformationTypes.JSON.name to "json"
         )
-        response.forEach {
-            File(outputData,
-                "${it.inputFileName}.${ext.getValue(mainView.outputTransformationTypeBox.selectedItem!!)}")
-                .bufferedWriter()
-                .use { out ->
-                    out.write(
-                        it.transformToType(TransformationTypes.valueOf(mainView.outputTransformationTypeBox.selectedItem!!))
-                            .replace("\\r\\n?", "\n")
+        when (mainView.outputTransformationTypeBox.selectedItem!!) {
+            TransformationTypes.BRAT.name -> response.forEach {
+                File(
+                    outputData,
+                    "${it.inputFileName}.${ext.getValue(mainView.outputTransformationTypeBox.selectedItem!!)}"
                 )
+                    .bufferedWriter()
+                    .use { out ->
+                        out.write(
+                            it.transformToType(TransformationTypes.valueOf(mainView.outputTransformationTypeBox.selectedItem!!))
+                                .replace("\\r\\n?", "\n")
+                        )
+                    }
+                File(outputData, "${it.inputFileName}.txt")
+                    .bufferedWriter()
+                    .use { out ->
+                        out.write(it.documentText.replace("\\r\\n?", "\n"))
+                    }
             }
-            File(outputData,"${it.inputFileName}.txt")
-                .bufferedWriter()
-                .use { out ->
-                    out.write(it.documentText.replace("\\r\\n?", "\n"))
-                }
         }
     }
 
