@@ -42,9 +42,10 @@ class MainView : View("Averbis & Brat Integrator") {
     var inputDirButton: Button by singleAssign()
     val inputSelectionMode = SimpleStringProperty()
     var outputDirField: TextField by singleAssign()
+    var chooseOutputButton: Button by singleAssign()
     var outputDrawerItem: DrawerItem by singleAssign()
-    var outputTransformationTypeBox: ComboBox<String> by singleAssign()
-    val outputTransformationType = SimpleStringProperty()
+    var outputModeBox: ComboBox<String> by singleAssign()
+    val outputMode = SimpleStringProperty()
 
     // Brat Tab
     var hostField: TextField by singleAssign()
@@ -152,15 +153,25 @@ class MainView : View("Averbis & Brat Integrator") {
                                     }
                                 }
                                 field("Output Mode") {
-                                    val selects = FXCollections.observableArrayList(
-                                        TransformationTypes.values().map { it.name })
-                                    outputTransformationTypeBox = combobox(outputTransformationType, selects).apply {
+                                    outputModeBox = combobox(outputMode, listOf("Local", "Remote")).apply {
                                         selectionModel.selectFirst()
+                                        setOnAction {
+                                            when (outputMode.value) {
+                                                "Local" -> {
+                                                    outputDirField.isDisable = false
+                                                    chooseOutputButton.isDisable = false
+                                                }
+                                                "Remote" -> {
+                                                    outputDirField.isDisable = true
+                                                    chooseOutputButton.isDisable = true
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                                 field("Select Output") {
                                     outputDirField = textfield(analysisModel.output)
-                                    button("Choose Folder") {
+                                    chooseOutputButton = button("Choose Folder") {
                                         action {
                                             val dir = chooseDirectory("Choose Folder")
                                             outputDirField.text = dir?.absolutePath
@@ -190,7 +201,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                                             runAsyncWithProgress {
                                                                 averbisController.postDocuments(fis)
                                                             } ui { response ->
-                                                                if (analysis.outputIsProperPath()) {
+                                                                if (analysis.outputIsProperPath() && outputMode.value == "Local") {
                                                                     fileHandlingController.writeOutputToDisk(response, analysis.outputData!!)
                                                                 } else {
                                                                     responseList = response

@@ -14,10 +14,11 @@ import java.io.File
 //const val JSON_DOCUMENT_ANNOTATION_STRING = "de.averbis.types.health.DocumentAnnotation"
 //const val JSON_DEID_DOCUMENT_ANNOTATION_STRING = "de.averbis.types.health.DeidentifiedDocument"
 
-enum class TransformationTypes {
-//    BRAT, STRING, JSON
-    BRAT
-}
+//enum class TransformationTypes {
+////    BRAT, STRING, JSON
+//    BRAT
+//}
+
 data class OutputFileStream(val fileName: String, val extension: String, val content: String)
 
 class OutputTransformationController(
@@ -25,11 +26,11 @@ class OutputTransformationController(
     val annotationValues: List<String>?
     ) {
 
-    val ext = mapOf(
-        TransformationTypes.BRAT.name to "ann",
-//            TransformationTypes.STRING.name to "txt",
-//            TransformationTypes.JSON.name to "json"
-    )
+//    val ext = mapOf(
+//        TransformationTypes.BRAT.name to "ann",
+////            TransformationTypes.STRING.name to "txt",
+////            TransformationTypes.JSON.name to "json"
+//    )
 
     companion object {
         fun transformToBrat(response: List<AverbisResponse>): List<Pair<OutputFileStream, OutputFileStream>> {
@@ -37,7 +38,7 @@ class OutputTransformationController(
                 Pair(
                     OutputFileStream(
                         fileName = it.inputFileName, extension = "ann",
-                        content = it.transformToType(TransformationTypes.BRAT).replace("\\r\\n?", "\n")
+                        content = it.jsonToBrat().replace("\\r\\n?", "\n")
                     ),
                     OutputFileStream(
                         fileName = it.inputFileName, extension = "txt",

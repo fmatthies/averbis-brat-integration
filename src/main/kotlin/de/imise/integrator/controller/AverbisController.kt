@@ -88,15 +88,6 @@ class AverbisResponse(file: File) {
 //            .build()
     }
 
-    fun transformToType(type: TransformationTypes): String {
-        return when (type) {
-//            TransformationTypes.STRING -> outputTransform.jsonToString(jsonResponse)
-//            TransformationTypes.BRAT -> outputTransform.jsonToBrat(jsonResponse, this)
-            TransformationTypes.BRAT -> jsonToBrat()
-//            TransformationTypes.JSON -> outputTransform.keepJson(jsonResponse)
-        }
-    }
-
     fun readJson(jsonString: String) {
         readJson(jsonString.byteInputStream()).forEach {
             if (it[JSON_ID_STRING] != null) {
@@ -114,7 +105,7 @@ class AverbisResponse(file: File) {
         }
     }
 
-    private fun jsonToBrat() : String {
+    fun jsonToBrat() : String {
         val sb = StringBuilder()
 
         jsonResponse.filter { entry ->

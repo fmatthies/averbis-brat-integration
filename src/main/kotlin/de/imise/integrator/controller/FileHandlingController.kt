@@ -41,15 +41,13 @@ class FileHandlingController : Controller() {
     }
 
     fun writeOutputToDisk(response: List<AverbisResponse>, outputData: String) {
-        when (mainView.outputTransformationTypeBox.selectedItem!!) {
-            TransformationTypes.BRAT.name -> OutputTransformationController.transformToBrat(response).forEach {
-                File(outputData,"${it.first.fileName}.${it.first.extension}")
-                    .bufferedWriter()
-                    .use { out -> out.write(it.first.content) }
-                File(outputData, "${it.second.fileName}.${it.second.extension}")
-                    .bufferedWriter()
-                    .use { out -> out.write(it.second.content) }
-            }
+        OutputTransformationController.transformToBrat(response).forEach {
+            File(outputData,"${it.first.fileName}.${it.first.extension}")
+                .bufferedWriter()
+                .use { out -> out.write(it.first.content) }
+            File(outputData, "${it.second.fileName}.${it.second.extension}")
+                .bufferedWriter()
+                .use { out -> out.write(it.second.content) }
         }
     }
 
