@@ -70,8 +70,8 @@ class AverbisPHIEntry(private val jsonObject: JsonObject, jsonResponse: AverbisR
 class AverbisResponse(file: File) {
 
 //    var jsonResponse: JsonArray<JsonObject>? = null
-    var jsonResponse: MutableMap<Int, JsonObject> = mutableMapOf()
-    val parser = Parser.default()
+    private var jsonResponse: MutableMap<Int, JsonObject> = mutableMapOf()
+    private val parser = Parser.default()
 //    var outputTransform: OutputTransformationController =  OutputTransformationController.Builder().build()
     val inputFileName: String = file.nameWithoutExtension
     val inputFilePath: String = file.parent
@@ -148,6 +148,7 @@ class AverbisResponse(file: File) {
 }
 
 class AverbisController(private val url: String? = null): Controller() {
+    private val logging: LoggingController by inject()
     private val mainView: MainView by inject()
     private val client = OkHttpClient().newBuilder()
         .connectTimeout(15, TimeUnit.SECONDS)
@@ -174,7 +175,7 @@ class AverbisController(private val url: String? = null): Controller() {
             .post(postBody.toRequestBody(MEDIA_TYPE_TXT))
             .build()
 
-        LoggingController().log(request.toString())
+        logging.logAverbis(request.toString())
         client.newCall(request).execute().use { response ->
             if (!response.isSuccessful) throw IOException("Unexpected code $response")
             val responseBodyString = response.body?.string() ?: ""

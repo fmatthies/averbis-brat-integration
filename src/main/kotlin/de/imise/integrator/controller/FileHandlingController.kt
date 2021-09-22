@@ -10,6 +10,7 @@ import java.util.stream.Collectors.toList
 
 class FileHandlingController : Controller() {
     private val mainView: MainView by inject()
+//    private val outputTransform: OutputTransformationController by inject()
 
     fun readFiles(inputMode: String): List<File> {
         var files: List<File> = listOf()
@@ -40,40 +41,34 @@ class FileHandlingController : Controller() {
     }
 
     fun writeOutputToDisk(response: List<AverbisResponse>, outputData: String) {
-        val ext = mapOf(
-            TransformationTypes.BRAT.name to "ann",
-//            TransformationTypes.STRING.name to "txt",
-//            TransformationTypes.JSON.name to "json"
-        )
         when (mainView.outputTransformationTypeBox.selectedItem!!) {
-            TransformationTypes.BRAT.name -> response.forEach {
-                File(
-                    outputData,
-                    "${it.inputFileName}.${ext.getValue(mainView.outputTransformationTypeBox.selectedItem!!)}"
-                )
+            TransformationTypes.BRAT.name -> OutputTransformationController.transformToBrat(response).forEach {
+                File(outputData,"${it.first.fileName}.${it.first.extension}")
                     .bufferedWriter()
-                    .use { out ->
-                        out.write(
-                            it.transformToType(TransformationTypes.valueOf(mainView.outputTransformationTypeBox.selectedItem!!))
-                                .replace("\\r\\n?", "\n")
-                        )
-                    }
-                File(outputData, "${it.inputFileName}.txt")
+                    .use { out -> out.write(it.first.content) }
+                File(outputData, "${it.second.fileName}.${it.second.extension}")
                     .bufferedWriter()
-                    .use { out ->
-                        out.write(it.documentText.replace("\\r\\n?", "\n"))
-                    }
+                    .use { out -> out.write(it.second.content) }
             }
         }
     }
 
     fun writeOutputToApp(response: List<AverbisResponse>) {
-        mainView.outputField.text = ""
-        response.forEach {
-            val text = "--- ${it.inputFileName} ---\n" +
-                    "${it.transformToType(TransformationTypes.valueOf(mainView.outputTransformationTypeBox.selectedItem!!))}\n"
-            mainView.outputField.text += "${text}\n"
+        mainView.outputFieldSet.children
+            .filter { it::class.simpleName == "TableView" }
+            .forEach { it.removeFromParent() }
+        mainView.outputFieldSet.tableview(response.asObservable()) {
+            prefHeight = 1000.0
+            isEditable = false
+            readonlyColumn("File Name", AverbisResponse::inputFileName)
+            readonlyColumn("File Path", AverbisResponse::inputFilePath)
         }
+//        mainView.outputField.text = ""
+//        response.forEach {
+//            val text = "--- ${it.inputFileName} ---\n" +
+//                    "${it.transformToType(TransformationTypes.valueOf(mainView.outputTransformationTypeBox.selectedItem!!))}\n"
+//            mainView.outputField.text += "${text}\n"
+//        }
         mainView.outputDrawerItem.expanded = true
     }
 }

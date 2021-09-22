@@ -2,7 +2,11 @@ package de.imise.integrator.controller
 
 import com.beust.klaxon.JsonArray
 import com.beust.klaxon.JsonObject
+import de.imise.integrator.view.MainView
 import tornadofx.*
+import java.io.BufferedInputStream
+import java.io.ByteArrayInputStream
+import java.io.File
 
 //const val JSON_TYPE_STRING = "type"
 //const val JSON_COVERED_TEXT_KEY_STRING = "coveredText"
@@ -14,22 +18,35 @@ enum class TransformationTypes {
 //    BRAT, STRING, JSON
     BRAT
 }
+data class OutputFileStream(val fileName: String, val extension: String, val content: String)
 
 class OutputTransformationController(
     val annotationKey: String,
     val annotationValues: List<String>?
-    ): Controller() {
+    ) {
 
-    private fun queryArrayBy(
-        jsonArray: MutableMap<String, JsonObject>,
-        annotationKey: String,
-        annotationValues: List<String>,
-    ) : Map<String, JsonObject>{
-        return jsonArray.filter { entry ->
-            annotationValues.also {  } .any { it == entry.value.string(annotationKey) }
+    val ext = mapOf(
+        TransformationTypes.BRAT.name to "ann",
+//            TransformationTypes.STRING.name to "txt",
+//            TransformationTypes.JSON.name to "json"
+    )
+
+    companion object {
+        fun transformToBrat(response: List<AverbisResponse>): List<Pair<OutputFileStream, OutputFileStream>> {
+            return response.map {
+                Pair(
+                    OutputFileStream(
+                        fileName = it.inputFileName, extension = "ann",
+                        content = it.transformToType(TransformationTypes.BRAT).replace("\\r\\n?", "\n")
+                    ),
+                    OutputFileStream(
+                        fileName = it.inputFileName, extension = "txt",
+                        content = it.documentText.replace("\\r\\n?", "\n")
+                    )
+                )
+            }
         }
     }
-
 //    fun jsonToString(jsonResponse: JsonArray<JsonObject>?) : String {
 //        val sb = StringBuilder()
 //

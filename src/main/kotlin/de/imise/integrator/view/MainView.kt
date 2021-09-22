@@ -1,9 +1,6 @@
 package de.imise.integrator.view
 
-import de.imise.integrator.controller.AverbisController
-import de.imise.integrator.controller.FileHandlingController
-import de.imise.integrator.controller.RemoteController
-import de.imise.integrator.controller.TransformationTypes
+import de.imise.integrator.controller.*
 import de.imise.integrator.model.*
 import javafx.beans.property.SimpleStringProperty
 import javafx.collections.FXCollections
@@ -37,8 +34,9 @@ class MainView : View("Averbis & Brat Integrator") {
     var apiTokenField: TextField by singleAssign()
     var projectNameField: TextField by singleAssign()
     var pipelineNameField: TextField by singleAssign()
-    var outputField: TextArea by singleAssign()
-    var logField: TextArea by singleAssign()
+//    var outputField: TableView<AverbisResponse> by singleAssign()
+    var outputFieldSet: Fieldset by singleAssign()
+    var logFieldAverbis: TextArea by singleAssign()
     var languageGroup: ToggleGroup by singleAssign()
     var inputDirField: TextField by singleAssign()
     var inputDirButton: Button by singleAssign()
@@ -54,6 +52,7 @@ class MainView : View("Averbis & Brat Integrator") {
     var passwordField: PasswordField by singleAssign()
     var remotePortField: TextField by singleAssign()
     var destinationField: TextField by singleAssign()
+    var logFieldBrat: TextArea by singleAssign()
 
     val tabBinding = { tabPane: TabPane, parent: HBox ->
         val x = parent.widthProperty().doubleBinding(tabPane.tabs) {
@@ -76,6 +75,7 @@ class MainView : View("Averbis & Brat Integrator") {
 
     override val root = hbox {
         var fis: List<File> = listOf()
+        var responseList: List<AverbisResponse> = listOf()
 
         prefHeight = 750.0
         prefWidth = 550.0
@@ -193,6 +193,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                                                 if (analysis.outputIsProperPath()) {
                                                                     fileHandlingController.writeOutputToDisk(response, analysis.outputData!!)
                                                                 } else {
+                                                                    responseList = response
                                                                     fileHandlingController.writeOutputToApp(response)
                                                                 }
                                                             }
@@ -205,17 +206,13 @@ class MainView : View("Averbis & Brat Integrator") {
                                 }
                             }
                             fieldset("Log") {
-                                logField = textarea { isEditable = false }
+                                logFieldAverbis = textarea { isEditable = false }
                             }
                         }
                     }
                     outputDrawerItem = item("Output") {
                         form {
-                            fieldset("Output") {
-                                outputField = textarea {
-                                    prefHeight = 1000.0
-                                    isEditable = false
-                                }
+                            outputFieldSet = fieldset("Output") {
                             }
                         }
                     }
@@ -253,9 +250,10 @@ class MainView : View("Averbis & Brat Integrator") {
                                         alignment = Pos.CENTER
                                         spacing = 10.0
                                         button("Transfer data") {
+                                            setPrefSize(200.0, 40.0)
                                             action {
                                                 remoteController.FileTransfer().apply {
-                                                    transferData(fis)
+                                                    transferData(responseList)
                                                 }
                                             }
                                         }
@@ -263,6 +261,9 @@ class MainView : View("Averbis & Brat Integrator") {
                                 }
                             }
                         }
+                    }
+                    fieldset("Log") {
+                        logFieldBrat = textarea { isEditable = false }
                     }
                 }
             }

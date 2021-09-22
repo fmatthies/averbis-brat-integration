@@ -4,10 +4,16 @@ import com.jcraft.jsch.ChannelSftp
 import com.jcraft.jsch.JSch
 import de.imise.integrator.view.MainView
 import tornadofx.*
+import java.io.BufferedInputStream
 import java.io.File
+import java.io.FileOutputStream
+import java.io.InputStream
+import java.util.zip.ZipEntry
+import java.util.zip.ZipOutputStream
 
 class RemoteController : Controller() {
     private val mainView: MainView by inject()
+    private val logging: LoggingController by inject()
 //    private val REMOTE_HOST = "10.230.7.129"
 //    private val USERNAME = ""
 //    private val PASSWORD = ""
@@ -18,18 +24,33 @@ class RemoteController : Controller() {
 
     inner class FileTransfer {
         private fun transferFile(fi: File) {
-            ProcessBuilder(
+            val proc = ProcessBuilder(
                 "pscp.exe",
                 "-P", mainView.remotePortField.text,
                 "-pw", mainView.passwordField.text,
                 fi.absolutePath,
-                "${mainView.usernameField.text}@${mainView.hostField.text}:${mainView.destinationField.text}"
-            ).start()
+                "${mainView.usernameField.text}@${mainView.hostField.text}:${mainView.destinationField.text}")
+                .redirectOutput(ProcessBuilder.Redirect.PIPE)
+                .start()
+            val response = proc.inputStream.bufferedReader().readText()
+            logging.logBrat(response)
         }
 
-        //ToDo: better zip files and transfer or somehow bulk transfer via pscp
-        fun transferData(files: List<File>) {
-            files.forEach { transferFile(it) }
+        fun transferData(response: List<AverbisResponse>) {
+            val bulkZip = "bulk.zip"
+            FileOutputStream(bulkZip).use {  fos ->
+                ZipOutputStream(fos).use { zos ->
+                    OutputTransformationController.transformToBrat(response).forEach { pair ->
+                        pair.toList().forEach { entry ->
+                            val zipEntry = ZipEntry("${entry.fileName}.${entry.extension}")
+                            zos.putNextEntry(zipEntry)
+                            zos.write(entry.content.toByteArray())
+                            zos.closeEntry()
+                        }
+                    }
+                }
+            }
+            transferFile(File(bulkZip))
         }
     }
 //    inner class SFTPFileTransfer {
