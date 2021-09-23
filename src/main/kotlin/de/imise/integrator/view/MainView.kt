@@ -153,7 +153,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                     }
                                 }
                                 field("Output Mode") {
-                                    outputModeBox = combobox(outputMode, listOf("Local", "Remote")).apply {
+                                    outputModeBox = combobox(outputMode, listOf("Remote", "Local")).apply {
                                         selectionModel.selectFirst()
                                         setOnAction {
                                             when (outputMode.value) {
@@ -170,13 +170,16 @@ class MainView : View("Averbis & Brat Integrator") {
                                     }
                                 }
                                 field("Select Output") {
-                                    outputDirField = textfield(analysisModel.output).apply { required() }
+                                    outputDirField = textfield(analysisModel.output).apply {
+                                        required()
+                                        isDisable = true
+                                    }
                                     chooseOutputButton = button("Choose Folder") {
                                         action {
                                             val dir = chooseDirectory("Choose Folder")
                                             outputDirField.text = dir?.absolutePath
                                         }
-                                    }
+                                    }.apply { isDisable = true }
                                 }
                                 //ToDo: add viewer (and selector) for which path parts should be used for later output path
                                 //ToDo: separate "post data" from "analyze data" so that filtering can be done later
@@ -199,6 +202,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                                         val input: Input = inputDataModel.item
                                                         val analysis: Analysis = analysisModel.item
 
+                                                        //ToDo: progress indicator that shows a real progress and not just spinning wheel
                                                         if (setup.hasNoNullProperties() and
                                                             input.hasNoNullProperties() and
                                                             (analysis.hasNoNullProperties() or (outputMode.value == "Remote"))) {
