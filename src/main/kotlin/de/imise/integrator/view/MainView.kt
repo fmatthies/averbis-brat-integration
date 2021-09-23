@@ -170,7 +170,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                     }
                                 }
                                 field("Select Output") {
-                                    outputDirField = textfield(analysisModel.output)
+                                    outputDirField = textfield(analysisModel.output).apply { required() }
                                     chooseOutputButton = button("Choose Folder") {
                                         action {
                                             val dir = chooseDirectory("Choose Folder")
@@ -179,6 +179,8 @@ class MainView : View("Averbis & Brat Integrator") {
                                     }
                                 }
                                 //ToDo: add viewer (and selector) for which path parts should be used for later output path
+                                //ToDo: separate "post data" from "analyze data" so that filtering can be done later
+                                // this allows us to extract `types` from json and they don't have to be declared in the config
                                 field {
                                     borderpane {
                                         padding = insets(10)
@@ -197,7 +199,9 @@ class MainView : View("Averbis & Brat Integrator") {
                                                         val input: Input = inputDataModel.item
                                                         val analysis: Analysis = analysisModel.item
 
-                                                        if (setup.hasNoNullProperties() and input.hasNoNullProperties()) {
+                                                        if (setup.hasNoNullProperties() and
+                                                            input.hasNoNullProperties() and
+                                                            (analysis.hasNoNullProperties() or (outputMode.value == "Remote"))) {
                                                             runAsyncWithProgress {
                                                                 averbisController.postDocuments(fis)
                                                             } ui { response ->

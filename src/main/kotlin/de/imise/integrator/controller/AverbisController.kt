@@ -4,6 +4,7 @@ import com.beust.klaxon.JsonArray
 import com.beust.klaxon.JsonObject
 import com.beust.klaxon.Parser
 import de.imise.integrator.view.MainView
+import javafx.collections.ObservableList
 import javafx.scene.control.RadioButton
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -16,39 +17,42 @@ import java.io.IOException
 import java.io.InputStream
 import java.nio.charset.Charset
 import java.util.concurrent.TimeUnit
+import java.util.function.Predicate
 
 const val JSON_ID_STRING = "id"
 
-interface AverbisJsonEntry {
+//interface AverbisJsonEntry {
+//    val begin: Int
+//    val end: Int
+//    val id: Int
+//    val coveredText: String
+//    val type: String
+//
+//    fun asTextboundAnnotation(): String {
+//        return "T${id}\t" +
+//               "${type.substringAfterLast('.')} " +
+//               "$begin $end\t" +
+//               coveredText
+//    }
+//}
+
+class AverbisJsonEntry(private val jsonObject: JsonObject, averbisResponse: AverbisResponse) {
     val begin: Int
-    val end: Int
-    val id: Int
-    val coveredText: String
-    val type: String
-
-    fun asTextboundAnnotation(): String {
-        return "T${id}\t" +
-               "${type.substringAfterLast('.')} " +
-               "$begin $end\t" +
-               coveredText
-    }
-}
-
-class AverbisPHIEntry(private val jsonObject: JsonObject, jsonResponse: AverbisResponse) : AverbisJsonEntry {
-    override val begin: Int
         get() = jsonObject["begin"] as Int
-    override val end: Int
+    val end: Int
         get() = jsonObject["end"] as Int
-    override val id: Int
+    val id: Int
         get() = jsonObject["id"] as Int
-    override val coveredText: String
+    val coveredText: String
         get() = removeNewlines(jsonObject["coveredText"] as String)
-    override val type: String
+    val typeFQN: String
         get() = jsonObject["type"] as String
+    val type: String
+        get() = typeFQN.substringAfterLast(".")
 
     init {
         if (jsonObject["coveredText"] != coveredText) {
-            jsonResponse.documentText = StringBuilder(jsonResponse.documentText).also {
+            averbisResponse.documentText = StringBuilder(averbisResponse.documentText).also {
                 it.setRange(begin, end, coveredText) }.toString()
         }
     }
@@ -65,9 +69,17 @@ class AverbisPHIEntry(private val jsonObject: JsonObject, jsonResponse: AverbisR
         }
         return s
     }
+
+    fun asTextboundAnnotation(): String {
+        return "T${id}\t" +
+               "${typeFQN.substringAfterLast('.')} " +
+               "$begin $end\t" +
+               coveredText
+    }
 }
 
 class AverbisResponse(file: File) {
+    //ToDo: extract filter predicate; also modify filter that an empty `annotationValues` list gives all
 
 //    var jsonResponse: JsonArray<JsonObject>? = null
     private var jsonResponse: MutableMap<Int, JsonObject> = mutableMapOf()
@@ -80,6 +92,18 @@ class AverbisResponse(file: File) {
 //    var deidedDocumentText: String = ""
 //    var deidedDocumentTextId: Int = -1
     var annotationValues: List<String> = listOf()
+    val items: ObservableList<AverbisJsonEntry>
+        get() {
+            return jsonResponse
+                .filter { entry ->
+                    annotationValues.any { value ->
+                        value == entry.value.string(JSON_TYPE_KEY_STRING)
+                    }
+                }
+                .toList()
+                .map { AverbisJsonEntry(it.second, this) }
+                .asObservable()
+        }
 
     fun setAnnotations(values: List<String>) {
         annotationValues = values
@@ -97,10 +121,6 @@ class AverbisResponse(file: File) {
                     documentText = it.string(JSON_COVERED_TEXT_KEY_STRING).toString()
                     documentTextId = id
                 }
-//                if (it.string(JSON_TYPE_KEY_STRING).toString() == DEIDED_DOCUMENT_TEXT_TYPE) {
-//                    deidedDocumentText = it.string(JSON_DEIDED_TEXT_KEY_STRING).toString()
-//                    deidedDocumentTextId = id
-//                }
             }
         }
     }
@@ -109,10 +129,10 @@ class AverbisResponse(file: File) {
         val sb = StringBuilder()
 
         jsonResponse.filter { entry ->
-            annotationValues.any {
-                it == entry.value.string(JSON_TYPE_KEY_STRING)
+            annotationValues.any { value ->
+                value == entry.value.string(JSON_TYPE_KEY_STRING)
             }
-        }.forEach { sb.append(AverbisPHIEntry(it.value, this).asTextboundAnnotation()).append("\n") }
+        }.forEach { sb.append(AverbisJsonEntry(it.value, this).asTextboundAnnotation()).append("\n") }
 
         return sb.toString().removeSuffix("\n")
     }

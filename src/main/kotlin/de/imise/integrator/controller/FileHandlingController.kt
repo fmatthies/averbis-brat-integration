@@ -58,8 +58,21 @@ class FileHandlingController : Controller() {
         mainView.outputFieldSet.tableview(response.asObservable()) {
             prefHeight = 1000.0
             isEditable = false
+            columnResizePolicy = SmartResize.POLICY
+
             readonlyColumn("File Name", AverbisResponse::inputFileName)
             readonlyColumn("File Path", AverbisResponse::inputFilePath)
+
+            rowExpander(expandOnDoubleClick = true) {
+                paddingLeft = expanderColumn.width
+
+                tableview(it.items) {
+                    columnResizePolicy = SmartResize.POLICY
+
+                    readonlyColumn("Type", AverbisJsonEntry::type).contentWidth(padding = 50.0)
+                    readonlyColumn("Text", AverbisJsonEntry::coveredText)
+                }
+            }
         }
 //        mainView.outputField.text = ""
 //        response.forEach {
