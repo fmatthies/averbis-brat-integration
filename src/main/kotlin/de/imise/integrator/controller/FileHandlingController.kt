@@ -49,6 +49,11 @@ class FileHandlingController : Controller() {
                 .bufferedWriter()
                 .use { out -> out.write(it.second.content) }
         }
+        OutputTransformationController.getFilteredJson(response).forEach {
+            File(outputData,"${it.fileName}.${it.extension}" )
+                .bufferedWriter()
+                .use { out -> out.write(it.content) }
+        }
     }
 
     fun writeOutputToApp(response: List<AverbisResponse>) {

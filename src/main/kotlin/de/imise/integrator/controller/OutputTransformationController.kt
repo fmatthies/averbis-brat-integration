@@ -47,6 +47,15 @@ class OutputTransformationController(
                 )
             }
         }
+
+        fun getFilteredJson(response: List<AverbisResponse>): List<OutputFileStream> {
+            return response.map {
+                OutputFileStream(
+                    fileName = it.inputFileName, extension = "json",
+                    content = it.filteredJson().replace("\\r\\n?", "\n")
+                )
+            }
+        }
     }
 //    fun jsonToString(jsonResponse: JsonArray<JsonObject>?) : String {
 //        val sb = StringBuilder()

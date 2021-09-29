@@ -52,7 +52,8 @@ class MainView : View("Averbis & Brat Integrator") {
     var usernameField: TextField by singleAssign()
     var passwordField: PasswordField by singleAssign()
     var remotePortField: TextField by singleAssign()
-    var destinationField: TextField by singleAssign()
+    var bratDataFolderField: TextField by singleAssign()
+    var bratSubfolderField: TextField by singleAssign()
     var logFieldBrat: TextArea by singleAssign()
 
     val tabBinding = { tabPane: TabPane, parent: HBox ->
@@ -253,13 +254,15 @@ class MainView : View("Averbis & Brat Integrator") {
                         field("Password") {
                             passwordField = passwordfield().apply {  }
                         }
-                        field("Destination Folder") {
-                            destinationField = textfield(app.config.getProperty(DEFAULT_REMOTE_DEST)).apply {  }
+                        field("Brat Data Folder") {
+                            bratDataFolderField = textfield(app.config.getProperty(DEFAULT_REMOTE_DEST)).apply {  }
                         }
                     }
                     fieldset("Transfer") {
-                        field("Files") {
-
+                        field("Subfolder (optional)") {
+                            bratSubfolderField = textfield()
+                            tooltip("Transfers files to specified subfolder under Brat data folder;" +
+                                    "if empty the Averbis pipeline name is used as subfolder.")
                         }
                         field {
                             borderpane {
@@ -280,6 +283,9 @@ class MainView : View("Averbis & Brat Integrator") {
                                 }
                             }
                         }
+                    }
+                    fieldset("Receive") {
+
                     }
                     fieldset("Log") {
                         logFieldBrat = textarea { isEditable = false }

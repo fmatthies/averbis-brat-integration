@@ -3,12 +3,15 @@ package de.imise.integrator.controller
 import de.imise.integrator.view.MainView
 import tornadofx.*
 import java.io.File
-import java.io.FileOutputStream
 import java.nio.file.*
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
 
 class RemoteController : Controller() {
+    enum class ConnectionTool {
+        PLINK, PSCP
+    }
+
     private val mainView: MainView by inject()
     private val logging: LoggingController by inject()
 
@@ -35,39 +38,47 @@ class RemoteController : Controller() {
 
     inner class FileTransfer {
         private val tmpFolder = "/home/${mainView.usernameField.text}/.tmp"
+        private val connection = "${mainView.usernameField.text}@${mainView.hostField.text}"
+        private val finalDestination = "${mainView.bratDataFolderField.text}/" +
+                (mainView.bratSubfolderField.text.takeIf { !it.isNullOrBlank() } ?: mainView.pipelineNameField.text)
+        private fun Process.log() = run { this.inputStream.bufferedReader().use { logging.logBrat(it.readText()) } }
+
+        private fun processBuilder(connection: ConnectionTool): Array<String> {
+            return when (connection) {
+                ConnectionTool.PLINK -> arrayOf("plink.exe", "-no-antispoof")
+                ConnectionTool.PSCP -> arrayOf("pscp.exe")
+            }.plus(listOf("-P", mainView.remotePortField.text, "-pw", mainView.passwordField.text))
+        }
 
         //ToDo: extract process builder templates for plink and pscp
         private fun temporaryFileStorage(fi: File) {
             // Create temporary folder
             ProcessBuilder(
-                "plink.exe",
-                "-P", mainView.remotePortField.text,
-                "-pw", mainView.passwordField.text,
-                "-no-antispoof",
-                "${mainView.usernameField.text}@${mainView.hostField.text}",
+                *processBuilder(ConnectionTool.PLINK),
+                connection,
                 "mkdir --parents $tmpFolder")
                 .redirectOutput(ProcessBuilder.Redirect.PIPE)
-                .start().inputStream.bufferedReader().use { logging.logBrat(it.readText()) }
+                .start()
+                .log()
+
             // Transfer Bulk.zip to tmp folder
             ProcessBuilder(
-                "pscp.exe",
-                "-P", mainView.remotePortField.text,
-                "-pw", mainView.passwordField.text,
+                *processBuilder(ConnectionTool.PSCP),
                 fi.absolutePath,
-                "${mainView.usernameField.text}@${mainView.hostField.text}:$tmpFolder")
+                "$connection:$tmpFolder")
                 .redirectOutput(ProcessBuilder.Redirect.PIPE)
-                .start().inputStream.bufferedReader().use { logging.logBrat(it.readText()) }
+                .start()
+                .log()
+
             // Unzip Bulk.zip
-            val unzipBulk = ProcessBuilder(
-                "plink.exe",
-                "-P", mainView.remotePortField.text,
-                "-pw", mainView.passwordField.text,
-                "-no-antispoof",
-                "${mainView.usernameField.text}@${mainView.hostField.text}",
+            ProcessBuilder(
+                *processBuilder(ConnectionTool.PLINK),
+                connection,
                 "unzip $tmpFolder/${fi.name} -d $tmpFolder/")
                 .redirectOutput(ProcessBuilder.Redirect.PIPE)
                 .start()
-            logging.logBrat(unzipBulk.inputStream.bufferedReader().readText())
+                .log()
+
             logging.logBrat("Transferred files to remote...")
         }
 
@@ -80,6 +91,19 @@ class RemoteController : Controller() {
             //  - `cat` content from former files to latter
             // this way the newly created folder andfiles in `destination` have the group `bin` (used `setfacl`) and keep it
             // brat will be able to read/write there
+            ProcessBuilder(
+                *processBuilder(ConnectionTool.PLINK),
+                connection,
+                "mkdir --parents $finalDestination;",
+                "find $tmpFolder/${mainView.pipelineNameField.text}/",
+                "-maxdepth", "1", "-iname", "'*'", "-type", "f",
+                "-exec", "touch", "$finalDestination/{}", ";",
+                "-printf", "'cat %p > $finalDestination/%P\n'", "|",
+                "sh"
+            ) // ToDo: this does not work; maybe I need to write this into a script file and let it run with plink
+                .redirectOutput(ProcessBuilder.Redirect.PIPE)
+                .start()
+                .log()
 //            val sudoPass = "sudoPass.txt"
 //            File(sudoPass)
 //                .bufferedWriter()
@@ -110,30 +134,33 @@ class RemoteController : Controller() {
         }
 
         private fun transferFileDirectly(fi: File) {
-            val proc = ProcessBuilder(
-                "pscp.exe",
-                "-P", mainView.remotePortField.text,
-                "-pw", mainView.passwordField.text,
+            ProcessBuilder(
+                *processBuilder(ConnectionTool.PSCP),
                 fi.absolutePath,
-                "${mainView.usernameField.text}@${mainView.hostField.text}:${mainView.destinationField.text}")
+                "$connection:${mainView.bratDataFolderField.text}")
                 .redirectOutput(ProcessBuilder.Redirect.PIPE)
                 .start()
-            val response = proc.inputStream.bufferedReader().readText()
-            logging.logBrat(response)
+                .log()
         }
 
         fun transferData(response: List<AverbisResponse>) {
             val bulkZip = File("bulk.zip")
             bulkZip.outputStream().use {  fos ->
                 ZipOutputStream(fos).use { zos ->
+                    zos.putNextEntry(ZipEntry("${mainView.pipelineNameField.text}/"))
                     OutputTransformationController.transformToBrat(response).forEach { pair ->
-                        zos.putNextEntry(ZipEntry("${mainView.pipelineNameField.text}/"))
                         pair.toList().forEach { entry ->
                             val zipEntry = ZipEntry("${mainView.pipelineNameField.text}/${entry.fileName}.${entry.extension}")
                             zos.putNextEntry(zipEntry)
                             zos.write(entry.content.toByteArray())
                             zos.closeEntry()
                         }
+                    }
+                    OutputTransformationController.getFilteredJson(response).forEach {
+                        val zipEntry = ZipEntry("${mainView.pipelineNameField.text}/${it.fileName}.${it.extension}")
+                        zos.putNextEntry(zipEntry)
+                        zos.write(it.content.toByteArray())
+                        zos.closeEntry()
                     }
                 }
             }

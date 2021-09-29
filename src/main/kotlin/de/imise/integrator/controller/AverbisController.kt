@@ -3,6 +3,7 @@ package de.imise.integrator.controller
 import com.beust.klaxon.JsonArray
 import com.beust.klaxon.JsonObject
 import com.beust.klaxon.Parser
+import com.beust.klaxon.json
 import de.imise.integrator.view.MainView
 import javafx.collections.ObservableList
 import javafx.scene.control.RadioButton
@@ -17,24 +18,10 @@ import java.io.IOException
 import java.io.InputStream
 import java.nio.charset.Charset
 import java.util.concurrent.TimeUnit
-import java.util.function.Predicate
+import javax.json.JsonArrayBuilder
+import javax.json.JsonBuilderFactory
 
 const val JSON_ID_STRING = "id"
-
-//interface AverbisJsonEntry {
-//    val begin: Int
-//    val end: Int
-//    val id: Int
-//    val coveredText: String
-//    val type: String
-//
-//    fun asTextboundAnnotation(): String {
-//        return "T${id}\t" +
-//               "${type.substringAfterLast('.')} " +
-//               "$begin $end\t" +
-//               coveredText
-//    }
-//}
 
 class AverbisJsonEntry(private val jsonObject: JsonObject, averbisResponse: AverbisResponse) {
     val begin: Int
@@ -79,37 +66,34 @@ class AverbisJsonEntry(private val jsonObject: JsonObject, averbisResponse: Aver
 }
 
 class AverbisResponse(file: File) {
-    //ToDo: extract filter predicate; also modify filter that an empty `annotationValues` list gives all
+    //ToDo: modify filter that an empty `annotationValues` list gives all annotations
 
-//    var jsonResponse: JsonArray<JsonObject>? = null
     private var jsonResponse: MutableMap<Int, JsonObject> = mutableMapOf()
     private val parser = Parser.default()
-//    var outputTransform: OutputTransformationController =  OutputTransformationController.Builder().build()
+    val jsonEntryFilter: (Map.Entry<Int, JsonObject>) -> Boolean = { entry ->
+        annotationValues.any { it == entry.value.string(JSON_TYPE_KEY_STRING)}
+    }
+//  Old Filter expr. if above doesn't work
+//    entry ->
+//    annotationValues.any { value ->
+//        value == entry.value.string(JSON_TYPE_KEY_STRING)
+//    }
     val inputFileName: String = file.nameWithoutExtension
     val inputFilePath: String = file.parent
     var documentText: String = ""
     var documentTextId: Int = -1
-//    var deidedDocumentText: String = ""
-//    var deidedDocumentTextId: Int = -1
     var annotationValues: List<String> = listOf()
     val items: ObservableList<AverbisJsonEntry>
         get() {
             return jsonResponse
-                .filter { entry ->
-                    annotationValues.any { value ->
-                        value == entry.value.string(JSON_TYPE_KEY_STRING)
-                    }
-                }
-                .toList()
-                .map { AverbisJsonEntry(it.second, this) }
+                .filter { jsonEntryFilter(it) }
+//                .toList()  //was superfluous?
+                .map { AverbisJsonEntry(it.value, this) }
                 .asObservable()
         }
 
     fun setAnnotations(values: List<String>) {
         annotationValues = values
-//        outputTransform = OutputTransformationController.Builder()
-//            .annotationValues(values)
-//            .build()
     }
 
     fun readJson(jsonString: String) {
@@ -127,14 +111,24 @@ class AverbisResponse(file: File) {
 
     fun jsonToBrat() : String {
         val sb = StringBuilder()
-
-        jsonResponse.filter { entry ->
-            annotationValues.any { value ->
-                value == entry.value.string(JSON_TYPE_KEY_STRING)
-            }
-        }.forEach { sb.append(AverbisJsonEntry(it.value, this).asTextboundAnnotation()).append("\n") }
-
+        jsonResponse
+            .filter { jsonEntryFilter(it) }
+            .forEach { sb.append(AverbisJsonEntry(it.value, this).asTextboundAnnotation()).append("\n") }
         return sb.toString().removeSuffix("\n")
+    }
+
+    fun filteredJson() : String {
+        return json {
+            ANNOTATION_ARRAY_KEY_STRING to
+                array(jsonResponse
+                    .filter { jsonEntryFilter(it) }
+                    .values
+                    .toList()
+//                    .apply {
+//                        this.plus( json {  } )
+//                    } // ToDo: add DocumentAnnotation & DeidentifiedDocument entries
+                )
+        }.toString()
     }
 
     private fun readJson(jsonStream: InputStream): JsonArray<JsonObject> {
@@ -155,6 +149,7 @@ class AverbisResponse(file: File) {
         const val JSON_COVERED_TEXT_KEY_STRING = "coveredText"
         const val JSON_DEIDED_TEXT_KEY_STRING: String = "deidentifiedText"
         const val JSON_TYPE_KEY_STRING = "type"
+        const val ANNOTATION_ARRAY_KEY_STRING = "annotationDtos"
     }
 }
 
