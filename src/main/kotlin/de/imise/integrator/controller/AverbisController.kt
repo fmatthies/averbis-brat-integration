@@ -58,10 +58,7 @@ class AverbisJsonEntry(private val jsonObject: JsonObject, averbisResponse: Aver
     }
 
     fun asTextboundAnnotation(): String {
-        return "T${id}\t" +
-               "${typeFQN.substringAfterLast('.')} " +
-               "$begin $end\t" +
-               coveredText
+        return "T${id}\t$type $begin $end\t$coveredText"
     }
 }
 

@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test
 import java.io.File
 
 class AverbisCommTest {
-    private val testFile = AverbisController::class.java.getResource("/Schulz-Arztbriefe/Albers.txt").file
+    private val testFile = AverbisController::class.java.getResource("/data/Schulz-Arztbriefe/Albers.txt").file
     private val testResponse = File(
-        AverbisController::class.java.getResource("/Schulz-Arztbriefe/deid/Albers.json").file).readText()
+        AverbisController::class.java.getResource("/data/Schulz-Arztbriefe/deid/Albers.json").file).readText()
 
     @Test
     internal fun testPostDocument() {

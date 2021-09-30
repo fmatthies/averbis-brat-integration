@@ -15,6 +15,7 @@ class MainView : View("Averbis & Brat Integrator") {
     private val averbisController: AverbisController by inject()
     private val fileHandlingController: FileHandlingController by inject()
     private val remoteController: RemoteController by inject()
+    private val debugController: DebugController by inject()
 
     val setupModel = SetupModel(Setup(
         url = app.config.getProperty(AVERBIS_URL_CONFIG_STRING),
@@ -28,13 +29,14 @@ class MainView : View("Averbis & Brat Integrator") {
     val analysisModel = AnalysisModel(Analysis(
         annotationValues = app.config.getProperty(ANNOTATION_TYPES).split(",").toMutableList().asObservable()
     ))
+    // General
+    var offlineCheck: CheckMenuItem by singleAssign()
 
     // Averbis Tab
     var urlField: TextField by singleAssign()
     var apiTokenField: TextField by singleAssign()
     var projectNameField: TextField by singleAssign()
     var pipelineNameField: TextField by singleAssign()
-//    var outputField: TableView<AverbisResponse> by singleAssign()
     var outputFieldSet: Fieldset by singleAssign()
     var logFieldAverbis: TextArea by singleAssign()
     var languageGroup: ToggleGroup by singleAssign()
@@ -75,146 +77,166 @@ class MainView : View("Averbis & Brat Integrator") {
         const val DEFAULT_REMOTE_DEST = "default_destination"
     }
 
-    override val root = hbox {
+    override val root = borderpane {
         var fis: List<File> = listOf()
         var responseList: List<AverbisResponse> = listOf()
 
-        prefHeight = 750.0
+        prefHeight = 800.0
         prefWidth = 550.0
-        tabpane {
-            tabClosingPolicy = TabPane.TabClosingPolicy.UNAVAILABLE
-            tabMinWidthProperty().bind(tabBinding(this, this@hbox))
-            tabMaxWidthProperty().bind(tabBinding(this, this@hbox))
 
-            tab("Averbis") {
-                drawer(side = Side.RIGHT) {
-                    item("General", expanded = true) {
-                        form {
-                            fieldset("Setup") {
-                                field("Health Discovery URL") {
-                                    urlField = textfield(setupModel.url).apply { required() }
-                                }
-                                field("API Token") {
-                                    apiTokenField = textfield(setupModel.apiToken).apply { required() }
-                                }
-                                field("Project Name") {
-                                    projectNameField = textfield(setupModel.projectName).apply { required() }
-                                }
-                                field("Pipeline Name") {
-                                    pipelineNameField = textfield(setupModel.pipelineName).apply { required() }
-                                }
-                                field("Language") {
-                                    languageGroup = togglegroup {
-                                        bind(setupModel.language)
-                                        app.config.getProperty(DEFAULT_LANGUAGES_CONFIG_LIST).split(",").forEach {
-                                            val rad = radiobutton(it)
-                                            if (this.selectedToggle as ToggleButton? == null) {
-                                                this.selectToggle(rad)
+        top = menubar {
+            menu("Options") {
+                menu("Debug") {
+                    offlineCheck = checkmenuitem("Offline") { isSelected = true }
+                }
+            }
+        }
+
+        center = hbox {
+            tabpane {
+                tabClosingPolicy = TabPane.TabClosingPolicy.UNAVAILABLE
+                tabMinWidthProperty().bind(tabBinding(this, this@hbox))
+                tabMaxWidthProperty().bind(tabBinding(this, this@hbox))
+
+                tab("Averbis") {
+                    drawer(side = Side.RIGHT) {
+                        item("General", expanded = true) {
+                            form {
+                                fieldset("Setup") {
+                                    field("Health Discovery URL") {
+                                        urlField = textfield(setupModel.url).apply { required() }
+                                    }
+                                    field("API Token") {
+                                        apiTokenField = textfield(setupModel.apiToken).apply { required() }
+                                    }
+                                    field("Project Name") {
+                                        projectNameField = textfield(setupModel.projectName).apply { required() }
+                                    }
+                                    field("Pipeline Name") {
+                                        pipelineNameField = textfield(setupModel.pipelineName).apply { required() }
+                                    }
+                                    field("Language") {
+                                        languageGroup = togglegroup {
+                                            bind(setupModel.language)
+                                            app.config.getProperty(DEFAULT_LANGUAGES_CONFIG_LIST).split(",").forEach {
+                                                val rad = radiobutton(it)
+                                                if (this.selectedToggle as ToggleButton? == null) {
+                                                    this.selectToggle(rad)
+                                                }
                                             }
                                         }
                                     }
                                 }
-                            }
-                            fieldset("Data Selection") {
-                                field("Selection Mode") {
-                                    val selects = FXCollections.observableArrayList("File(s)", "Folder")
-                                    combobox(inputSelectionMode, selects).apply {
-                                        selectionModel.selectFirst()
-                                        setOnAction {
-                                            inputDirButton.text = "Choose ${inputSelectionMode.value}"
-                                            fis = listOf()
-                                            inputDirField.text = ""
+                                fieldset("Data Selection") {
+                                    field("Selection Mode") {
+                                        val selects = FXCollections.observableArrayList("File(s)", "Folder")
+                                        combobox(inputSelectionMode, selects).apply {
+                                            selectionModel.selectFirst()
+                                            setOnAction {
+                                                inputDirButton.text = "Choose ${inputSelectionMode.value}"
+                                                fis = listOf()
+                                                inputDirField.text = ""
+                                            }
+                                        }
+                                    }
+                                    field("Select Input") {
+                                        inputDirField = textfield(inputDataModel.input).apply { required() }
+                                        inputDirButton = button("Choose ${inputSelectionMode.value}") {
+                                            action {
+                                                fis = fileHandlingController.readFiles(inputSelectionMode.value)
+                                            }
                                         }
                                     }
                                 }
-                                field("Select Input") {
-                                    inputDirField = textfield(inputDataModel.input).apply { required() }
-                                    inputDirButton = button("Choose ${inputSelectionMode.value}") {
-                                        action {
-                                            fis = fileHandlingController.readFiles(inputSelectionMode.value)
-                                        }
-                                    }
-                                }
-                            }
-                            fieldset("Analyze Data") {
-                                squeezebox {
-                                    fold("Annotation Values") {
-                                        analysisModel.annotationValues.value.forEach {
-                                            checkbox(it).apply {
-                                                isSelected = true
-                                                action {
-                                                    if (isSelected) {
-                                                        analysisModel.annotationValues.value.add(this.text)
-                                                    } else {
-                                                        analysisModel.annotationValues.value.remove(this.text)
+                                fieldset("Analyze Data") {
+                                    squeezebox {
+                                        fold("Annotation Values") {
+                                            analysisModel.annotationValues.value.forEach {
+                                                checkbox(it).apply {
+                                                    isSelected = true
+                                                    action {
+                                                        if (isSelected) {
+                                                            analysisModel.annotationValues.value.add(this.text)
+                                                        } else {
+                                                            analysisModel.annotationValues.value.remove(this.text)
+                                                        }
                                                     }
                                                 }
                                             }
                                         }
                                     }
-                                }
-                                field("Output Mode") {
-                                    outputModeBox = combobox(outputMode, listOf("Remote", "Local")).apply {
-                                        selectionModel.selectFirst()
-                                        setOnAction {
-                                            when (outputMode.value) {
-                                                "Local" -> {
-                                                    outputDirField.isDisable = false
-                                                    chooseOutputButton.isDisable = false
-                                                }
-                                                "Remote" -> {
-                                                    outputDirField.isDisable = true
-                                                    chooseOutputButton.isDisable = true
+                                    field("Output Mode") {
+                                        outputModeBox = combobox(outputMode, listOf("Remote", "Local")).apply {
+                                            selectionModel.selectFirst()
+                                            setOnAction {
+                                                when (outputMode.value) {
+                                                    "Local" -> {
+                                                        outputDirField.isDisable = false
+                                                        chooseOutputButton.isDisable = false
+                                                    }
+                                                    "Remote" -> {
+                                                        outputDirField.isDisable = true
+                                                        chooseOutputButton.isDisable = true
+                                                    }
                                                 }
                                             }
                                         }
                                     }
-                                }
-                                field("Select Output") {
-                                    outputDirField = textfield(analysisModel.output).apply {
-                                        required()
-                                        isDisable = true
-                                    }
-                                    chooseOutputButton = button("Choose Folder") {
-                                        action {
-                                            val dir = chooseDirectory("Choose Folder")
-                                            outputDirField.text = dir?.absolutePath
+                                    field("Select Output") {
+                                        outputDirField = textfield(analysisModel.output).apply {
+                                            required()
+                                            isDisable = true
                                         }
-                                    }.apply { isDisable = true }
-                                }
-                                //ToDo: add viewer (and selector) for which path parts should be used for later output path
-                                //ToDo: separate "post data" from "analyze data" so that filtering can be done later
-                                // this allows us to extract `types` from json and they don't have to be declared in the config
-                                field {
-                                    borderpane {
-                                        padding = insets(10)
-                                        center {
-                                            vbox {
-                                                alignment = Pos.CENTER
-                                                spacing = 10.0
-                                                button("Post data") {
-                                                    setPrefSize(200.0, 40.0)
-                                                    action {
-                                                        setupModel.commit()
-                                                        inputDataModel.commit()
-                                                        analysisModel.commit()
+                                        chooseOutputButton = button("Choose Folder") {
+                                            action {
+                                                val dir = chooseDirectory("Choose Folder")
+                                                outputDirField.text = dir?.absolutePath
+                                            }
+                                        }.apply { isDisable = true }
+                                    }
+                                    //ToDo: add viewer (and selector) for which path parts should be used for later output path
+                                    //ToDo: separate "post data" from "analyze data" so that filtering can be done later
+                                    // this allows us to extract `types` from json and they don't have to be declared in the config
+                                    field {
+                                        borderpane {
+                                            padding = insets(10)
+                                            center {
+                                                vbox {
+                                                    alignment = Pos.CENTER
+                                                    spacing = 10.0
+                                                    button("Post data") {
+                                                        setPrefSize(200.0, 40.0)
+                                                        action {
+                                                            setupModel.commit()
+                                                            inputDataModel.commit()
+                                                            analysisModel.commit()
 
-                                                        val setup: Setup = setupModel.item
-                                                        val input: Input = inputDataModel.item
-                                                        val analysis: Analysis = analysisModel.item
+                                                            val setup: Setup = setupModel.item
+                                                            val input: Input = inputDataModel.item
+                                                            val analysis: Analysis = analysisModel.item
 
-                                                        //ToDo: progress indicator that shows a real progress and not just spinning wheel
-                                                        if (setup.hasNoNullProperties() and
-                                                            input.hasNoNullProperties() and
-                                                            (analysis.hasNoNullProperties() or (outputMode.value == "Remote"))) {
-                                                            runAsyncWithProgress {
-                                                                averbisController.postDocuments(fis)
-                                                            } ui { response ->
-                                                                if (analysis.outputIsProperPath() && outputMode.value == "Local") {
-                                                                    fileHandlingController.writeOutputToDisk(response, analysis.outputData!!)
-                                                                } else {
-                                                                    responseList = response
-                                                                    fileHandlingController.writeOutputToApp(response)
+                                                            //ToDo: progress indicator that shows a real progress and not just spinning wheel
+                                                            if (setup.hasNoNullProperties() and
+                                                                input.hasNoNullProperties() and
+                                                                (analysis.hasNoNullProperties() or (outputMode.value == "Remote"))
+                                                            ) {
+                                                                runAsyncWithProgress {
+                                                                    if (offlineCheck.isSelected) {
+                                                                        debugController.postDocuments(fis)
+                                                                    }
+                                                                    else {
+                                                                        averbisController.postDocuments(fis)
+                                                                    }
+                                                                } ui { response ->
+                                                                    if (analysis.outputIsProperPath() && outputMode.value == "Local") {
+                                                                        fileHandlingController.writeOutputToDisk(
+                                                                            response,
+                                                                            analysis.outputData!!
+                                                                        )
+                                                                    } else {
+                                                                        responseList = response
+                                                                        fileHandlingController.writeOutputToApp(response)
+                                                                    }
                                                                 }
                                                             }
                                                         }
@@ -224,58 +246,60 @@ class MainView : View("Averbis & Brat Integrator") {
                                         }
                                     }
                                 }
-                            }
-                            fieldset("Log") {
-                                logFieldAverbis = textarea { isEditable = false }
+                                fieldset("Log") {
+                                    logFieldAverbis = textarea { isEditable = false }
+                                }
                             }
                         }
-                    }
-                    outputDrawerItem = item("Output") {
-                        form {
-                            outputFieldSet = fieldset("Output") {
+                        outputDrawerItem = item("Output") {
+                            form {
+                                outputFieldSet = fieldset("Output") {
+                                }
                             }
                         }
                     }
                 }
-            }
-            tab("Brat") {
-                form {
-                    //ToDo: use models here as well
-                    fieldset("Setup") {
-                        field("Remote Host") {
-                            hostField = textfield(app.config.getProperty(DEFAULT_REMOTE_HOST)).apply {  }
+                tab("Brat") {
+                    form {
+                        //ToDo: use models here as well
+                        fieldset("Setup") {
+                            field("Remote Host") {
+                                hostField = textfield(app.config.getProperty(DEFAULT_REMOTE_HOST)).apply { }
+                            }
+                            field("Remote Port") {
+                                remotePortField = textfield(app.config.getProperty(DEFAULT_REMOTE_PORT)).apply { }
+                            }
+                            field("Username") {
+                                usernameField = textfield().apply { }
+                            }
+                            field("Password") {
+                                passwordField = passwordfield().apply { }
+                            }
+                            field("Brat Data Folder") {
+                                bratDataFolderField = textfield(app.config.getProperty(DEFAULT_REMOTE_DEST)).apply { }
+                            }
                         }
-                        field("Remote Port") {
-                            remotePortField = textfield(app.config.getProperty(DEFAULT_REMOTE_PORT)).apply {  }
-                        }
-                        field("Username") {
-                            usernameField = textfield().apply {  }
-                        }
-                        field("Password") {
-                            passwordField = passwordfield().apply {  }
-                        }
-                        field("Brat Data Folder") {
-                            bratDataFolderField = textfield(app.config.getProperty(DEFAULT_REMOTE_DEST)).apply {  }
-                        }
-                    }
-                    fieldset("Transfer") {
-                        field("Subfolder (optional)") {
-                            bratSubfolderField = textfield()
-                            tooltip("Transfers files to specified subfolder under Brat data folder;" +
-                                    "if empty the Averbis pipeline name is used as subfolder.")
-                        }
-                        field {
-                            borderpane {
-                                padding = insets(10)
-                                center {
-                                    vbox {
-                                        alignment = Pos.CENTER
-                                        spacing = 10.0
-                                        button("Transfer data") {
-                                            setPrefSize(200.0, 40.0)
-                                            action {
-                                                remoteController.FileTransfer().apply {
-                                                    transferData(responseList)
+                        fieldset("Transfer") {
+                            field("Subfolder (optional)") {
+                                bratSubfolderField = textfield()
+                                tooltip(
+                                    "Transfers files to specified subfolder under Brat data folder;" +
+                                            "if empty the Averbis pipeline name is used as subfolder."
+                                )
+                            }
+                            field {
+                                borderpane {
+                                    padding = insets(10)
+                                    center {
+                                        vbox {
+                                            alignment = Pos.CENTER
+                                            spacing = 10.0
+                                            button("Transfer data") {
+                                                setPrefSize(200.0, 40.0)
+                                                action {
+                                                    remoteController.FileTransfer().apply {
+                                                        transferData(responseList)
+                                                    }
                                                 }
                                             }
                                         }
@@ -283,12 +307,12 @@ class MainView : View("Averbis & Brat Integrator") {
                                 }
                             }
                         }
-                    }
-                    fieldset("Receive") {
+                        fieldset("Receive") {
 
-                    }
-                    fieldset("Log") {
-                        logFieldBrat = textarea { isEditable = false }
+                        }
+                        fieldset("Log") {
+                            logFieldBrat = textarea { isEditable = false }
+                        }
                     }
                 }
             }
