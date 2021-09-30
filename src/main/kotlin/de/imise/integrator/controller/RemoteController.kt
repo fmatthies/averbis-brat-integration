@@ -40,7 +40,7 @@ class RemoteController : Controller() {
         private val tmpFolder = "/home/${mainView.usernameField.text}/.tmp"
         private val connection = "${mainView.usernameField.text}@${mainView.hostField.text}"
         private val finalDestination = "${mainView.bratDataFolderField.text}/" +
-                (mainView.bratSubfolderField.text.takeIf { !it.isNullOrBlank() } ?: mainView.pipelineNameField.text)
+                (mainView.bratTransferSubfolderField.text.takeIf { !it.isNullOrBlank() } ?: mainView.pipelineNameField.text)
         private fun Process.log() = run { this.inputStream.bufferedReader().use { logging.logBrat(it.readText()) } }
 
         private fun processBuilder(connection: ConnectionTool): Array<String> {
@@ -50,7 +50,6 @@ class RemoteController : Controller() {
             }.plus(listOf("-P", mainView.remotePortField.text, "-pw", mainView.passwordField.text))
         }
 
-        //ToDo: extract process builder templates for plink and pscp
         private fun temporaryFileStorage(fi: File) {
             // Create temporary folder
             ProcessBuilder(
@@ -167,6 +166,10 @@ class RemoteController : Controller() {
             waitForFile(bulkZip) //ToDo:
             transferFileIndirectly(bulkZip)
 //            bulkZip.delete()
+        }
+
+        fun getDataFromRemote() : List<String> {
+            return listOf()
         }
     }
 }

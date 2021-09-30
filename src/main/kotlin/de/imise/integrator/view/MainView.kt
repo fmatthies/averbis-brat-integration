@@ -16,6 +16,7 @@ class MainView : View("Averbis & Brat Integrator") {
     private val fileHandlingController: FileHandlingController by inject()
     private val remoteController: RemoteController by inject()
     private val debugController: DebugController by inject()
+    private val logging: LoggingController by inject()
 
     val setupModel = SetupModel(Setup(
         url = app.config.getProperty(AVERBIS_URL_CONFIG_STRING),
@@ -55,7 +56,8 @@ class MainView : View("Averbis & Brat Integrator") {
     var passwordField: PasswordField by singleAssign()
     var remotePortField: TextField by singleAssign()
     var bratDataFolderField: TextField by singleAssign()
-    var bratSubfolderField: TextField by singleAssign()
+    var bratTransferSubfolderField: TextField by singleAssign()
+    var bratReceiveSubfolderField: TextField by singleAssign()
     var logFieldBrat: TextArea by singleAssign()
 
     val tabBinding = { tabPane: TabPane, parent: HBox ->
@@ -221,11 +223,9 @@ class MainView : View("Averbis & Brat Integrator") {
                                                                 (analysis.hasNoNullProperties() or (outputMode.value == "Remote"))
                                                             ) {
                                                                 runAsyncWithProgress {
-                                                                    if (offlineCheck.isSelected) {
-                                                                        debugController.postDocuments(fis)
-                                                                    }
-                                                                    else {
-                                                                        averbisController.postDocuments(fis)
+                                                                    when (offlineCheck.isSelected) {
+                                                                        true -> debugController.postDocuments(fis)
+                                                                        false -> averbisController.postDocuments(fis)
                                                                     }
                                                                 } ui { response ->
                                                                     if (analysis.outputIsProperPath() && outputMode.value == "Local") {
@@ -281,7 +281,7 @@ class MainView : View("Averbis & Brat Integrator") {
                         }
                         fieldset("Transfer") {
                             field("Subfolder (optional)") {
-                                bratSubfolderField = textfield()
+                                bratTransferSubfolderField = textfield()
                                 tooltip(
                                     "Transfers files to specified subfolder under Brat data folder;" +
                                             "if empty the Averbis pipeline name is used as subfolder."
@@ -308,7 +308,37 @@ class MainView : View("Averbis & Brat Integrator") {
                             }
                         }
                         fieldset("Receive") {
-
+                            field("Subfolder") {
+                                bratReceiveSubfolderField = textfield().apply { } // ToDo: required!
+                            }
+                            field {
+                                borderpane {
+                                    padding = insets(10)
+                                    center {
+                                        vbox {
+                                            alignment = Pos.CENTER
+                                            spacing = 10.0
+                                            button("Get data") {
+                                                setPrefSize(200.0, 40.0)
+                                                action {
+                                                    runAsyncWithProgress {
+                                                        when (offlineCheck.isSelected) {
+                                                            true -> debugController.getDataFromRemote()
+                                                            false -> remoteController.FileTransfer().run {
+                                                                getDataFromRemote()
+                                                            }
+                                                        }
+                                                    } ui { data ->
+                                                        data.forEach {
+                                                            logging.logBrat(it.toString())
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                         fieldset("Log") {
                             logFieldBrat = textarea { isEditable = false }

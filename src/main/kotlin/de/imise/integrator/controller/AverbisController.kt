@@ -63,18 +63,11 @@ class AverbisJsonEntry(private val jsonObject: JsonObject, averbisResponse: Aver
 }
 
 class AverbisResponse(file: File) {
-    //ToDo: modify filter that an empty `annotationValues` list gives all annotations
-
     private var jsonResponse: MutableMap<Int, JsonObject> = mutableMapOf()
     private val parser = Parser.default()
     val jsonEntryFilter: (Map.Entry<Int, JsonObject>) -> Boolean = { entry ->
-        annotationValues.any { it == entry.value.string(JSON_TYPE_KEY_STRING)}
+        annotationValues.any { it == entry.value.string(JSON_TYPE_KEY_STRING)} || annotationValues.isEmpty()
     }
-//  Old Filter expr. if above doesn't work
-//    entry ->
-//    annotationValues.any { value ->
-//        value == entry.value.string(JSON_TYPE_KEY_STRING)
-//    }
     val inputFileName: String = file.nameWithoutExtension
     val inputFilePath: String = file.parent
     var documentText: String = ""
@@ -84,7 +77,6 @@ class AverbisResponse(file: File) {
         get() {
             return jsonResponse
                 .filter { jsonEntryFilter(it) }
-//                .toList()  //was superfluous?
                 .map { AverbisJsonEntry(it.value, this) }
                 .asObservable()
         }

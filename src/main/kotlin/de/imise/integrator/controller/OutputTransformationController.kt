@@ -56,6 +56,10 @@ class OutputTransformationController(
                 )
             }
         }
+
+        fun readBrat(files: List<File>) {
+
+        }
     }
 //    fun jsonToString(jsonResponse: JsonArray<JsonObject>?) : String {
 //        val sb = StringBuilder()
