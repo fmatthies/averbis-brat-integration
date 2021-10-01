@@ -4,6 +4,8 @@ import com.beust.klaxon.JsonArray
 import com.beust.klaxon.JsonObject
 import com.beust.klaxon.Parser
 import com.beust.klaxon.json
+import de.imise.integrator.extensions.ResponseType
+import de.imise.integrator.extensions.ResponseTypeEntry
 import de.imise.integrator.view.MainView
 import javafx.collections.ObservableList
 import javafx.scene.control.RadioButton
@@ -23,7 +25,7 @@ import javax.json.JsonBuilderFactory
 
 const val JSON_ID_STRING = "id"
 
-class AverbisJsonEntry(private val jsonObject: JsonObject, averbisResponse: AverbisResponse) {
+class AverbisJsonEntry(private val jsonObject: JsonObject, averbisResponse: AverbisResponse): ResponseTypeEntry {
     val begin: Int
         get() = jsonObject["begin"] as Int
     val end: Int
@@ -34,8 +36,10 @@ class AverbisJsonEntry(private val jsonObject: JsonObject, averbisResponse: Aver
         get() = removeNewlines(jsonObject["coveredText"] as String)
     val typeFQN: String
         get() = jsonObject["type"] as String
-    val type: String
+    override val type: String
         get() = typeFQN.substringAfterLast(".")
+    override val text: String
+        get() = coveredText
 
     init {
         if (jsonObject["coveredText"] != coveredText) {
@@ -62,7 +66,7 @@ class AverbisJsonEntry(private val jsonObject: JsonObject, averbisResponse: Aver
     }
 }
 
-class AverbisResponse(file: File) {
+class AverbisResponse(file: File): ResponseType {
     private var jsonResponse: MutableMap<Int, JsonObject> = mutableMapOf()
     private val parser = Parser.default()
     val jsonEntryFilter: (Map.Entry<Int, JsonObject>) -> Boolean = { entry ->
@@ -73,7 +77,11 @@ class AverbisResponse(file: File) {
     var documentText: String = ""
     var documentTextId: Int = -1
     var annotationValues: List<String> = listOf()
-    val items: ObservableList<AverbisJsonEntry>
+    override val info1: String
+        get() = inputFileName
+    override val info2: String
+        get() = inputFilePath
+    override val items: ObservableList<ResponseTypeEntry>
         get() {
             return jsonResponse
                 .filter { jsonEntryFilter(it) }

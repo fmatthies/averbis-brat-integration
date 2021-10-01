@@ -1,6 +1,9 @@
 package de.imise.integrator.controller
 
+import de.imise.integrator.extensions.ResponseType
+import de.imise.integrator.extensions.ResponseTypeEntry
 import de.imise.integrator.view.MainView
+import javafx.scene.Node
 import javafx.stage.FileChooser
 import tornadofx.*
 import java.io.File
@@ -56,17 +59,17 @@ class FileHandlingController : Controller() {
         }
     }
 
-    fun writeOutputToApp(response: List<AverbisResponse>) {
-        mainView.outputFieldSet.children
+    fun writeOutputToApp(response: List<ResponseType>, fieldSet: Fieldset, onWritten: () -> Unit) {
+       fieldSet.children
             .filter { it::class.simpleName == "TableView" }
             .forEach { it.removeFromParent() }
-        mainView.outputFieldSet.tableview(response.asObservable()) {
+        fieldSet.tableview(response.asObservable()) {
             prefHeight = 1000.0
             isEditable = false
             columnResizePolicy = SmartResize.POLICY
 
-            readonlyColumn("File Name", AverbisResponse::inputFileName)
-            readonlyColumn("File Path", AverbisResponse::inputFilePath)
+            readonlyColumn("File Name", ResponseType::info1)
+            readonlyColumn("File Path", ResponseType::info2)
 
             rowExpander(expandOnDoubleClick = true) {
                 paddingLeft = expanderColumn.width
@@ -74,17 +77,11 @@ class FileHandlingController : Controller() {
                 tableview(it.items) {
                     columnResizePolicy = SmartResize.POLICY
 
-                    readonlyColumn("Type", AverbisJsonEntry::type).contentWidth(padding = 50.0)
-                    readonlyColumn("Text", AverbisJsonEntry::coveredText)
+                    readonlyColumn("Type", ResponseTypeEntry::type).contentWidth(padding = 50.0)
+                    readonlyColumn("Text", ResponseTypeEntry::text)
                 }
             }
         }
-//        mainView.outputField.text = ""
-//        response.forEach {
-//            val text = "--- ${it.inputFileName} ---\n" +
-//                    "${it.transformToType(TransformationTypes.valueOf(mainView.outputTransformationTypeBox.selectedItem!!))}\n"
-//            mainView.outputField.text += "${text}\n"
-//        }
-        mainView.outputDrawerItem.expanded = true
+        onWritten()
     }
 }

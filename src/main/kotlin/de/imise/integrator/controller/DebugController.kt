@@ -23,12 +23,18 @@ class DebugController : Controller() {
         }
     }
 
-    fun getDataFromRemote(): List<File> {
-        val data = File("$dataFolder/brat").list()
-        if (data.isNullOrEmpty()) return listOf()
-        data.shuffle()
-        return data.slice(IntRange(0, 4)).map {
-            File("$dataFolder/brat/$it")
+    fun getDataFromRemote(random: Boolean = false): List<File> {
+        if (random) {
+            val data = File("$dataFolder/brat").list()
+            if (data.isNullOrEmpty()) return listOf()
+            data.shuffle()
+            return data.slice(IntRange(0, 4)).map {
+                File("$dataFolder/brat/$it")
+            }
+        }
+        return listOf("Albers", "Beuerle", "Clausthal").run {
+            this.map { File("$dataFolder/brat/$it.ann") }
+                .plus( this.map { File("$dataFolder/$it.json") } )
         }
     }
 }

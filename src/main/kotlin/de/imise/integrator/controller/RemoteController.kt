@@ -168,7 +168,7 @@ class RemoteController : Controller() {
 //            bulkZip.delete()
         }
 
-        fun getDataFromRemote() : List<String> {
+        fun getDataFromRemote() : List<File> {
             return listOf()
         }
     }

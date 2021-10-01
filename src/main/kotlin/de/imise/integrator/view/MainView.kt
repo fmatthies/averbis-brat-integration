@@ -38,7 +38,7 @@ class MainView : View("Averbis & Brat Integrator") {
     var apiTokenField: TextField by singleAssign()
     var projectNameField: TextField by singleAssign()
     var pipelineNameField: TextField by singleAssign()
-    var outputFieldSet: Fieldset by singleAssign()
+    var outputFieldSetAverbis: Fieldset by singleAssign()
     var logFieldAverbis: TextArea by singleAssign()
     var languageGroup: ToggleGroup by singleAssign()
     var inputDirField: TextField by singleAssign()
@@ -46,7 +46,7 @@ class MainView : View("Averbis & Brat Integrator") {
     val inputSelectionMode = SimpleStringProperty()
     var outputDirField: TextField by singleAssign()
     var chooseOutputButton: Button by singleAssign()
-    var outputDrawerItem: DrawerItem by singleAssign()
+    var outputDrawerItemAverbis: DrawerItem by singleAssign()
     var outputModeBox: ComboBox<String> by singleAssign()
     val outputMode = SimpleStringProperty()
 
@@ -59,6 +59,8 @@ class MainView : View("Averbis & Brat Integrator") {
     var bratTransferSubfolderField: TextField by singleAssign()
     var bratReceiveSubfolderField: TextField by singleAssign()
     var logFieldBrat: TextArea by singleAssign()
+    var outputDrawerItemBrat: DrawerItem by singleAssign()
+    var outputFieldSetBrat: Fieldset by singleAssign()
 
     val tabBinding = { tabPane: TabPane, parent: HBox ->
         val x = parent.widthProperty().doubleBinding(tabPane.tabs) {
@@ -81,7 +83,8 @@ class MainView : View("Averbis & Brat Integrator") {
 
     override val root = borderpane {
         var fis: List<File> = listOf()
-        var responseList: List<AverbisResponse> = listOf()
+        var averbisResponseList: List<AverbisResponse> = listOf()
+        var bratResponseList: List<BratResponse> = listOf()
 
         prefHeight = 800.0
         prefWidth = 550.0
@@ -234,8 +237,11 @@ class MainView : View("Averbis & Brat Integrator") {
                                                                             analysis.outputData!!
                                                                         )
                                                                     } else {
-                                                                        responseList = response
-                                                                        fileHandlingController.writeOutputToApp(response)
+                                                                        averbisResponseList = response
+                                                                        fileHandlingController
+                                                                            .writeOutputToApp(response, outputFieldSetAverbis) {
+                                                                                outputDrawerItemAverbis.expanded = true
+                                                                            }
                                                                     }
                                                                 }
                                                             }
@@ -251,86 +257,102 @@ class MainView : View("Averbis & Brat Integrator") {
                                 }
                             }
                         }
-                        outputDrawerItem = item("Output") {
+                        outputDrawerItemAverbis = item("Output") {
                             form {
-                                outputFieldSet = fieldset("Output") {
+                                outputFieldSetAverbis = fieldset("Output") {
                                 }
                             }
                         }
                     }
                 }
                 tab("Brat") {
-                    form {
-                        //ToDo: use models here as well
-                        fieldset("Setup") {
-                            field("Remote Host") {
-                                hostField = textfield(app.config.getProperty(DEFAULT_REMOTE_HOST)).apply { }
-                            }
-                            field("Remote Port") {
-                                remotePortField = textfield(app.config.getProperty(DEFAULT_REMOTE_PORT)).apply { }
-                            }
-                            field("Username") {
-                                usernameField = textfield().apply { }
-                            }
-                            field("Password") {
-                                passwordField = passwordfield().apply { }
-                            }
-                            field("Brat Data Folder") {
-                                bratDataFolderField = textfield(app.config.getProperty(DEFAULT_REMOTE_DEST)).apply { }
-                            }
-                        }
-                        fieldset("Transfer") {
-                            field("Subfolder (optional)") {
-                                bratTransferSubfolderField = textfield()
-                                tooltip(
-                                    "Transfers files to specified subfolder under Brat data folder;" +
-                                            "if empty the Averbis pipeline name is used as subfolder."
-                                )
-                            }
-                            field {
-                                borderpane {
-                                    padding = insets(10)
-                                    center {
-                                        vbox {
-                                            alignment = Pos.CENTER
-                                            spacing = 10.0
-                                            button("Transfer data") {
-                                                setPrefSize(200.0, 40.0)
-                                                action {
-                                                    remoteController.FileTransfer().apply {
-                                                        transferData(responseList)
-                                                    }
-                                                }
-                                            }
-                                        }
+                    drawer(side = Side.RIGHT) {
+                        item("General", expanded = true) {
+                            form {
+                                //ToDo: use models here as well
+                                fieldset("Setup") {
+                                    field("Remote Host") {
+                                        hostField = textfield(app.config.getProperty(DEFAULT_REMOTE_HOST)).apply { }
+                                    }
+                                    field("Remote Port") {
+                                        remotePortField =
+                                            textfield(app.config.getProperty(DEFAULT_REMOTE_PORT)).apply { }
+                                    }
+                                    field("Username") {
+                                        usernameField = textfield().apply { }
+                                    }
+                                    field("Password") {
+                                        passwordField = passwordfield().apply { }
+                                    }
+                                    field("Brat Data Folder") {
+                                        bratDataFolderField =
+                                            textfield(app.config.getProperty(DEFAULT_REMOTE_DEST)).apply { }
                                     }
                                 }
-                            }
-                        }
-                        fieldset("Receive") {
-                            field("Subfolder") {
-                                bratReceiveSubfolderField = textfield().apply { } // ToDo: required!
-                            }
-                            field {
-                                borderpane {
-                                    padding = insets(10)
-                                    center {
-                                        vbox {
-                                            alignment = Pos.CENTER
-                                            spacing = 10.0
-                                            button("Get data") {
-                                                setPrefSize(200.0, 40.0)
-                                                action {
-                                                    runAsyncWithProgress {
-                                                        when (offlineCheck.isSelected) {
-                                                            true -> debugController.getDataFromRemote()
-                                                            false -> remoteController.FileTransfer().run {
-                                                                getDataFromRemote()
+                                fieldset("Transfer") {
+                                    field("Subfolder (optional)") {
+                                        bratTransferSubfolderField = textfield()
+                                        tooltip(
+                                            "Transfers files to specified subfolder under Brat data folder;" +
+                                                    "if empty the Averbis pipeline name is used as subfolder."
+                                        )
+                                    }
+                                    field {
+                                        borderpane {
+                                            padding = insets(10)
+                                            center {
+                                                vbox {
+                                                    alignment = Pos.CENTER
+                                                    spacing = 10.0
+                                                    button("Transfer data") {
+                                                        setPrefSize(200.0, 40.0)
+                                                        action {
+                                                            remoteController.FileTransfer().apply {
+                                                                transferData(averbisResponseList)
                                                             }
                                                         }
-                                                    } ui { data ->
-                                                        data.forEach {
-                                                            logging.logBrat(it.toString())
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                fieldset("Receive") {
+                                    field("Subfolder") {
+                                        bratReceiveSubfolderField = textfield().apply { } // ToDo: required!
+                                    }
+                                    field {
+                                        borderpane {
+                                            padding = insets(10)
+                                            center {
+                                                vbox {
+                                                    alignment = Pos.CENTER
+                                                    spacing = 10.0
+                                                    button("Get data") {
+                                                        setPrefSize(200.0, 40.0)
+                                                        action {
+                                                            runAsyncWithProgress {
+                                                                when (offlineCheck.isSelected) {
+                                                                    true -> debugController.getDataFromRemote()
+                                                                    false -> remoteController.FileTransfer().run {
+                                                                        getDataFromRemote()
+                                                                    }
+                                                                }
+                                                            } ui { data ->
+                                                                bratResponseList = data
+                                                                    .groupBy { it.nameWithoutExtension }
+                                                                    .values
+                                                                    .map { fileList ->
+                                                                        BratResponse(
+                                                                            fileList.find { it.extension == "ann" },
+                                                                            fileList.find { it.extension == "json" }
+                                                                        )
+                                                                    }
+                                                                fileHandlingController
+                                                                    .writeOutputToApp(bratResponseList, outputFieldSetBrat) {
+                                                                        outputDrawerItemBrat.expanded = true
+                                                                    }
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -338,10 +360,16 @@ class MainView : View("Averbis & Brat Integrator") {
                                         }
                                     }
                                 }
+                                fieldset("Log") {
+                                    logFieldBrat = textarea { isEditable = false }
+                                }
                             }
                         }
-                        fieldset("Log") {
-                            logFieldBrat = textarea { isEditable = false }
+                        outputDrawerItemBrat = item("Output") {
+                            form {
+                                outputFieldSetBrat = fieldset("Output") {
+                                }
+                            }
                         }
                     }
                 }
