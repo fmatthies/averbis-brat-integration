@@ -3,7 +3,6 @@ package de.imise.integrator.controller
 import de.imise.integrator.extensions.ResponseType
 import de.imise.integrator.extensions.ResponseTypeEntry
 import de.imise.integrator.view.MainView
-import javafx.scene.Node
 import javafx.stage.FileChooser
 import tornadofx.*
 import java.io.File
@@ -43,17 +42,17 @@ class FileHandlingController : Controller() {
         return files
     }
 
-    fun writeOutputToDisk(response: List<AverbisResponse>, outputData: String) {
+    fun writeOutputToDisk(response: List<AverbisResponse>, outputPath: String) {
         OutputTransformationController.transformToBrat(response).forEach {
-            File(outputData,"${it.first.fileName}.${it.first.extension}")
+            File(outputPath,"${it.first.fileName}.${it.first.extension}")
                 .bufferedWriter()
                 .use { out -> out.write(it.first.content) }
-            File(outputData, "${it.second.fileName}.${it.second.extension}")
+            File(outputPath, "${it.second.fileName}.${it.second.extension}")
                 .bufferedWriter()
                 .use { out -> out.write(it.second.content) }
         }
         OutputTransformationController.getFilteredJson(response).forEach {
-            File(outputData,"${it.fileName}.${it.extension}" )
+            File(outputPath,"${it.fileName}.${it.extension}" )
                 .bufferedWriter()
                 .use { out -> out.write(it.content) }
         }

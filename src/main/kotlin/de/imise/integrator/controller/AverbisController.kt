@@ -89,6 +89,10 @@ class AverbisResponse(file: File): ResponseType {
                 .asObservable()
         }
 
+    fun getData(): MutableMap<Int, JsonObject> {
+        return jsonResponse
+    }
+
     fun setAnnotations(values: List<String>) {
         annotationValues = values
     }
