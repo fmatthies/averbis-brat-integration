@@ -61,6 +61,7 @@ class MainView : View("Averbis & Brat Integrator") {
     var logFieldBrat: TextArea by singleAssign()
     var outputDrawerItemBrat: DrawerItem by singleAssign()
     var outputFieldSetBrat: Fieldset by singleAssign()
+    var mergeDataButton: Button by singleAssign()
 
     val tabBinding = { tabPane: TabPane, parent: HBox ->
         val x = parent.widthProperty().doubleBinding(tabPane.tabs) {
@@ -351,6 +352,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                                                 fileHandlingController
                                                                     .writeOutputToApp(bratResponseList, outputFieldSetBrat) {
                                                                         outputDrawerItemBrat.expanded = true
+                                                                        mergeDataButton.isVisible = true
                                                                     }
                                                             }
                                                         }
@@ -366,8 +368,22 @@ class MainView : View("Averbis & Brat Integrator") {
                             }
                         }
                         outputDrawerItemBrat = item("Output") {
-                            form {
-                                outputFieldSetBrat = fieldset("Output") {
+                            borderpane {
+                                center = form {
+                                    outputFieldSetBrat = fieldset("Output") { }
+                                }
+                                bottom = vbox {
+                                    alignment = Pos.CENTER
+                                    spacing = 10.0
+                                    paddingAll = 10.0
+                                    mergeDataButton = button("Merge Data") {
+                                        isVisible = false
+                                        setPrefSize(200.0, 40.0)
+                                        action {
+                                            val dir = chooseDirectory("Choose Folder")
+                                            fileHandlingController.writeMergedData(dir, bratResponseList)
+                                        }
+                                    }
                                 }
                             }
                         }

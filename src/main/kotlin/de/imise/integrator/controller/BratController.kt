@@ -1,5 +1,6 @@
 package de.imise.integrator.controller
 
+import com.beust.klaxon.JsonArray
 import com.beust.klaxon.JsonObject
 import com.beust.klaxon.json
 import de.imise.integrator.extensions.ResponseType
@@ -15,8 +16,8 @@ data class BratAnnotation(val id: Int, val bratType: String, override val type: 
 class BratResponse(annFile: File?, jsonFile: File?): ResponseType {
     val averbisData = jsonFile?.let { AverbisResponse(it).apply { this.readJson(jsonFile.readText()) } }
     var textboundData = mutableMapOf<Int, BratAnnotation>()
-    override val info1: String = annFile?.nameWithoutExtension ?: "none"
-    override val info2: String = annFile?.parent ?: "none"
+    override val basename: String = annFile?.nameWithoutExtension ?: "none"
+    override val pathname: String = annFile?.parent ?: "none"
     override val items: ObservableList<ResponseTypeEntry>  //ToDo: I want all? (even json entries)
         get() = textboundData
             .values
@@ -48,7 +49,7 @@ class BratResponse(annFile: File?, jsonFile: File?): ResponseType {
         }
     }
 
-    fun mergeAverbisBrat(): List<JsonObject> {
+    fun mergeAverbisBrat(): JsonObject {
         val idSetBrat = textboundData.keys
         val idSetAverbis = averbisData!!.getData().keys
         val mergedData = mutableListOf<JsonObject>()
@@ -70,7 +71,7 @@ class BratResponse(annFile: File?, jsonFile: File?): ResponseType {
         idSetBrat.subtract(idSetAverbis).forEach {
             textboundData[it]?.let { data -> mergedData.addJson(data) }
         }
-        return mergedData.toList()
+        return json { obj("annotationDtos" to array(mergedData.toList())) }
     }
 }
 

@@ -67,8 +67,8 @@ class FileHandlingController : Controller() {
             isEditable = false
             columnResizePolicy = SmartResize.POLICY
 
-            readonlyColumn("File Name", ResponseType::info1)
-            readonlyColumn("File Path", ResponseType::info2)
+            readonlyColumn("File Name", ResponseType::basename)
+            readonlyColumn("File Path", ResponseType::pathname)
 
             rowExpander(expandOnDoubleClick = true) {
                 paddingLeft = expanderColumn.width
@@ -82,5 +82,14 @@ class FileHandlingController : Controller() {
             }
         }
         onWritten()
+    }
+
+    fun writeMergedData(folder: File?, data: List<BratResponse>) {
+        if (folder == null) return
+        data.forEach { br ->
+            File(folder, "${br.basename}.json")
+                .bufferedWriter()
+                .use { out -> out.write(br.mergeAverbisBrat().toJsonString(prettyPrint = true)) }
+        }
     }
 }

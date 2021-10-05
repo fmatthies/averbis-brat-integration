@@ -77,9 +77,9 @@ class AverbisResponse(file: File): ResponseType {
     var documentText: String = ""
     var documentTextId: Int = -1
     var annotationValues: List<String> = listOf()
-    override val info1: String
+    override val basename: String
         get() = inputFileName
-    override val info2: String
+    override val pathname: String
         get() = inputFilePath
     override val items: ObservableList<ResponseTypeEntry>
         get() {
