@@ -1,6 +1,8 @@
 package de.imise.integrator.view
 
 import de.imise.integrator.controller.*
+import de.imise.integrator.extensions.ResponseType
+import de.imise.integrator.extensions.withTableFrom
 import de.imise.integrator.model.*
 import javafx.beans.property.SimpleStringProperty
 import javafx.collections.FXCollections
@@ -84,8 +86,8 @@ class MainView : View("Averbis & Brat Integrator") {
 
     override val root = borderpane {
         var fis: List<File> = listOf()
-        var averbisResponseList: List<AverbisResponse> = listOf()
-        var bratResponseList: List<BratResponse> = listOf()
+        val averbisResponseList = mutableListOf<ResponseType>().asObservable()
+        val bratResponseList = mutableListOf<ResponseType>().asObservable()
 
         prefHeight = 800.0
         prefWidth = 550.0
@@ -226,25 +228,21 @@ class MainView : View("Averbis & Brat Integrator") {
                                                                 input.hasNoNullProperties() and
                                                                 (analysis.hasNoNullProperties() or (outputMode.value == "Remote"))
                                                             ) {
+                                                                outputDrawerItemAverbis.expanded = true
+                                                                isDisable = true
                                                                 runAsyncWithProgress {
                                                                     when (offlineCheck.isSelected) {
-                                                                        true -> debugController.postDocuments(fis)
-                                                                        false -> averbisController.postDocuments(fis)
+                                                                        true -> debugController.postDocuments(fis, averbisResponseList)
+                                                                        false -> averbisController.postDocuments(fis, averbisResponseList, analysis)
                                                                     }
-                                                                } ui { response ->
-                                                                    if (analysis.outputIsProperPath() && outputMode.value == "Local") {
-                                                                        fileHandlingController.writeOutputToDisk(
-                                                                            response,
-                                                                            analysis.outputData!!
-                                                                        )
-                                                                    } else {
-                                                                        averbisResponseList = response
-                                                                        fileHandlingController
-                                                                            .writeOutputToApp(response, outputFieldSetAverbis) {
-                                                                                outputDrawerItemAverbis.expanded = true
-                                                                            }
-                                                                    }
-                                                                }
+                                                                } ui { isDisable = false }// response ->
+//                                                                    if (analysis.outputIsProperPath() && outputMode.value == "Local") {
+//                                                                        fileHandlingController.writeOutputToDisk(
+//                                                                            response,
+//                                                                            analysis.outputData!!
+//                                                                        )
+//                                                                    }
+//                                                                }
                                                             }
                                                         }
                                                     }
@@ -260,8 +258,7 @@ class MainView : View("Averbis & Brat Integrator") {
                         }
                         outputDrawerItemAverbis = item("Output") {
                             form {
-                                outputFieldSetAverbis = fieldset("Output") {
-                                }
+                                fieldset("Output").withTableFrom(averbisResponseList)
                             }
                         }
                     }
@@ -340,7 +337,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                                                     }
                                                                 }
                                                             } ui { data ->
-                                                                bratResponseList = data
+                                                                data
                                                                     .groupBy { it.nameWithoutExtension }
                                                                     .values
                                                                     .map { fileList ->
@@ -348,7 +345,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                                                             fileList.find { it.extension == "ann" },
                                                                             fileList.find { it.extension == "json" }
                                                                         )
-                                                                    }
+                                                                    }.forEach { bratResponseList.add(it) }
                                                                 fileHandlingController
                                                                     .writeOutputToApp(bratResponseList, outputFieldSetBrat) {
                                                                         outputDrawerItemBrat.expanded = true
@@ -381,7 +378,9 @@ class MainView : View("Averbis & Brat Integrator") {
                                         setPrefSize(200.0, 40.0)
                                         action {
                                             val dir = chooseDirectory("Choose Folder")
-                                            fileHandlingController.writeMergedData(dir, bratResponseList)
+                                            fileHandlingController.writeMergedData(dir,
+                                                bratResponseList.toList() as List<BratResponse>
+                                            )
                                         }
                                     }
                                 }

@@ -1,5 +1,6 @@
 package de.imise.integrator.controller
 
+import de.imise.integrator.extensions.ResponseType
 import de.imise.integrator.view.MainView
 import tornadofx.*
 import java.io.File
@@ -88,7 +89,7 @@ class RemoteController : Controller() {
             // for every file in `.tmp/project-name` (from unzip):
             //  - create (i.e. `touch`) an equally named file in `destination/project-name`
             //  - `cat` content from former files to latter
-            // this way the newly created folder andfiles in `destination` have the group `bin` (used `setfacl`) and keep it
+            // this way the newly created folder and files in `destination` have the group `bin` (used `setfacl`) and keep it
             // brat will be able to read/write there
             ProcessBuilder(
                 *processBuilder(ConnectionTool.PLINK),
@@ -103,32 +104,6 @@ class RemoteController : Controller() {
                 .redirectOutput(ProcessBuilder.Redirect.PIPE)
                 .start()
                 .log()
-//            val sudoPass = "sudoPass.txt"
-//            File(sudoPass)
-//                .bufferedWriter()
-//                .use { it.write("${mainView.passwordField.text}\n") }
-//
-//            waitForFile(File(sudoPass))
-//            ProcessBuilder(
-//                "type ${Paths.get("").toAbsolutePath()}\\$sudoPass", "|",
-//                "plink.exe",
-//                "-P", mainView.remotePortField.text,
-//                "-pw", mainView.passwordField.text,
-//                "-no-antispoof",
-//                "${mainView.usernameField.text}@${mainView.hostField.text}",
-//                "sudo mkdir --parents ${mainView.destinationField.text}"
-//            ).start()
-//            ProcessBuilder(
-//                "type ${Paths.get("").toAbsolutePath()}\\$sudoPass", "|",
-//                "plink.exe",
-//                "-P", mainView.remotePortField.text,
-//                "-pw", mainView.passwordField.text,
-//                "-no-antispoof",
-//                "${mainView.usernameField.text}@${mainView.hostField.text}",
-//                "sudo unzip $tmpFolder/${fi.name} -d ${mainView.destinationField.text}"
-//            ).start()
-//
-//            File(sudoPass).delete()
             logging.logBrat("Extracted files to brat folder...")
         }
 
@@ -142,12 +117,12 @@ class RemoteController : Controller() {
                 .log()
         }
 
-        fun transferData(response: List<AverbisResponse>) {
+        fun transferData(response: List<ResponseType>) {
             val bulkZip = File("bulk.zip")
             bulkZip.outputStream().use {  fos ->
                 ZipOutputStream(fos).use { zos ->
                     zos.putNextEntry(ZipEntry("${mainView.pipelineNameField.text}/"))
-                    OutputTransformationController.transformToBrat(response).forEach { pair ->
+                    OutputTransformationController.transformToBrat(response as List<AverbisResponse>).forEach { pair ->
                         pair.toList().forEach { entry ->
                             val zipEntry = ZipEntry("${mainView.pipelineNameField.text}/${entry.fileName}.${entry.extension}")
                             zos.putNextEntry(zipEntry)

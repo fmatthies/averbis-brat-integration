@@ -31,6 +31,7 @@ class FileHandlingController : Controller() {
                 if (dir != null) {
                     files = Files.list(dir.toPath())
                         .map(Path::toFile)
+                        .filter(File::isFile)
                         .collect(toList())
                 }
                 mainView.inputDirField.text = dir?.absolutePath

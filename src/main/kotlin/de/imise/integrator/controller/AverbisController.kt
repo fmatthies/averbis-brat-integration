@@ -6,6 +6,7 @@ import com.beust.klaxon.Parser
 import com.beust.klaxon.json
 import de.imise.integrator.extensions.ResponseType
 import de.imise.integrator.extensions.ResponseTypeEntry
+import de.imise.integrator.model.Analysis
 import de.imise.integrator.view.MainView
 import javafx.collections.ObservableList
 import javafx.scene.control.RadioButton
@@ -157,17 +158,20 @@ class AverbisResponse(file: File): ResponseType {
 class AverbisController(private val url: String? = null): Controller() {
     private val logging: LoggingController by inject()
     private val mainView: MainView by inject()
+    private val fileHandlingController: FileHandlingController by inject()
     private val client = OkHttpClient().newBuilder()
         .connectTimeout(15, TimeUnit.SECONDS)
         .build()
 
-    fun postDocuments(documents: List<File>): List<AverbisResponse> {
-        val responseList = mutableListOf<AverbisResponse>()
+    fun postDocuments(documents: List<File>, averbisResponseList: ObservableList<ResponseType>, analysis: Analysis) {
         documents.forEach {
-            responseList.add(postDocument(it.absolutePath).apply {
-                setAnnotations(mainView.analysisModel.annotationValues.value) })
+            averbisResponseList.add(postDocument(it.absolutePath).apply {
+                setAnnotations(mainView.analysisModel.annotationValues.value)
+                if (analysis.outputIsProperPath() && mainView.outputMode.value == "Local") {
+                    fileHandlingController.writeOutputToDisk(listOf(this), analysis.outputData!!) //ToDo: to conform to old method I need to transform this into a list... change it?
+                }
+            } )
         }
-        return responseList.toList()
     }
 
     private fun postDocument(document_path: String,

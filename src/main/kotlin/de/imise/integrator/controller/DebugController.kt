@@ -1,6 +1,8 @@
 package de.imise.integrator.controller
 
+import de.imise.integrator.extensions.ResponseType
 import de.imise.integrator.view.MainView
+import javafx.collections.ObservableList
 import tornadofx.*
 import java.io.File
 import java.nio.file.Paths
@@ -13,13 +15,15 @@ class DebugController : Controller() {
         return File("$dataFolder/$name.$ext")
     }
 
-    fun postDocuments(documents: List<File>) : List<AverbisResponse> {
-        return documents.map { fi ->
+    fun postDocuments(documents: List<File>, averbisResponseList: ObservableList<ResponseType>) {
+        documents.forEach { fi ->
             val response = AverbisResponse(fi)
             response.apply {
                 readJson(jsonResourceByName(fi.nameWithoutExtension, "json").readText())
                 setAnnotations(mainView.analysisModel.annotationValues.value)
             }
+            averbisResponseList.add(response)
+            Thread.sleep(1000)
         }
     }
 
