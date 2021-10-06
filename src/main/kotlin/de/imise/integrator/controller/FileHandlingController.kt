@@ -1,7 +1,5 @@
 package de.imise.integrator.controller
 
-import de.imise.integrator.extensions.ResponseType
-import de.imise.integrator.extensions.ResponseTypeEntry
 import de.imise.integrator.view.MainView
 import javafx.stage.FileChooser
 import tornadofx.*
@@ -59,31 +57,31 @@ class FileHandlingController : Controller() {
         }
     }
 
-    fun writeOutputToApp(response: List<ResponseType>, fieldSet: Fieldset, onWritten: () -> Unit) {
-       fieldSet.children
-            .filter { it::class.simpleName == "TableView" }
-            .forEach { it.removeFromParent() }
-        fieldSet.tableview(response.asObservable()) {
-            prefHeight = 1000.0
-            isEditable = false
-            columnResizePolicy = SmartResize.POLICY
-
-            readonlyColumn("File Name", ResponseType::basename)
-            readonlyColumn("File Path", ResponseType::additionalColumn)
-
-            rowExpander(expandOnDoubleClick = true) {
-                paddingLeft = expanderColumn.width
-
-                tableview(it.items) {
-                    columnResizePolicy = SmartResize.POLICY
-
-                    readonlyColumn("Type", ResponseTypeEntry::type).contentWidth(padding = 50.0)
-                    readonlyColumn("Text", ResponseTypeEntry::text)
-                }
-            }
-        }
-        onWritten()
-    }
+//    fun writeOutputToApp(response: List<ResponseType>, fieldSet: Fieldset, onWritten: () -> Unit) {
+//       fieldSet.children
+//            .filter { it::class.simpleName == "TableView" }
+//            .forEach { it.removeFromParent() }
+//        fieldSet.tableview(response.asObservable()) {
+//            prefHeight = 1000.0
+//            isEditable = false
+//            columnResizePolicy = SmartResize.POLICY
+//
+//            readonlyColumn("File Name", ResponseType::basename)
+//            readonlyColumn("File Path", ResponseType::additionalColumn)
+//
+//            rowExpander(expandOnDoubleClick = true) {
+//                paddingLeft = expanderColumn.width
+//
+//                tableview(it.items) {
+//                    columnResizePolicy = SmartResize.POLICY
+//
+//                    readonlyColumn("Type", ResponseTypeEntry::type).contentWidth(padding = 50.0)
+//                    readonlyColumn("Text", ResponseTypeEntry::text)
+//                }
+//            }
+//        }
+//        onWritten()
+//    }
 
     fun writeMergedData(folder: File?, data: List<BratResponse>) {
         if (folder == null) return

@@ -71,12 +71,15 @@ class AverbisResponse(file: File): ResponseType {
     private var jsonResponse: MutableMap<Int, JsonObject> = mutableMapOf()
     private val parser = Parser.default()
     val jsonEntryFilter: (Map.Entry<Int, JsonObject>) -> Boolean = { entry ->
-        annotationValues.any { it == entry.value.string(JSON_TYPE_KEY_STRING)} || annotationValues.isEmpty()
+        annotationValues.any { it == entry.value.string(JSON_TYPE_KEY_STRING) } ||
+        annotationValues.isEmpty()
     }
     val inputFileName: String = file.nameWithoutExtension
     val inputFilePath: String = file.parent
     var documentText: String = ""
     var documentTextId: Int = -1
+    var documentLanguage: String = ""
+    var documentAverbisVersion: String = ""
     var annotationValues: List<String> = listOf()
     override val basename: String
         get() = inputFileName
@@ -105,6 +108,8 @@ class AverbisResponse(file: File): ResponseType {
                 if (it.string(JSON_TYPE_KEY_STRING).toString() == DOCUMENT_TEXT_TYPE) {
                     documentText = it.string(JSON_COVERED_TEXT_KEY_STRING).toString()
                     documentTextId = id
+                    documentLanguage = it.string("language").toString()
+                    documentAverbisVersion = it.string("version").toString()
                 }
             }
         }
@@ -127,7 +132,7 @@ class AverbisResponse(file: File): ResponseType {
                     .toList()
 //                    .apply {
 //                        this.plus( json {  } )
-//                    } // ToDo: add DocumentAnnotation & DeidentifiedDocument entries
+//                    } // ToDo: add DocumentAnnotation?
                 )
         }.toString()
     }
@@ -145,10 +150,8 @@ class AverbisResponse(file: File): ResponseType {
     }
 
     companion object {
-        const val DEIDED_DOCUMENT_TEXT_TYPE: String = "de.averbis.types.health.DeidentifiedDocument"
         const val DOCUMENT_TEXT_TYPE: String = "de.averbis.types.health.DocumentAnnotation"
         const val JSON_COVERED_TEXT_KEY_STRING = "coveredText"
-        const val JSON_DEIDED_TEXT_KEY_STRING: String = "deidentifiedText"
         const val JSON_TYPE_KEY_STRING = "type"
         const val ANNOTATION_ARRAY_KEY_STRING = "annotationDtos"
     }

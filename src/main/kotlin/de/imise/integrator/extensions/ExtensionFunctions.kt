@@ -20,10 +20,7 @@ fun Fieldset.withTableFrom(responseList: ObservableList<ResponseType>): Fieldset
                 tableview(it.items) {
                     columnResizePolicy = SmartResize.POLICY
 
-                    readonlyColumn(
-                        "Type",
-                        ResponseTypeEntry::type
-                    ).contentWidth(padding = 50.0)
+                    readonlyColumn("Type", ResponseTypeEntry::type).contentWidth(padding = 50.0)
                     readonlyColumn("Text", ResponseTypeEntry::text)
                 }
             }

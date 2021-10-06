@@ -1,6 +1,5 @@
 package de.imise.integrator.controller
 
-import com.beust.klaxon.JsonArray
 import com.beust.klaxon.JsonObject
 import com.beust.klaxon.json
 import de.imise.integrator.extensions.ResponseType
@@ -49,6 +48,14 @@ class BratResponse(annFile: File?, jsonFile: File?): ResponseType {
         }
     }
 
+    private fun crossOutModifyAnnotations(sb: StringBuilder, data: BratAnnotation) {
+        if (crossOutAnnotations.any { it == "$AVERBIS_HEALTH_PRE${data.type}" }) {
+            sb.setRange(data.begin, data.end, "X".repeat(data.text.length))
+        }
+    }
+
+    // ToDo: right now, the single elements (even if they should be crossed out) are returned as json; maybe remove
+    //  those as well?
     fun mergeAverbisBrat(): JsonObject {
         val idSetBrat = textboundData.keys
         val idSetAverbis = averbisData!!.getData().keys
@@ -58,20 +65,49 @@ class BratResponse(annFile: File?, jsonFile: File?): ResponseType {
                 json { obj(
                     "begin" to sourceData.begin,
                     "end" to sourceData.end,
-                    "type" to "de.averbis.types.health.${sourceData.type}",
+                    "type" to "$AVERBIS_HEALTH_PRE${sourceData.type}",
                     "coveredText" to sourceData.text,
                     "id" to (id ?: sourceData.id),
                 ) }
             )
         }
+        val doc = StringBuilder(averbisData.documentText).also { sb ->
+            idSetBrat.intersect(idSetAverbis).forEach {
+                textboundData[it]?.let { data ->
+                    mergedData.addJson(data)
+                    crossOutModifyAnnotations(sb, data)
+                }
+            }
+            idSetBrat.subtract(idSetAverbis).forEach {
+                textboundData[it]?.let { data ->
+                    mergedData.addJson(data)
+                    crossOutModifyAnnotations(sb, data)
+                }
+            }
+        }.toString()
 
-        idSetBrat.intersect(idSetAverbis).forEach {
-            textboundData[it]?.let { data -> mergedData.addJson(data) }
-        }
-        idSetBrat.subtract(idSetAverbis).forEach {
-            textboundData[it]?.let { data -> mergedData.addJson(data) }
-        }
+        mergedData.add(json { obj(
+            "begin" to 0,
+            "end" to doc.length,
+            "type" to DOCUMENT_TEXT_TYPE,
+            "coveredText" to doc,
+            "id" to averbisData.documentTextId,
+            "language" to averbisData.documentLanguage,
+            "version" to averbisData.documentAverbisVersion
+        ) })
+
         return json { obj("annotationDtos" to array(mergedData.toList())) }
+    }
+
+    // ToDo: put this into a checkbox list thingy?!
+    companion object {
+        val crossOutAnnotations = arrayOf(
+            "de.averbis.types.health.Age", "de.averbis.types.health.Name", "de.averbis.types.health.Location",
+            "de.averbis.types.health.Id", "de.averbis.types.health.Contact", "de.averbis.types.health.Profession",
+            "de.averbis.types.health.PHIOther")
+        val replaceAnnotations = arrayOf("de.averbis.types.health.Date")
+        const val DOCUMENT_TEXT_TYPE: String = "de.averbis.types.health.DocumentAnnotation"
+        const val AVERBIS_HEALTH_PRE: String = "de.averbis.types.health."
     }
 }
 
