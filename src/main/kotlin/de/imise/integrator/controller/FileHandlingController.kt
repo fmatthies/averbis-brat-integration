@@ -69,7 +69,7 @@ class FileHandlingController : Controller() {
             columnResizePolicy = SmartResize.POLICY
 
             readonlyColumn("File Name", ResponseType::basename)
-            readonlyColumn("File Path", ResponseType::pathname)
+            readonlyColumn("File Path", ResponseType::additionalColumn)
 
             rowExpander(expandOnDoubleClick = true) {
                 paddingLeft = expanderColumn.width

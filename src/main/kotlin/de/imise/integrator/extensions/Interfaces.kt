@@ -4,7 +4,7 @@ import javafx.collections.ObservableList
 
 interface ResponseType {
     val basename: String
-    val pathname: String
+    val additionalColumn: String
     val items: ObservableList<ResponseTypeEntry>
 }
 

@@ -2,6 +2,7 @@ package de.imise.integrator.view
 
 import de.imise.integrator.controller.*
 import de.imise.integrator.extensions.ResponseType
+import de.imise.integrator.extensions.withActionButton
 import de.imise.integrator.extensions.withTableFrom
 import de.imise.integrator.model.*
 import javafx.beans.property.SimpleStringProperty
@@ -40,7 +41,6 @@ class MainView : View("Averbis & Brat Integrator") {
     var apiTokenField: TextField by singleAssign()
     var projectNameField: TextField by singleAssign()
     var pipelineNameField: TextField by singleAssign()
-    var outputFieldSetAverbis: Fieldset by singleAssign()
     var logFieldAverbis: TextArea by singleAssign()
     var languageGroup: ToggleGroup by singleAssign()
     var inputDirField: TextField by singleAssign()
@@ -62,7 +62,6 @@ class MainView : View("Averbis & Brat Integrator") {
     var bratReceiveSubfolderField: TextField by singleAssign()
     var logFieldBrat: TextArea by singleAssign()
     var outputDrawerItemBrat: DrawerItem by singleAssign()
-    var outputFieldSetBrat: Fieldset by singleAssign()
     var mergeDataButton: Button by singleAssign()
 
     val tabBinding = { tabPane: TabPane, parent: HBox ->
@@ -205,49 +204,28 @@ class MainView : View("Averbis & Brat Integrator") {
                                     //ToDo: add viewer (and selector) for which path parts should be used for later output path
                                     //ToDo: separate "post data" from "analyze data" so that filtering can be done later
                                     // this allows us to extract `types` from json and they don't have to be declared in the config
-                                    field {
-                                        borderpane {
-                                            padding = insets(10)
-                                            center {
-                                                vbox {
-                                                    alignment = Pos.CENTER
-                                                    spacing = 10.0
-                                                    button("Post data") {
-                                                        setPrefSize(200.0, 40.0)
-                                                        action {
-                                                            setupModel.commit()
-                                                            inputDataModel.commit()
-                                                            analysisModel.commit()
+                                    field().withActionButton("Post Data") {
+                                        setupModel.commit()
+                                        inputDataModel.commit()
+                                        analysisModel.commit()
 
-                                                            val setup: Setup = setupModel.item
-                                                            val input: Input = inputDataModel.item
-                                                            val analysis: Analysis = analysisModel.item
+                                        val setup: Setup = setupModel.item
+                                        val input: Input = inputDataModel.item
+                                        val analysis: Analysis = analysisModel.item
 
-                                                            //ToDo: progress indicator that shows a real progress and not just spinning wheel
-                                                            if (setup.hasNoNullProperties() and
-                                                                input.hasNoNullProperties() and
-                                                                (analysis.hasNoNullProperties() or (outputMode.value == "Remote"))
-                                                            ) {
-                                                                outputDrawerItemAverbis.expanded = true
-                                                                isDisable = true
-                                                                runAsyncWithProgress {
-                                                                    when (offlineCheck.isSelected) {
-                                                                        true -> debugController.postDocuments(fis, averbisResponseList)
-                                                                        false -> averbisController.postDocuments(fis, averbisResponseList, analysis)
-                                                                    }
-                                                                } ui { isDisable = false }// response ->
-//                                                                    if (analysis.outputIsProperPath() && outputMode.value == "Local") {
-//                                                                        fileHandlingController.writeOutputToDisk(
-//                                                                            response,
-//                                                                            analysis.outputData!!
-//                                                                        )
-//                                                                    }
-//                                                                }
-                                                            }
-                                                        }
-                                                    }
+                                        //ToDo: progress indicator that shows a real progress and not just spinning wheel
+                                        if (setup.hasNoNullProperties() and
+                                            input.hasNoNullProperties() and
+                                            (analysis.hasNoNullProperties() or (outputMode.value == "Remote"))
+                                        ) {
+                                            outputDrawerItemAverbis.expanded = true
+                                            isDisable = true
+                                            runAsync {
+                                                when (offlineCheck.isSelected) {
+                                                    true -> debugController.postDocuments(fis, averbisResponseList)
+                                                    false -> averbisController.postDocuments(fis, averbisResponseList, analysis)
                                                 }
-                                            }
+                                            } ui { isDisable = false }
                                         }
                                     }
                                 }
@@ -295,23 +273,9 @@ class MainView : View("Averbis & Brat Integrator") {
                                                     "if empty the Averbis pipeline name is used as subfolder."
                                         )
                                     }
-                                    field {
-                                        borderpane {
-                                            padding = insets(10)
-                                            center {
-                                                vbox {
-                                                    alignment = Pos.CENTER
-                                                    spacing = 10.0
-                                                    button("Transfer data") {
-                                                        setPrefSize(200.0, 40.0)
-                                                        action {
-                                                            remoteController.FileTransfer().apply {
-                                                                transferData(averbisResponseList)
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
+                                    field().withActionButton("Transfer data") {
+                                        remoteController.FileTransfer().apply {
+                                            transferData(averbisResponseList)
                                         }
                                     }
                                 }
@@ -319,43 +283,31 @@ class MainView : View("Averbis & Brat Integrator") {
                                     field("Subfolder") {
                                         bratReceiveSubfolderField = textfield().apply { } // ToDo: required!
                                     }
-                                    field {
-                                        borderpane {
-                                            padding = insets(10)
-                                            center {
-                                                vbox {
-                                                    alignment = Pos.CENTER
-                                                    spacing = 10.0
-                                                    button("Get data") {
-                                                        setPrefSize(200.0, 40.0)
-                                                        action {
-                                                            runAsyncWithProgress {
-                                                                when (offlineCheck.isSelected) {
-                                                                    true -> debugController.getDataFromRemote()
-                                                                    false -> remoteController.FileTransfer().run {
-                                                                        getDataFromRemote()
-                                                                    }
-                                                                }
-                                                            } ui { data ->
-                                                                data
-                                                                    .groupBy { it.nameWithoutExtension }
-                                                                    .values
-                                                                    .map { fileList ->
-                                                                        BratResponse(
-                                                                            fileList.find { it.extension == "ann" },
-                                                                            fileList.find { it.extension == "json" }
-                                                                        )
-                                                                    }.forEach { bratResponseList.add(it) }
-                                                                fileHandlingController
-                                                                    .writeOutputToApp(bratResponseList, outputFieldSetBrat) {
-                                                                        outputDrawerItemBrat.expanded = true
-                                                                        mergeDataButton.isVisible = true
-                                                                    }
-                                                            }
-                                                        }
-                                                    }
+                                    field().withActionButton("Get Data") {
+                                        runAsync {
+                                            when (offlineCheck.isSelected) {
+                                                true -> debugController.getDataFromRemote()
+                                                false -> remoteController.FileTransfer().run {
+                                                    getDataFromRemote()
                                                 }
                                             }
+                                        } ui { data ->
+                                            data
+                                                .groupBy { it.nameWithoutExtension }
+                                                .values
+                                                .map { fileList ->
+                                                    BratResponse(
+                                                        fileList.find { it.extension == "ann" },
+                                                        fileList.find { it.extension == "json" }
+                                                    )
+                                                }.forEach { bratResponseList.add(it) }
+                                            outputDrawerItemBrat.expanded = true
+                                            mergeDataButton.isVisible = true
+//                                            fileHandlingController
+//                                                .writeOutputToApp(bratResponseList, outputFieldSetBrat) {
+//                                                    outputDrawerItemBrat.expanded = true
+//                                                    mergeDataButton.isVisible = true
+//                                                }
                                         }
                                     }
                                 }
@@ -367,7 +319,7 @@ class MainView : View("Averbis & Brat Integrator") {
                         outputDrawerItemBrat = item("Output") {
                             borderpane {
                                 center = form {
-                                    outputFieldSetBrat = fieldset("Output") { }
+                                    fieldset("Output").withTableFrom(bratResponseList)
                                 }
                                 bottom = vbox {
                                     alignment = Pos.CENTER

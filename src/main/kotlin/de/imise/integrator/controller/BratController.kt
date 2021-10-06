@@ -17,7 +17,7 @@ class BratResponse(annFile: File?, jsonFile: File?): ResponseType {
     val averbisData = jsonFile?.let { AverbisResponse(it).apply { this.readJson(jsonFile.readText()) } }
     var textboundData = mutableMapOf<Int, BratAnnotation>()
     override val basename: String = annFile?.nameWithoutExtension ?: "none"
-    override val pathname: String = annFile?.parent ?: "none"
+    override val additionalColumn = annFile?.parent ?: "none"
     override val items: ObservableList<ResponseTypeEntry>  //ToDo: I want all? (even json entries)
         get() = textboundData
             .values

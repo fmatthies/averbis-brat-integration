@@ -80,8 +80,7 @@ class AverbisResponse(file: File): ResponseType {
     var annotationValues: List<String> = listOf()
     override val basename: String
         get() = inputFileName
-    override val pathname: String
-        get() = inputFilePath
+    override val additionalColumn = inputFilePath
     override val items: ObservableList<ResponseTypeEntry>
         get() {
             return jsonResponse
