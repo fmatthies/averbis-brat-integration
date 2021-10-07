@@ -83,12 +83,18 @@ class FileHandlingController : Controller() {
 //        onWritten()
 //    }
 
-    fun writeMergedData(folder: File?, data: List<BratResponse>) {
+    fun writeMergedData(
+        folder: File?,
+        data: List<BratResponse>,
+        crossOut: List<String>,
+        modify: List<String>,
+        removeSelected: Boolean
+    ) {
         if (folder == null) return
         data.forEach { br ->
             File(folder, "${br.basename}.json")
                 .bufferedWriter()
-                .use { out -> out.write(br.mergeAverbisBrat().toJsonString(prettyPrint = true)) }
+                .use { out -> out.write(br.mergeAverbisBrat(crossOut, modify, removeSelected).toJsonString(prettyPrint = true)) }
         }
     }
 }

@@ -20,6 +20,7 @@ class MainView : View("Averbis & Brat Integrator") {
     private val remoteController: RemoteController by inject()
     private val debugController: DebugController by inject()
     private val logging: LoggingController by inject()
+    val bratResponseList = mutableListOf<ResponseType>().asObservable()
 
     val setupModel = SetupModel(Setup(
         url = app.config.getProperty(AVERBIS_URL_CONFIG_STRING),
@@ -86,7 +87,6 @@ class MainView : View("Averbis & Brat Integrator") {
     override val root = borderpane {
         var fis: List<File> = listOf()
         val averbisResponseList = mutableListOf<ResponseType>().asObservable()
-        val bratResponseList = mutableListOf<ResponseType>().asObservable()
 
         prefHeight = 800.0
         prefWidth = 550.0
@@ -302,7 +302,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                                     )
                                                 }.forEach { bratResponseList.add(it) }
                                             outputDrawerItemBrat.expanded = true
-                                            mergeDataButton.isVisible = true
+//                                            mergeDataButton.isVisible = true
 //                                            fileHandlingController
 //                                                .writeOutputToApp(bratResponseList, outputFieldSetBrat) {
 //                                                    outputDrawerItemBrat.expanded = true
@@ -326,13 +326,14 @@ class MainView : View("Averbis & Brat Integrator") {
                                     spacing = 10.0
                                     paddingAll = 10.0
                                     mergeDataButton = button("Merge Data") {
-                                        isVisible = false
+//                                        isVisible = false
                                         setPrefSize(200.0, 40.0)
                                         action {
-                                            val dir = chooseDirectory("Choose Folder")
-                                            fileHandlingController.writeMergedData(dir,
-                                                bratResponseList.toList() as List<BratResponse>
-                                            )
+                                            openInternalWindow<MergeFragment>()
+//                                            val dir = chooseDirectory("Choose Folder")
+//                                            fileHandlingController.writeMergedData(dir,
+//                                                bratResponseList.toList() as List<BratResponse>
+//                                            )
                                         }
                                     }
                                 }
