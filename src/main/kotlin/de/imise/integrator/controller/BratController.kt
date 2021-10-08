@@ -4,6 +4,7 @@ import com.beust.klaxon.JsonObject
 import com.beust.klaxon.json
 import de.imise.integrator.controller.BratController.Companion.AVERBIS_HEALTH_PRE
 import de.imise.integrator.controller.BratController.Companion.DOCUMENT_TEXT_TYPE
+import de.imise.integrator.extensions.DateFunctionality
 import de.imise.integrator.extensions.ResponseType
 import de.imise.integrator.extensions.ResponseTypeEntry
 import javafx.collections.ObservableList
@@ -56,13 +57,17 @@ class BratResponse(annFile: File?, jsonFile: File?): ResponseType {
         crossOut: List<String>,
         modify: List<String>
     ) {
-        if (crossOut.any { it == "$AVERBIS_HEALTH_PRE${data.type}" }) {
-            sb.setRange(data.begin, data.end, "X".repeat(data.text.length))
-        }
+        val newText = if (crossOut.any { it == "$AVERBIS_HEALTH_PRE${data.type}" }) {
+            "X".repeat(data.text.length)
+        } else if (modify.contains("$AVERBIS_HEALTH_PRE${data.type}")) {  //ToDo: modify data as well!
+            if (data.type.lowercase() == "date") {  //ToDo: only for date right now and hard-coded
+                val newDate = DateFunctionality(data.text).getDate()
+                newDate.padStart(data.text.length, ' ') //ToDo: what if newDate.length is bigger than text.length? Is this even possible?
+            } else { "<${".".repeat(data.text.length)}>" }
+        } else { data.text }
+        sb.setRange(data.begin, data.end, newText)
     }
 
-    // ToDo: right now, the single elements (even if they should be crossed out) are returned as json; maybe remove
-    //  those as well?
     fun mergeAverbisBrat(crossOut: List<String>, modify: List<String>, removeCrossedOut: Boolean): JsonObject {
         val idSetBrat = textboundData.keys
         val idSetAverbis = averbisData!!.getData().keys
