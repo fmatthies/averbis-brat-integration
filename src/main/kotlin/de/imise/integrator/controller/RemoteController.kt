@@ -7,6 +7,7 @@ import java.io.File
 import java.nio.file.*
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
+import kotlin.system.exitProcess
 
 class RemoteController : Controller() {
     enum class ConnectionTool {
@@ -84,42 +85,31 @@ class RemoteController : Controller() {
 
         private fun transferFileIndirectly(fi: File) {
             temporaryFileStorage(fi)
-            //ToDo:
-            // mkdir `project-name dir` in `destination dir` (i.e. brat life-data)
-            // for every file in `.tmp/project-name` (from unzip):
-            //  - create (i.e. `touch`) an equally named file in `destination/project-name`
-            //  - `cat` content from former files to latter
-            // this way the newly created folder and files in `destination` have the group `bin` (used `setfacl`) and keep it
-            // brat will be able to read/write there
+            val dollar = "$"
+            val commandFile = File("command.sh")
+            commandFile.outputStream().bufferedWriter().use {
+                it.write(
+                    """
+                        mkdir --parents $finalDestination
+                        find $tmpFolder -maxdepth 1 -iname '*' -type 'f' -execdir touch $finalDestination{} \;
+                        for ext in txt ann json
+                        do
+                            for file in $tmpFolder/*.${dollar}ext
+                            do
+                                cat "${dollar}file" > $finalDestination"${dollar}( basename ${dollar}file )"
+                            done
+                        done
+                    """.trimIndent()
+                )
+            }
             ProcessBuilder(
                 *processBuilder(ConnectionTool.PLINK),
-                connection,
-                "mkdir --parents $finalDestination \\;",
-                "find $tmpFolder/${mainView.pipelineNameField.text}/",
-                "-maxdepth", "1", "-iname", "'*'", "-type", "f",
-                "-execdir", "touch", "$finalDestination/{}", "\\;",
-                "-printf", "'cat %p > $finalDestination/%P\n'", "|",
-                "sh"
-            ) // ToDo: this does not work; maybe I need to write this into a script file and let it run with plink
-                    // mkdir --parents $finalDestination
-                    // find $tmpFolder -maxdepth 1 -iname '*' -type 'f' -execdir touch $finalDestination/{} \;
-                    // for file in $tmpFolder/*.ann; do cat '$file' > $finalDestination/'$( basename $file )'; done
-                    // for file in $tmpFolder/*.txt; do cat '$file' > $finalDestination/'$( basename $file )'; done
-                    // for file in $tmpFolder/*.json; do cat '$file' > $finalDestination/'$( basename $file )'; done
+                connection, "-m", commandFile.absolutePath
+            )
                 .redirectOutput(ProcessBuilder.Redirect.PIPE)
                 .start()
                 .log()
             logging.logBrat("Extracted files to brat folder...")
-        }
-
-        private fun transferFileDirectly(fi: File) {
-            ProcessBuilder(
-                *processBuilder(ConnectionTool.PSCP),
-                fi.absolutePath,
-                "$connection:${mainView.bratDataFolderField.text}")
-                .redirectOutput(ProcessBuilder.Redirect.PIPE)
-                .start()
-                .log()
         }
 
         fun transferData(response: List<ResponseType>) {
