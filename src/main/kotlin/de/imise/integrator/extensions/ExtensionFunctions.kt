@@ -45,3 +45,8 @@ fun Field.withActionButton(text: String, action: () -> Unit): Field {
         }
     }
 }
+
+fun String.padAround(length: Int, padChar: Char): String {
+    val middle: Int = kotlin.math.max(length - this.length, 0) / 2
+    return this.padStart(length - middle, padChar).padEnd(length, padChar)
+}

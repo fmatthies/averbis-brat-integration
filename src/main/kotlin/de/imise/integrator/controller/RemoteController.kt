@@ -94,13 +94,18 @@ class RemoteController : Controller() {
             ProcessBuilder(
                 *processBuilder(ConnectionTool.PLINK),
                 connection,
-                "mkdir --parents $finalDestination;",
+                "mkdir --parents $finalDestination \\;",
                 "find $tmpFolder/${mainView.pipelineNameField.text}/",
                 "-maxdepth", "1", "-iname", "'*'", "-type", "f",
-                "-exec", "touch", "$finalDestination/{}", ";",
+                "-execdir", "touch", "$finalDestination/{}", "\\;",
                 "-printf", "'cat %p > $finalDestination/%P\n'", "|",
                 "sh"
             ) // ToDo: this does not work; maybe I need to write this into a script file and let it run with plink
+                    // mkdir --parents $finalDestination
+                    // find $tmpFolder -maxdepth 1 -iname '*' -type 'f' -execdir touch $finalDestination/{} \;
+                    // for file in $tmpFolder/*.ann; do cat '$file' > $finalDestination/'$( basename $file )'; done
+                    // for file in $tmpFolder/*.txt; do cat '$file' > $finalDestination/'$( basename $file )'; done
+                    // for file in $tmpFolder/*.json; do cat '$file' > $finalDestination/'$( basename $file )'; done
                 .redirectOutput(ProcessBuilder.Redirect.PIPE)
                 .start()
                 .log()

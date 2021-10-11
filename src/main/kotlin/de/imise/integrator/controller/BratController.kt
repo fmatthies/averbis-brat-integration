@@ -7,6 +7,7 @@ import de.imise.integrator.controller.BratController.Companion.DOCUMENT_TEXT_TYP
 import de.imise.integrator.extensions.DateFunctionality
 import de.imise.integrator.extensions.ResponseType
 import de.imise.integrator.extensions.ResponseTypeEntry
+import de.imise.integrator.extensions.padAround
 import javafx.collections.ObservableList
 import tornadofx.*
 import java.io.File
@@ -44,10 +45,16 @@ class BratResponse(annFile: File?, jsonFile: File?): ResponseType {
 
     private fun readTextbound(line: String) {
         line.split("\t").run {
-            BratAnnotation(this.first().substring(1).toInt(), this.first()[0].toString(),
-            this.component2().split(" ").first(), this.component2().split(" ").component2().toInt(),
-            this.component2().split( " ").component3().toInt(), this.last().substringBefore("\n"))
-                .also { textboundData[it.id] = it }
+            val (id, type_offset, text) = this
+            val (annotationType, begin, end) = type_offset.split(" ")
+            BratAnnotation(
+                id.substring(1).toInt(),
+                id[0].toString(),
+                annotationType,
+                begin.toInt(),
+                end.toInt(),
+                text.substringBefore("\n")
+            ).also { textboundData[it.id] = it }
         }
     }
 
@@ -56,16 +63,17 @@ class BratResponse(annFile: File?, jsonFile: File?): ResponseType {
         data: BratAnnotation,
         crossOut: List<String>,
         modify: List<String>
-    ) {
+    ): BratAnnotation {
         val newText = if (crossOut.any { it == "$AVERBIS_HEALTH_PRE${data.type}" }) {
             "X".repeat(data.text.length)
-        } else if (modify.contains("$AVERBIS_HEALTH_PRE${data.type}")) {  //ToDo: modify data as well!
+        } else if (modify.contains("$AVERBIS_HEALTH_PRE${data.type}")) {
             if (data.type.lowercase() == "date") {  //ToDo: only for date right now and hard-coded
                 val newDate = DateFunctionality(data.text).getDate()
-                newDate.padStart(data.text.length, ' ') //ToDo: what if newDate.length is bigger than text.length? Is this even possible?
+                newDate.padAround(data.text.length, ' ') //ToDo: what if newDate.length is bigger than text.length? Is this even possible?
             } else { "<${".".repeat(data.text.length)}>" }
         } else { data.text }
         sb.setRange(data.begin, data.end, newText)
+        return data.copy(text = newText)
     }
 
     fun mergeAverbisBrat(crossOut: List<String>, modify: List<String>, removeCrossedOut: Boolean): JsonObject {
@@ -86,9 +94,9 @@ class BratResponse(annFile: File?, jsonFile: File?): ResponseType {
         fun Iterable<Int>.addById(sb: StringBuilder) {
             this.forEach {
                 textboundData[it]?.let { data ->
-                    crossOutModifyAnnotations(sb, data, crossOut, modify)
+                    val newData = crossOutModifyAnnotations(sb, data, crossOut, modify)
                     if (removeCrossedOut && crossOut.contains("$AVERBIS_HEALTH_PRE${data.type}")) return@forEach
-                    mergedData.addJson(data)
+                    mergedData.addJson(newData)
                 }
             }
         }
