@@ -41,8 +41,8 @@ class RemoteController : Controller() {
     inner class FileTransfer {
         private val tmpFolder = "/home/${mainView.usernameField.text}/.tmp"
         private val connection = "${mainView.usernameField.text}@${mainView.hostField.text}"
-        private val finalDestination = "${mainView.bratDataFolderField.text}/" +
-                (mainView.bratTransferSubfolderField.text.takeIf { !it.isNullOrBlank() } ?: mainView.pipelineNameField.text)
+        private val subFolder = mainView.bratTransferSubfolderField.text.takeIf { !it.isNullOrBlank() } ?: mainView.pipelineNameField.text
+        private val finalDestination = "${mainView.bratDataFolderField.text.trimEnd('/')}/${subFolder?.trimEnd('/')}/"
         private fun Process.log() = run { this.inputStream.bufferedReader().use { logging.logBrat(it.readText()) } }
 
         private fun processBuilder(connection: ConnectionTool): Array<String> {
@@ -87,14 +87,15 @@ class RemoteController : Controller() {
             temporaryFileStorage(fi)
             val dollar = "$"
             val commandFile = File("command.sh")
+
             commandFile.outputStream().bufferedWriter().use {
                 it.write(
                     """
                         mkdir --parents $finalDestination
-                        find $tmpFolder -maxdepth 1 -iname '*' -type 'f' -execdir touch $finalDestination{} \;
+                        find $tmpFolder/${mainView.pipelineNameField.text}/ -maxdepth 1 -iname '*' -type 'f' -execdir touch $finalDestination{} \;
                         for ext in txt ann json
                         do
-                            for file in $tmpFolder/*.${dollar}ext
+                            for file in $tmpFolder/${mainView.pipelineNameField.text}/*.${dollar}ext
                             do
                                 cat "${dollar}file" > $finalDestination"${dollar}( basename ${dollar}file )"
                             done
