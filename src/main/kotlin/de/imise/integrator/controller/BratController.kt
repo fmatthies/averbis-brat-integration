@@ -18,7 +18,7 @@ data class BratAnnotation(val id: Int, val bratType: String, override val type: 
 
 class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseType {
     val averbisData = jsonFile?.let { AverbisResponse(it.baseName, "in-memory")
-        .apply { this.readJson(jsonFile.content.toString(Charset.defaultCharset())) } }
+        .apply { this.readJson(jsonFile.content.toString(Charsets.UTF_8)) } }
     var textboundData = mutableMapOf<Int, BratAnnotation>()
     override val basename: String = annFile?.baseName ?: "none"
     override val additionalColumn = "in-memory"
@@ -35,7 +35,7 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseTyp
     }
 
     fun readBrat(content: ByteArray) {
-        content.toString(Charset.defaultCharset()).splitToSequence("\n").forEach {
+        content.toString(Charsets.UTF_8).splitToSequence("\n").forEach {
             if (it.isEmpty()) return@forEach
             when (it.first().toString()) {
                 "T" -> readTextbound(it)

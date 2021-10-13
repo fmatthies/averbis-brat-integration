@@ -8,6 +8,7 @@ import java.nio.file.*
 import java.util.zip.ZipEntry
 import java.util.zip.ZipInputStream
 import java.util.zip.ZipOutputStream
+import kotlin.system.exitProcess
 
 data class InMemoryFile(val baseName: String, val content: ByteArray, val extension: String)
 
@@ -46,7 +47,7 @@ class RemoteController : Controller() {
         private val subFolderTransfer = mainView.bratTransferSubfolderField.text.takeIf { !it.isNullOrBlank() } ?: mainView.pipelineNameField.text
         private val finalDestinationTransfer = "${mainView.bratDataFolderField.text.trimEnd('/')}/${subFolderTransfer?.trimEnd('/')}/"
         private val subFolderReceive = mainView.bratReceiveSubfolderField.text
-        private val finalDestinationReceive = "${mainView.bratDataFolderField.text.trimEnd('/')}/${subFolderReceive.trimEnd('/')}/"
+        private val finalDestinationReceive = "${mainView.bratDataFolderField.text.trimEnd('/')}/${subFolderReceive.trimEnd('/')}"
         private fun Process.log() = also { this.inputStream.bufferedReader().use { logging.logBrat(it.readText()) } }
 
         private fun processBuilder(connection: ConnectionTool): Array<String> {
@@ -146,16 +147,19 @@ class RemoteController : Controller() {
             waitForFile(bulkZip) //ToDo:
             transferFileIndirectly(bulkZip).waitFor()
             logging.logBrat("Extracted files to brat folder...")
+            // ToDo: delete .tmp on remote; or at least content thereof
+            // ToDo: remove "command_***.sh" from local dir
             bulkZip.delete()
         }
 
         fun getDataFromRemote() : List<InMemoryFile> {
+            // ToDo: create .tmp beforehand (if it doesn't exist)
             val bulkZipName = "bratBulk.zip"
             // Zip all files
             ProcessBuilder(
                 *processBuilder(ConnectionTool.PLINK),
                 connection,
-                "zip -r", "${tmpFolder}/${bulkZipName}", finalDestinationReceive,
+                "zip -r -j", "${tmpFolder}/${bulkZipName}", finalDestinationReceive
             )
                 .redirectOutput(ProcessBuilder.Redirect.PIPE)
                 .start()

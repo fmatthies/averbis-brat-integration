@@ -10,11 +10,11 @@ class OutputTransformationController() {
             return response.map {
                 Pair(
                     OutputFileStream(
-                        fileName = it.srcFileName, extension = "ann",
+                        fileName = it.basename, extension = "ann",
                         content = it.jsonToBrat().replace("\\r\\n?", "\n")
                     ),
                     OutputFileStream(
-                        fileName = it.srcFileName, extension = "txt",
+                        fileName = it.basename, extension = "txt",
                         content = it.documentText.replace("\\r\\n?", "\n")
                     )
                 )
@@ -24,7 +24,7 @@ class OutputTransformationController() {
         fun getFilteredJson(response: List<AverbisResponse>): List<OutputFileStream> {
             return response.map {
                 OutputFileStream(
-                    fileName = it.srcFileName, extension = "json",
+                    fileName = it.basename, extension = "json",
                     content = it.filteredJson().replace("\\r\\n?", "\n")
                 )
             }

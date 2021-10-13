@@ -14,6 +14,7 @@ import javafx.scene.layout.HBox
 import tornadofx.*
 import java.io.File
 
+// ToDo: add way reset listviews (i.e. I just need to clear the backing lists?)
 class MainView : View("Averbis & Brat Integrator") {
     private val averbisController: AverbisController by inject()
     private val fileHandlingController: FileHandlingController by inject()
@@ -35,8 +36,9 @@ class MainView : View("Averbis & Brat Integrator") {
         annotationValues = app.config.getProperty(ANNOTATION_TYPES).split(",").toMutableList().asObservable()
     ))
     // General
-    var offlineCheck: CheckMenuItem by singleAssign()
+    var offlineCheck: CheckMenuItem by singleAssign()  //ToDo: remove this when going live
 
+    // ToDo: LogField --> scroll (to end) automatically
     // Averbis Tab
     var urlField: TextField by singleAssign()
     var apiTokenField: TextField by singleAssign()
@@ -274,6 +276,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                         )
                                     }
                                     field().withActionButton("Transfer data") {
+                                        // ToDo: disable button while processing
                                         remoteController.FileTransfer().apply {
                                             transferData(averbisResponseList)
                                         }

@@ -78,7 +78,7 @@ class AverbisResponse(val srcFileName: String, private val srcFilePath: String):
     var documentAverbisVersion: String = ""
     var annotationValues: List<String> = listOf()
     override val basename: String
-        get() = srcFileName
+        get() = srcFileName.substringBeforeLast(".")
     override val additionalColumn = this.srcFilePath
     override val items: ObservableList<ResponseTypeEntry>
         get() {
@@ -120,17 +120,13 @@ class AverbisResponse(val srcFileName: String, private val srcFilePath: String):
     }
 
     fun filteredJson() : String {
+        val filteredObj = jsonResponse
+            .filter { jsonEntryFilter(it) || it.value.string(JSON_TYPE_KEY_STRING) == DOCUMENT_TEXT_TYPE}
+            .values
+            .toList()
         return json {
-            ANNOTATION_ARRAY_KEY_STRING to
-                array(jsonResponse
-                    .filter { jsonEntryFilter(it) }
-                    .values
-                    .toList()
-//                    .apply {
-//                        this.plus( json {  } )
-//                    } // ToDo: add DocumentAnnotation?
-                )
-        }.toString()
+            obj(ANNOTATION_ARRAY_KEY_STRING to array( filteredObj ))
+        }.toJsonString(prettyPrint = true)
     }
 
     private fun readJson(jsonStream: InputStream): JsonArray<JsonObject> {
