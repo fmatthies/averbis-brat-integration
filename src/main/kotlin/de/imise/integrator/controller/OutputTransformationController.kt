@@ -1,8 +1,5 @@
 package de.imise.integrator.controller
 
-import java.io.File
-import java.time.Year
-
 
 data class OutputFileStream(val fileName: String, val extension: String, val content: String)
 
@@ -13,11 +10,11 @@ class OutputTransformationController() {
             return response.map {
                 Pair(
                     OutputFileStream(
-                        fileName = it.inputFileName, extension = "ann",
+                        fileName = it.srcFileName, extension = "ann",
                         content = it.jsonToBrat().replace("\\r\\n?", "\n")
                     ),
                     OutputFileStream(
-                        fileName = it.inputFileName, extension = "txt",
+                        fileName = it.srcFileName, extension = "txt",
                         content = it.documentText.replace("\\r\\n?", "\n")
                     )
                 )
@@ -27,7 +24,7 @@ class OutputTransformationController() {
         fun getFilteredJson(response: List<AverbisResponse>): List<OutputFileStream> {
             return response.map {
                 OutputFileStream(
-                    fileName = it.inputFileName, extension = "json",
+                    fileName = it.srcFileName, extension = "json",
                     content = it.filteredJson().replace("\\r\\n?", "\n")
                 )
             }

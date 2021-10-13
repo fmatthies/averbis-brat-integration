@@ -21,8 +21,6 @@ import java.io.IOException
 import java.io.InputStream
 import java.nio.charset.Charset
 import java.util.concurrent.TimeUnit
-import javax.json.JsonArrayBuilder
-import javax.json.JsonBuilderFactory
 
 const val JSON_ID_STRING = "id"
 
@@ -67,23 +65,21 @@ class AverbisJsonEntry(private val jsonObject: JsonObject, averbisResponse: Aver
     }
 }
 
-class AverbisResponse(file: File): ResponseType {
+class AverbisResponse(val srcFileName: String, private val srcFilePath: String): ResponseType {
     private var jsonResponse: MutableMap<Int, JsonObject> = mutableMapOf()
     private val parser = Parser.default()
     val jsonEntryFilter: (Map.Entry<Int, JsonObject>) -> Boolean = { entry ->
         annotationValues.any { it == entry.value.string(JSON_TYPE_KEY_STRING) } ||
         annotationValues.isEmpty()
     }
-    val inputFileName: String = file.nameWithoutExtension
-    val inputFilePath: String = file.parent
     var documentText: String = ""
     var documentTextId: Int = -1
     var documentLanguage: String = ""
     var documentAverbisVersion: String = ""
     var annotationValues: List<String> = listOf()
     override val basename: String
-        get() = inputFileName
-    override val additionalColumn = inputFilePath
+        get() = srcFileName
+    override val additionalColumn = this.srcFilePath
     override val items: ObservableList<ResponseTypeEntry>
         get() {
             return jsonResponse
@@ -179,7 +175,8 @@ class AverbisController(private val url: String? = null): Controller() {
     private fun postDocument(document_path: String,
                              encoding: Charset = Charsets.UTF_8
     ): AverbisResponse {
-        val responseObj = AverbisResponse(File(document_path))
+        val srcFile = File(document_path)
+        val responseObj = AverbisResponse(srcFile.nameWithoutExtension, srcFile.parent)
         val postBody = File(document_path).readText(encoding)
         val request = Request.Builder()
             .url(url?: buildFinalUrl())

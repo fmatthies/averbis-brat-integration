@@ -6,8 +6,10 @@ import tornadofx.*
 import java.io.File
 import java.nio.file.*
 import java.util.zip.ZipEntry
+import java.util.zip.ZipInputStream
 import java.util.zip.ZipOutputStream
-import kotlin.system.exitProcess
+
+data class InMemoryFile(val baseName: String, val content: ByteArray, val extension: String)
 
 class RemoteController : Controller() {
     enum class ConnectionTool {
@@ -41,9 +43,11 @@ class RemoteController : Controller() {
     inner class FileTransfer {
         private val tmpFolder = "/home/${mainView.usernameField.text}/.tmp"
         private val connection = "${mainView.usernameField.text}@${mainView.hostField.text}"
-        private val subFolder = mainView.bratTransferSubfolderField.text.takeIf { !it.isNullOrBlank() } ?: mainView.pipelineNameField.text
-        private val finalDestination = "${mainView.bratDataFolderField.text.trimEnd('/')}/${subFolder?.trimEnd('/')}/"
-        private fun Process.log() = run { this.inputStream.bufferedReader().use { logging.logBrat(it.readText()) } }
+        private val subFolderTransfer = mainView.bratTransferSubfolderField.text.takeIf { !it.isNullOrBlank() } ?: mainView.pipelineNameField.text
+        private val finalDestinationTransfer = "${mainView.bratDataFolderField.text.trimEnd('/')}/${subFolderTransfer?.trimEnd('/')}/"
+        private val subFolderReceive = mainView.bratReceiveSubfolderField.text
+        private val finalDestinationReceive = "${mainView.bratDataFolderField.text.trimEnd('/')}/${subFolderReceive.trimEnd('/')}/"
+        private fun Process.log() = also { this.inputStream.bufferedReader().use { logging.logBrat(it.readText()) } }
 
         private fun processBuilder(connection: ConnectionTool): Array<String> {
             return when (connection) {
@@ -57,60 +61,65 @@ class RemoteController : Controller() {
             ProcessBuilder(
                 *processBuilder(ConnectionTool.PLINK),
                 connection,
-                "mkdir --parents $tmpFolder")
+                "mkdir --parents $tmpFolder"
+            )
                 .redirectOutput(ProcessBuilder.Redirect.PIPE)
                 .start()
                 .log()
+                .waitFor()
 
             // Transfer Bulk.zip to tmp folder
             ProcessBuilder(
                 *processBuilder(ConnectionTool.PSCP),
                 fi.absolutePath,
-                "$connection:$tmpFolder")
+                "$connection:$tmpFolder"
+            )
                 .redirectOutput(ProcessBuilder.Redirect.PIPE)
                 .start()
                 .log()
+                .waitFor()
 
             // Unzip Bulk.zip
             ProcessBuilder(
                 *processBuilder(ConnectionTool.PLINK),
                 connection,
-                "unzip $tmpFolder/${fi.name} -d $tmpFolder/")
+                "unzip $tmpFolder/${fi.name} -d $tmpFolder/"
+            )
                 .redirectOutput(ProcessBuilder.Redirect.PIPE)
                 .start()
                 .log()
+                .waitFor()
 
             logging.logBrat("Transferred files to remote...")
         }
 
-        private fun transferFileIndirectly(fi: File) {
+        private fun transferFileIndirectly(fi: File): Process {
             temporaryFileStorage(fi)
             val dollar = "$"
-            val commandFile = File("command.sh")
+            val commandFile = File("command_remote_transfer.sh")
 
             commandFile.outputStream().bufferedWriter().use {
                 it.write(
                     """
-                        mkdir --parents $finalDestination
-                        find $tmpFolder/${mainView.pipelineNameField.text}/ -maxdepth 1 -iname '*' -type 'f' -execdir touch $finalDestination{} \;
+                        mkdir --parents $finalDestinationTransfer
+                        find $tmpFolder/${mainView.pipelineNameField.text}/ -maxdepth 1 -iname '*' -type 'f' -execdir touch $finalDestinationTransfer{} \;
                         for ext in txt ann json
                         do
                             for file in $tmpFolder/${mainView.pipelineNameField.text}/*.${dollar}ext
                             do
-                                cat "${dollar}file" > $finalDestination"${dollar}( basename ${dollar}file )"
+                                cat "${dollar}file" > $finalDestinationTransfer"${dollar}( basename ${dollar}file )"
                             done
                         done
                     """.trimIndent()
                 )
             }
-            ProcessBuilder(
+            return ProcessBuilder(
                 *processBuilder(ConnectionTool.PLINK),
                 connection, "-m", commandFile.absolutePath
             )
                 .redirectOutput(ProcessBuilder.Redirect.PIPE)
                 .start()
                 .log()
-            logging.logBrat("Extracted files to brat folder...")
         }
 
         fun transferData(response: List<ResponseType>) {
@@ -135,12 +144,52 @@ class RemoteController : Controller() {
                 }
             }
             waitForFile(bulkZip) //ToDo:
-            transferFileIndirectly(bulkZip)
-//            bulkZip.delete()
+            transferFileIndirectly(bulkZip).waitFor()
+            logging.logBrat("Extracted files to brat folder...")
+            bulkZip.delete()
         }
 
-        fun getDataFromRemote() : List<File> {
-            return listOf()
+        fun getDataFromRemote() : List<InMemoryFile> {
+            val bulkZipName = "bratBulk.zip"
+            // Zip all files
+            ProcessBuilder(
+                *processBuilder(ConnectionTool.PLINK),
+                connection,
+                "zip -r", "${tmpFolder}/${bulkZipName}", finalDestinationReceive,
+            )
+                .redirectOutput(ProcessBuilder.Redirect.PIPE)
+                .start()
+                .log()
+                .waitFor()
+
+            // Transfer bratBulk.zip from remote .tmp/ to local
+            ProcessBuilder(
+                *processBuilder(ConnectionTool.PSCP),
+                "$connection:$tmpFolder/${bulkZipName}",
+                Paths.get("").toAbsolutePath().toString()
+            )
+                .redirectOutput(ProcessBuilder.Redirect.PIPE)
+                .start()
+                .log()
+                .waitFor()
+
+            // Unzip and return List of files
+            val returnList = mutableListOf<InMemoryFile>()
+            File(bulkZipName).inputStream().use { fis ->
+                ZipInputStream(fis).use { zis ->
+                    generateSequence { zis.nextEntry }
+                        .filterNot { it.isDirectory }
+                        .filter { listOf("json", "ann").contains(it.name.substringAfterLast(".")) }
+                        .map {
+                            InMemoryFile(
+                                baseName = it.name.substringBeforeLast(".").substringAfterLast("/"),
+                                content = zis.readBytes(),
+                                extension = it.name.substringAfterLast(".")
+                            )
+                        }.forEach { returnList.add(it) }
+                }
+            }
+            return returnList.toList()
         }
     }
 }

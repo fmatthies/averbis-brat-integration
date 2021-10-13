@@ -17,7 +17,7 @@ class DebugController : Controller() {
 
     fun postDocuments(documents: List<File>, averbisResponseList: ObservableList<ResponseType>) {
         documents.forEach { fi ->
-            val response = AverbisResponse(fi)
+            val response = AverbisResponse(fi.name, fi.parent)
             response.apply {
                 readJson(jsonResourceByName(fi.nameWithoutExtension, "json").readText())
                 setAnnotations(mainView.analysisModel.annotationValues.value)
@@ -27,18 +27,26 @@ class DebugController : Controller() {
         }
     }
 
-    fun getDataFromRemote(random: Boolean = false): List<File> {
+    fun getDataFromRemote(random: Boolean = false): List<InMemoryFile> {
         if (random) {
             val data = File("$dataFolder/brat").list()
             if (data.isNullOrEmpty()) return listOf()
             data.shuffle()
-            return data.slice(IntRange(0, 4)).map {
-                File("$dataFolder/brat/$it")
-            }
+            return data.slice(IntRange(0, 4))
+                .map {
+                    val fi = File("$dataFolder/brat/$it")
+                    InMemoryFile( baseName = fi.nameWithoutExtension, content = fi.readBytes(), extension = fi.extension )
+                }
         }
         return listOf("Albers", "Beuerle", "Clausthal").run {
-            this.map { File("$dataFolder/brat/$it.ann") }
-                .plus( this.map { File("$dataFolder/$it.json") } )
+            this.map {
+                val fi = File("$dataFolder/brat/$it.ann")
+                InMemoryFile( baseName = fi.nameWithoutExtension, content = fi.readBytes(), extension = fi.extension )
+            }.plus(
+                this.map {
+                    val fi = File("$dataFolder/$it.json")
+                    InMemoryFile( baseName = fi.nameWithoutExtension, content = fi.readBytes(), extension = fi.extension )
+            } )
         }
     }
 }

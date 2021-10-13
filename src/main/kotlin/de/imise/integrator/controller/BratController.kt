@@ -10,17 +10,18 @@ import de.imise.integrator.extensions.ResponseTypeEntry
 import de.imise.integrator.extensions.padAround
 import javafx.collections.ObservableList
 import tornadofx.*
-import java.io.File
+import java.nio.charset.Charset
 
 
 data class BratAnnotation(val id: Int, val bratType: String, override val type: String,
                           val begin: Int, val end: Int, override val text: String) : ResponseTypeEntry
 
-class BratResponse(annFile: File?, jsonFile: File?): ResponseType {
-    val averbisData = jsonFile?.let { AverbisResponse(it).apply { this.readJson(jsonFile.readText()) } }
+class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseType {
+    val averbisData = jsonFile?.let { AverbisResponse(it.baseName, "in-memory")
+        .apply { this.readJson(jsonFile.content.toString(Charset.defaultCharset())) } }
     var textboundData = mutableMapOf<Int, BratAnnotation>()
-    override val basename: String = annFile?.nameWithoutExtension ?: "none"
-    override val additionalColumn = annFile?.parent ?: "none"
+    override val basename: String = annFile?.baseName ?: "none"
+    override val additionalColumn = "in-memory"
     override val items: ObservableList<ResponseTypeEntry>  //ToDo: I want all? (even json entries)
         get() = textboundData
             .values
@@ -29,12 +30,12 @@ class BratResponse(annFile: File?, jsonFile: File?): ResponseType {
 
     init {
         if (annFile != null) {
-            readBrat(annFile)
+            readBrat(annFile.content)
         }
     }
 
-    fun readBrat(file: File) {
-        file.readLines().forEach {
+    fun readBrat(content: ByteArray) {
+        content.toString(Charset.defaultCharset()).splitToSequence("\n").forEach {
             if (it.isEmpty()) return@forEach
             when (it.first().toString()) {
                 "T" -> readTextbound(it)

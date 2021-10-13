@@ -293,7 +293,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                             }
                                         } ui { data ->
                                             data
-                                                .groupBy { it.nameWithoutExtension }
+                                                .groupBy { it.baseName }
                                                 .values
                                                 .map { fileList ->
                                                     BratResponse(
