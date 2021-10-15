@@ -19,6 +19,7 @@ import tornadofx.*
 import java.io.File
 import java.io.IOException
 import java.io.InputStream
+import java.net.UnknownHostException
 import java.nio.charset.Charset
 import java.util.concurrent.TimeUnit
 
@@ -77,6 +78,7 @@ class AverbisResponse(val srcFileName: String, private val srcFilePath: String):
     var documentLanguage: String = ""
     var documentAverbisVersion: String = ""
     var annotationValues: List<String> = listOf()
+    var errorMessage: String? = null
     override val basename: String
         get() = srcFileName.substringBeforeLast(".")
     override val additionalColumn = this.srcFilePath
@@ -157,12 +159,16 @@ class AverbisController(private val url: String? = null): Controller() {
         .connectTimeout(15, TimeUnit.SECONDS)
         .build()
 
-    fun postDocuments(documents: List<File>, averbisResponseList: ObservableList<ResponseType>, analysis: Analysis) {
+    fun postDocuments(
+        documents: List<File>,
+        averbisResponseList: ObservableList<AverbisResponse>,
+        analysis: Analysis
+    ) {
         documents.forEach {
             averbisResponseList.add(postDocument(it.absolutePath).apply {
                 setAnnotations(mainView.analysisModel.annotationValues.value)
                 if (analysis.outputIsProperPath() && mainView.outputMode.value == "Local") {
-                    fileHandlingController.writeOutputToDisk(listOf(this), analysis.outputData!!) //ToDo: to conform to old method I need to transform this into a list... change it?
+                    fileHandlingController.writeOutputToDisk(listOf(this), analysis.outputData!!)
                 }
             } )
         }
@@ -182,12 +188,22 @@ class AverbisController(private val url: String? = null): Controller() {
             .build()
 
         logging.logAverbis(request.toString())
-        client.newCall(request).execute().use { response ->
-            if (!response.isSuccessful) throw IOException("Unexpected code $response")
-            val responseBodyString = response.body?.string() ?: ""
-            responseObj.readJson(responseBodyString)
+        try {
+            client.newCall(request).execute().use { response ->
+                if (!response.isSuccessful) throw IOException("Unexpected code $response")
+                val responseBodyString = response.body?.string() ?: ""
+                responseObj.readJson(responseBodyString)
+            }
+        } catch (e: UnknownHostException) {
+            responseObj.errorMessage = "UnknownHostException: ${e.message?: "without explicit message"}"
+        } catch (e: IOException) {
+            responseObj.errorMessage = e.message?: "IOException without explicit message"
+        } finally {
+            responseObj.errorMessage?.let {
+                logging.logAverbis(it)
+            }
             return responseObj
-        } //ToDo: catch no connection
+        }
     }
 
     fun buildFinalUrl(): String {

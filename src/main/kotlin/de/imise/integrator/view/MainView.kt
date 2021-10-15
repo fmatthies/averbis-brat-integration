@@ -7,6 +7,7 @@ import de.imise.integrator.extensions.withTableFrom
 import de.imise.integrator.model.*
 import javafx.beans.property.SimpleStringProperty
 import javafx.collections.FXCollections
+import javafx.collections.ObservableList
 import javafx.geometry.Pos
 import javafx.geometry.Side
 import javafx.scene.control.*
@@ -14,14 +15,15 @@ import javafx.scene.layout.HBox
 import tornadofx.*
 import java.io.File
 
-// ToDo: add way reset listviews (i.e. I just need to clear the backing lists?)
 class MainView : View("Averbis & Brat Integrator") {
     private val averbisController: AverbisController by inject()
     private val fileHandlingController: FileHandlingController by inject()
     private val remoteController: RemoteController by inject()
     private val debugController: DebugController by inject()
     private val logging: LoggingController by inject()
-    val bratResponseList = mutableListOf<ResponseType>().asObservable()
+
+    val averbisResponseList = mutableListOf<AverbisResponse>().asObservable()
+    val bratResponseList = mutableListOf<BratResponse>().asObservable()
 
     val setupModel = SetupModel(Setup(
         url = app.config.getProperty(AVERBIS_URL_CONFIG_STRING),
@@ -54,6 +56,7 @@ class MainView : View("Averbis & Brat Integrator") {
     var outputDrawerItemAverbis: DrawerItem by singleAssign()
     var outputModeBox: ComboBox<String> by singleAssign()
     val outputMode = SimpleStringProperty()
+    val averbisProgress = ProgressBar(0.0)
 
     // Brat Tab
     var hostField: TextField by singleAssign()
@@ -88,7 +91,6 @@ class MainView : View("Averbis & Brat Integrator") {
 
     override val root = borderpane {
         var fis: List<File> = listOf()
-        val averbisResponseList = mutableListOf<ResponseType>().asObservable()
 
         prefHeight = 800.0
         prefWidth = 550.0
@@ -222,9 +224,10 @@ class MainView : View("Averbis & Brat Integrator") {
                                         ) {
                                             outputDrawerItemAverbis.expanded = true
                                             isDisable = true
+                                            averbisResponseList.clear()
                                             runAsync {
                                                 when (offlineCheck.isSelected) {
-                                                    true -> debugController.postDocuments(fis, averbisResponseList)
+                                                    true -> debugController.postDocuments(fis, averbisResponseList, averbisProgress)
                                                     false -> averbisController.postDocuments(fis, averbisResponseList, analysis)
                                                 }
                                             } ui { isDisable = false }
@@ -238,7 +241,11 @@ class MainView : View("Averbis & Brat Integrator") {
                         }
                         outputDrawerItemAverbis = item("Output") {
                             form {
-                                fieldset("Output").withTableFrom(averbisResponseList)
+                                fieldset("Output").withTableFrom(averbisResponseList as ObservableList<ResponseType>) {
+                                    sequenceOf(
+                                        field("Progress") { averbisProgress }
+                                    )
+                                }
                             }
                         }
                     }
@@ -287,6 +294,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                         bratReceiveSubfolderField = textfield().apply { } // ToDo: required!
                                     }
                                     field().withActionButton("Get Data") {
+                                        bratResponseList.clear()
                                         runAsync {
                                             when (offlineCheck.isSelected) {
                                                 true -> debugController.getDataFromRemote()
@@ -322,7 +330,11 @@ class MainView : View("Averbis & Brat Integrator") {
                         outputDrawerItemBrat = item("Output") {
                             borderpane {
                                 center = form {
-                                    fieldset("Output").withTableFrom(bratResponseList)
+                                    fieldset("Output").withTableFrom(bratResponseList as ObservableList<ResponseType>) {
+                                        sequenceOf(
+                                            field { }
+                                        )
+                                    }
                                 }
                                 bottom = vbox {
                                     alignment = Pos.CENTER

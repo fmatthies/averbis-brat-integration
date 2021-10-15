@@ -1,6 +1,5 @@
 package de.imise.integrator.controller
 
-import de.imise.integrator.extensions.ResponseType
 import de.imise.integrator.view.MainView
 import tornadofx.*
 import java.io.File
@@ -8,7 +7,6 @@ import java.nio.file.*
 import java.util.zip.ZipEntry
 import java.util.zip.ZipInputStream
 import java.util.zip.ZipOutputStream
-import kotlin.system.exitProcess
 
 data class InMemoryFile(val baseName: String, val content: ByteArray, val extension: String)
 
@@ -58,7 +56,7 @@ class RemoteController : Controller() {
         }
 
         private fun temporaryFileStorage(fi: File) {
-            // Create temporary folder
+            /* Create temporary folder */
             ProcessBuilder(
                 *processBuilder(ConnectionTool.PLINK),
                 connection,
@@ -69,7 +67,7 @@ class RemoteController : Controller() {
                 .log()
                 .waitFor()
 
-            // Transfer Bulk.zip to tmp folder
+            /* Transfer Bulk.zip to tmp folder */
             ProcessBuilder(
                 *processBuilder(ConnectionTool.PSCP),
                 fi.absolutePath,
@@ -80,7 +78,7 @@ class RemoteController : Controller() {
                 .log()
                 .waitFor()
 
-            // Unzip Bulk.zip
+            /* Unzip Bulk.zip */
             ProcessBuilder(
                 *processBuilder(ConnectionTool.PLINK),
                 connection,
@@ -94,10 +92,9 @@ class RemoteController : Controller() {
             logging.logBrat("Transferred files to remote...")
         }
 
-        private fun transferFileIndirectly(fi: File): Process {
+        private fun transferFileIndirectly(fi: File, commandFile: File): Process {
             temporaryFileStorage(fi)
             val dollar = "$"
-            val commandFile = File("command_remote_transfer.sh")
 
             commandFile.outputStream().bufferedWriter().use {
                 it.write(
@@ -123,12 +120,14 @@ class RemoteController : Controller() {
                 .log()
         }
 
-        fun transferData(response: List<ResponseType>) {
+        fun transferData(response: List<AverbisResponse>) {
             val bulkZip = File("bulk.zip")
+            val commandFile = File("command_remote_transfer.sh")
+
             bulkZip.outputStream().use {  fos ->
                 ZipOutputStream(fos).use { zos ->
                     zos.putNextEntry(ZipEntry("${mainView.pipelineNameField.text}/"))
-                    OutputTransformationController.transformToBrat(response as List<AverbisResponse>).forEach { pair ->
+                    OutputTransformationController.transformToBrat(response).forEach { pair ->
                         pair.toList().forEach { entry ->
                             val zipEntry = ZipEntry("${mainView.pipelineNameField.text}/${entry.fileName}.${entry.extension}")
                             zos.putNextEntry(zipEntry)
@@ -144,21 +143,29 @@ class RemoteController : Controller() {
                     }
                 }
             }
-            waitForFile(bulkZip) //ToDo:
-            transferFileIndirectly(bulkZip).waitFor()
+            waitForFile(bulkZip)
+            transferFileIndirectly(bulkZip, commandFile).waitFor()
             logging.logBrat("Extracted files to brat folder...")
-            // ToDo: delete .tmp on remote; or at least content thereof
-            // ToDo: remove "command_***.sh" from local dir
+            // ToDo: added: delete .tmp on remote; or at least content thereof --> TEST
+            ProcessBuilder(
+                *processBuilder(ConnectionTool.PLINK),
+                connection,
+                "rm -r $tmpFolder/*"
+            )
+                .redirectOutput(ProcessBuilder.Redirect.PIPE)
+                .start()
+            // ToDo: added: remove "command_***.sh" from local dir --> TEST
+            commandFile.delete()
             bulkZip.delete()
         }
 
         fun getDataFromRemote() : List<InMemoryFile> {
-            // ToDo: create .tmp beforehand (if it doesn't exist)
             val bulkZipName = "bratBulk.zip"
-            // Zip all files
+            /* Zip all files */
             ProcessBuilder(
                 *processBuilder(ConnectionTool.PLINK),
                 connection,
+                "mkdir --parents $tmpFolder", "&&",  // ToDo: added: create .tmp beforehand (if it doesn't exist) -> TEST
                 "zip -r -j", "${tmpFolder}/${bulkZipName}", finalDestinationReceive
             )
                 .redirectOutput(ProcessBuilder.Redirect.PIPE)
@@ -166,7 +173,7 @@ class RemoteController : Controller() {
                 .log()
                 .waitFor()
 
-            // Transfer bratBulk.zip from remote .tmp/ to local
+            /* Transfer bratBulk.zip from remote .tmp/ to local */
             ProcessBuilder(
                 *processBuilder(ConnectionTool.PSCP),
                 "$connection:$tmpFolder/${bulkZipName}",
@@ -177,22 +184,27 @@ class RemoteController : Controller() {
                 .log()
                 .waitFor()
 
-            // Unzip and return List of files
+            /* Unzip and return List of files */
             val returnList = mutableListOf<InMemoryFile>()
-            File(bulkZipName).inputStream().use { fis ->
-                ZipInputStream(fis).use { zis ->
-                    generateSequence { zis.nextEntry }
-                        .filterNot { it.isDirectory }
-                        .filter { listOf("json", "ann").contains(it.name.substringAfterLast(".")) }
-                        .map {
-                            InMemoryFile(
-                                baseName = it.name.substringBeforeLast(".").substringAfterLast("/"),
-                                content = zis.readBytes(),
-                                extension = it.name.substringAfterLast(".")
-                            )
-                        }.forEach { returnList.add(it) }
+            val bulkZipFile = File(bulkZipName)
+
+            if (bulkZipFile.exists()) {
+                bulkZipFile.inputStream().use { fis ->
+                    ZipInputStream(fis).use { zis ->
+                        generateSequence { zis.nextEntry }
+                            .filterNot { it.isDirectory }
+                            .filter { listOf("json", "ann").contains(it.name.substringAfterLast(".")) }
+                            .map {
+                                InMemoryFile(
+                                    baseName = it.name.substringBeforeLast(".").substringAfterLast("/"),
+                                    content = zis.readBytes(),
+                                    extension = it.name.substringAfterLast(".")
+                                )
+                            }.forEach { returnList.add(it) }
+                    }
                 }
             }
+            // ToDo: delete bratBulk.zip? or maybe it's better to inform the user that it's there?
             return returnList.toList()
         }
     }

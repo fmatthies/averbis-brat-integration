@@ -5,8 +5,9 @@ import javafx.geometry.Pos
 import tornadofx.*
 
 
-fun Fieldset.withTableFrom(responseList: ObservableList<ResponseType>): Fieldset {
+fun Fieldset.withTableFrom(responseList: ObservableList<ResponseType>, fields: () -> Sequence<Field>): Fieldset {
     return this.apply {
+        fields().forEach { this.add(it) }
         tableview(responseList) {
             prefHeight = 1000.0
             isEditable = false

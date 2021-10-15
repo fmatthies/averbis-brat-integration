@@ -24,16 +24,21 @@ class DateFunctionality(dateString: String) {
         ) {
             val month = monthNamesMap[dateString.lowercase().trim().trimEnd('.', ' ')]
             CustomDateMatch(day = null, month = month, year = null)
-        } else if ( /* Day and Month only and with '.' delimiter */
+        } else if ( /* Day and Month only and with '.' delimiter; year optional */
             (2..3).contains(dateString.split(Regex(" *\\. *")).size)
         ) {
+            var year: Int? = null
             val dateList = dateString.split(Regex(" *\\. *"))
-            val month = if (dateList[1].isInt()) {
-                dateList[1].toInt()
+            val month = if (dateList[1].trim().length <= 2 && dateList[1].trim().isInt()) {
+                dateList[1].trim().toInt()
+            } else if (dateList[1].trim().length > 2) {
+                val (m, y) = dateList[1].trim().split(" ", limit = 2)
+                year = y.takeIf { y.trim().isInt() }?.trim()?.toInt()
+                m.takeIf { m.trim().isInt() }?.trim()?.toInt()
             } else {
-                monthNamesMap[dateList[1].lowercase()]
+                monthNamesMap[dateList[1].trim().lowercase()]
             }
-            val year = if (dateList.size == 3 && dateList[2].isInt()) {
+            year = if (year == null && dateList.size == 3 && dateList[2].isInt()) {
                 dateList[2].toInt()
             } else { null }
 
@@ -42,7 +47,7 @@ class DateFunctionality(dateString: String) {
             CustomDateMatch(day = day, month = month, year = year)
         } else { /* No CustomDateMatch pattern detectable */
             null
-        }  //ToDo: 04.03 2019 <-- doesn't detect
+        }
 
         if (date == null)  parseDateByRegex(dateString)
     }

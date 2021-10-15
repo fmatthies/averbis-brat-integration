@@ -3,6 +3,7 @@ package de.imise.integrator.controller
 import de.imise.integrator.extensions.ResponseType
 import de.imise.integrator.view.MainView
 import javafx.collections.ObservableList
+import javafx.scene.control.ProgressBar
 import tornadofx.*
 import java.io.File
 import java.nio.file.Paths
@@ -15,14 +16,22 @@ class DebugController : Controller() {
         return File("$dataFolder/$name.$ext")
     }
 
-    fun postDocuments(documents: List<File>, averbisResponseList: ObservableList<ResponseType>) {
+    fun postDocuments(
+        documents: List<File>,
+        averbisResponseList: ObservableList<AverbisResponse>,
+        averbisProgress: ProgressBar
+    ) {
+        val maxDocs = documents.size
+        var currentDoc = 0
         documents.forEach { fi ->
+            currentDoc += 1
             val response = AverbisResponse(fi.name, fi.parent)
             response.apply {
                 readJson(jsonResourceByName(fi.nameWithoutExtension, "json").readText())
                 setAnnotations(mainView.analysisModel.annotationValues.value)
             }
             averbisResponseList.add(response)
+            averbisProgress.progress = (currentDoc/maxDocs).toDouble()
             Thread.sleep(1000)
         }
     }
