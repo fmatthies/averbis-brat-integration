@@ -17,6 +17,7 @@ class MergeFragment : Fragment() {
     private val fileHandlingController: FileHandlingController by inject()
 
     private var removeAnnotations: CheckBox by singleAssign()
+    private var createTxt: CheckBox by singleAssign()
 
     private val crossOutList = crossOutAnnotations.copyOf().toMutableList().asObservable()
     private val replaceList = replaceAnnotations.copyOf().toMutableList().asObservable()
@@ -47,13 +48,19 @@ class MergeFragment : Fragment() {
                         isSelected = true
                     }
                 }
+                field("Create Txt Files as well") {
+                    createTxt = checkbox {
+                        isSelected = true
+                    }
+                }
+                separator { paddingAll = 5.0 }
                 squeezebox {
                     fold("Cross Out") {
-                        this.addCheckBoxesByList(mainView.analysisModel.annotationValues.value, crossOutList)
+                        this.addCheckBoxesByList(mainView.averbisAnalysisModel.annotationValues.value, crossOutList)
                         replaceList.addListener(additionListener(crossOutList, this.content as VBox))
                     }
                     fold("Modify/Replace") {
-                        this.addCheckBoxesByList(mainView.analysisModel.annotationValues.value, replaceList)
+                        this.addCheckBoxesByList(mainView.averbisAnalysisModel.annotationValues.value, replaceList)
                         crossOutList.addListener(additionListener(replaceList, this.content as VBox))
                     }
                 }
@@ -72,7 +79,8 @@ class MergeFragment : Fragment() {
                         mainView.bratResponseList.toList() as List<BratResponse>,
                         crossOutList,
                         replaceList,
-                        removeAnnotations.isSelected
+                        removeAnnotations.isSelected,
+                        createTxt.isSelected
                     )
                     (this@MergeFragment).close()
                 }

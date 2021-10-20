@@ -2,6 +2,7 @@ package de.imise.integrator.extensions
 
 import javafx.collections.ObservableList
 import javafx.geometry.Pos
+import javafx.scene.control.Button
 import tornadofx.*
 
 
@@ -31,13 +32,14 @@ fun Fieldset.withTableFrom(responseList: ObservableList<ResponseType>, fields: (
 
 fun Field.withActionButton(text: String, action: () -> Unit): Field {
     return this.apply {
+        var btn: Button by singleAssign()
         borderpane {
             padding = insets(10)
             center {
                 vbox {
                     alignment = Pos.CENTER
                     spacing = 10.0
-                    button(text) {
+                    btn = button(text) {
                         setPrefSize(200.0, 40.0)
                         action(action)
                     }

@@ -1,6 +1,5 @@
 package de.imise.integrator.controller
 
-import de.imise.integrator.extensions.ResponseType
 import de.imise.integrator.view.MainView
 import javafx.collections.ObservableList
 import javafx.scene.control.ProgressBar
@@ -28,7 +27,7 @@ class DebugController : Controller() {
             val response = AverbisResponse(fi.name, fi.parent)
             response.apply {
                 readJson(jsonResourceByName(fi.nameWithoutExtension, "json").readText())
-                setAnnotations(mainView.analysisModel.annotationValues.value)
+                setAnnotations(mainView.averbisAnalysisModel.annotationValues.value)
             }
             averbisResponseList.add(response)
             averbisProgress.progress = (currentDoc/maxDocs).toDouble()

@@ -10,7 +10,6 @@ import de.imise.integrator.extensions.ResponseTypeEntry
 import de.imise.integrator.extensions.padAround
 import javafx.collections.ObservableList
 import tornadofx.*
-import java.nio.charset.Charset
 
 
 data class BratAnnotation(val id: Int, val bratType: String, override val type: String,
@@ -20,6 +19,7 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseTyp
     val averbisData = jsonFile?.let { AverbisResponse(it.baseName, "in-memory")
         .apply { this.readJson(jsonFile.content.toString(Charsets.UTF_8)) } }
     var textboundData = mutableMapOf<Int, BratAnnotation>()
+    private var textData = ""
     override val basename: String = annFile?.baseName ?: "none"
     override val additionalColumn = "in-memory"
     override val items: ObservableList<ResponseTypeEntry>  //ToDo: I want all? (even json entries)
@@ -31,6 +31,13 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseTyp
     init {
         if (annFile != null) {
             readBrat(annFile.content)
+        }
+    }
+
+    fun getTxt(anonymize: Boolean = true): String {
+        return when (anonymize) {
+            true -> textData
+            false -> averbisData?.documentText ?: ""
         }
     }
 
@@ -101,7 +108,7 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseTyp
                 }
             }
         }
-        val doc = StringBuilder(averbisData.documentText).also { sb ->
+        textData = StringBuilder(averbisData.documentText).also { sb ->
             // Everything that's in the brat annotation file and in the Averbis json
             idSetBrat.intersect(idSetAverbis).addById(sb)
             // Everything that's only in the brat annotation file
@@ -110,9 +117,9 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseTyp
 
         mergedData.add(json { obj(
             "begin" to 0,
-            "end" to doc.length,
+            "end" to textData.length,
             "type" to DOCUMENT_TEXT_TYPE,
-            "coveredText" to doc,
+            "coveredText" to textData,
             "id" to averbisData.documentTextId,
             "language" to averbisData.documentLanguage,
             "version" to averbisData.documentAverbisVersion

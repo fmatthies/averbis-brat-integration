@@ -1,5 +1,8 @@
 package de.imise.integrator.controller
 
+import de.imise.integrator.model.BratReceive
+import de.imise.integrator.model.BratSetup
+import de.imise.integrator.model.BratTransfer
 import de.imise.integrator.view.MainView
 import tornadofx.*
 import java.io.File
@@ -14,6 +17,9 @@ class RemoteController : Controller() {
     enum class ConnectionTool {
         PLINK, PSCP
     }
+
+    val BRAT_BULKZIP_NAME = "bratBulk.zip"
+    val BULKZIP_NAME = "bulk.zip"
 
     private val mainView: MainView by inject()
     private val logging: LoggingController by inject()
@@ -40,13 +46,30 @@ class RemoteController : Controller() {
     }
 
     inner class FileTransfer {
-        private val tmpFolder = "/home/${mainView.usernameField.text}/.tmp"
-        private val connection = "${mainView.usernameField.text}@${mainView.hostField.text}"
-        private val subFolderTransfer = mainView.bratTransferSubfolderField.text.takeIf { !it.isNullOrBlank() } ?: mainView.pipelineNameField.text
-        private val finalDestinationTransfer = "${mainView.bratDataFolderField.text.trimEnd('/')}/${subFolderTransfer?.trimEnd('/')}/"
-        private val subFolderReceive = mainView.bratReceiveSubfolderField.text
-        private val finalDestinationReceive = "${mainView.bratDataFolderField.text.trimEnd('/')}/${subFolderReceive.trimEnd('/')}"
+        private var tmpFolder: String? = null
+        private var connection: String? = null
+        private var finalDestinationTransfer: String? = null
+
+        private var finalDestinationReceive: String? = null
+
         private fun Process.log() = also { this.inputStream.bufferedReader().use { logging.logBrat(it.readText()) } }
+
+        private fun setup(bratSetup: BratSetup) {
+            tmpFolder = "/home/${bratSetup.username}/.tmp"
+            connection = "${bratSetup.username}@${bratSetup.host}"
+        }
+
+        fun setupTransfer(bratSetup: BratSetup, bratTransfer: BratTransfer) {
+            setup(bratSetup)
+            val subFolderTransfer = bratTransfer.subfolder.takeIf { !it.isNullOrBlank() } ?: mainView.pipelineNameField.text
+            finalDestinationTransfer = "${bratSetup.dataFolder?.trimEnd('/')}/${subFolderTransfer?.trimEnd('/')}/"
+        }
+
+        fun setupReceive(bratSetup: BratSetup, bratReceive: BratReceive) {
+            setup(bratSetup)
+            val subfolderReceive = bratReceive.subfolder
+            finalDestinationReceive = "${bratSetup.dataFolder.trimEnd('/')}/${subfolderReceive.trimEnd('/')}"
+        }
 
         private fun processBuilder(connection: ConnectionTool): Array<String> {
             return when (connection) {
@@ -121,7 +144,7 @@ class RemoteController : Controller() {
         }
 
         fun transferData(response: List<AverbisResponse>) {
-            val bulkZip = File("bulk.zip")
+            val bulkZip = File(BULKZIP_NAME)
             val commandFile = File("command_remote_transfer.sh")
 
             bulkZip.outputStream().use {  fos ->
@@ -154,13 +177,14 @@ class RemoteController : Controller() {
             )
                 .redirectOutput(ProcessBuilder.Redirect.PIPE)
                 .start()
+                .waitFor()
             // ToDo: added: remove "command_***.sh" from local dir --> TEST
             commandFile.delete()
             bulkZip.delete()
         }
 
         fun getDataFromRemote() : List<InMemoryFile> {
-            val bulkZipName = "bratBulk.zip"
+            val bulkZipName = BRAT_BULKZIP_NAME
             /* Zip all files */
             ProcessBuilder(
                 *processBuilder(ConnectionTool.PLINK),
@@ -204,7 +228,6 @@ class RemoteController : Controller() {
                     }
                 }
             }
-            // ToDo: delete bratBulk.zip? or maybe it's better to inform the user that it's there?
             return returnList.toList()
         }
     }

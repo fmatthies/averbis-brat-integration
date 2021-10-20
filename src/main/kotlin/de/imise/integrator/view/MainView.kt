@@ -15,6 +15,8 @@ import javafx.scene.layout.HBox
 import tornadofx.*
 import java.io.File
 
+// ToDo: disable buttons only while processing; right now the whole field gets disabled
+
 class MainView : View("Averbis & Brat Integrator") {
     private val averbisController: AverbisController by inject()
     private val fileHandlingController: FileHandlingController by inject()
@@ -25,18 +27,32 @@ class MainView : View("Averbis & Brat Integrator") {
     val averbisResponseList = mutableListOf<AverbisResponse>().asObservable()
     val bratResponseList = mutableListOf<BratResponse>().asObservable()
 
-    val setupModel = SetupModel(Setup(
-        url = app.config.getProperty(AVERBIS_URL_CONFIG_STRING),
-        apiToken = app.config.getProperty(AVERBIS_API_TOKEN),
-        projectName = app.config.getProperty(DEFAULT_PROJECT_CONFIG_STRING),
-        pipelineName = app.config.getProperty(DEFAULT_PIPELINE_CONFIG_STRING)
-    ))
+    val averbisSetupModel = AverbisSetupModel(
+        AverbisSetup(
+            url = app.config.getProperty(AVERBIS_URL_CONFIG_STRING),
+            apiToken = app.config.getProperty(AVERBIS_API_TOKEN),
+            projectName = app.config.getProperty(DEFAULT_PROJECT_CONFIG_STRING),
+            pipelineName = app.config.getProperty(DEFAULT_PIPELINE_CONFIG_STRING)
+        ))
 
-    val inputDataModel = InputModel(Input())
+    val averbisInputDataModel = AverbisInputModel(AverbisInput())
 
-    val analysisModel = AnalysisModel(Analysis(
-        annotationValues = app.config.getProperty(ANNOTATION_TYPES).split(",").toMutableList().asObservable()
-    ))
+    val averbisAnalysisModel = AverbisAnalysisModel(
+        AverbisAnalysis(
+            annotationValues = app.config.getProperty(ANNOTATION_TYPES).split(",").toMutableList().asObservable()
+        ))
+
+    val bratSetupModel = BratSetupModel(
+        BratSetup(
+            host = app.config.getProperty(DEFAULT_REMOTE_HOST),
+            port = app.config.getProperty(DEFAULT_REMOTE_PORT),
+            dataFolder = app.config.getProperty(DEFAULT_REMOTE_DEST)
+        ))
+
+    val bratReceiveModel = BratReceiveModel(BratReceive())
+
+    val bratTransferModel = BratTransferModel(BratTransfer())
+
     // General
     var offlineCheck: CheckMenuItem by singleAssign()  //ToDo: remove this when going live
 
@@ -115,20 +131,20 @@ class MainView : View("Averbis & Brat Integrator") {
                             form {
                                 fieldset("Setup") {
                                     field("Health Discovery URL") {
-                                        urlField = textfield(setupModel.url).apply { required() }
+                                        urlField = textfield(averbisSetupModel.url).apply { required() }
                                     }
                                     field("API Token") {
-                                        apiTokenField = textfield(setupModel.apiToken).apply { required() }
+                                        apiTokenField = textfield(averbisSetupModel.apiToken).apply { required() }
                                     }
                                     field("Project Name") {
-                                        projectNameField = textfield(setupModel.projectName).apply { required() }
+                                        projectNameField = textfield(averbisSetupModel.projectName).apply { required() }
                                     }
                                     field("Pipeline Name") {
-                                        pipelineNameField = textfield(setupModel.pipelineName).apply { required() }
+                                        pipelineNameField = textfield(averbisSetupModel.pipelineName).apply { required() }
                                     }
                                     field("Language") {
                                         languageGroup = togglegroup {
-                                            bind(setupModel.language)
+                                            bind(averbisSetupModel.language)
                                             app.config.getProperty(DEFAULT_LANGUAGES_CONFIG_LIST).split(",").forEach {
                                                 val rad = radiobutton(it)
                                                 if (this.selectedToggle as ToggleButton? == null) {
@@ -151,7 +167,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                         }
                                     }
                                     field("Select Input") {
-                                        inputDirField = textfield(inputDataModel.input).apply { required() }
+                                        inputDirField = textfield(averbisInputDataModel.input).apply { required() }
                                         inputDirButton = button("Choose ${inputSelectionMode.value}") {
                                             action {
                                                 fis = fileHandlingController.readFiles(inputSelectionMode.value)
@@ -162,14 +178,14 @@ class MainView : View("Averbis & Brat Integrator") {
                                 fieldset("Analyze Data") {
                                     squeezebox {
                                         fold("Annotation Values") {
-                                            analysisModel.annotationValues.value.forEach {
+                                            averbisAnalysisModel.annotationValues.value.forEach {
                                                 checkbox(it).apply {
                                                     isSelected = true
                                                     action {
                                                         if (isSelected) {
-                                                            analysisModel.annotationValues.value.add(this.text)
+                                                            averbisAnalysisModel.annotationValues.value.add(this.text)
                                                         } else {
-                                                            analysisModel.annotationValues.value.remove(this.text)
+                                                            averbisAnalysisModel.annotationValues.value.remove(this.text)
                                                         }
                                                     }
                                                 }
@@ -194,7 +210,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                         }
                                     }
                                     field("Select Output") {
-                                        outputDirField = textfield(analysisModel.output).apply {
+                                        outputDirField = textfield(averbisAnalysisModel.output).apply {
                                             required()
                                             isDisable = true
                                         }
@@ -209,18 +225,18 @@ class MainView : View("Averbis & Brat Integrator") {
                                     //ToDo: separate "post data" from "analyze data" so that filtering can be done later
                                     // this allows us to extract `types` from json and they don't have to be declared in the config
                                     field().withActionButton("Post Data") {
-                                        setupModel.commit()
-                                        inputDataModel.commit()
-                                        analysisModel.commit()
+                                        averbisSetupModel.commit()
+                                        averbisInputDataModel.commit()
+                                        averbisAnalysisModel.commit()
 
-                                        val setup: Setup = setupModel.item
-                                        val input: Input = inputDataModel.item
-                                        val analysis: Analysis = analysisModel.item
+                                        val averbisSetup: AverbisSetup = averbisSetupModel.item
+                                        val averbisInput: AverbisInput = averbisInputDataModel.item
+                                        val averbisAnalysis: AverbisAnalysis = averbisAnalysisModel.item
 
                                         //ToDo: progress indicator that shows a real progress and not just spinning wheel
-                                        if (setup.hasNoNullProperties() and
-                                            input.hasNoNullProperties() and
-                                            (analysis.hasNoNullProperties() or (outputMode.value == "Remote"))
+                                        if (averbisSetup.hasNoNullProperties() and
+                                            averbisInput.hasNoNullProperties() and
+                                            (averbisAnalysis.hasNoNullProperties() or (outputMode.value == "Remote"))
                                         ) {
                                             outputDrawerItemAverbis.expanded = true
                                             isDisable = true
@@ -228,7 +244,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                             runAsync {
                                                 when (offlineCheck.isSelected) {
                                                     true -> debugController.postDocuments(fis, averbisResponseList, averbisProgress)
-                                                    false -> averbisController.postDocuments(fis, averbisResponseList, analysis)
+                                                    false -> averbisController.postDocuments(fis, averbisResponseList, averbisAnalysis)
                                                 }
                                             } ui { isDisable = false }
                                         }
@@ -254,71 +270,84 @@ class MainView : View("Averbis & Brat Integrator") {
                     drawer(side = Side.RIGHT) {
                         item("General", expanded = true) {
                             form {
-                                //ToDo: use models here as well
                                 fieldset("Setup") {
                                     field("Remote Host") {
-                                        hostField = textfield(app.config.getProperty(DEFAULT_REMOTE_HOST)).apply { }
+                                        hostField = textfield(bratSetupModel.host).apply { required() }
                                     }
                                     field("Remote Port") {
-                                        remotePortField =
-                                            textfield(app.config.getProperty(DEFAULT_REMOTE_PORT)).apply { }
+                                        remotePortField = textfield(bratSetupModel.port).apply { required() }
                                     }
                                     field("Username") {
-                                        usernameField = textfield().apply { }
+                                        usernameField = textfield(bratSetupModel.username).apply { required() }
                                     }
                                     field("Password") {
-                                        passwordField = passwordfield().apply { }
+                                        passwordField = passwordfield(bratSetupModel.password).apply { required() }
                                     }
                                     field("Brat Data Folder") {
-                                        bratDataFolderField =
-                                            textfield(app.config.getProperty(DEFAULT_REMOTE_DEST)).apply { }
+                                        bratDataFolderField = textfield(bratSetupModel.dataFolder).apply { required() }
                                     }
                                 }
                                 fieldset("Transfer") {
                                     field("Subfolder (optional)") {
-                                        bratTransferSubfolderField = textfield()
+                                        bratTransferSubfolderField = textfield(bratTransferModel.subfolder)
                                         tooltip(
                                             "Transfers files to specified subfolder under Brat data folder;" +
                                                     "if empty the Averbis pipeline name is used as subfolder."
                                         )
                                     }
                                     field().withActionButton("Transfer data") {
-                                        // ToDo: disable button while processing
-                                        remoteController.FileTransfer().apply {
-                                            transferData(averbisResponseList)
+                                        bratSetupModel.commit()
+                                        bratTransferModel.commit()
+
+                                        val bratSetup: BratSetup = bratSetupModel.item
+                                        val bratTransfer: BratTransfer = bratTransferModel.item
+
+                                        if (bratSetup.hasNoNullProperties()) {
+                                            isDisable = true
+                                            remoteController.FileTransfer().apply {
+                                                setupTransfer(bratSetup, bratTransfer)
+                                                transferData(averbisResponseList)
+                                            }
+                                            isDisable = false
                                         }
                                     }
                                 }
                                 fieldset("Receive") {
                                     field("Subfolder") {
-                                        bratReceiveSubfolderField = textfield().apply { } // ToDo: required!
+                                        bratReceiveSubfolderField = textfield(bratReceiveModel.subfolder).apply { required() }
                                     }
                                     field().withActionButton("Get Data") {
-                                        bratResponseList.clear()
-                                        runAsync {
-                                            when (offlineCheck.isSelected) {
-                                                true -> debugController.getDataFromRemote()
-                                                false -> remoteController.FileTransfer().run {
-                                                    getDataFromRemote()
+                                        bratSetupModel.commit()
+                                        bratReceiveModel.commit()
+
+                                        val bratSetup: BratSetup = bratSetupModel.item
+                                        val bratReceive: BratReceive = bratReceiveModel.item
+
+                                        if (bratSetup.hasNoNullProperties() && bratReceive.hasNoNullProperties()) {
+                                            isDisable = true
+                                            bratResponseList.clear()
+                                            runAsync {
+                                                when (offlineCheck.isSelected) {
+                                                    true -> debugController.getDataFromRemote()
+                                                    false -> remoteController.FileTransfer().run {
+                                                        setupReceive(bratSetup, bratReceive)
+                                                        getDataFromRemote()
+                                                    }
                                                 }
+                                            } ui { data ->
+                                                data
+                                                    .groupBy { it.baseName }
+                                                    .values
+                                                    .map { fileList ->
+                                                        BratResponse(
+                                                            fileList.find { it.extension == "ann" },
+                                                            fileList.find { it.extension == "json" }
+                                                        )
+                                                    }.forEach { bratResponseList.add(it) }
+                                                outputDrawerItemBrat.expanded = true
+                                                isDisable = false
+                                                openInternalWindow<TemporaryFileDeletionFragment>()
                                             }
-                                        } ui { data ->
-                                            data
-                                                .groupBy { it.baseName }
-                                                .values
-                                                .map { fileList ->
-                                                    BratResponse(
-                                                        fileList.find { it.extension == "ann" },
-                                                        fileList.find { it.extension == "json" }
-                                                    )
-                                                }.forEach { bratResponseList.add(it) }
-                                            outputDrawerItemBrat.expanded = true
-//                                            mergeDataButton.isVisible = true
-//                                            fileHandlingController
-//                                                .writeOutputToApp(bratResponseList, outputFieldSetBrat) {
-//                                                    outputDrawerItemBrat.expanded = true
-//                                                    mergeDataButton.isVisible = true
-//                                                }
                                         }
                                     }
                                 }
@@ -341,14 +370,9 @@ class MainView : View("Averbis & Brat Integrator") {
                                     spacing = 10.0
                                     paddingAll = 10.0
                                     mergeDataButton = button("Merge Data") {
-//                                        isVisible = false
                                         setPrefSize(200.0, 40.0)
                                         action {
                                             openInternalWindow<MergeFragment>()
-//                                            val dir = chooseDirectory("Choose Folder")
-//                                            fileHandlingController.writeMergedData(dir,
-//                                                bratResponseList.toList() as List<BratResponse>
-//                                            )
                                         }
                                     }
                                 }

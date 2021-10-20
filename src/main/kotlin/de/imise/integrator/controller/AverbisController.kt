@@ -6,7 +6,7 @@ import com.beust.klaxon.Parser
 import com.beust.klaxon.json
 import de.imise.integrator.extensions.ResponseType
 import de.imise.integrator.extensions.ResponseTypeEntry
-import de.imise.integrator.model.Analysis
+import de.imise.integrator.model.AverbisAnalysis
 import de.imise.integrator.view.MainView
 import javafx.collections.ObservableList
 import javafx.scene.control.RadioButton
@@ -162,11 +162,11 @@ class AverbisController(private val url: String? = null): Controller() {
     fun postDocuments(
         documents: List<File>,
         averbisResponseList: ObservableList<AverbisResponse>,
-        analysis: Analysis
+        analysis: AverbisAnalysis
     ) {
         documents.forEach {
             averbisResponseList.add(postDocument(it.absolutePath).apply {
-                setAnnotations(mainView.analysisModel.annotationValues.value)
+                setAnnotations(mainView.averbisAnalysisModel.annotationValues.value)
                 if (analysis.outputIsProperPath() && mainView.outputMode.value == "Local") {
                     fileHandlingController.writeOutputToDisk(listOf(this), analysis.outputData!!)
                 }

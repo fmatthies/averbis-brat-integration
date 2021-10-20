@@ -88,13 +88,19 @@ class FileHandlingController : Controller() {
         data: List<BratResponse>,
         crossOut: List<String>,
         modify: List<String>,
-        removeSelected: Boolean
+        removeSelected: Boolean,
+        createTxt: Boolean
     ) {
         if (folder == null) return
         data.forEach { br ->
             File(folder, "${br.basename}.json")
                 .bufferedWriter()
                 .use { out -> out.write(br.mergeAverbisBrat(crossOut, modify, removeSelected).toJsonString(prettyPrint = true)) }
+            if (createTxt) {
+                File(folder, "${br.basename}.txt")
+                    .bufferedWriter()
+                    .use { out -> out.write(br.getTxt()) }
+            }
         }
     }
 }
