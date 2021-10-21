@@ -9,7 +9,10 @@ import java.nio.file.Paths
 
 class DebugController : Controller() {
     private val mainView : MainView by inject()
+    private val logging: LoggingController by inject()
     private val dataFolder = "${Paths.get("").toAbsolutePath()}/data/Schulz-Arztbriefe/${mainView.pipelineNameField.text}/"
+
+    private val sleep: Long = 4000
 
     private fun jsonResourceByName(name: String, ext: String) : File {
         return File("$dataFolder/$name.$ext")
@@ -18,24 +21,23 @@ class DebugController : Controller() {
     fun postDocuments(
         documents: List<File>,
         averbisResponseList: ObservableList<AverbisResponse>,
-        averbisProgress: ProgressBar
+        fxTask: FXTask<*>
     ) {
         val maxDocs = documents.size
-        var currentDoc = 0
-        documents.forEach { fi ->
-            currentDoc += 1
-            val response = AverbisResponse(fi.name, fi.parent)
+        documents.forEachIndexed { index, file ->
+            val response = AverbisResponse(file.name, file.parent)
             response.apply {
-                readJson(jsonResourceByName(fi.nameWithoutExtension, "json").readText())
+                readJson(jsonResourceByName(file.nameWithoutExtension, "json").readText())
                 setAnnotations(mainView.averbisAnalysisModel.annotationValues.value)
             }
             averbisResponseList.add(response)
-            averbisProgress.progress = (currentDoc/maxDocs).toDouble()
+            fxTask.updateProgress((index + 1).toDouble(), maxDocs.toDouble())
             Thread.sleep(1000)
         }
     }
 
     fun getDataFromRemote(random: Boolean = false): List<InMemoryFile> {
+        Thread.sleep(sleep)
         if (random) {
             val data = File("$dataFolder/brat").list()
             if (data.isNullOrEmpty()) return listOf()
@@ -56,5 +58,10 @@ class DebugController : Controller() {
                     InMemoryFile( baseName = fi.nameWithoutExtension, content = fi.readBytes(), extension = fi.extension )
             } )
         }
+    }
+
+    fun transferData() {
+        Thread.sleep(sleep)
+        logging.logBrat("Thread slept for $sleep milliseconds")
     }
 }

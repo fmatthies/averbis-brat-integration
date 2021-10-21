@@ -6,9 +6,15 @@ import javafx.scene.control.Button
 import tornadofx.*
 
 
-fun Fieldset.withTableFrom(responseList: ObservableList<ResponseType>, fields: () -> Sequence<Field>): Fieldset {
+fun Fieldset.withTableFrom(
+    responseList: ObservableList<ResponseType>,
+    fieldsToBottom: Boolean,
+    fields: () -> Sequence<Field>): Fieldset
+{
     return this.apply {
-        fields().forEach { this.add(it) }
+        if (!fieldsToBottom) {
+            fields().forEach { this.add(it) }
+        }
         tableview(responseList) {
             prefHeight = 1000.0
             isEditable = false
@@ -27,19 +33,22 @@ fun Fieldset.withTableFrom(responseList: ObservableList<ResponseType>, fields: (
                 }
             }
         }
+        if (fieldsToBottom) {
+            fields().forEach { this.add(it) }
+        }
     }
 }
 
-fun Field.withActionButton(text: String, action: () -> Unit): Field {
+fun Field.withActionButton(text: String, status: TaskStatus, action: () -> Unit): Field {
     return this.apply {
-        var btn: Button by singleAssign()
         borderpane {
             padding = insets(10)
             center {
                 vbox {
                     alignment = Pos.CENTER
                     spacing = 10.0
-                    btn = button(text) {
+                    button(text) {
+                        disableWhen { status.running }
                         setPrefSize(200.0, 40.0)
                         action(action)
                     }

@@ -162,15 +162,18 @@ class AverbisController(private val url: String? = null): Controller() {
     fun postDocuments(
         documents: List<File>,
         averbisResponseList: ObservableList<AverbisResponse>,
-        analysis: AverbisAnalysis
+        analysis: AverbisAnalysis,
+        fxTask: FXTask<*>
     ) {
-        documents.forEach {
-            averbisResponseList.add(postDocument(it.absolutePath).apply {
+        val maxDocs = documents.size
+        documents.forEachIndexed { index, file ->
+            averbisResponseList.add(postDocument(file.absolutePath).apply {
                 setAnnotations(mainView.averbisAnalysisModel.annotationValues.value)
                 if (analysis.outputIsProperPath() && mainView.outputMode.value == "Local") {
                     fileHandlingController.writeOutputToDisk(listOf(this), analysis.outputData!!)
                 }
             } )
+            fxTask.updateProgress((index + 1).toDouble(), maxDocs.toDouble())
         }
     }
 

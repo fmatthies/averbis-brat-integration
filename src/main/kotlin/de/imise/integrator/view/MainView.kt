@@ -22,7 +22,7 @@ class MainView : View("Averbis & Brat Integrator") {
     private val fileHandlingController: FileHandlingController by inject()
     private val remoteController: RemoteController by inject()
     private val debugController: DebugController by inject()
-    private val logging: LoggingController by inject()
+    val status: TaskStatus by inject()
 
     val averbisResponseList = mutableListOf<AverbisResponse>().asObservable()
     val bratResponseList = mutableListOf<BratResponse>().asObservable()
@@ -72,7 +72,6 @@ class MainView : View("Averbis & Brat Integrator") {
     var outputDrawerItemAverbis: DrawerItem by singleAssign()
     var outputModeBox: ComboBox<String> by singleAssign()
     val outputMode = SimpleStringProperty()
-    val averbisProgress = ProgressBar(0.0)
 
     // Brat Tab
     var hostField: TextField by singleAssign()
@@ -224,7 +223,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                     //ToDo: add viewer (and selector) for which path parts should be used for later output path
                                     //ToDo: separate "post data" from "analyze data" so that filtering can be done later
                                     // this allows us to extract `types` from json and they don't have to be declared in the config
-                                    field().withActionButton("Post Data") {
+                                    field().withActionButton("Post Data", status) {
                                         averbisSetupModel.commit()
                                         averbisInputDataModel.commit()
                                         averbisAnalysisModel.commit()
@@ -233,20 +232,18 @@ class MainView : View("Averbis & Brat Integrator") {
                                         val averbisInput: AverbisInput = averbisInputDataModel.item
                                         val averbisAnalysis: AverbisAnalysis = averbisAnalysisModel.item
 
-                                        //ToDo: progress indicator that shows a real progress and not just spinning wheel
                                         if (averbisSetup.hasNoNullProperties() and
                                             averbisInput.hasNoNullProperties() and
                                             (averbisAnalysis.hasNoNullProperties() or (outputMode.value == "Remote"))
                                         ) {
                                             outputDrawerItemAverbis.expanded = true
-                                            isDisable = true
                                             averbisResponseList.clear()
                                             runAsync {
                                                 when (offlineCheck.isSelected) {
-                                                    true -> debugController.postDocuments(fis, averbisResponseList, averbisProgress)
-                                                    false -> averbisController.postDocuments(fis, averbisResponseList, averbisAnalysis)
+                                                    true -> debugController.postDocuments(fis, averbisResponseList, this)
+                                                    false -> averbisController.postDocuments(fis, averbisResponseList, averbisAnalysis, this)
                                                 }
-                                            } ui { isDisable = false }
+                                            }
                                         }
                                     }
                                 }
@@ -257,9 +254,15 @@ class MainView : View("Averbis & Brat Integrator") {
                         }
                         outputDrawerItemAverbis = item("Output") {
                             form {
-                                fieldset("Output").withTableFrom(averbisResponseList as ObservableList<ResponseType>) {
+                                fieldset("Output").withTableFrom(
+                                    responseList = averbisResponseList as ObservableList<ResponseType>,
+                                    fieldsToBottom = true
+                                ) {
                                     sequenceOf(
-                                        field("Progress") { averbisProgress }
+                                        field("Progress") {
+                                            progressbar(status.progress)
+                                            visibleWhen { status.running }
+                                        }
                                     )
                                 }
                             }
@@ -295,7 +298,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                                     "if empty the Averbis pipeline name is used as subfolder."
                                         )
                                     }
-                                    field().withActionButton("Transfer data") {
+                                    field().withActionButton("Transfer data", status) {
                                         bratSetupModel.commit()
                                         bratTransferModel.commit()
 
@@ -303,12 +306,15 @@ class MainView : View("Averbis & Brat Integrator") {
                                         val bratTransfer: BratTransfer = bratTransferModel.item
 
                                         if (bratSetup.hasNoNullProperties()) {
-                                            isDisable = true
-                                            remoteController.FileTransfer().apply {
-                                                setupTransfer(bratSetup, bratTransfer)
-                                                transferData(averbisResponseList)
+                                            runAsync {
+                                                when (offlineCheck.isSelected) {
+                                                    true -> debugController.transferData()
+                                                    false -> remoteController.FileTransfer().apply {
+                                                        setupTransfer(bratSetup, bratTransfer)
+                                                        transferData(averbisResponseList)
+                                                    }
+                                                }
                                             }
-                                            isDisable = false
                                         }
                                     }
                                 }
@@ -316,7 +322,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                     field("Subfolder") {
                                         bratReceiveSubfolderField = textfield(bratReceiveModel.subfolder).apply { required() }
                                     }
-                                    field().withActionButton("Get Data") {
+                                    field().withActionButton("Get Data", status) {
                                         bratSetupModel.commit()
                                         bratReceiveModel.commit()
 
@@ -324,7 +330,6 @@ class MainView : View("Averbis & Brat Integrator") {
                                         val bratReceive: BratReceive = bratReceiveModel.item
 
                                         if (bratSetup.hasNoNullProperties() && bratReceive.hasNoNullProperties()) {
-                                            isDisable = true
                                             bratResponseList.clear()
                                             runAsync {
                                                 when (offlineCheck.isSelected) {
@@ -345,7 +350,6 @@ class MainView : View("Averbis & Brat Integrator") {
                                                         )
                                                     }.forEach { bratResponseList.add(it) }
                                                 outputDrawerItemBrat.expanded = true
-                                                isDisable = false
                                                 openInternalWindow<TemporaryFileDeletionFragment>()
                                             }
                                         }
@@ -354,12 +358,21 @@ class MainView : View("Averbis & Brat Integrator") {
                                 fieldset("Log") {
                                     logFieldBrat = textarea { isEditable = false }
                                 }
+                                fieldset {
+                                    field("Progress") {
+                                        progressbar(status.progress)
+                                        visibleWhen { status.running }
+                                    }
+                                }
                             }
                         }
                         outputDrawerItemBrat = item("Output") {
                             borderpane {
                                 center = form {
-                                    fieldset("Output").withTableFrom(bratResponseList as ObservableList<ResponseType>) {
+                                    fieldset("Output").withTableFrom(
+                                        responseList = bratResponseList as ObservableList<ResponseType>,
+                                        fieldsToBottom = false
+                                    ) {
                                         sequenceOf(
                                             field { }
                                         )
