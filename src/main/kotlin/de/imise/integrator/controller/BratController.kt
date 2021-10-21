@@ -22,7 +22,7 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseTyp
     private var textData = ""
     override val basename: String = annFile?.baseName ?: "none"
     override val additionalColumn = "in-memory"
-    override val items: ObservableList<ResponseTypeEntry>  //ToDo: I want all? (even json entries)
+    override val items: ObservableList<ResponseTypeEntry>  //ToDo: I want all? (even json entries; maybe two different column extensions)
         get() = textboundData
             .values
             .toList()

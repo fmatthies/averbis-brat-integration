@@ -19,7 +19,7 @@ class TemporaryFileDeletionFragment: Fragment() {
                 field {
                     textarea(
                         "Received a zip file '${remoteController.BRAT_BULKZIP_NAME}' in '$workingDir'.\n" +
-                                "It contains json data and brat annotation data from the remote host and therefore possible sensitive information!" +
+                                "It contains json data and brat annotation data from the remote host and therefore possible sensitive information! " +
                                 "You probably won't need the zip file any further since you are able to select the data you will use in a next step.\n" +
                                 "Should the file be removed?"
                     )

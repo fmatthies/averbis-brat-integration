@@ -169,7 +169,6 @@ class RemoteController : Controller() {
             waitForFile(bulkZip)
             transferFileIndirectly(bulkZip, commandFile).waitFor()
             logging.logBrat("Extracted files to brat folder...")
-            // ToDo: added: delete .tmp on remote; or at least content thereof --> TEST
             ProcessBuilder(
                 *processBuilder(ConnectionTool.PLINK),
                 connection,
@@ -178,7 +177,6 @@ class RemoteController : Controller() {
                 .redirectOutput(ProcessBuilder.Redirect.PIPE)
                 .start()
                 .waitFor()
-            // ToDo: added: remove "command_***.sh" from local dir --> TEST
             commandFile.delete()
             bulkZip.delete()
         }
@@ -189,7 +187,7 @@ class RemoteController : Controller() {
             ProcessBuilder(
                 *processBuilder(ConnectionTool.PLINK),
                 connection,
-                "mkdir --parents $tmpFolder", "&&",  // ToDo: added: create .tmp beforehand (if it doesn't exist) -> TEST
+                "mkdir --parents $tmpFolder", "&&",
                 "zip -r -j", "${tmpFolder}/${bulkZipName}", finalDestinationReceive
             )
                 .redirectOutput(ProcessBuilder.Redirect.PIPE)
@@ -206,6 +204,16 @@ class RemoteController : Controller() {
                 .redirectOutput(ProcessBuilder.Redirect.PIPE)
                 .start()
                 .log()
+                .waitFor()
+
+            /* Delete bratBulk.zip from remote .tmp folder */
+            ProcessBuilder(
+                *processBuilder(ConnectionTool.PLINK),
+                connection,
+                "rm $tmpFolder/$bulkZipName"
+            )
+                .redirectOutput(ProcessBuilder.Redirect.PIPE)
+                .start()
                 .waitFor()
 
             /* Unzip and return List of files */
