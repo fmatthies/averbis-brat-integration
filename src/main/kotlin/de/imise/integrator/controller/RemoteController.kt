@@ -73,8 +73,8 @@ class RemoteController : Controller() {
 
         private fun processBuilder(connection: ConnectionTool): Array<String> {
             return when (connection) {
-                ConnectionTool.PLINK -> arrayOf("plink.exe", "-no-antispoof")
-                ConnectionTool.PSCP -> arrayOf("pscp.exe")
+                ConnectionTool.PLINK -> arrayOf("exec\\plink.exe", "-no-antispoof")
+                ConnectionTool.PSCP -> arrayOf("exec\\pscp.exe")
             }.plus(listOf("-P", mainView.remotePortField.text, "-pw", mainView.passwordField.text))
         }
 
