@@ -111,7 +111,7 @@ class BratReceive(
 
 class AverbisAnalysis(
     outputData: String = "",
-    annotationValues: MutableList<String> = mutableListOf<String>().asObservable()
+    annotationValues: MutableMap<String, MutableList<String>>
 ) {
     var outputData by property(outputData)
     fun outputDataProperty() = getProperty(AverbisAnalysis::outputData)
@@ -174,7 +174,7 @@ class BratReceiveModel(receive: BratReceive): ItemViewModel<BratReceive>(receive
 
 class AverbisAnalysisModel(analysis: AverbisAnalysis): ItemViewModel<AverbisAnalysis>(analysis) {
     val output: Property<String> = bind(AverbisAnalysis::outputDataProperty)
-    val annotationValues: Property<MutableList<String>> = bind(AverbisAnalysis::annotationValuesProperty)
+    val annotationValues: Property<MutableMap<String, MutableList<String>>> = bind(AverbisAnalysis::annotationValuesProperty)
 }
 
 class BratTransferModel(transfer: BratTransfer): ItemViewModel<BratTransfer>(transfer) {

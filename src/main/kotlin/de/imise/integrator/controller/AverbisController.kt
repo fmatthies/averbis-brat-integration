@@ -77,7 +77,7 @@ class AverbisResponse(val srcFileName: String, private val srcFilePath: String):
     var documentTextId: Int = -1
     var documentLanguage: String = ""
     var documentAverbisVersion: String = ""
-    var annotationValues: List<String> = listOf()
+    var annotationValues: MutableList<String> = mutableListOf()
     var errorMessage: String? = null
     override val basename: String
         get() = srcFileName.substringBeforeLast(".")
@@ -94,8 +94,10 @@ class AverbisResponse(val srcFileName: String, private val srcFilePath: String):
         return jsonResponse
     }
 
-    fun setAnnotations(values: List<String>) {
-        annotationValues = values
+    fun setAnnotations(values: Map<String, List<String>>) {
+       values.forEach{ (_, v) ->
+           annotationValues.addAll(v)
+       }
     }
 
     fun readJson(jsonString: String) {

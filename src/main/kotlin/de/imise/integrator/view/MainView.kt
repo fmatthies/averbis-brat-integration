@@ -39,8 +39,22 @@ class MainView : View("Averbis & Brat Integrator") {
 
     val averbisAnalysisModel = AverbisAnalysisModel(
         AverbisAnalysis(
-            annotationValues = app.config.getProperty(ANNOTATION_TYPES).split(",").toMutableList().asObservable()
+            annotationValues = getAnnotationValues()
         ))
+
+    private fun getAnnotationValues(): MutableMap<String, MutableList<String>> {
+        val annotations: MutableMap<String, MutableList<String>> = mutableMapOf()
+        for ((key, vals) in app.config.entries) {
+            if (key.toString().startsWith(ANNOTATION_TYPES_BASE)) {
+                val cat = key.toString().split("_").last()
+                val annotationFQNS = vals.toString().split(",")
+                annotations[cat] = annotationFQNS.toMutableList().toObservable()
+            }
+        }
+//            .getProperty(ANNOTATION_TYPES_BASE)
+//            .split(",").toMutableList().asObservable()
+        return annotations.toObservable()
+    }
 
     val bratSetupModel = BratSetupModel(
         BratSetup(
@@ -54,7 +68,7 @@ class MainView : View("Averbis & Brat Integrator") {
     val bratTransferModel = BratTransferModel(BratTransfer())
 
     // General
-    var offlineCheck: CheckMenuItem by singleAssign()  //ToDo: remove this when going live
+    var offlineCheck: CheckMenuItem by singleAssign()
 
     // ToDo: LogField --> scroll (to end) automatically
     // Averbis Tab
@@ -98,7 +112,7 @@ class MainView : View("Averbis & Brat Integrator") {
         const val DEFAULT_PROJECT_CONFIG_STRING = "default_project"
         const val DEFAULT_PIPELINE_CONFIG_STRING = "default_pipeline"
         const val DEFAULT_LANGUAGES_CONFIG_LIST = "default_languages"
-        const val ANNOTATION_TYPES = "annotation_types"
+        const val ANNOTATION_TYPES_BASE = "annotation_types"
         const val DEFAULT_REMOTE_HOST = "default_remote"
         const val DEFAULT_REMOTE_PORT = "default_port"
         const val DEFAULT_REMOTE_DEST = "default_destination"
@@ -111,9 +125,10 @@ class MainView : View("Averbis & Brat Integrator") {
         prefWidth = 550.0
 
         top = menubar {
+            isVisible = false  //ToDo: true if debugging
             menu("Options") {
                 menu("Debug") {
-                    offlineCheck = checkmenuitem("Offline") { isSelected = true }
+                    offlineCheck = checkmenuitem("Offline") { isSelected = false }
                 }
             }
         }
@@ -175,16 +190,20 @@ class MainView : View("Averbis & Brat Integrator") {
                                     }
                                 }
                                 fieldset("Analyze Data") {
-                                    squeezebox {
-                                        fold("Annotation Values") {
-                                            averbisAnalysisModel.annotationValues.value.forEach {
-                                                checkbox(it).apply {
-                                                    isSelected = true
-                                                    action {
-                                                        if (isSelected) {
-                                                            averbisAnalysisModel.annotationValues.value.add(this.text)
-                                                        } else {
-                                                            averbisAnalysisModel.annotationValues.value.remove(this.text)
+                                    field("Annotation Values") {
+                                        squeezebox {
+                                            averbisAnalysisModel.annotationValues.value.forEach { (k, v) ->
+                                                fold(k) {
+                                                    v.forEach {
+                                                        checkbox(it).apply {
+                                                            isSelected = true
+                                                            action {
+                                                                if (isSelected) {
+                                                                    averbisAnalysisModel.annotationValues.value[k]?.add(this.text)
+                                                                } else {
+                                                                    averbisAnalysisModel.annotationValues.value[k]?.remove(this.text)
+                                                                }
+                                                            }
                                                         }
                                                     }
                                                 }

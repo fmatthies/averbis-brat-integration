@@ -56,11 +56,11 @@ class MergeFragment : Fragment() {
                 separator { paddingAll = 5.0 }
                 squeezebox {
                     fold("Cross Out") {
-                        this.addCheckBoxesByList(mainView.averbisAnalysisModel.annotationValues.value, crossOutList)
+                        mainView.averbisAnalysisModel.annotationValues.value["deid"]?.let { this.addCheckBoxesByList(it.toList(), crossOutList) }
                         replaceList.addListener(additionListener(crossOutList, this.content as VBox))
                     }
                     fold("Modify/Replace") {
-                        this.addCheckBoxesByList(mainView.averbisAnalysisModel.annotationValues.value, replaceList)
+                        mainView.averbisAnalysisModel.annotationValues.value["deid"]?.let { this.addCheckBoxesByList(it.toList(), replaceList) }
                         crossOutList.addListener(additionListener(replaceList, this.content as VBox))
                     }
                 }
