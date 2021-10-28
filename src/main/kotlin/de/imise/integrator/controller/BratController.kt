@@ -4,16 +4,13 @@ import com.beust.klaxon.JsonObject
 import com.beust.klaxon.json
 import de.imise.integrator.controller.BratController.Companion.AVERBIS_HEALTH_PRE
 import de.imise.integrator.controller.BratController.Companion.DOCUMENT_TEXT_TYPE
-import de.imise.integrator.extensions.DateFunctionality
-import de.imise.integrator.extensions.ResponseType
-import de.imise.integrator.extensions.ResponseTypeEntry
-import de.imise.integrator.extensions.padAround
+import de.imise.integrator.extensions.*
 import javafx.collections.ObservableList
 import tornadofx.*
 
 
 data class BratAnnotation(val id: Int, val bratType: String, override val type: String,
-                          val begin: Int, val end: Int, override val text: String) : ResponseTypeEntry
+                          val offsets: List<Pair<Int, Int>>, override val text: String) : ResponseTypeEntry
 
 class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseType {
     val averbisData = jsonFile?.let { AverbisResponse(it.baseName, "in-memory")
@@ -54,13 +51,29 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseTyp
     private fun readTextbound(line: String) {
         line.split("\t").run {
             val (id, type_offset, text) = this
-            val (annotationType, begin, end) = type_offset.split(" ")
+            val (annotationType, offsets) = if (type_offset.split(" ").size == 3) {
+                type_offset.split(" ").run {
+                    listOf(this.first(), listOf(Pair(this[1].toInt(), this[2].toInt())))
+                }
+            } else {
+                val aType = type_offset.split(" ").first()
+                listOf(
+                    aType,
+                    mutableListOf<Pair<Int, Int>>().apply {
+                        type_offset.removePrefix("$aType ").split(";").forEach {
+                            this.add(Pair(
+                                it.split(" ").first().toInt(),
+                                it.split(" ").component2().toInt()
+                            ))
+                        }
+                    }.toList()
+                )
+            }
             BratAnnotation(
                 id.substring(1).toInt(),
                 id[0].toString(),
-                annotationType,
-                begin.toInt(),
-                end.toInt(),
+                annotationType as String,
+                offsets as List<Pair<Int, Int>>,
                 text.substringBefore("\n")
             ).also { textboundData[it.id] = it }
         }
@@ -71,8 +84,8 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseTyp
         data: BratAnnotation,
         crossOut: List<String>,
         modify: List<String>
-    ): BratAnnotation {
-        val newText = if (crossOut.any { it == "$AVERBIS_HEALTH_PRE${data.type}" }) {
+    ): BratAnnotation {  //ToDo: text with more than one offsets (i.e. text with Frag.) will always be crossed out right now
+        val newText = if (crossOut.any { it == "$AVERBIS_HEALTH_PRE${data.type}" } || data.offsets.size > 1) {
             "X".repeat(data.text.length)
         } else if (modify.contains("$AVERBIS_HEALTH_PRE${data.type}")) {
             if (data.type.lowercase() == "date") {  //ToDo: only for date right now and hard-coded
@@ -80,7 +93,9 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseTyp
                 newDate.padAround(data.text.length, ' ') //ToDo: what if newDate.length is bigger than text.length? Is this even possible?
             } else { "<${".".repeat(data.text.length)}>" }
         } else { data.text }
-        sb.setRange(data.begin, data.end, newText)
+        data.offsets.forEach { (begin, end) ->
+            sb.setRange(begin, end, "X".repeat(end - begin))
+        }
         return data.copy(text = newText)
     }
 
@@ -89,17 +104,21 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseTyp
         val idSetAverbis = averbisData!!.getData().keys
         val mergedData = mutableListOf<JsonObject>()
         fun MutableList<JsonObject>.addJson(sourceData: BratAnnotation, id: Int? = null) {
-            this.add(
-                json { obj(
-                    "begin" to sourceData.begin,
-                    "end" to sourceData.end,
-                    "type" to "$AVERBIS_HEALTH_PRE${sourceData.type}",
-                    "coveredText" to sourceData.text,
-                    "id" to (id ?: sourceData.id),
-                ) }
-            )
+            sourceData.offsets.forEach { (begin, end) ->
+                this.add(
+                    json {
+                        obj(
+                            "begin" to begin,
+                            "end" to end,
+                            "type" to "$AVERBIS_HEALTH_PRE${sourceData.type}",
+                            "coveredText" to sourceData.text.substring(IntRange(begin, end)),
+                            "id" to (id ?: sourceData.id),
+                        )
+                    }
+                )
+            }
         }
-        fun Iterable<Int>.addById(sb: StringBuilder) {
+        fun Iterable<Int>.addById(sb: StringBuilder) {  //ToDo: I want to reserve the json structure of the original Averbis files if no changes were applied!
             this.forEach {
                 textboundData[it]?.let { data ->
                     val newData = crossOutModifyAnnotations(sb, data, crossOut, modify)

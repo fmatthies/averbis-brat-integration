@@ -16,6 +16,7 @@ import tornadofx.*
 import java.io.File
 
 // ToDo: disable buttons only while processing; right now the whole field gets disabled
+// ToDo: possibility to read folder structure for brat
 
 class MainView : View("Averbis & Brat Integrator") {
     private val averbisController: AverbisController by inject()
@@ -125,7 +126,7 @@ class MainView : View("Averbis & Brat Integrator") {
         prefWidth = 550.0
 
         top = menubar {
-            isVisible = false  //ToDo: true if debugging
+            isVisible = true  //ToDo: true if debugging
             menu("Options") {
                 menu("Debug") {
                     offlineCheck = checkmenuitem("Offline") { isSelected = false }
