@@ -62,3 +62,8 @@ fun String.padAround(length: Int, padChar: Char): String {
     val middle: Int = kotlin.math.max(length - this.length, 0) / 2
     return this.padStart(length - middle, padChar).padEnd(length, padChar)
 }
+
+fun String.substringBeforeRegex(delimiter: String): String {
+    val match = Regex(delimiter).find(this)
+    return match?.range?.start?.let { this.substring(0, it) } ?: this
+}

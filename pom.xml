@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
-    <artifactId>tornadofx-maven-project</artifactId>
+    <groupId>de.imise</groupId>
+    <artifactId>averbis-brat-integration</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
     <properties>
-        <kotlin.version>1.5.30</kotlin.version>
+        <kotlin.version>1.6.0</kotlin.version>
         <tornadofx.version>1.7.20</tornadofx.version>
     </properties>
 

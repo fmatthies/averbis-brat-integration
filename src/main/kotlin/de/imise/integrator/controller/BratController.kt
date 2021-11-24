@@ -74,7 +74,7 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseTyp
                 id[0].toString(),
                 annotationType as String,
                 offsets as List<Pair<Int, Int>>,
-                text.substringBefore("\n")
+                text.substringBeforeRegex("\\r?\\n|\\r")
             ).also { textboundData[it.id] = it }
         }
     }
@@ -94,7 +94,11 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseTyp
             } else { "<${".".repeat(data.text.length)}>" }
         } else { data.text }
         data.offsets.forEach { (begin, end) ->
-            sb.setRange(begin, end, "X".repeat(end - begin))
+            if (data.offsets.size > 1) {
+                sb.setRange(begin, end, "X".repeat(end - begin))
+            } else {
+                sb.setRange(begin, end, newText)
+            }
         }
         return data.copy(text = newText)
     }
@@ -111,7 +115,7 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseTyp
                             "begin" to begin,
                             "end" to end,
                             "type" to "$AVERBIS_HEALTH_PRE${sourceData.type}",
-                            "coveredText" to sourceData.text.substring(IntRange(begin, end)),
+                            "coveredText" to sourceData.text,//.substring(IntRange(begin, end)),
                             "id" to (id ?: sourceData.id),
                         )
                     }
