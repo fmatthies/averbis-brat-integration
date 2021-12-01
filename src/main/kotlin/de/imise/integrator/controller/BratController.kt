@@ -109,15 +109,22 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseTyp
         val mergedData = mutableListOf<JsonObject>()
         fun MutableList<JsonObject>.addJson(sourceData: BratAnnotation, id: Int? = null) {
             sourceData.offsets.forEach { (begin, end) ->
+                // Adds
                 this.add(
                     json {
-                        obj(
-                            "begin" to begin,
-                            "end" to end,
-                            "type" to "$AVERBIS_HEALTH_PRE${sourceData.type}",
-                            "coveredText" to sourceData.text,//.substring(IntRange(begin, end)),
-                            "id" to (id ?: sourceData.id),
-                        )
+                        if (id == null && idSetAverbis.contains(sourceData.id)) {
+                            averbisData.getData()[sourceData.id]!!.also {
+                                it.replace("coveredText", sourceData.text)
+                            }
+                        } else {
+                            obj(
+                                "begin" to begin,
+                                "end" to end,
+                                "type" to "$AVERBIS_HEALTH_PRE${sourceData.type}",
+                                "coveredText" to sourceData.text,//.substring(IntRange(begin, end)),
+                                "id" to (id ?: sourceData.id),
+                            )
+                        }
                     }
                 )
             }

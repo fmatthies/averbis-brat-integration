@@ -25,10 +25,10 @@ class DateFunctionality(dateString: String) {
             val month = monthNamesMap[dateString.lowercase().trim().trimEnd('.', ' ')]
             CustomDateMatch(day = null, month = month, year = null)
         } else if ( /* Day and Month only and with '.' delimiter; year optional */
-            (2..3).contains(dateString.split(Regex(" *\\. *")).size)
+            (2..3).contains(dateString.split(Regex(" *[./] *")).size)
         ) {
             var year: Int? = null
-            val dateList = dateString.split(Regex(" *\\. *"))
+            val dateList = dateString.split(Regex(" *[./] *"))
             val month = if (dateList[1].trim().length <= 2 && dateList[1].trim().isInt()) {
                 dateList[1].trim().toInt()
             } else if (dateList[1].trim().length > 2) {

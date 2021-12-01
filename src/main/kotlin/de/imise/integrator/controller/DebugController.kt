@@ -6,6 +6,7 @@ import javafx.scene.control.ProgressBar
 import tornadofx.*
 import java.io.File
 import java.nio.file.Paths
+import javax.swing.filechooser.FileSystemView
 
 class DebugController : Controller() {
     private val mainView : MainView by inject()
@@ -13,7 +14,8 @@ class DebugController : Controller() {
 
     private val sleep: Long = 4000
 
-    private fun dataFolder() = "${Paths.get("").toAbsolutePath()}/data/Schulz-Arztbriefe/${mainView.pipelineNameField.text}/"
+    private val documentsFolder = FileSystemView.getFileSystemView().defaultDirectory.absolutePath
+    private fun dataFolder() = "${documentsFolder}/data/Schulz-Arztbriefe/${mainView.pipelineNameField.text}/"
 
     private fun jsonResourceByName(name: String, ext: String) : File {
         return File("${dataFolder()}/$name.$ext")
