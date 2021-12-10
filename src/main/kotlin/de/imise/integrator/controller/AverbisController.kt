@@ -115,10 +115,10 @@ class AverbisResponse(val srcFileName: String, private val srcFilePath: String):
         }
     }
 
-    fun jsonToBrat() : String {
+    fun jsonToBrat(bratAnnotationValues: List<String>): String {
         val sb = StringBuilder()
         jsonResponse
-            .filter { jsonEntryFilter(it) }
+            .filter { bratAnnotationValues.contains(it.value.string(JSON_TYPE_KEY_STRING)) && jsonEntryFilter(it) }
             .forEach { sb.append(AverbisJsonEntry(it.value, this).asTextboundAnnotation()).append("\n") }
         return sb.toString().removeSuffix("\n")
     }
@@ -165,14 +165,15 @@ class AverbisController(private val url: String? = null): Controller() {
         documents: List<File>,
         averbisResponseList: ObservableList<AverbisResponse>,
         analysis: AverbisAnalysis,
+        bratAnnotationValues: List<String>,
         fxTask: FXTask<*>
     ) {
         val maxDocs = documents.size
         documents.forEachIndexed { index, file ->
             averbisResponseList.add(postDocument(file.absolutePath).apply {
-                setAnnotations(mainView.averbisAnalysisModel.annotationValues.value)
+                setAnnotations(analysis.annotationValues)
                 if (analysis.outputIsProperPath() && mainView.outputMode.value == "Local") {
-                    fileHandlingController.writeOutputToDisk(listOf(this), analysis.outputData!!)
+                    fileHandlingController.writeOutputToDisk(listOf(this), analysis.outputData!!, bratAnnotationValues)
                 }
             } )
             fxTask.updateProgress((index + 1).toDouble(), maxDocs.toDouble())

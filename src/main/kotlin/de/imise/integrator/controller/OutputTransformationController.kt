@@ -6,12 +6,12 @@ data class OutputFileStream(val fileName: String, val extension: String, val con
 class OutputTransformationController() {
 
     companion object {
-        fun transformToBrat(response: List<AverbisResponse>): List<Pair<OutputFileStream, OutputFileStream>> {
+        fun transformToBrat(response: List<AverbisResponse>, bratAnnotationValues: List<String>): List<Pair<OutputFileStream, OutputFileStream>> {
             return response.map {
                 Pair(
                     OutputFileStream(
                         fileName = it.basename, extension = "ann",
-                        content = it.jsonToBrat().replace("\\r\\n?", "\n")
+                        content = it.jsonToBrat(bratAnnotationValues).replace("\\r\\n?", "\n")
                     ),
                     OutputFileStream(
                         fileName = it.basename, extension = "txt",

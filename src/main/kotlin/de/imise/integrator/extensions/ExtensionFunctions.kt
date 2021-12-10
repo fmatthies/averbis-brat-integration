@@ -4,6 +4,8 @@ import javafx.collections.ObservableList
 import javafx.geometry.Pos
 import javafx.scene.control.Button
 import tornadofx.*
+import java.util.logging.Logger
+import kotlin.reflect.full.companionObject
 
 
 fun Fieldset.withTableFrom(
@@ -66,4 +68,14 @@ fun String.padAround(length: Int, padChar: Char): String {
 fun String.substringBeforeRegex(delimiter: String): String {
     val match = Regex(delimiter).find(this)
     return match?.range?.start?.let { this.substring(0, it) } ?: this
+}
+
+fun <T : Any> unwrapCompanionClass(ofClass: Class<T>): Class<*> {
+    return ofClass.enclosingClass?.takeIf {
+        ofClass.enclosingClass.kotlin.companionObject?.java == ofClass
+    } ?: ofClass
+}
+
+fun <R : Any> R.logger(): Lazy<Logger> {
+    return lazy { Logger.getLogger(unwrapCompanionClass(this.javaClass).name) }
 }

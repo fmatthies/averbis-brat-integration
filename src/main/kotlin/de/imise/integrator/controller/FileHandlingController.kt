@@ -41,8 +41,8 @@ class FileHandlingController : Controller() {
         return files
     }
 
-    fun writeOutputToDisk(response: List<AverbisResponse>, outputPath: String) {
-        OutputTransformationController.transformToBrat(response).forEach {
+    fun writeOutputToDisk(response: List<AverbisResponse>, outputPath: String, bratAnnotationValues: List<String>) {
+        OutputTransformationController.transformToBrat(response, bratAnnotationValues).forEach {
             File(outputPath,"${it.first.fileName}.${it.first.extension}")
                 .bufferedWriter()
                 .use { out -> out.write(it.first.content) }

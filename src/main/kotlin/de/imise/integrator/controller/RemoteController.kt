@@ -143,14 +143,14 @@ class RemoteController : Controller() {
                 .log()
         }
 
-        fun transferData(response: List<AverbisResponse>) {
+        fun transferData(response: List<AverbisResponse>, bratAnnotationValues: List<String>) {
             val bulkZip = File(BULKZIP_NAME)
             val commandFile = File("command_remote_transfer.sh")
 
             bulkZip.outputStream().use {  fos ->
                 ZipOutputStream(fos).use { zos ->
                     zos.putNextEntry(ZipEntry("${mainView.pipelineNameField.text}/"))
-                    OutputTransformationController.transformToBrat(response).forEach { pair ->
+                    OutputTransformationController.transformToBrat(response, bratAnnotationValues).forEach { pair ->
                         pair.toList().forEach { entry ->
                             val zipEntry = ZipEntry("${mainView.pipelineNameField.text}/${entry.fileName}.${entry.extension}")
                             zos.putNextEntry(zipEntry)

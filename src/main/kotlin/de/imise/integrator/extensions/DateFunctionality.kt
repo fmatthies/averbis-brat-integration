@@ -1,7 +1,8 @@
 package de.imise.integrator.extensions
 
 import tornadofx.*
-import java.time.LocalDate
+import java.util.logging.FileHandler
+
 
 data class CustomDateMatch(val day: Int?, val month: Int?, val year: Int?)
 
@@ -14,42 +15,60 @@ class DateFunctionality(dateString: String) {
     private var date: CustomDateMatch?
 
     init {
-        date = if ( /* Year only */
-            dateString.trim().length <= 4 &&
-            arrayOf("19", "20").contains(dateString.trim().subSequence(0, 2))
-        ) {
-            CustomDateMatch(day = null, month = null, year = dateString.trim().toInt())
-        } else if ( /* Month name only */
-            monthNamesMap.containsKey(dateString.lowercase().trim().trimEnd('.', ' '))
-        ) {
-            val month = monthNamesMap[dateString.lowercase().trim().trimEnd('.', ' ')]
-            CustomDateMatch(day = null, month = month, year = null)
-        } else if ( /* Day and Month only and with '.' delimiter; year optional */
-            (2..3).contains(dateString.split(Regex(" *[./] *")).size)
-        ) {
-            var year: Int? = null
-            val dateList = dateString.split(Regex(" *[./] *"))
-            val month = if (dateList[1].trim().length <= 2 && dateList[1].trim().isInt()) {
-                dateList[1].trim().toInt()
-            } else if (dateList[1].trim().length > 2) {
-                val (m, y) = dateList[1].trim().split(" ", limit = 2)
-                year = y.takeIf { y.trim().isInt() }?.trim()?.toInt()
-                m.takeIf { m.trim().isInt() }?.trim()?.toInt()
-            } else {
-                monthNamesMap[dateList[1].trim().lowercase()]
+        val fileHandler = FileHandler("dateLogFile.log")
+        LOG.addHandler(fileHandler)
+        try {
+            date = if ( /* Year only */
+                dateString.trim().length <= 4 &&
+                arrayOf("19", "20").contains(dateString.trim().subSequence(0, 2))
+            ) {
+                CustomDateMatch(day = null, month = null, year = dateString.trim().toInt())
+            } else if ( /* Month name only */
+                monthNamesMap.containsKey(dateString.lowercase().trim().trimEnd('.', ' '))
+            ) {
+                val month = monthNamesMap[dateString.lowercase().trim().trimEnd('.', ' ')]
+                CustomDateMatch(day = null, month = month, year = null)
+            } else if ( /* Day and Month only and with '.' delimiter; year optional */
+                (2..3).contains(dateString.split(Regex(" *[./] *")).size)
+            ) {
+                var year: Int? = null
+                val dateList = dateString.split(Regex(" *[./] *"))
+                val month = if (dateList[1].trim().length <= 2 && dateList[1].trim().isInt()) {
+                    dateList[1].trim().toInt()
+                } else if (dateList[1].trim().length > 2) {
+                    if (!dateList[1].trim().isInt()) {
+                        monthNamesMap[dateList[1].trim().lowercase()]
+                    } else {
+                        val (m, y) = dateList[1].trim().split(" ", limit = 2)
+                        year = y.takeIf { y.trim().isInt() }?.trim()?.toInt()
+                        m.takeIf { m.trim().isInt() }?.trim()?.toInt()
+                    }
+                } else {
+                    monthNamesMap[dateList[1].trim().lowercase()]
+                }
+                year = if (year == null && dateList.size == 3 && dateList[2].isInt()) {
+                    dateList[2].toInt()
+                } else {
+                    null
+                }
+
+                val day: Int? = if (dateList.first().isBlank()) {
+                    null
+                } else {
+                    dateList.first().toInt()
+                }
+
+                CustomDateMatch(day = day, month = month, year = year)
+            } else { /* No CustomDateMatch pattern detectable */
+                null
             }
-            year = if (year == null && dateList.size == 3 && dateList[2].isInt()) {
-                dateList[2].toInt()
-            } else { null }
 
-            val day: Int? = if(dateList.first().isBlank()) { null } else { dateList.first().toInt() }
-
-            CustomDateMatch(day = day, month = month, year = year)
-        } else { /* No CustomDateMatch pattern detectable */
-            null
+            if (date == null) parseDateByRegex(dateString)
+        } catch (e: Exception) {
+            LOG.warning("Encountered Problems with DateString: '$dateString'")
+        } finally {
+            date = null
         }
-
-        if (date == null)  parseDateByRegex(dateString)
     }
 
     private fun parseDateByRegex(dateString: String) {
@@ -63,5 +82,9 @@ class DateFunctionality(dateString: String) {
             "${date!!.year?: "<YEAR>"}"
         }
         return dateAsString
+    }
+
+    companion object {
+        val LOG by logger()
     }
 }

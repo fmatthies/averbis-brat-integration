@@ -1,9 +1,7 @@
 package de.imise.integrator.view
 
 import de.imise.integrator.controller.*
-import de.imise.integrator.extensions.ResponseType
-import de.imise.integrator.extensions.withActionButton
-import de.imise.integrator.extensions.withTableFrom
+import de.imise.integrator.extensions.*
 import de.imise.integrator.model.*
 import javafx.beans.property.SimpleStringProperty
 import javafx.collections.FXCollections
@@ -14,6 +12,7 @@ import javafx.scene.control.*
 import javafx.scene.layout.HBox
 import tornadofx.*
 import java.io.File
+import java.util.logging.FileHandler
 
 // ToDo: disable buttons only while processing; right now the whole field gets disabled
 // ToDo: possibility to read folder structure for brat
@@ -55,6 +54,20 @@ class MainView : View("Averbis & Brat Integrator") {
 //            .getProperty(ANNOTATION_TYPES_BASE)
 //            .split(",").toMutableList().asObservable()
         return annotations.toObservable()
+    }
+
+    private fun getBratAnnotationValues(): MutableList<String> {
+        return mutableListOf<String>().also { l ->
+            app.config.getProperty(BRAT_ANNOTATION_VALUES).split(",").forEach { s ->
+                if (getAnnotationValues().contains(s.split("_").last())) {
+                    getAnnotationValues()[s.split("_").last()]?.forEach {
+                        l.add(it)
+                    }
+                } else {
+                    l.add(s)
+                }
+            }
+        }
     }
 
     val bratSetupModel = BratSetupModel(
@@ -108,6 +121,7 @@ class MainView : View("Averbis & Brat Integrator") {
     }
 
     companion object {
+        val LOG by logger()
         const val AVERBIS_URL_CONFIG_STRING = "default_url"
         const val AVERBIS_API_TOKEN = "default_api_token"
         const val DEFAULT_PROJECT_CONFIG_STRING = "default_project"
@@ -117,6 +131,7 @@ class MainView : View("Averbis & Brat Integrator") {
         const val DEFAULT_REMOTE_HOST = "default_remote"
         const val DEFAULT_REMOTE_PORT = "default_port"
         const val DEFAULT_REMOTE_DEST = "default_destination"
+        const val BRAT_ANNOTATION_VALUES = "brat_annotation_values"
     }
 
     override val root = borderpane {
@@ -261,7 +276,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                             runAsync {
                                                 when (offlineCheck.isSelected) {
                                                     true -> debugController.postDocuments(fis, averbisResponseList, this)
-                                                    false -> averbisController.postDocuments(fis, averbisResponseList, averbisAnalysis, this)
+                                                    false -> averbisController.postDocuments(fis, averbisResponseList, averbisAnalysis, getBratAnnotationValues(), this)
                                                 }
                                             }
                                         }
@@ -331,7 +346,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                                     true -> debugController.transferData()
                                                     false -> remoteController.FileTransfer().apply {
                                                         setupTransfer(bratSetup, bratTransfer)
-                                                        transferData(averbisResponseList)
+                                                        transferData(averbisResponseList, getBratAnnotationValues())
                                                     }
                                                 }
                                             }
