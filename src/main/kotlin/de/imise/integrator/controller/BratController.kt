@@ -2,8 +2,11 @@ package de.imise.integrator.controller
 
 import com.beust.klaxon.JsonObject
 import com.beust.klaxon.json
+import de.imise.integrator.controller.AverbisResponse.Companion.JSON_TYPE_KEY_STRING
 import de.imise.integrator.controller.BratController.Companion.AVERBIS_HEALTH_PRE
 import de.imise.integrator.controller.BratController.Companion.DOCUMENT_TEXT_TYPE
+import de.imise.integrator.controller.BratController.Companion.crossOutAnnotations
+import de.imise.integrator.controller.BratController.Companion.replaceAnnotations
 import de.imise.integrator.extensions.*
 import javafx.collections.ObservableList
 import tornadofx.*
@@ -106,6 +109,9 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseTyp
     fun mergeAverbisBrat(crossOut: List<String>, modify: List<String>, removeCrossedOut: Boolean): JsonObject {
         val idSetBrat = textboundData.keys
         val idSetAverbis = averbisData!!.getData().keys
+        val idSetAverbisNonQuestioned = averbisData.getData().filterNot {
+                e -> crossOutAnnotations.plus(replaceAnnotations).contains(e.value.string(JSON_TYPE_KEY_STRING))
+        }.keys
         val mergedData = mutableListOf<JsonObject>()
         fun MutableList<JsonObject>.addJson(sourceData: BratAnnotation, id: Int? = null) {
             sourceData.offsets.forEach { (begin, end) ->
@@ -140,7 +146,9 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseTyp
         }
         textData = StringBuilder(averbisData.documentText).also { sb ->
             // Everything that's in the brat annotation file and in the Averbis json
-            idSetBrat.intersect(idSetAverbis).addById(sb)
+            // *plus*
+            // Everything that's not part of a replace or crossout
+            idSetBrat.intersect(idSetAverbis).plus(idSetAverbisNonQuestioned).addById(sb)
             // Everything that's only in the brat annotation file
             idSetBrat.subtract(idSetAverbis).addById(sb)
         }.toString()
@@ -164,7 +172,7 @@ class BratController : Controller() {
         val crossOutAnnotations = arrayOf(
             "de.averbis.types.health.Age", "de.averbis.types.health.Name", "de.averbis.types.health.Location",
             "de.averbis.types.health.Id", "de.averbis.types.health.Contact", "de.averbis.types.health.Profession",
-            "de.averbis.types.health.PHIOther")
+            "de.averbis.types.health.PHIOther", "de.averbis.types.health.Organization")
         val replaceAnnotations = arrayOf("de.averbis.types.health.Date")
         const val DOCUMENT_TEXT_TYPE: String = "de.averbis.types.health.DocumentAnnotation"
         const val AVERBIS_HEALTH_PRE: String = "de.averbis.types.health."

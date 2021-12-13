@@ -1,7 +1,6 @@
 package de.imise.integrator.extensions
 
 import tornadofx.*
-import java.util.logging.FileHandler
 
 
 data class CustomDateMatch(val day: Int?, val month: Int?, val year: Int?)
@@ -15,8 +14,6 @@ class DateFunctionality(dateString: String) {
     private var date: CustomDateMatch?
 
     init {
-        val fileHandler = FileHandler("dateLogFile.log")
-        LOG.addHandler(fileHandler)
         try {
             date = if ( /* Year only */
                 dateString.trim().length <= 4 &&
@@ -28,11 +25,14 @@ class DateFunctionality(dateString: String) {
             ) {
                 val month = monthNamesMap[dateString.lowercase().trim().trimEnd('.', ' ')]
                 CustomDateMatch(day = null, month = month, year = null)
+            } else if (Regex("(\\w+) *(\\d+)").find(dateString) != null) { /* Month name and Year */
+                val (m,y) = Regex("(\\w+) *(\\d+)").find(dateString)!!.destructured
+                CustomDateMatch(day = null, month = monthNamesMap[m.lowercase().trim()], year = y.toInt())
             } else if ( /* Day and Month only and with '.' delimiter; year optional */
-                (2..3).contains(dateString.split(Regex(" *[./] *")).size)
+                (2..3).contains(dateString.split(Regex(" *[./,] *")).size)
             ) {
                 var year: Int? = null
-                val dateList = dateString.split(Regex(" *[./] *"))
+                val dateList = dateString.split(Regex(" *[./,] *"))
                 val month = if (dateList[1].trim().length <= 2 && dateList[1].trim().isInt()) {
                     dateList[1].trim().toInt()
                 } else if (dateList[1].trim().length > 2) {
@@ -66,7 +66,6 @@ class DateFunctionality(dateString: String) {
             if (date == null) parseDateByRegex(dateString)
         } catch (e: Exception) {
             LOG.warning("Encountered Problems with DateString: '$dateString'")
-        } finally {
             date = null
         }
     }
@@ -79,7 +78,11 @@ class DateFunctionality(dateString: String) {
         val dateAsString = if (date == null) {
             "<YEAR>"
         } else {
-            "${date!!.year?: "<YEAR>"}"
+            var finalDate = "${date!!.year?: "<YEAR>"}"
+            if (date!!.year == null && date!!.month != null) {
+                finalDate = "<MONTH>"
+            }
+            finalDate
         }
         return dateAsString
     }

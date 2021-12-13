@@ -158,7 +158,9 @@ class AverbisController(private val url: String? = null): Controller() {
     private val mainView: MainView by inject()
     private val fileHandlingController: FileHandlingController by inject()
     private val client = OkHttpClient().newBuilder()
-        .connectTimeout(15, TimeUnit.SECONDS)
+        .connectTimeout(app.config.getProperty(CONNECT_TIMEOUT).toLong(), TimeUnit.SECONDS)
+        .readTimeout(app.config.getProperty(READ_TIMEOUT).toLong(), TimeUnit.SECONDS)
+        .writeTimeout(app.config.getProperty(WRITE_TIMEOUT).toLong(), TimeUnit.SECONDS)
         .build()
 
     fun postDocuments(
@@ -266,6 +268,9 @@ class AverbisController(private val url: String? = null): Controller() {
         const val API_HEADER_STRING = "api-token"
         const val ACCEPT_HEADER_STRING = "accept"
         const val ACCEPT_HEADER_VAL = "application/json"
+        const val CONNECT_TIMEOUT = "default_connect_timeout"
+        const val READ_TIMEOUT = "default_read_timeout"
+        const val WRITE_TIMEOUT = "default_write_timeout"
     }
 }
 
