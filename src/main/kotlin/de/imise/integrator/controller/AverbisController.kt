@@ -10,18 +10,41 @@ import de.imise.integrator.model.AverbisAnalysis
 import de.imise.integrator.view.MainView
 import javafx.collections.ObservableList
 import javafx.scene.control.RadioButton
+import okhttp3.HttpUrl
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
-import okhttp3.HttpUrl
-import tornadofx.*
+import tornadofx.Controller
+import tornadofx.FXTask
+import tornadofx.asObservable
 import java.io.File
 import java.io.IOException
 import java.io.InputStream
 import java.net.UnknownHostException
 import java.nio.charset.Charset
 import java.util.concurrent.TimeUnit
+import kotlin.collections.List
+import kotlin.collections.Map
+import kotlin.collections.MutableList
+import kotlin.collections.MutableMap
+import kotlin.collections.any
+import kotlin.collections.component1
+import kotlin.collections.component2
+import kotlin.collections.contains
+import kotlin.collections.drop
+import kotlin.collections.filter
+import kotlin.collections.first
+import kotlin.collections.forEach
+import kotlin.collections.forEachIndexed
+import kotlin.collections.isNotEmpty
+import kotlin.collections.last
+import kotlin.collections.listOf
+import kotlin.collections.map
+import kotlin.collections.mutableListOf
+import kotlin.collections.mutableMapOf
+import kotlin.collections.set
+import kotlin.collections.toList
 
 const val JSON_ID_STRING = "id"
 
@@ -187,7 +210,11 @@ class AverbisController(private val url: String? = null): Controller() {
     ): AverbisResponse {
         val srcFile = File(document_path)
         val responseObj = AverbisResponse(srcFile.nameWithoutExtension, srcFile.parent)
-        val postBody = File(document_path).readText(encoding)
+        val postBody = File(document_path).readText(encoding).run {
+            val replaced_tabs = this.replace("\t", "    ")
+            val normalized_linebreaks = replaced_tabs.replace(Regex("\\r?\\n|\\r"), "\n")
+            normalized_linebreaks.replace(UTF8_BOM, "")
+        }
         val request = Request.Builder()
             .url(url?: buildFinalUrl())
             .addHeader(API_HEADER_STRING, mainView.apiTokenField.text)
@@ -257,6 +284,7 @@ class AverbisController(private val url: String? = null): Controller() {
     }
 
     companion object {
+        const val UTF8_BOM = "\uFEFF"
         val MEDIA_TYPE_TXT = "text/plain; charset=utf-8".toMediaType()
         const val URL_VERSION = "v1"
         const val URL_ENDPOINT = "rest"

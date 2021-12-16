@@ -396,6 +396,9 @@ class MainView : View("Averbis & Brat Integrator") {
                                 fieldset {
                                     field("Progress") {
                                         progressbar(status.progress)
+//                                        button("Cancel") {
+//                                            action { status.get }
+//                                        }
                                         visibleWhen { status.running }
                                     }
                                 }

@@ -10,6 +10,7 @@ import de.imise.integrator.controller.BratController.Companion.replaceAnnotation
 import de.imise.integrator.extensions.*
 import javafx.collections.ObservableList
 import tornadofx.*
+import java.lang.IndexOutOfBoundsException
 
 
 data class BratAnnotation(val id: Int, val bratType: String, override val type: String,
@@ -93,14 +94,26 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseTyp
         } else if (modify.contains("$AVERBIS_HEALTH_PRE${data.type}")) {
             if (data.type.lowercase() == "date") {  //ToDo: only for date right now and hard-coded
                 val newDate = DateFunctionality(data.text).getDate()
-                newDate.padAround(data.text.length, ' ') //ToDo: what if newDate.length is bigger than text.length? Is this even possible?
-            } else { "<${".".repeat(data.text.length)}>" }
+                if (newDate.length > data.text.length) {  //ToDo: what if newDate.length is bigger than text.length? Is this even possible?
+                    when (newDate) {
+                        "<MONTH>" -> "<M>".padAround(data.text.length, ' ')
+                        "<YEAR>" -> "<Y>".padAround(data.text.length, ' ')
+                        else -> "<.>".padAround(data.text.length, ' ')
+                    }
+                } else {
+                    newDate.padAround(data.text.length,' ')
+                }
+            } else { "<${".".repeat(data.text.length - 2)}>" }
         } else { data.text }
         data.offsets.forEach { (begin, end) ->
-            if (data.offsets.size > 1) {
-                sb.setRange(begin, end, "X".repeat(end - begin))
-            } else {
-                sb.setRange(begin, end, newText)
+            try {
+                if (data.offsets.size > 1) {
+                    sb.setRange(begin, end, "X".repeat(end - begin))
+                } else {
+                    sb.setRange(begin, end, newText)
+                }
+            } catch (e: StringIndexOutOfBoundsException) {
+                LOG.severe("Trying to replace Annotation '$newText' at position ($begin, $end) for textlength '${sb.length}' has caused ${e.message}")
             }
         }
         return data.copy(text = newText)
@@ -141,6 +154,10 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseTyp
                     val newData = crossOutModifyAnnotations(sb, data, crossOut, modify)
                     if (removeCrossedOut && crossOut.contains("$AVERBIS_HEALTH_PRE${data.type}")) return@forEach
                     mergedData.addJson(newData)
+                    return@forEach
+                }
+                averbisData.getData()[it]?.let { original ->
+                    mergedData.add(original)
                 }
             }
         }
@@ -164,6 +181,10 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseTyp
         ) })
 
         return json { obj("annotationDtos" to array(mergedData.toList())) }
+    }
+
+    companion object {
+        val LOG by logger()
     }
 }
 
