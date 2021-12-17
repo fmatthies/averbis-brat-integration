@@ -10,7 +10,6 @@ import de.imise.integrator.controller.BratController.Companion.replaceAnnotation
 import de.imise.integrator.extensions.*
 import javafx.collections.ObservableList
 import tornadofx.*
-import java.lang.IndexOutOfBoundsException
 
 
 data class BratAnnotation(val id: Int, val bratType: String, override val type: String,
@@ -54,17 +53,19 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseTyp
 
     private fun readTextbound(line: String) {
         line.split("\t").run {
-            val (id, type_offset, text) = this
-            val (annotationType, offsets) = if (type_offset.split(" ").size == 3) {
-                type_offset.split(" ").run {
+            val id = this[0]
+            val typeOffset = this[1]
+            val text = this.subList(2, this.lastIndex + 1).joinToString(separator = "\t")
+            val (annotationType, offsets) = if (typeOffset.split(" ").size == 3) {
+                typeOffset.split(" ").run {
                     listOf(this.first(), listOf(Pair(this[1].toInt(), this[2].toInt())))
                 }
             } else {
-                val aType = type_offset.split(" ").first()
+                val aType = typeOffset.split(" ").first()
                 listOf(
                     aType,
                     mutableListOf<Pair<Int, Int>>().apply {
-                        type_offset.removePrefix("$aType ").split(";").forEach {
+                        typeOffset.removePrefix("$aType ").split(";").forEach {
                             this.add(Pair(
                                 it.split(" ").first().toInt(),
                                 it.split(" ").component2().toInt()
@@ -113,7 +114,7 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseTyp
                     sb.setRange(begin, end, newText)
                 }
             } catch (e: StringIndexOutOfBoundsException) {
-                LOG.severe("Trying to replace Annotation '$newText' at position ($begin, $end) for textlength '${sb.length}' has caused ${e.message}")
+                LOG.severe("($basename) Trying to replace Annotation '$newText' at position ($begin, $end) for textlength '${sb.length}' has caused ${e.message}")
             }
         }
         return data.copy(text = newText)

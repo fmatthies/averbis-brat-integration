@@ -11,11 +11,11 @@ class OutputTransformationController() {
                 Pair(
                     OutputFileStream(
                         fileName = it.basename, extension = "ann",
-                        content = it.jsonToBrat(bratAnnotationValues).replace("\\r\\n?", "\n")
+                        content = it.jsonToBrat(bratAnnotationValues).replace(Regex("\\r\\n?"), "\n")
                     ),
                     OutputFileStream(
                         fileName = it.basename, extension = "txt",
-                        content = it.documentText.replace("\\r\\n?", "\n")
+                        content = it.documentText.replace(Regex("\\r\\n?"), "\n")
                     )
                 )
             }
@@ -25,7 +25,7 @@ class OutputTransformationController() {
             return response.map {
                 OutputFileStream(
                     fileName = it.basename, extension = "json",
-                    content = it.filteredJson().replace("\\r\\n?", "\n")
+                    content = it.filteredJson().replace(Regex("\\r\\n?"), "\n")
                 )
             }
         }
