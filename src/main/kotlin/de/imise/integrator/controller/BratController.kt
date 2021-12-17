@@ -94,7 +94,7 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseTyp
             "X".repeat(data.text.length)
         } else if (modify.contains("$AVERBIS_HEALTH_PRE${data.type}")) {
             if (data.type.lowercase() == "date") {  //ToDo: only for date right now and hard-coded
-                val newDate = DateFunctionality(data.text).getDate()
+                val newDate = DateFunctionality(data.text, basename).getDate()
                 if (newDate.length > data.text.length) {  //ToDo: what if newDate.length is bigger than text.length? Is this even possible?
                     when (newDate) {
                         "<MONTH>" -> "<M>".padAround(data.text.length, ' ')
