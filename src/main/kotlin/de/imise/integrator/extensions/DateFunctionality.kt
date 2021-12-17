@@ -67,8 +67,6 @@ class DateFunctionality(dateString: String, private val basename: String) {
 
             if (date == null) parseDateByRegex(dateString)
         } catch (e: Exception) {
-            LOG.warning("($basename) Problems with DateString: '$dateString'" +
-                    " replaced with ${if (dateString.length >= "<YEAR>".length) "'<YEAR>'" else "'<Y>'"}")
             date = null
         }
     }
@@ -86,6 +84,12 @@ class DateFunctionality(dateString: String, private val basename: String) {
                 finalDate = "<MONTH>"
             }
             finalDate
+        }
+        if (listOf("<MONTH>", "<YEAR>").contains(dateAsString)) {
+            LOG.warning(
+                "($basename) Problems with DateString:\n  '$dateAsString'" +
+                        " replaced with ${if (dateAsString.length >= "<YEAR>".length) "'<YEAR>'" else "'<Y>'"}"
+            )
         }
         return dateAsString
     }
