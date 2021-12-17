@@ -5,7 +5,7 @@ import tornadofx.*
 
 data class CustomDateMatch(val day: Int?, val month: Int?, val year: Int?)
 
-class DateFunctionality(dateString: String, private val basename: String) {
+class DateFunctionality(private val dateString: String, private val basename: String) {
 
     private val monthNamesMap: Map<String, Int> = mapOf("januar" to 1, "jan" to 1, "februar" to 2, "feb" to 2, "märz" to 3,
         "mär" to 3, "april" to 4, "apr" to 4, "mai" to 5, "juni" to 6, "jun" to 6, "juli" to 7, "jul" to 7,
@@ -87,8 +87,8 @@ class DateFunctionality(dateString: String, private val basename: String) {
         }
         if (listOf("<MONTH>", "<YEAR>").contains(dateAsString)) {
             LOG.warning(
-                "($basename) Problems with DateString:\n  '$dateAsString'" +
-                        " replaced with ${if (dateAsString.length >= "<YEAR>".length) "'<YEAR>'" else "'<Y>'"}"
+                "($basename) Problems with DateString:\n  '$dateString'" +
+                        " replaced with ${if (dateString.length >= dateAsString.length) "'$dateAsString'" else "'${dateAsString.substring(0, 2)}>'"}"
             )
         }
         return dateAsString
