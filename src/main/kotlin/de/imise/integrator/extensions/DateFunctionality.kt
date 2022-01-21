@@ -30,6 +30,11 @@ class DateFunctionality(private val dateString: String, private val basename: St
             ) {
                 val (m,y) = Regex("([a-zA-Z]+)\\s+(\\d+)").find(dateString)!!.destructured
                 CustomDateMatch(day = null, month = monthNamesMap[m.lowercase().trim()], year = y.toInt())
+            } else if ( /* Month Number and Year */
+                Regex("(\\d{1,2})/(\\d{2,4})").find(dateString) != null
+            ) {
+                val (m,y) = Regex("(\\d{1,2})/(\\d{2,4})").find(dateString)!!.destructured
+                CustomDateMatch(day = null, month = m.toInt(), year = y.toInt())
             } else if ( /* Day and Month only and with '. / ,' delimiters; year optional */
                 (2..3).contains(dateString.split(Regex(" *[./,] *")).size)
             ) {
@@ -87,8 +92,8 @@ class DateFunctionality(private val dateString: String, private val basename: St
         }
         if (listOf("<MONTH>", "<YEAR>").contains(dateAsString)) {
             LOG.warning(
-                "($basename) Problems with DateString:\n  '$dateString'" +
-                        " replaced with ${if (dateString.length >= dateAsString.length) "'$dateAsString'" else "'${dateAsString.substring(0, 2)}>'"}"
+                "($basename) Problems with DateString: '$dateString'\n" +
+                        "--> replaced with ${if (dateString.length >= dateAsString.length) "'$dateAsString'" else "'${dateAsString.substring(0, 2)}>'"}"
             )
         }
         return dateAsString

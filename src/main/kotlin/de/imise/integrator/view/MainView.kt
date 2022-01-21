@@ -6,13 +6,13 @@ import de.imise.integrator.model.*
 import javafx.beans.property.SimpleStringProperty
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
+import javafx.concurrent.Task
 import javafx.geometry.Pos
 import javafx.geometry.Side
 import javafx.scene.control.*
 import javafx.scene.layout.HBox
 import tornadofx.*
 import java.io.File
-import java.util.logging.FileHandler
 
 // ToDo: disable buttons only while processing; right now the whole field gets disabled
 // ToDo: possibility to read folder structure for brat
@@ -22,6 +22,7 @@ class MainView : View("Averbis & Brat Integrator") {
     private val fileHandlingController: FileHandlingController by inject()
     private val remoteController: RemoteController by inject()
     private val debugController: DebugController by inject()
+    private val logging: LoggingController by inject()
     val status: TaskStatus by inject()
 
     val averbisResponseList = mutableListOf<AverbisResponse>().asObservable()
@@ -156,6 +157,7 @@ class MainView : View("Averbis & Brat Integrator") {
                 tabMaxWidthProperty().bind(tabBinding(this, this@hbox))
 
                 tab("Averbis") {
+                    var runningAverbisTask: Task<*>? = null
                     drawer(side = Side.RIGHT) {
                         item("General", expanded = true) {
                             form {
@@ -273,7 +275,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                         ) {
                                             outputDrawerItemAverbis.expanded = true
                                             averbisResponseList.clear()
-                                            runAsync {
+                                            runningAverbisTask = runAsync {
                                                 when (offlineCheck.isSelected) {
                                                     true -> debugController.postDocuments(fis, averbisResponseList, this)
                                                     false -> averbisController.postDocuments(fis, averbisResponseList, averbisAnalysis, getBratAnnotationValues(), this)
@@ -297,6 +299,15 @@ class MainView : View("Averbis & Brat Integrator") {
                                         field("Progress") {
                                             progressbar(status.progress)
                                             visibleWhen { status.running }
+                                            button("Cancel") { // cancelling puts all doc names in the list (at least in debug mode)
+                                                action {
+                                                    if (runningAverbisTask != null && runningAverbisTask!!.isRunning) {
+                                                        runningAverbisTask!!.cancel()
+                                                        runningAverbisTask = null
+                                                        logging.logBrat("Action canceled")
+                                                    }
+                                                }
+                                            }
                                         }
                                     )
                                 }
@@ -305,6 +316,7 @@ class MainView : View("Averbis & Brat Integrator") {
                     }
                 }
                 tab("Brat") {
+                    var runningBratTask: Task<*>? = null
                     drawer(side = Side.RIGHT) {
                         item("General", expanded = true) {
                             form {
@@ -341,7 +353,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                         val bratTransfer: BratTransfer = bratTransferModel.item
 
                                         if (bratSetup.hasNoNullProperties()) {
-                                            runAsync {
+                                            runningBratTask = runAsync {
                                                 when (offlineCheck.isSelected) {
                                                     true -> debugController.transferData()
                                                     false -> remoteController.FileTransfer().apply {
@@ -366,7 +378,7 @@ class MainView : View("Averbis & Brat Integrator") {
 
                                         if (bratSetup.hasNoNullProperties() && bratReceive.hasNoNullProperties()) {
                                             bratResponseList.clear()
-                                            runAsync {
+                                            runningBratTask = runAsync {
                                                 when (offlineCheck.isSelected) {
                                                     true -> debugController.getDataFromRemote()
                                                     false -> remoteController.FileTransfer().run {
@@ -399,6 +411,15 @@ class MainView : View("Averbis & Brat Integrator") {
 //                                        button("Cancel") {
 //                                            action { status.get }
 //                                        }
+                                        button("Cancel") {
+                                            action {
+                                                if (runningBratTask != null && runningBratTask!!.isRunning) {
+                                                    runningBratTask!!.cancel()
+                                                    runningBratTask = null
+                                                    logging.logBrat("Action canceled")
+                                                }
+                                            }
+                                        }
                                         visibleWhen { status.running }
                                     }
                                 }
