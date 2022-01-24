@@ -6,6 +6,7 @@ import com.beust.klaxon.Parser
 import com.beust.klaxon.json
 import de.imise.integrator.extensions.ResponseType
 import de.imise.integrator.extensions.ResponseTypeEntry
+import de.imise.integrator.extensions.splitAfterBytes
 import de.imise.integrator.model.AverbisAnalysis
 import de.imise.integrator.view.MainView
 import javafx.collections.ObservableList
@@ -89,7 +90,7 @@ class AverbisJsonEntry(private val jsonObject: JsonObject, averbisResponse: Aver
     }
 }
 
-class AverbisResponse(val srcFileName: String, private val srcFilePath: String): ResponseType {
+class AverbisResponse(val srcFileName: String, private val srcFilePath: String, val index: Int): ResponseType {
     private var jsonResponse: MutableMap<Int, JsonObject> = mutableMapOf()
     private val parser = Parser.default()
     val jsonEntryFilter: (Map.Entry<Int, JsonObject>) -> Boolean = { entry ->
@@ -103,7 +104,7 @@ class AverbisResponse(val srcFileName: String, private val srcFilePath: String):
     var annotationValues: MutableList<String> = mutableListOf()
     var errorMessage: String? = null
     override val basename: String
-        get() = srcFileName.substringBeforeLast(".")
+        get() = srcFileName.substringBeforeLast(".") + "_${index}"
     override val additionalColumn = this.srcFilePath
     override val items: ObservableList<ResponseTypeEntry>
         get() {
@@ -191,35 +192,49 @@ class AverbisController(private val url: String? = null): Controller() {
         averbisResponseList: ObservableList<AverbisResponse>,
         analysis: AverbisAnalysis,
         bratAnnotationValues: List<String>,
-        fxTask: FXTask<*>
+        fxTask: FXTask<*>,
+        encoding: Charset = Charsets.UTF_8
     ) {
         val maxDocs = documents.size
-        documents.forEachIndexed { index, file ->
-            averbisResponseList.add(postDocument(file.absolutePath).apply {
-                setAnnotations(analysis.annotationValues)
-                if (analysis.outputIsProperPath() && mainView.outputMode.value == "Local") {
-                    fileHandlingController.writeOutputToDisk(listOf(this), analysis.outputData!!, bratAnnotationValues)
-                }
-            } )
-            fxTask.updateProgress((index + 1).toDouble(), maxDocs.toDouble())
+        documents.forEachIndexed { docIndex, file ->
+            file.readText(encoding).run {
+                val replacedTabs = this.replace("\t", "    ")
+                val normalizedLinebreaks = replacedTabs.replace(Regex("\\r?\\n|\\r"), "\n")
+                val replacedBom = normalizedLinebreaks.replace(UTF8_BOM, "")
+                replacedBom.splitAfterBytes(app.config.getProperty(MAX_BYTE_SIZE).toInt(), encoding)
+            }.forEachIndexed { contentIndex, content ->
+                averbisResponseList.add(postDocument(content, file, contentIndex).apply {
+                    setAnnotations(analysis.annotationValues)
+                    if (analysis.outputIsProperPath() && mainView.outputMode.value == "Local") {
+                        fileHandlingController.writeOutputToDisk(
+                            listOf(this),
+                            analysis.outputData!!,
+                            bratAnnotationValues
+                        )
+                    }
+                })
+            }
+            fxTask.updateProgress((docIndex + 1).toDouble(), maxDocs.toDouble())
         }
     }
 
-    private fun postDocument(document_path: String,
-                             encoding: Charset = Charsets.UTF_8
+    private fun postDocument(documentContent: String,
+                             file: File,
+                             index: Int
     ): AverbisResponse {
-        val srcFile = File(document_path)
-        val responseObj = AverbisResponse(srcFile.nameWithoutExtension, srcFile.parent)
-        val postBody = File(document_path).readText(encoding).run {
-            val replaced_tabs = this.replace("\t", "    ")
-            val normalized_linebreaks = replaced_tabs.replace(Regex("\\r?\\n|\\r"), "\n")
-            normalized_linebreaks.replace(UTF8_BOM, "")
-        }
+        val responseObj = AverbisResponse(file.nameWithoutExtension, file.parent, index)
+//        val postBody = File(document_path).readText(encoding).run {
+//            val replacedTabs = this.replace("\t", "    ")
+//            val normalizedLinebreaks = replacedTabs.replace(Regex("\\r?\\n|\\r"), "\n")
+//            val replacedBom = normalizedLinebreaks.replace(UTF8_BOM, "")
+//            replacedBom//.splitAfterBytes(20000, encoding)
+//        }
+
         val request = Request.Builder()
             .url(url?: buildFinalUrl())
             .addHeader(API_HEADER_STRING, mainView.apiTokenField.text)
             .addHeader(ACCEPT_HEADER_STRING, ACCEPT_HEADER_VAL)
-            .post(postBody.toRequestBody(MEDIA_TYPE_TXT))
+            .post(documentContent.toRequestBody(MEDIA_TYPE_TXT))
             .build()
 
         logging.logAverbis(request.toString())
@@ -299,6 +314,7 @@ class AverbisController(private val url: String? = null): Controller() {
         const val CONNECT_TIMEOUT = "default_connect_timeout"
         const val READ_TIMEOUT = "default_read_timeout"
         const val WRITE_TIMEOUT = "default_write_timeout"
+        const val MAX_BYTE_SIZE = "max_byte_size"
     }
 }
 

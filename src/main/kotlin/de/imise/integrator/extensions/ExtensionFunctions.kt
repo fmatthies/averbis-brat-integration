@@ -2,8 +2,8 @@ package de.imise.integrator.extensions
 
 import javafx.collections.ObservableList
 import javafx.geometry.Pos
-import javafx.scene.control.Button
 import tornadofx.*
+import java.nio.charset.Charset
 import java.util.logging.Logger
 import kotlin.reflect.full.companionObject
 
@@ -68,6 +68,21 @@ fun String.padAround(length: Int, padChar: Char): String {
 fun String.substringBeforeRegex(delimiter: String): String {
     val match = Regex(delimiter).find(this)
     return match?.range?.start?.let { this.substring(0, it) } ?: this
+}
+
+fun String.splitAfterBytes(bytes: Int, charset: Charset) = sequence {
+    var currentBytes = 0
+    val lineList = mutableListOf<String>()
+    this@splitAfterBytes.splitToSequence("\n").forEach {
+        currentBytes += it.toByteArray(charset).size
+        lineList.add(it)
+        if (currentBytes >= bytes) {
+            yield(lineList.joinToString("\n"))
+            currentBytes = 0
+            lineList.clear()
+        }
+    }
+    yield(lineList.joinToString("\n"))
 }
 
 fun <T : Any> unwrapCompanionClass(ofClass: Class<T>): Class<*> {
