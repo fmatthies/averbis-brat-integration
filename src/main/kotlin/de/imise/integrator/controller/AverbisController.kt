@@ -90,7 +90,7 @@ class AverbisJsonEntry(private val jsonObject: JsonObject, averbisResponse: Aver
     }
 }
 
-class AverbisResponse(val srcFileName: String, private val srcFilePath: String, val index: Int): ResponseType {
+class AverbisResponse(val srcFileName: String, private val srcFilePath: String, private val index: Int? = null): ResponseType {
     private var jsonResponse: MutableMap<Int, JsonObject> = mutableMapOf()
     private val parser = Parser.default()
     val jsonEntryFilter: (Map.Entry<Int, JsonObject>) -> Boolean = { entry ->
@@ -104,7 +104,12 @@ class AverbisResponse(val srcFileName: String, private val srcFilePath: String, 
     var annotationValues: MutableList<String> = mutableListOf()
     var errorMessage: String? = null
     override val basename: String
-        get() = srcFileName.substringBeforeLast(".") + "_${index}"
+        get() {
+            if (index != null) {
+                return srcFileName.substringBeforeLast(".") + "_${index}"
+            }
+            return srcFileName.substringBeforeLast(".")
+        }
     override val additionalColumn = this.srcFilePath
     override val items: ObservableList<ResponseTypeEntry>
         get() {

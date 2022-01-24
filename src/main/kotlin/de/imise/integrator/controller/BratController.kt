@@ -90,8 +90,26 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseTyp
         crossOut: List<String>,
         modify: List<String>
     ): BratAnnotation {  //ToDo: text with more than one offsets (i.e. text with Frag.) will always be crossed out right now
-        val newText = if (crossOut.any { it == "$AVERBIS_HEALTH_PRE${data.type}" } || data.offsets.size > 1) {
+        val newText = if (data.offsets.size > 1) {
             "X".repeat(data.text.length)
+        } else if (crossOut.any { it == "$AVERBIS_HEALTH_PRE${data.type}" }) {
+            mapOf(
+                "Age" to "<AGE>",
+                "Name" to "<NAME>",
+                "Location" to "<LOC>",
+                "Id" to "<ID>",
+                "Contact" to "<CON>",
+                "Profession" to "<PROF>",
+                "PHIOther" to "<OTHER>"
+            )[data.type]!!.run {
+                if (this.length - data.text.length <= 0) {
+                    this.padAround(data.text.length, ' ')
+                } else if (this.substring(IntRange(0,1)).length + 1 - data.text.length <= 0) {
+                    "${this.substring(IntRange(0,1))}>".padAround(data.text.length, ' ')
+                } else {
+                    "<.>".padAround(data.text.length, ' ')
+                }
+            }
         } else if (modify.contains("$AVERBIS_HEALTH_PRE${data.type}")) {
             if (data.type.lowercase() == "date") {  //ToDo: only for date right now and hard-coded
                 val newDate = DateFunctionality(data.text, basename).getDate()
