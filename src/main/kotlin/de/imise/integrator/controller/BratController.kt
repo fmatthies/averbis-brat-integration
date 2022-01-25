@@ -102,8 +102,9 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?,
                 "Id" to "<ID>",
                 "Contact" to "<CON>",
                 "Profession" to "<PROF>",
-                "PHIOther" to "<OTHER>"
-            )[data.type]!!.run {
+                "PHIOther" to "<OTHER>",
+                "Organization" to "<ORG>"
+            ).withDefault { "<.>" }.getValue(data.type).run {
                 if (this.length - data.text.length <= 0) {
                     this.padAround(data.text.length, ' ')
                 } else if (this.substring(IntRange(0,1)).length + 1 - data.text.length <= 0) {

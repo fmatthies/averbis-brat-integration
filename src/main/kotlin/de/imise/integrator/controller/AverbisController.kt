@@ -106,7 +106,7 @@ class AverbisResponse(val srcFileName: String, private val srcFilePath: String, 
     override val basename: String
         get() {
             if (index != null) {
-                return srcFileName.substringBeforeLast(".") + "_${index}"
+                return srcFileName.substringBeforeLast(".") + "_part-${index.toString().padStart(2, '0')}"
             }
             return srcFileName.substringBeforeLast(".")
         }
