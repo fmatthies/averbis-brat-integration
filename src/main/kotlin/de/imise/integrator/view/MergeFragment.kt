@@ -82,6 +82,7 @@ class MergeFragment : Fragment() {
                         removeAnnotations.isSelected,
                         createTxt.isSelected
                     )
+                    mainView.writeDateLog()
                     (this@MergeFragment).close()
                 }
             }

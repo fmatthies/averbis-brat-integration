@@ -23,6 +23,7 @@ class MainView : View("Averbis & Brat Integrator") {
     private val remoteController: RemoteController by inject()
     private val debugController: DebugController by inject()
     private val logging: LoggingController by inject()
+    private val logMap: MutableMap<String, MutableList<String>> = mutableMapOf()
     val status: TaskStatus by inject()
 
     val averbisResponseList = mutableListOf<AverbisResponse>().asObservable()
@@ -393,7 +394,8 @@ class MainView : View("Averbis & Brat Integrator") {
                                                     .map { fileList ->
                                                         BratResponse(
                                                             fileList.find { it.extension == "ann" },
-                                                            fileList.find { it.extension == "json" }
+                                                            fileList.find { it.extension == "json" },
+                                                            logMap
                                                         )
                                                     }.forEach { bratResponseList.add(it) }
                                                 outputDrawerItemBrat.expanded = true
@@ -451,6 +453,20 @@ class MainView : View("Averbis & Brat Integrator") {
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+
+    fun writeDateLog() {
+        val logFolder = File("./logFolder")
+        if (!logFolder.exists()) {
+            logFolder.mkdirs()
+        }
+        this.logMap.forEach { map ->
+            File("${logFolder}/${map.key}.log").bufferedWriter().use { writer ->
+                map.value.forEach {
+                    writer.write(it)
                 }
             }
         }

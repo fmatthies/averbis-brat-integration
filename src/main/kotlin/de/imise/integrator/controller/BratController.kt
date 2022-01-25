@@ -15,10 +15,12 @@ import tornadofx.*
 data class BratAnnotation(val id: Int, val bratType: String, override val type: String,
                           val offsets: List<Pair<Int, Int>>, override val text: String) : ResponseTypeEntry
 
-class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseType {
+class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?,
+                   private val logMap: MutableMap<String, MutableList<String>>): ResponseType {
     val averbisData = jsonFile?.let { AverbisResponse(it.baseName, "in-memory")
         .apply { this.readJson(jsonFile.content.toString(Charsets.UTF_8)) } }
     var textboundData = mutableMapOf<Int, BratAnnotation>()
+//    val logMap = mutableMapOf<String, MutableList<String>>()
     private var textData = ""
     override val basename: String = annFile?.baseName ?: "none"
     override val additionalColumn = "in-memory"
@@ -112,7 +114,7 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?): ResponseTyp
             }
         } else if (modify.contains("$AVERBIS_HEALTH_PRE${data.type}")) {
             if (data.type.lowercase() == "date") {  //ToDo: only for date right now and hard-coded
-                val newDate = DateFunctionality(data.text, basename).getDate()
+                val newDate = DateFunctionality(data.text, basename).getDate(logMap)
                 if (newDate.length > data.text.length) {
                     when (newDate) {
                         "<MONTH>" -> "<M>".padAround(data.text.length, ' ')

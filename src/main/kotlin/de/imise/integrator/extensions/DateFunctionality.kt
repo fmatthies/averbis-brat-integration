@@ -80,7 +80,7 @@ class DateFunctionality(private val dateString: String, private val basename: St
 //        LocalDate.parse(dateString)
     }
 
-    fun getDate(): String {
+    fun getDate(logMap: MutableMap<String, MutableList<String>>): String {
         val dateAsString = if (date == null) {
             "<YEAR>"
         } else {
@@ -91,10 +91,14 @@ class DateFunctionality(private val dateString: String, private val basename: St
             finalDate
         }
         if (listOf("<MONTH>", "<YEAR>").contains(dateAsString)) {
-            LOG.warning(
-                "($basename) Problems with DateString: '$dateString'\n" +
-                        "--> replaced with ${if (dateString.length >= dateAsString.length) "'$dateAsString'" else "'${dateAsString.substring(0, 2)}>'"}"
-            )
+            val mesPart1 = "($basename) Problems with DateString: "
+            val mesPart2 = "'$dateString'"
+            val mesPart3 = "--> replaced with ${if (dateString.length >= dateAsString.length) "'$dateAsString'" else "'${dateAsString.substring(0, 2)}>'"}"
+            LOG.warning("$mesPart1$mesPart2$\n$mesPart3")
+            if (!logMap.contains(basename)) {
+                logMap[basename] = mutableListOf()
+            }
+            logMap.getValue(basename).add("$mesPart2 $mesPart3")
         }
         return dateAsString
     }
