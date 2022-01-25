@@ -466,7 +466,7 @@ class MainView : View("Averbis & Brat Integrator") {
         this.logMap.forEach { map ->
             File("${logFolder}/${map.key}.log").bufferedWriter().use { writer ->
                 map.value.forEach {
-                    writer.write(it)
+                    writer.write("$it\n")
                 }
             }
         }
