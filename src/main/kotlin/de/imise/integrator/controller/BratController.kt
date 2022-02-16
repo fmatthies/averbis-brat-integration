@@ -110,7 +110,7 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?,
                 } else if (this.substring(IntRange(0,1)).length + 1 - data.text.length <= 0) {
                     "${this.substring(IntRange(0,1))}>".padAround(data.text.length, ' ')
                 } else {
-                    "<.>".padAround(data.text.length, ' ')
+                    "X".repeat(data.text.length)
                 }
             }
         } else if (modify.contains("$AVERBIS_HEALTH_PRE${data.type}")) {

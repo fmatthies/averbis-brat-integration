@@ -300,7 +300,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                         field("Progress") {
                                             progressbar(status.progress)
                                             visibleWhen { status.running }
-                                            button("Cancel") { // cancelling puts all doc names in the list (at least in debug mode)
+                                            button("Cancel") { // ToDo: bug: cancelling puts all doc names in the list (at least in debug mode)
                                                 action {
                                                     if (runningAverbisTask != null && runningAverbisTask!!.isRunning) {
                                                         runningAverbisTask!!.cancel()
@@ -397,7 +397,7 @@ class MainView : View("Averbis & Brat Integrator") {
                                                             fileList.find { it.extension == "json" },
                                                             logMap
                                                         )
-                                                    }.forEach { bratResponseList.add(it) }
+                                                    }.sortedBy { it.basename }.forEach { bratResponseList.add(it) }
                                                 outputDrawerItemBrat.expanded = true
                                                 openInternalWindow<TemporaryFileDeletionFragment>()
                                             }
@@ -466,7 +466,8 @@ class MainView : View("Averbis & Brat Integrator") {
         this.logMap.forEach { map ->
             File("${logFolder}/${map.key}.log").bufferedWriter().use { writer ->
                 map.value.forEach {
-                    writer.write("$it\n")
+                    writer.write(it)
+                    writer.newLine()
                 }
             }
         }
