@@ -92,7 +92,11 @@ class FileHandlingController : Controller() {
         createTxt: Boolean
     ) {
         if (folder == null) return
-        data.forEach { br ->
+        data
+//            .groupBy { it.parentName }
+//            .values
+//            .map { mergeFiles(it) }
+            .forEach { br ->
             File(folder, "${br.basename}.json")
                 .bufferedWriter()
                 .use { out -> out.write(br.mergeAverbisBrat(crossOut, modify, removeSelected).toJsonString(prettyPrint = true)) }
@@ -103,4 +107,10 @@ class FileHandlingController : Controller() {
             }
         }
     }
+
+//    private fun mergeFiles(fileParts: List<BratResponse>): BratResponse {
+//
+//    }
+
+
 }

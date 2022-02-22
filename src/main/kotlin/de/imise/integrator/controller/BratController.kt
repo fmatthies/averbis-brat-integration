@@ -29,6 +29,8 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?,
             .values
             .toList()
             .asObservable()
+    val parentName: String
+        get() = Regex("(\\w+)_part-\\d+").find(basename)!!.groupValues.first()
 
     init {
         if (annFile != null) {
@@ -117,10 +119,14 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?,
             if (data.type.lowercase() == "date") {  //ToDo: only for date right now and hard-coded
                 val newDate = DateFunctionality(data.text, basename).getDate(logMap)
                 if (newDate.length > data.text.length) {
-                    when (newDate) {
-                        "<MONTH>" -> "<M>".padAround(data.text.length, ' ')
-                        "<YEAR>" -> "<Y>".padAround(data.text.length, ' ')
-                        else -> "<.>".padAround(data.text.length, ' ')
+                    if (data.text.length >= 3) {
+                        when (newDate) {
+                            "<MONTH>" -> "<M>".padAround(data.text.length, ' ')
+                            "<YEAR>" -> "<Y>".padAround(data.text.length, ' ')
+                            else -> "<.>".padAround(data.text.length, ' ')
+                        }
+                    } else {
+                        "X".repeat(data.text.length)
                     }
                 } else {
                     newDate.padAround(data.text.length,' ')
