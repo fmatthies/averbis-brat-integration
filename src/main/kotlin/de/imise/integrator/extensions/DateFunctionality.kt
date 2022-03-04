@@ -12,6 +12,7 @@ class DateFunctionality(private val dateString: String, private val basename: St
         "august" to 8, "aug" to 8, "september" to 9, "sep" to 9, "oktober" to 10, "okt" to 10, "november" to 11,
         "nov" to 11, "dezember" to 12, "dez" to 12)
     private var date: CustomDateMatch?
+    private val apostroph = "'`´"
 
     init {
         try {
@@ -30,31 +31,50 @@ class DateFunctionality(private val dateString: String, private val basename: St
             ) {
                 val (m,y) = Regex("([a-zA-Z]+)\\s+(\\d+)").find(dateString)!!.destructured
                 CustomDateMatch(day = null, month = monthNamesMap[m.lowercase().trim()], year = y.toInt())
-            } else if ( /* Month Number and Year */
-                Regex("(\\d{1,2})/(\\d{2,4})").find(dateString) != null
+            } else if ( /* Month Number and Year; day optional*/
+                Regex("^(\\d{1,2} *[./,]? *)??(\\d{1,2} *[./,]?)?? *(['`´]?\\d{2,4})??$").find(dateString) != null
             ) {
-                val (m,y) = Regex("(\\d{1,2})/(\\d{2,4})").find(dateString)!!.destructured
-                CustomDateMatch(day = null, month = m.toInt(), year = y.toInt())
-            } else if ( /* Day and Month only and with '. / ,' delimiters; year optional */
-                (2..3).contains(dateString.split(Regex(" *[./,] *")).size)
+                val regexMatch = Regex("^(\\d{1,2} *[./,]? *)??(\\d{1,2} *[./,]?)?? *(['`´]?\\d{2,4})??$").find(dateString)!!.groupValues
+                var (_,d,m,y) = regexMatch
+                if (y.isNotEmpty() && m.isEmpty() && d.isNotEmpty()) {
+                    m = d
+                    d = ""
+                }
+                CustomDateMatch(
+                    day = d.filterNot { ".".indexOf(it) > -1 }.takeIf { it.isInt() }?.toInt(),
+                    month = m.filterNot { ".".indexOf(it) > -1 }.takeIf { it.isInt() }?.toInt(),
+                    year = y.filterNot { apostroph.indexOf(it) > -1 }.takeIf { it.isInt() }?.toInt())
+            } else if ( /* Day and Month only and with '. / , space' delimiters; year optional */
+                (2..3).contains(dateString.split(Regex(" *[./, ] *")).size)
             ) {
                 var year: Int? = null
-                val dateList = dateString.split(Regex(" *[./,] *"))
-                val month = if (dateList[1].trim().length <= 2 && dateList[1].trim().isInt()) {
+                val dateList = dateString.split(Regex(" *[./, ] *"))
+                val month = if (dateList[1].trim().length <= 2 &&
+                                dateList[1].trim().isInt() &&
+                                dateList[1].trim().toInt() <= 12 ) {
                     dateList[1].trim().toInt()
                 } else if (dateList[1].trim().length > 2) {
-                    if (!dateList[1].trim().isInt()) {
+                    if (!dateList[1].any {apostroph.contains(it)} && !dateList[1].trim().isInt()) {
                         monthNamesMap[dateList[1].trim().lowercase()]
                     } else {
                         val (m, y) = dateList[1].trim().split(" ", limit = 2)
+                            .takeIf { it.size >= 2 } ?: kotlin.run {
+                                when (dateList[1].length) {
+                                    3 -> listOf(dateList[1].substring(0, 1), dateList[1].substring(1, 3))
+                                    4 -> listOf(dateList[1].substring(0, 2), dateList[1].substring(2, 4))
+                                    5 -> listOf(dateList[1].substring(0, 1), dateList[1].substring(1, 5))
+                                    6 -> listOf(dateList[1].substring(0, 2), dateList[1].substring(2, 6))
+                                    else -> listOf("null", "null")
+                                }
+                        }
                         year = y.takeIf { y.trim().isInt() }?.trim()?.toInt()
                         m.takeIf { m.trim().isInt() }?.trim()?.toInt()
                     }
                 } else {
                     monthNamesMap[dateList[1].trim().lowercase()]
                 }
-                year = if (year == null && dateList.size == 3 && dateList[2].isInt()) {
-                    dateList[2].toInt()
+                year = if (year == null && dateList.size == 3 && dateList[2].filterNot { apostroph.indexOf(it) > -1 }.isInt()) {
+                    dateList[2].filterNot { apostroph.indexOf(it) > -1 }.toInt()
                 } else {
                     null
                 }
@@ -62,9 +82,12 @@ class DateFunctionality(private val dateString: String, private val basename: St
                 val day: Int? = if (dateList.first().isBlank()) {
                     null
                 } else {
-                    dateList.first().toInt()
+                    if ( dateList.first().isInt() ) {
+                        dateList.first().toInt()
+                    } else {
+                        null
+                    }
                 }
-
                 CustomDateMatch(day = day, month = month, year = year)
             } else { /* No CustomDateMatch pattern detectable */
                 null
