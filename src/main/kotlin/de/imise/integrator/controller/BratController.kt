@@ -178,14 +178,16 @@ class BratResponse(annFile: InMemoryFile?, jsonFile: InMemoryFile?,
         }
         fun Iterable<Int>.addById(sb: StringBuilder) {  //ToDo: I want to reserve the json structure of the original Averbis files if no changes were applied!
             this.forEach {
-                textboundData[it]?.let { data ->
-                    val newData = crossOutModifyAnnotations(sb, data, crossOut, modify)
-                    if (removeCrossedOut && crossOut.contains("$AVERBIS_HEALTH_PRE${data.type}")) return@forEach
-                    mergedData.addJson(newData)
-                    return@forEach
-                }
-                averbisData.getData()[it]?.let { original ->
-                    mergedData.add(original)
+                if (averbisData.getData().keys.contains(it) && averbisData.getData()[it]!!.string("type") != DOCUMENT_TEXT_TYPE) {
+                    textboundData[it]?.let { data ->
+                        val newData = crossOutModifyAnnotations(sb, data, crossOut, modify)
+                        if (removeCrossedOut && crossOut.contains("$AVERBIS_HEALTH_PRE${data.type}")) return@forEach
+                        mergedData.addJson(newData)
+                        return@forEach
+                    }
+                    averbisData.getData()[it]?.let { original ->
+                        mergedData.add(original)
+                    }
                 }
             }
         }

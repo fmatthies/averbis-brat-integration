@@ -82,7 +82,9 @@ fun String.splitAfterBytes(bytes: Int, charset: Charset) = sequence {
             lineList.clear()
         }
     }
-    yield(lineList.joinToString("\n"))
+    if (lineList.size > 0) {
+        yield(lineList.joinToString("\n"))
+    }
 }
 
 fun <T : Any> unwrapCompanionClass(ofClass: Class<T>): Class<*> {

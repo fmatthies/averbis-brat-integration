@@ -19,6 +19,7 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import tornadofx.Controller
 import tornadofx.FXTask
 import tornadofx.asObservable
+import tornadofx.isInt
 import java.io.File
 import java.io.IOException
 import java.io.InputStream
@@ -201,14 +202,20 @@ class AverbisController(private val url: String? = null): Controller() {
         encoding: Charset = Charsets.UTF_8
     ) {
         val maxDocs = documents.size
+        var splitFiles = false
         documents.forEachIndexed { docIndex, file ->
             file.readText(encoding).run {
                 val replacedTabs = this.replace("\t", "    ")
                 val normalizedLinebreaks = replacedTabs.replace(Regex("\\r?\\n|\\r"), "\n")
                 val replacedBom = normalizedLinebreaks.replace(UTF8_BOM, "")
-                replacedBom.splitAfterBytes(app.config.getProperty(MAX_BYTE_SIZE).toInt(), encoding)
+                val maxByteSize: String? = app.config.getProperty(MAX_BYTE_SIZE)
+                if (maxByteSize != null && maxByteSize.isInt() && maxByteSize.toInt() > 0) {
+                    splitFiles = true
+                    replacedBom.splitAfterBytes(app.config.getProperty(MAX_BYTE_SIZE).toInt(), encoding)
+                } else { listOf( replacedBom ).asSequence() }
             }.forEachIndexed { contentIndex, content ->
-                averbisResponseList.add(postDocument(content, file, contentIndex).apply {
+                val cIndex = if (splitFiles) {contentIndex} else {null}
+                averbisResponseList.add(postDocument(content, file, cIndex).apply {
                     setAnnotations(analysis.annotationValues)
                     if (analysis.outputIsProperPath() && mainView.outputMode.value == "Local") {
                         fileHandlingController.writeOutputToDisk(
@@ -225,7 +232,7 @@ class AverbisController(private val url: String? = null): Controller() {
 
     private fun postDocument(documentContent: String,
                              file: File,
-                             index: Int
+                             index: Int?
     ): AverbisResponse {
         val responseObj = AverbisResponse(file.nameWithoutExtension, file.parent, index)
 //        val postBody = File(document_path).readText(encoding).run {
